@@ -15,14 +15,7 @@ html {
   pointer-events: none;
 }
 
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
 .App-header {
-  /* background-color: #282c34; */
   background-color: transparent;
   min-height: 100vh;
   display: flex;
@@ -49,14 +42,8 @@ html {
 
 .rectangle {
   display: inline-block;
-  /* text-align:center;
-  width: 9vh;
-  height: 9vh; */
   background-color: "black";
   color: "black";
-  /* margin:5vw; */
-  /* position:relative; */
-  /* border-radius: 20%; */
 }
 
 canvas {
@@ -66,19 +53,8 @@ canvas {
   position: fixed;
   top: 0;
   left: 0;
-  /* z-index: -9999; */
 }
-/* p {
-  color: rgba(255,255,255, 0.5)
-}
-.header {
-  top: 42%;
-} */
-/* .header-content {
-  padding: 50px;
-  background-color: rgba(0,0,0,0.3);
-  border-radius: 10px;
-} */
+
 .description {
   color: gray;
   padding-top: 50px;

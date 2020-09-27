@@ -26,3 +26,27 @@
     color: black;
     font-family: 'Raleway', sans-serif;
   }
+
+img {
+    display: inline;
+    margin: 0 auto;
+}
+
+.cardAbout {
+    margin-top: 40vh;
+    display: 'inline-block';
+    max-width: "50vw"
+}
+
+
+.about{
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    background-image: url("../images/tizio_automazione.jpg"); 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: "relative";
+}
