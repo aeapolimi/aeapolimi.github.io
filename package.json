@@ -1,5 +1,5 @@
 {
-  "name": "AEA",
+  "name": "aea",
   "private": true,
   "description": "Il sito dell'Associazione Ingegneri dell'Automazione",
   "version": "0.1.0",
@@ -26,6 +26,7 @@
     "three-collada-loader": "0.0.1"
   },
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "prettier": "2.1.1"
   },
   "keywords": [
@@ -39,7 +40,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "repository": {
     "type": "git",

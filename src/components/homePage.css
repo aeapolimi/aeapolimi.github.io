@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+
 #bg{
     margin: 0;
     height: 100vh;
@@ -9,13 +11,18 @@
 }
 
 .rectangle {
-    display: inline-block;
-    /* text-align:center; */
+    display: table;
     width: 15vh;
     height: 15vh;
     background-color: white;
-    color: black;
-    /* margin:5vw; */
+    
     position:relative;
-    border-radius: 20%;
+    border-radius: 50%;
+  }
+
+  .titoloLogo{
+    display: table-cell;
+    vertical-align: middle;
+    color: black;
+    font-family: 'Raleway', sans-serif;
   }
