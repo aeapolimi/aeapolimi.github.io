@@ -22,6 +22,7 @@
     "react-device-detect": "^1.13.1",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
+    "react-multi-carousel": "^2.5.5",
     "three": "^0.120.1",
     "three-collada-loader": "0.0.1"
   },

@@ -13,8 +13,8 @@ import SEO from "../components/seo"
 
 let theme = createMuiTheme({
   palette: {
-    primary: { main: '#ffd000' },
-    secondary: { main: '#40bd47' },
+    primary: { main: '#ef6c00' },
+    secondary: { main: '#212121' },
   },
   status: {
     danger: 'orange',
