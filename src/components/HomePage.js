@@ -117,7 +117,7 @@ function ArticoloCarousel(props){
                 <IconButton
                 className={classes.expand}
                 // onClick={handleExpandClick}
-                aria-label="show more"
+                aria-label="leggi"
                 >
                     <AddCircleIcon />
                 </IconButton>
@@ -140,18 +140,18 @@ function NewsSection(){
         ssr={true} // means to render carousel on server-side.
         infinite={true}
         autoPlay={true}
-        autoPlaySpeed={500}
+        autoPlaySpeed={2000}
         keyBoardControl={true}
         customTransition="all .5"
-        transitionDuration={500}
+        transitionDuration={1000}
         containerClass="carousel-container"
         removeArrowOnDeviceType={["tablet", "mobile"]}
         // deviceType={this.props.deviceType}
         dotListClass="custom-dot-list-style"
         centerMode={true}
-        // itemClass="carosello"
+        renderDotsOutside={true}
         >
-            {(articoli=="Caricamento...") ? <div>"Caricamento"</div> : 
+            {(articoli=="Caricamento...") ? <div>Caricamento...</div> : 
             articoli.map(articolo => {
                 return (
                     <div>
@@ -193,7 +193,13 @@ function HomePage (){
                     </Fab>
                 </div>
                 <div title="news" id="news">
+                    <div style={{margin:"20px"}}>
+                        <Typography variant="h2" component="h3">
+                            News
+                        </Typography>
+                    </div>
                     <NewsSection/>
+                    <div style={{minHeight:"20px"}} />
                 </div>
                 <div className="about" id="about">
                         <Grid
