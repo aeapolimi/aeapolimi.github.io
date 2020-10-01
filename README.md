@@ -49,7 +49,7 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
 1.  **Pubblica sulla github page**
 
     Se sei sicuro che tutto vada bene puoi pubblicare la nuova versione del sito con le tue modifiche.
-    Per vedere le modifiche su [aeapolimi.github.io](aeapolimi.github.io) potresti dover aspettare un paio di minuti.
+    Per vedere le modifiche su [aeapolimi.github.io](https://aeapolimi.github.io) potresti dover aspettare un paio di minuti.
     
     ```shell
     npm run deploy
