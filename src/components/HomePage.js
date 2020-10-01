@@ -29,8 +29,6 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import firebase from 'firebase';
 
-import { FirebaseAppProvider, useFirestoreCollectionData, useFirestore, SuspenseWithPerf } from 'reactfire';
-
 import { navigate } from "gatsby"
 
 const firebaseConfig = {
@@ -90,7 +88,7 @@ function ArticoloCarousel(props){
     const classes = useStyles();
 
     return (
-        <Card className={classes.root}>
+        <Card key={props.titolo} className={classes.root} style={{minHeight:"20vh"}}>
             <CardHeader
                 avatar={
                 <Avatar aria-label="recipe" className={classes.avatar}>
@@ -141,7 +139,7 @@ function NewsSection(){
         responsive={responsive}
         ssr={true} // means to render carousel on server-side.
         infinite={true}
-        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+        autoPlay={true}
         autoPlaySpeed={500}
         keyBoardControl={true}
         customTransition="all .5"
@@ -150,7 +148,8 @@ function NewsSection(){
         removeArrowOnDeviceType={["tablet", "mobile"]}
         // deviceType={this.props.deviceType}
         dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
+        centerMode={true}
+        // itemClass="carosello"
         >
             {(articoli=="Caricamento...") ? <div>"Caricamento"</div> : 
             articoli.map(articolo => {
@@ -161,7 +160,7 @@ function NewsSection(){
                         sommario={articolo.data().sommario}
                         data={articolo.data().data}
                         />
-                        </div>
+                    </div>
                 )
             })}
     </Carousel>)
@@ -194,11 +193,7 @@ function HomePage (){
                     </Fab>
                 </div>
                 <div title="news" id="news">
-                    {/* <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-                        <SuspenseWithPerf fallback={<p>Caricamento news...</p>} traceId={'load-news'}> */}
-                            <NewsSection/>
-                        {/* </SuspenseWithPerf>
-                    </FirebaseAppProvider> */}
+                    <NewsSection/>
                 </div>
                 <div className="about" id="about">
                         <Grid
