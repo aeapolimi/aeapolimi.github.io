@@ -6,7 +6,7 @@ Creato con React + Gatsby.
 Per modeificarlo installa [React](https://www.reactjs.org/).
 Qui sotto quickstart.
 
-_Info su [React:](https://www.reactjs.org/) [Gatsby:](https://www.gatsbyjs.com/)._
+_Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/)._
 
 ## 🚀 Quick start
 
