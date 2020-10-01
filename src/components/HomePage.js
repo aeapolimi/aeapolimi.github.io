@@ -21,8 +21,6 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
@@ -167,15 +165,13 @@ function HomePage (){
     }
     return(<>
             <div className="App">
-                {/* <AppBar position="fixed" style={{backgroundColor: "transparent"}} elevation={0}>
+                <AppBar position="fixed" style={{backgroundColor: "transparent"}} elevation={0}>
                     <Toolbar>
-                        <Button color="primary" onClick = {() => navigate("/SignInPage")}>News</Button>
-                        <Button color="primary" onClick = {() => navigate("/SignInPage")}>Dispense</Button>
-                        <Button color="primary" onClick = {() => navigate("/SignInPage")}>Direttivo</Button>
+                        <Button style={{color:"white"}} onClick = {() => window.open("https://t.me/aeapolimi")}>Telegram</Button>
                         <div style={{flexGrow: 1}} />
-                        <Button color="primary" onClick = {() => navigate("/SignInPage")}>Login</Button>
+                        <Button style={{color:"white"}} onClick = {() => navigate("/SignInPage")}>Login</Button>
                     </Toolbar>
-                </AppBar> */}
+                </AppBar>
                 {/* <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0"/> */}
                 <iframe title="bg" id="bg" src='https://aeapolimi.github.io/robotrender.html' frameBorder="0"/> 
                 <header className="App-header">
