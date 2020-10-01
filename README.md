@@ -44,7 +44,7 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    Open the `aea` directory in your code editor of choice and edit `src/components/HomePage.js`. Save your changes and the browser will update in real time!
     
 1.  **Pubblica sulla github page**
 
