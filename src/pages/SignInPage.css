@@ -1,0 +1,15 @@
+.sfondo {
+    background-color: #ef6c00;
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    overflow: hidden;
+    position:absolute;
+    display: table;
+    position: absolute;
+}
+
+.login{
+    display: table-cell;
+    vertical-align: middle;
+}

@@ -19,6 +19,7 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
+import Modal from '@material-ui/core/Modal';
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -40,7 +41,6 @@ const firebaseConfig = {
     messagingSenderId: "252147138104",
     appId: "1:252147138104:web:cc2a953476b0b77f65b0cd"
   };
-
 firebase.initializeApp(firebaseConfig);
 
 const useStyles = makeStyles((theme) => ({
@@ -64,6 +64,14 @@ const useStyles = makeStyles((theme) => ({
     avatar: {
       backgroundColor: red[500],
     },
+    paper: {
+        position: 'absolute',
+        width: 400,
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+      },
   }));
 
 const responsive = {
@@ -86,52 +94,73 @@ const responsive = {
 
 function ArticoloCarousel(props){
     const classes = useStyles();
+    const [leggi, setLeggi] = React.useState(false)
+
+    const handleOpen = () => {
+        setLeggi(true);
+      };
+    
+      const handleClose = () => {
+        setLeggi(false);
+      };
 
     return (
+        <>
         <Card key={props.titolo} className={classes.root} style={{minHeight:"20vh"}}>
-            <CardHeader
-                avatar={
-                <Avatar aria-label="recipe" className={classes.avatar}>
-                    A
-                </Avatar>
-                }
-                action={
-                <IconButton aria-label="settings">
-                    <MoreVertIcon />
-                </IconButton>
-                }
-                title={props.titolo}
-                subheader={props.data}
-            />
-            {/* <CardMedia
-                className={classes.media}
-                image="/static/images/cards/paella.jpg"
-                title="Paella dish"
-            /> */}
-            <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
-                    {props.sommario}
-                </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-                <IconButton
-                className={classes.expand}
-                // onClick={handleExpandClick}
-                aria-label="leggi"
-                >
-                    <AddCircleIcon />
-                </IconButton>
-            </CardActions>
-        </Card>
+                <CardHeader
+                    avatar={
+                    <Avatar aria-label="recipe" className={classes.avatar}>
+                        A
+                    </Avatar>
+                    }
+                    action={
+                    <IconButton aria-label="settings">
+                        <MoreVertIcon />
+                    </IconButton>
+                    }
+                    title={props.titolo}
+                    subheader={props.data}
+                />
+                {/* <CardMedia
+                    className={classes.media}
+                    image="/static/images/cards/paella.jpg"
+                    title="Paella dish"
+                /> */}
+                <CardContent>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        {props.sommario}
+                    </Typography>
+                </CardContent>
+                <CardActions disableSpacing>
+                    <IconButton
+                    className={classes.expand}
+                    onClick={handleOpen}
+                    aria-label="leggi"
+                    >
+                        <AddCircleIcon />
+                    </IconButton>
+                </CardActions>
+            </Card>
+            <Modal
+                open={leggi}
+                onClose={handleClose}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+            >
+                {props.testo}
+            </Modal>
+        </>
     );
 }
 
 function NewsSection(){
     const [articoli, setArticoli] = React.useState("Caricamento...")
-    firebase.firestore().collection("news").get()
-        .then(collec => {
-            setArticoli(collec.docs)
-        })
+    if (articoli=="Caricamento..."){
+        firebase.firestore().collection("news").get()
+            .then(collec => {
+                setArticoli(collec.docs)
+            })
+        }
     return(<Carousel
         swipeable={true}
         draggable={true}
@@ -159,6 +188,7 @@ function NewsSection(){
                         titolo={articolo.data().titolo} 
                         sommario={articolo.data().sommario}
                         data={articolo.data().data}
+                        testo={articolo.data().testo}
                         />
                     </div>
                 )
