@@ -134,8 +134,6 @@ function NewsSection(){
         .then(collec => {
             setArticoli(collec.docs)
         })
-    console.log("ARTICOLI")
-    console.log(articoli)
     return(<Carousel
         swipeable={true}
         draggable={true}
