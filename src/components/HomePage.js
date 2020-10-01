@@ -27,6 +27,8 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
+import firebase from 'firebase';
+
 import { FirebaseAppProvider, useFirestoreCollectionData, useFirestore, SuspenseWithPerf } from 'reactfire';
 
 import { navigate } from "gatsby"
@@ -40,6 +42,8 @@ const firebaseConfig = {
     messagingSenderId: "252147138104",
     appId: "1:252147138104:web:cc2a953476b0b77f65b0cd"
   };
+
+firebase.initializeApp(firebaseConfig);
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -125,8 +129,13 @@ function ArticoloCarousel(props){
 }
 
 function NewsSection(){
-    const newsRef = useFirestore().collection("news");
-    const articoli = useFirestoreCollectionData(newsRef);
+    const [articoli, setArticoli] = React.useState("Caricamento...")
+    firebase.firestore().collection("news").get()
+        .then(collec => {
+            setArticoli(collec.docs)
+        })
+    console.log("ARTICOLI")
+    console.log(articoli)
     return(<Carousel
         swipeable={true}
         draggable={true}
@@ -145,13 +154,14 @@ function NewsSection(){
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
         >
-            {articoli.map(articolo => {
+            {(articoli=="Caricamento...") ? <div>"Caricamento"</div> : 
+            articoli.map(articolo => {
                 return (
                     <div>
                         <ArticoloCarousel 
-                        titolo={articolo.titolo} 
-                        sommario={articolo.sommario}
-                        data={articolo.data}
+                        titolo={articolo.data().titolo} 
+                        sommario={articolo.data().sommario}
+                        data={articolo.data().data}
                         />
                         </div>
                 )
@@ -186,11 +196,11 @@ function HomePage (){
                     </Fab>
                 </div>
                 <div title="news" id="news">
-                    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-                        <SuspenseWithPerf fallback={<p>Caricamento news...</p>} traceId={'load-news'}>
+                    {/* <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+                        <SuspenseWithPerf fallback={<p>Caricamento news...</p>} traceId={'load-news'}> */}
                             <NewsSection/>
-                        </SuspenseWithPerf>
-                    </FirebaseAppProvider>
+                        {/* </SuspenseWithPerf>
+                    </FirebaseAppProvider> */}
                 </div>
                 <div className="about" id="about">
                         <Grid
