@@ -147,7 +147,9 @@ function ArticoloCarousel(props){
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
             >
-                {props.testo}
+                <p>
+                    {props.testo}
+                </p>
             </Modal>
         </>
     );
@@ -164,7 +166,7 @@ function NewsSection(){
     return(<Carousel
         swipeable={true}
         draggable={true}
-        showDots={true}
+        showDots={false}
         responsive={responsive}
         ssr={true} // means to render carousel on server-side.
         infinite={true}
@@ -178,7 +180,6 @@ function NewsSection(){
         // deviceType={this.props.deviceType}
         dotListClass="custom-dot-list-style"
         centerMode={true}
-        renderDotsOutside={true}
         >
             {(articoli=="Caricamento...") ? <div>Caricamento...</div> : 
             articoli.map(articolo => {
@@ -209,7 +210,7 @@ function HomePage (){
                     <Toolbar>
                         <Button style={{color:"white"}} onClick = {() => window.open("https://t.me/aeapolimi")}>Telegram</Button>
                         <div style={{flexGrow: 1}} />
-                        <Button style={{color:"white"}} onClick = {() => navigate("/SignInPage")}>Login</Button>
+                        <Button style={{color:"white"}} onClick = {() => navigate("/UserPage")}>Login</Button>
                     </Toolbar>
                 </AppBar>
                 {/* <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0"/> */}

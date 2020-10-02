@@ -1,5 +1,5 @@
 import React from 'react';
-import './SignInPage.css';
+import './UserPage.css';
 
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -9,9 +9,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import IconButton from '@material-ui/core/IconButton';
 
 import * as firebase from "firebase/app";
-import "firebase/analytics";
 import "firebase/auth";
-import '@firebase/firestore'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 import { navigate } from "gatsby"
@@ -19,7 +17,6 @@ import { navigate } from "gatsby"
 import PaginaUser from '../components/PaginaUser';
 
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
-
 
 let theme = createMuiTheme({
     palette: {
@@ -36,20 +33,6 @@ class SignInScreen extends React.Component {
 
     state = {
       isSignedIn: false,
-    };
-  
-    // Configure FirebaseUI.
-    uiConfig = {
-      // Popup signin flow rather than redirect flow.
-      signInFlow: 'popup',
-      signInOptions: [
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID
-      ],
-      callbacks: {
-        // Avoid redirects after sign-in.
-        signInSuccessWithAuthResult: () => false
-      }
     };
   
     // Listen to the Firebase Auth state and set the local state.
@@ -81,7 +64,22 @@ class SignInScreen extends React.Component {
                         </Toolbar>
                     </AppBar>
                     <div className="login">
-                        <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
+                        <StyledFirebaseAuth 
+                        className="firebaseUi"
+                        uiConfig={{
+                            // Popup signin flow rather than redirect flow.
+                            signInFlow: "popup",
+                            signInOptions: [
+                                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                                firebase.auth.EmailAuthProvider.PROVIDER_ID
+                            ],
+                            credentialHelper: 'none', // disables authchooser when logs out
+                            callbacks: {
+                              // Avoid redirects after sign-in.
+                              signInSuccessWithAuthResult: () => false,
+                            },
+                          }}
+                        firebaseAuth={firebase.auth()}/>
                     </div>
                 </div>
             </ThemeProvider>
