@@ -44,22 +44,30 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    cardroot: {
       maxWidth: 345,
+      position: "relative",
+      [theme.breakpoints.down('sm')]: {
+        minHeight: "80vh",
+      },
+      [theme.breakpoints.up('sm')]: {
+        minHeight: 300,
+      },
+      
     },
     media: {
       height: 0,
       paddingTop: '56.25%', // 16:9
     },
-    expand: {
+    info: {
       transform: 'rotate(0deg)',
-      marginLeft: 'auto',
+      marginTop: "auto",
+      position: "absolute",
+      right: 0,
+      bottom: 0,
       transition: theme.transitions.create('transform', {
         duration: theme.transitions.duration.shortest,
       }),
-    },
-    expandOpen: {
-      transform: 'rotate(180deg)',
     },
     avatar: {
       backgroundColor: red[500],
@@ -96,6 +104,10 @@ const responsive = {
 function ArticoloCarousel(props){
     const classes = useStyles();
     const [leggi, setLeggi] = React.useState(false)
+    var height="300"
+    if (isMobile){
+        height = "100vh";
+    }
 
     const handleOpen = () => {
         setLeggi(true);
@@ -107,17 +119,12 @@ function ArticoloCarousel(props){
 
     return (
         <>
-        <Card key={props.titolo} className={classes.root} style={{minHeight:"20vh"}}>
+        <Card key={props.titolo} className={classes.cardroot}>
                 <CardHeader
                     avatar={
                     <Avatar aria-label="recipe" className={classes.avatar}>
                         A
                     </Avatar>
-                    }
-                    action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                    </IconButton>
                     }
                     title={props.titolo}
                     subheader={props.data}
@@ -133,13 +140,14 @@ function ArticoloCarousel(props){
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                    <IconButton
-                    className={classes.expand}
+                    <Button
+                    className={classes.info}
+                    size="small"
                     onClick={handleOpen}
                     aria-label="leggi"
                     >
-                        <AddCircleIcon />
-                    </IconButton>
+                        continua a leggere
+                    </Button>
                 </CardActions>
             </Card>
             <Modal
