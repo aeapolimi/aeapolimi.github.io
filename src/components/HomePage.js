@@ -92,6 +92,7 @@ const responsive = {
     }
 };
 
+
 function ArticoloCarousel(props){
     const classes = useStyles();
     const [leggi, setLeggi] = React.useState(false)
@@ -143,13 +144,24 @@ function ArticoloCarousel(props){
             </Card>
             <Modal
                 open={leggi}
+                style={{display:'flex',alignItems:'center',justifyContent:'center'}}
                 onClose={handleClose}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
+                aria-labelledby="titolo_articolo"
+                aria-describedby="contenuto_articolo"
             >
-                <p>
-                    {props.testo}
-                </p>
+                <div style={{
+                    top: `50%`,
+                    left: `50%`,
+                    transform: `translate(-50%, -50%)`,
+                    maxWidth: "70vw"
+                    }} 
+                    className={classes.paper}
+                >
+                    <h2 id="titolo_articolo">{props.titolo}</h2>
+                    <p id="contenuto_articolo">
+                        {props.testo}
+                    </p>
+                </div>
             </Modal>
         </>
     );
@@ -184,7 +196,7 @@ function NewsSection(){
             {(articoli=="Caricamento...") ? <div>Caricamento...</div> : 
             articoli.map(articolo => {
                 return (
-                    <div>
+                    <div key={articolo.data().titolo}>
                         <ArticoloCarousel 
                         titolo={articolo.data().titolo} 
                         sommario={articolo.data().sommario}
@@ -198,6 +210,7 @@ function NewsSection(){
 }
 
 function HomePage (){
+    const classes = useStyles();
     var width = "20%";
     var maxCardwidth = "50vw";
     if (isMobile){
