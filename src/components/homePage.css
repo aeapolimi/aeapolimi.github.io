@@ -20,12 +20,12 @@
     border-radius: 50%;
   }
 
-  .titoloLogo{
+.titoloLogo{
     display: table-cell;
     vertical-align: middle;
     color: black;
     font-family: 'Raleway', sans-serif;
-  }
+}
 
 img {
     display: inline;
@@ -49,4 +49,8 @@ img {
     -o-background-size: cover;
     background-size: cover;
     position: "relative";
+}
+
+.news{
+    background-color: #efefef;
 }

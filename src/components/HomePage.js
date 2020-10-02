@@ -30,6 +30,8 @@ import firebase from 'firebase';
 
 import { navigate } from "gatsby"
 
+import nature from "../images/nature.jpeg"
+
 const firebaseConfig = {
     apiKey: "AIzaSyCN3qF77x39c9RtTO5_s4QMV3lQ589RdZU",
     authDomain: "aeapolimiweb.firebaseapp.com",
@@ -127,11 +129,11 @@ function ArticoloCarousel(props){
                     title={props.titolo}
                     subheader={props.data}
                 />
-                {/* <CardMedia
+                <CardMedia
                     className={classes.media}
-                    image="/static/images/cards/paella.jpg"
-                    title="Paella dish"
-                /> */}
+                    image={nature}
+                    title="Automazione"
+                />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
                         {props.sommario}
@@ -224,7 +226,7 @@ function HomePage (){
         maxCardwidth = "100vw";
     }
     return(<>
-            <div className="App">
+            <div className="App" style={{backgroundColor:"#616161"}}>
                 <AppBar position="fixed" style={{backgroundColor: "transparent"}} elevation={0}>
                     <Toolbar>
                         <Button style={{color:"white"}} onClick = {() => window.open("https://t.me/aeapolimi")}>Telegram</Button>
@@ -243,9 +245,9 @@ function HomePage (){
                     </Fab>
                 </div>
                 <div title="news" id="news">
-                    <div style={{margin:"20px"}}>
-                        <Typography variant="h2" component="h3">
-                            News
+                    <div style={{margin:"30px"}}>
+                        <Typography variant="h3" component="h4" style={{color:"white"}}>
+                            NEWS
                         </Typography>
                     </div>
                     <NewsSection/>
