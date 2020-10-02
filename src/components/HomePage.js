@@ -25,8 +25,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import firebase from 'firebase';
 
@@ -48,10 +46,10 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: 345,
       position: "relative",
       [theme.breakpoints.down('sm')]: {
-        minHeight: "80vh",
+        minHeight: "70vh",
       },
       [theme.breakpoints.up('sm')]: {
-        minHeight: 300,
+        minHeight: 400,
       },
       
     },
@@ -138,6 +136,9 @@ function ArticoloCarousel(props){
                     <Typography variant="body2" color="textSecondary" component="p">
                         {props.sommario}
                     </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        {props.sommario}
+                    </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
                     <Button
@@ -185,7 +186,7 @@ function NewsSection(){
         }
     return(<Carousel
         swipeable={true}
-        draggable={true}
+        // draggable={true}
         showDots={false}
         responsive={responsive}
         ssr={true} // means to render carousel on server-side.

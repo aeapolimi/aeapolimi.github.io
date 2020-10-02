@@ -7,9 +7,19 @@
     position:absolute;
     display: table;
     position: absolute;
+    flex-grow: 1;
 }
 
 .login{
     display: table-cell;
     vertical-align: middle;
+}
+
+.benvenuto{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    min-width: 100%;
+    flex-grow: 1;
 }
