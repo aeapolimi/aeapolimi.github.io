@@ -1,7 +1,7 @@
 import React from 'react';
 
 function UserPage(props){
-    return("Ciao")
+    return(<div>Ciao {props.utente}</div>)
 }
 
 export default UserPage;
