@@ -136,9 +136,6 @@ function ArticoloCarousel(props){
                     <Typography variant="body2" color="textSecondary" component="p">
                         {props.sommario}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {props.sommario}
-                    </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
                     <Button
