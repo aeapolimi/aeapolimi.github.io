@@ -4,16 +4,65 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import IconButton from '@material-ui/core/IconButton';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import HomeIcon from '@material-ui/icons/Home';
 
 import * as firebase from "firebase/app";
 
 import { navigate } from "gatsby"
 
+function Appunti(props){
+    return (
+        <div style={{marginTop: "20px"}}>
+            <IconButton aria-label="home" style={{color:"white"}} onClick = {() => props.setAppunti(false)}>
+                <HomeIcon style={{fill: "white"}}/>
+            </IconButton>
+            <Typography variant="h4" component="h5">
+                Appunti
+            </Typography>
+            <div style={{height: "20px"}} />
+            <Button variant="contained" href="https://drive.google.com/file/d/1rrlZdiWcQZQrZKrDdXGSSXwQ_zVjZ2dz/view" target="_blank">
+                Fondamenti di automatica
+            </Button>
+        </div>
+    )
+}
+
+function Benvenuto(props){
+    return (
+        <>
+            Ciao {props.utente}
+            <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                spacing={3}
+                style={{
+                    marginTop: "20px"
+                }}
+            >
+                <Grid item>
+                    <Button variant="contained" onClick={() => props.setAppunti(!props.appunti)}>
+                        appunti
+                    </Button>
+                </Grid>
+                <Grid item>
+                <Button variant="contained">
+                        note sui corsi
+                    </Button>
+                </Grid>
+            </Grid>
+        </>
+    )
+}
+
 function UserPage(props){
+    const [appunti, setAppunti] = React.useState(false);
     return(
         <div className="sfondo">
             <AppBar position="fixed" style={{backgroundColor: "transparent"}} elevation={0}>
@@ -29,28 +78,9 @@ function UserPage(props){
                 </Toolbar>
             </AppBar>
             <div className="benvenuto">
-                Ciao {props.utente}
-                <Grid
-                    container
-                    direction="row"
-                    justify="center"
-                    alignItems="center"
-                    spacing={3}
-                    style={{
-                        marginTop: "20px"
-                    }}
-                >
-                    <Grid item>
-                        <Button variant="contained">
-                            appunti
-                        </Button>
-                    </Grid>
-                    <Grid item>
-                    <Button variant="contained">
-                            note sui corsi
-                        </Button>
-                    </Grid>
-                </Grid>
+                {appunti ? <Appunti setAppunti={setAppunti}/> : 
+                <Benvenuto appunti={appunti} setAppunti={setAppunti}/>
+                        }
             </div>
         </div>
     )
