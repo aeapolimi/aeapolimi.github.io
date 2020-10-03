@@ -112,6 +112,12 @@ const useStyles = makeStyles((theme) => ({
         top: 'auto',
         bottom: 0,
     },
+    focusHighlight: {},
+    actionArea: {
+        "&:hover $focusHighlight": {
+          opacity: 0
+        }
+      },
     // cardTeam: {
     //     height: "100px"
     // }
@@ -256,8 +262,11 @@ function NewsSection(){
 function CardDirettivo(props){
     const classes = useStyles();
     return (
-        <Card className="cardTeam" elevation={0} style={{display: 'inline-block'}}>
-            <CardActionArea href={props.linkedin} target="_blank">
+        <Card className="cardTeam" elevation={0} style={{display: 'inline-block'}} >
+            <CardActionArea href={props.linkedin} target="_blank" classes={{
+                root: classes.actionArea,
+                focusHighlight: classes.focusHighlight
+                }}>
                 <CardMedia
                 className={classes.mediaAvatar}
                 image={props.immagine}
