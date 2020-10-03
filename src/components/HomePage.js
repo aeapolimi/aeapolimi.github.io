@@ -29,11 +29,13 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 import firebase from 'firebase';
 
@@ -43,6 +45,7 @@ import nature from "../images/nature.jpeg"
 import giulio from "../images/direttivo/giulio.jpeg"
 import guido from "../images/direttivo/guido.jpeg"
 import isabella from "../images/direttivo/isabella.jpeg"
+import sofia from "../images/direttivo/sofia.jpeg"
 
 const firebaseConfig = {
     apiKey: "AIzaSyCN3qF77x39c9RtTO5_s4QMV3lQ589RdZU",
@@ -56,6 +59,11 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const useStyles = makeStyles((theme) => ({
+    tableroot: {
+        '& > *': {
+          borderBottom: 'unset',
+        },
+      },
     cardroot: {
         borderRadius: 30,
         maxWidth: 345,
@@ -270,6 +278,12 @@ function CardDirettivo(props){
 
 function HomePage (){
     const classes = useStyles();
+    const [openBoard, setOpenBoard] = React.useState(true);
+    const [openContenuti, setOpenContenuti] = React.useState(false);
+    const [openAziende, setOpenAziende] = React.useState(false);
+    const [openAccademico, setOpenAccademico] = React.useState(false);
+    const [openInformatico, setOpenInformatico] = React.useState(false);
+    const [openEventi, setOpenEventi] = React.useState(false);
     var width = "20%";
     var maxCardwidth = "50vw";
     if (isMobile){
@@ -336,224 +350,287 @@ function HomePage (){
                     </Grid>
                 </div>
                 <div className="team" id="team">
-                <Grid
-                        container
-                        direction="column"
-                        justify="flex-start"
-                        alignItems="center"
-                    >
-                        <Grid item>
-                            <div style={{margin:"30px"}}>
-                                <Typography variant="h3" component="h4">
-                                    Chi siamo
-                                </Typography>
-                            </div>
-                        </Grid>
-                        <Grid item>
-                            <div style={{margin:"30px"}}>
-                                <Typography variant="h4" component="h5">
-                                    Board
-                                </Typography>
-                            </div>
-                        </Grid>
-                        <Grid item>
-                            <Grid
-                                container
-                                direction="row"
-                                justify="flex-start"
-                                alignItems="center"
-                                xs={12}
-                                spacing={3}
-                            >
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Giulio Vaccari" ruolo="Presidente"/>
-                                </Grid>
-                            <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/guido-sassaroli-778548169/" immagine={guido} nome="Guido Sassaroli" ruolo="Vicepresidente"/>
-                                </Grid>
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="http://linkedin.com/in/isabella-luppi-006a9b177" immagine={isabella} nome="Isabella Luppi" ruolo="Segretario"/>
-                                </Grid>
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Sofia Trombini" ruolo="Tesoriere"/>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        {/* <Grid item>
-                            <div style={{margin:"30px"}}>
-                                <Typography variant="h4" component="h5">
-                                    Team contenuti
-                                </Typography>
-                            </div>
-                        </Grid>
-                        <Grid item>
-                            <Grid
-                                container
-                                direction="row"
-                                justify="flex-start"
-                                alignItems="center"
-                                xs
-                                spacing={3}
-                            >
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Pietro Bosoni" ruolo="Consigliere"/>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item>
-                            <div style={{margin:"30px"}}>
-                                <Typography variant="h4" component="h5">
-                                    Team eventi
-                                </Typography>
-                            </div>
-                        </Grid>
-                        <Grid item>
-                            <Grid
-                                container
-                                direction="row"
-                                justify="flex-start"
-                                alignItems="center"
-                                xs
-                                spacing={3}
-                            >
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Cristian Gariboldi" ruolo=""/>
-                                </Grid>
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Filippo Tallon" ruolo=""/>
-                                </Grid>
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Elena Bastianelli" ruolo=""/>
-                                </Grid>
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Giovanni Buzzao" ruolo=""/>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item>
-                            <div style={{margin:"30px"}}>
-                                <Typography variant="h4" component="h5">
-                                    Team accademico
-                                </Typography>
-                            </div>
-                        </Grid>
-                        <Grid item>
-                            <Grid
-                                container
-                                direction="row"
-                                justify="flex-start"
-                                alignItems="center"
-                                xs={12}
-                                spacing={3}
-                            >
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Pasquale Cortese" ruolo=""/>
-                                </Grid>
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Roberto Pellerito" ruolo=""/>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item>
-                            <div style={{margin:"30px"}}>
-                                <Typography variant="h4" component="h5">
-                                    Team aziende
-                                </Typography>
-                            </div>
-                        </Grid>
-                        <Grid item>
-                            <Grid
-                                container
-                                direction="row"
-                                justify="flex-start"
-                                alignItems="center"
-                                xs={12}
-                                spacing={3}
-                            >
-                                <Grid
-                                item
-                                xs={3}
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Pietro Dardano" ruolo=""/>
-                                </Grid>
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Matteo Sacchetti" ruolo=""/>
-                                </Grid>
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Leonardo Bertelli" ruolo=""/>
-                                </Grid>
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Davide Zanatta" ruolo=""/>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item>
-                            <div style={{margin:"30px"}}>
-                                <Typography variant="h4" component="h5">
-                                    Team informatico
-                                </Typography>
-                            </div>
-                        </Grid>
-                        <Grid item>
-                            <Grid
-                                container
-                                direction="row"
-                                justify="flex-start"
-                                alignItems="center"
-                                xs={12}
-                                spacing={3}
-                            >
-                                <Grid
-                                item
-                                xs
-                                >
-                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Andrea Archetti" ruolo="Consigliere"/>
-                                </Grid>
-                            </Grid>
-                        </Grid> */}
-                    </Grid>
+                    <div style={{margin:"30px"}}>
+                        <Typography variant="h3" component="h4">
+                            Chi siamo
+                        </Typography>
+                    </div>
+                    <TableContainer component={Paper} elevation={0}>
+                        <Table aria-label="collapsible table">
+                            <TableBody>
+                                <TableRow className={classes.tableroot}>
+                                    <TableCell>
+                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenBoard(!openBoard)}>
+                                            {openBoard ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                        </IconButton>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row">
+                                        <Typography variant="h4" component="h5">
+                                            Board
+                                        </Typography>       
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                                        <Collapse in={openBoard} timeout="auto" unmountOnExit>
+                                                <Box margin={1}>
+                                                <Grid
+                                                    container
+                                                    direction="row"
+                                                    justify="flex-start"
+                                                    alignItems="center"
+                                                    xs={12}
+                                                    spacing={3}
+                                                >
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Giulio Vaccari" ruolo="Presidente"/>
+                                                    </Grid>
+                                                <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/guido-sassaroli-778548169/" immagine={guido} nome="Guido Sassaroli" ruolo="Vicepresidente"/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="http://linkedin.com/in/isabella-luppi-006a9b177" immagine={isabella} nome="Isabella Luppi" ruolo="Segretario"/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={sofia} nome="Sofia Trombini" ruolo="Tesoriere"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Collapse>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow className={classes.tableroot}>
+                                    <TableCell>
+                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenContenuti(!openContenuti)}>
+                                            {openContenuti ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                        </IconButton>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row">
+                                        <Typography variant="h4" component="h5">
+                                            Team contenuti
+                                        </Typography>       
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                                        <Collapse in={openContenuti} timeout="auto" unmountOnExit>
+                                                <Box margin={1}>
+                                                <Grid
+                                                    container
+                                                    direction="row"
+                                                    justify="flex-start"
+                                                    alignItems="center"
+                                                    xs
+                                                    spacing={3}
+                                                >
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Pietro Bosoni" ruolo="Consigliere"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Collapse>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow className={classes.tableroot}>
+                                    <TableCell>
+                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenEventi(!openEventi)}>
+                                            {openEventi ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                        </IconButton>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row">
+                                        <Typography variant="h4" component="h5">
+                                            Team eventi
+                                        </Typography>       
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                                        <Collapse in={openEventi} timeout="auto" unmountOnExit>
+                                                <Box margin={1}>
+                                                    <Grid
+                                                    container
+                                                    direction="row"
+                                                    justify="flex-start"
+                                                    alignItems="center"
+                                                    xs
+                                                    spacing={3}
+                                                    >
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Cristian Gariboldi" ruolo=""/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Filippo Tallon" ruolo=""/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Elena Bastianelli" ruolo=""/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Giovanni Buzzao" ruolo=""/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Collapse>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow className={classes.tableroot}>
+                                    <TableCell>
+                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenAccademico(!openAccademico)}>
+                                            {openAccademico ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                        </IconButton>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row">
+                                        <Typography variant="h4" component="h5">
+                                            Team accademico
+                                        </Typography>       
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                                        <Collapse in={openAccademico} timeout="auto" unmountOnExit>
+                                                <Box margin={1}>
+                                                <Grid
+                                                    container
+                                                    direction="row"
+                                                    justify="flex-start"
+                                                    alignItems="center"
+                                                    xs={12}
+                                                    spacing={3}
+                                                >
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Pasquale Cortese" ruolo=""/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Roberto Pellerito" ruolo=""/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Collapse>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow className={classes.tableroot}>
+                                    <TableCell>
+                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenAziende(!openAziende)}>
+                                            {openAziende ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                        </IconButton>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row">
+                                        <Typography variant="h4" component="h5">
+                                            Team aziende
+                                        </Typography>       
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                                        <Collapse in={openAziende} timeout="auto" unmountOnExit>
+                                                <Box margin={1}>
+                                                <Grid
+                                                    container
+                                                    direction="row"
+                                                    justify="flex-start"
+                                                    alignItems="center"
+                                                    xs={12}
+                                                    spacing={3}
+                                                >
+                                                    <Grid
+                                                    item
+                                                    xs={3}
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Pietro Dardano" ruolo=""/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Matteo Sacchetti" ruolo=""/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Leonardo Bertelli" ruolo=""/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Davide Zanatta" ruolo=""/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Collapse>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow className={classes.tableroot}>
+                                    <TableCell>
+                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenInformatico(!openInformatico)}>
+                                            {openInformatico ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                        </IconButton>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row">
+                                        <Typography variant="h4" component="h5">
+                                            Team informatico
+                                        </Typography>       
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                                        <Collapse in={openInformatico} timeout="auto" unmountOnExit>
+                                            <Box margin={1}>
+                                                <Grid
+                                                    container
+                                                    direction="row"
+                                                    justify="flex-start"
+                                                    alignItems="center"
+                                                    xs={12}
+                                                    spacing={3}
+                                                >
+                                                    <Grid
+                                                    item
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Andrea Archetti" ruolo="Consigliere"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Collapse>
+                                    </TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
                 </div>
         </div>
         <div style={{height:"40px"}} />
