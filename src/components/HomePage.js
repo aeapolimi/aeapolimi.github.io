@@ -14,12 +14,21 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import Modal from '@material-ui/core/Modal';
+
+import Box from '@material-ui/core/Box';
+import Collapse from '@material-ui/core/Collapse';
+import IconButton from '@material-ui/core/IconButton';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -31,6 +40,9 @@ import firebase from 'firebase';
 import { navigate } from "gatsby"
 
 import nature from "../images/nature.jpeg"
+import giulio from "../images/direttivo/giulio.jpeg"
+import guido from "../images/direttivo/guido.jpeg"
+import isabella from "../images/direttivo/isabella.jpeg"
 
 const firebaseConfig = {
     apiKey: "AIzaSyCN3qF77x39c9RtTO5_s4QMV3lQ589RdZU",
@@ -45,19 +57,27 @@ firebase.initializeApp(firebaseConfig);
 
 const useStyles = makeStyles((theme) => ({
     cardroot: {
-      maxWidth: 345,
-      position: "relative",
-      [theme.breakpoints.down('sm')]: {
-        minHeight: "70vh",
-      },
-      [theme.breakpoints.up('sm')]: {
+        borderRadius: 30,
+        maxWidth: 345,
+        position: "relative",
+        [theme.breakpoints.down('sm')]: {
+            minHeight: "70vh",
+        },
+        [theme.breakpoints.up('sm')]: {
         minHeight: 400,
+        backgroundColor: "#efefef",
       },
       
     },
     media: {
       height: 0,
       paddingTop: '56.25%', // 16:9
+    },
+    mediaAvatar: {
+        height: 0,
+        paddingTop: '75%',
+        borderRadius: '50%',
+        margin: '28px'
     },
     info: {
       transform: 'rotate(0deg)',
@@ -79,7 +99,14 @@ const useStyles = makeStyles((theme) => ({
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
-      },
+    },
+    appBar: {
+        top: 'auto',
+        bottom: 0,
+    },
+    // cardTeam: {
+    //     height: "100px"
+    // }
   }));
 
 const responsive = {
@@ -121,11 +148,12 @@ function ArticoloCarousel(props){
         <>
         <Card key={props.titolo} className={classes.cardroot}>
                 <CardHeader
-                    avatar={
-                    <Avatar aria-label="recipe" className={classes.avatar}>
-                        A
-                    </Avatar>
-                    }
+                    // avatar={
+                    // <Avatar aria-label="recipe" className={classes.avatar}>
+                    //     A
+                    // </Avatar>
+                    // }
+                    raised={true}
                     title={props.titolo}
                     subheader={props.data}
                 />
@@ -217,6 +245,29 @@ function NewsSection(){
     </Carousel>)
 }
 
+function CardDirettivo(props){
+    const classes = useStyles();
+    return (
+        <Card className="cardTeam" elevation={0} style={{display: 'inline-block'}}>
+            <CardActionArea href={props.linkedin} target="_blank">
+                <CardMedia
+                className={classes.mediaAvatar}
+                image={props.immagine}
+                title={props.nome}
+                />
+                <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                    {props.nome}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    {props.ruolo}
+                </Typography>
+                </CardContent>
+            </CardActionArea>
+        </Card>
+    )
+}
+
 function HomePage (){
     const classes = useStyles();
     var width = "20%";
@@ -226,8 +277,8 @@ function HomePage (){
         maxCardwidth = "100vw";
     }
     return(<>
-            <div className="App" style={{backgroundColor:"#616161"}}>
-                <AppBar position="fixed" style={{backgroundColor: "transparent"}} elevation={0}>
+            <div className="App">
+                <AppBar position="absolute" style={{backgroundColor: "transparent"}} elevation={0}>
                     <Toolbar>
                         <Button style={{color:"white"}} onClick = {() => window.open("https://t.me/aeapolimi")}>Telegram</Button>
                         <div style={{flexGrow: 1}} />
@@ -246,7 +297,7 @@ function HomePage (){
                 </div>
                 <div title="news" id="news">
                     <div style={{margin:"30px"}}>
-                        <Typography variant="h3" component="h4" style={{color:"white"}}>
+                        <Typography variant="h3" component="h4">
                             NEWS
                         </Typography>
                     </div>
@@ -254,37 +305,266 @@ function HomePage (){
                     <div style={{minHeight:"20px"}} />
                 </div>
                 <div className="about" id="about">
+                    <Grid
+                        container
+                        direction="row"
+                        justify="flex-start"
+                        alignItems="center"
+                    >
                         <Grid
-                            container
-                            direction="row"
-                            justify="flex-start"
-                            alignItems="center"
+                        item
+                        xs={12}
                         >
+                            <Card className="cardAbout" style={{display: 'inline-block', maxWidth: {maxCardwidth}}}>
+                                <CardContent>
+                                    <Typography color="textSecondary" gutterBottom>
+                                        Un punto di riferimento per il settore.
+                                    </Typography>
+                                    <Typography variant="h5" component="h2">
+                                        Associazione Ingegneri dell'Automazione del Politecnico di Milano.
+                                    </Typography>
+                                    <Typography variant="body2" component="p">
+                                        Una forte rete di networking, conoscenza del settore e rapporti con le aziende ci permettono di 
+                                        aiutare i nostri associati a diventare ancora più competitivi.
+                                    </Typography>
+                                </CardContent>
+                                <CardActions>
+                                    <Button size="small" onClick = {() => navigate("/UserPage")}>Associati</Button>
+                                </CardActions>
+                            </Card>
+                        </Grid>
+                    </Grid>
+                </div>
+                <div className="team" id="team">
+                <Grid
+                        container
+                        direction="column"
+                        justify="flex-start"
+                        alignItems="center"
+                    >
+                        <Grid item>
+                            <div style={{margin:"30px"}}>
+                                <Typography variant="h3" component="h4">
+                                    Chi siamo
+                                </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item>
+                            <div style={{margin:"30px"}}>
+                                <Typography variant="h4" component="h5">
+                                    Board
+                                </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item>
                             <Grid
-                            item
-                            xs={12}
+                                container
+                                direction="row"
+                                justify="flex-start"
+                                alignItems="center"
+                                xs={12}
+                                spacing={3}
                             >
-                                <Card className="cardAbout" style={{display: 'inline-block', maxWidth: {maxCardwidth}}}>
-                                    <CardContent>
-                                        <Typography color="textSecondary" gutterBottom>
-                                            Un punto di riferimento per il settore.
-                                        </Typography>
-                                        <Typography variant="h5" component="h2">
-                                            Associazione Ingegneri dell'Automazione del Politecnico di Milano.
-                                        </Typography>
-                                        <Typography variant="body2" component="p">
-                                            Una forte rete di networking, conoscenza del settore e rapporti con le aziende ci permettono di 
-                                            aiutare i nostri associati a diventare ancora più competitivi.
-                                        </Typography>
-                                    </CardContent>
-                                    <CardActions>
-                                        <Button size="small" onClick = {() => navigate("/Associati")}>Associati</Button>
-                                    </CardActions>
-                                </Card>
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Giulio Vaccari" ruolo="Presidente"/>
+                                </Grid>
+                            <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/guido-sassaroli-778548169/" immagine={guido} nome="Guido Sassaroli" ruolo="Vicepresidente"/>
+                                </Grid>
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="http://linkedin.com/in/isabella-luppi-006a9b177" immagine={isabella} nome="Isabella Luppi" ruolo="Segretario"/>
+                                </Grid>
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Sofia Trombini" ruolo="Tesoriere"/>
+                                </Grid>
                             </Grid>
                         </Grid>
-                    </div>
-            </div>
+                        {/* <Grid item>
+                            <div style={{margin:"30px"}}>
+                                <Typography variant="h4" component="h5">
+                                    Team contenuti
+                                </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item>
+                            <Grid
+                                container
+                                direction="row"
+                                justify="flex-start"
+                                alignItems="center"
+                                xs
+                                spacing={3}
+                            >
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Pietro Bosoni" ruolo="Consigliere"/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid item>
+                            <div style={{margin:"30px"}}>
+                                <Typography variant="h4" component="h5">
+                                    Team eventi
+                                </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item>
+                            <Grid
+                                container
+                                direction="row"
+                                justify="flex-start"
+                                alignItems="center"
+                                xs
+                                spacing={3}
+                            >
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Cristian Gariboldi" ruolo=""/>
+                                </Grid>
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Filippo Tallon" ruolo=""/>
+                                </Grid>
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Elena Bastianelli" ruolo=""/>
+                                </Grid>
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Giovanni Buzzao" ruolo=""/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid item>
+                            <div style={{margin:"30px"}}>
+                                <Typography variant="h4" component="h5">
+                                    Team accademico
+                                </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item>
+                            <Grid
+                                container
+                                direction="row"
+                                justify="flex-start"
+                                alignItems="center"
+                                xs={12}
+                                spacing={3}
+                            >
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Pasquale Cortese" ruolo=""/>
+                                </Grid>
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Roberto Pellerito" ruolo=""/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid item>
+                            <div style={{margin:"30px"}}>
+                                <Typography variant="h4" component="h5">
+                                    Team aziende
+                                </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item>
+                            <Grid
+                                container
+                                direction="row"
+                                justify="flex-start"
+                                alignItems="center"
+                                xs={12}
+                                spacing={3}
+                            >
+                                <Grid
+                                item
+                                xs={3}
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Pietro Dardano" ruolo=""/>
+                                </Grid>
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Matteo Sacchetti" ruolo=""/>
+                                </Grid>
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Leonardo Bertelli" ruolo=""/>
+                                </Grid>
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Davide Zanatta" ruolo=""/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid item>
+                            <div style={{margin:"30px"}}>
+                                <Typography variant="h4" component="h5">
+                                    Team informatico
+                                </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item>
+                            <Grid
+                                container
+                                direction="row"
+                                justify="flex-start"
+                                alignItems="center"
+                                xs={12}
+                                spacing={3}
+                            >
+                                <Grid
+                                item
+                                xs
+                                >
+                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Andrea Archetti" ruolo="Consigliere"/>
+                                </Grid>
+                            </Grid>
+                        </Grid> */}
+                    </Grid>
+                </div>
+        </div>
+        <div style={{height:"40px"}} />
+        <AppBar position="relative" style={{backgroundColor: "black"}} className={classes.appBar} elevation={0}>
+                    <Toolbar>
+                        <Typography variant="subtitle2" component="subtitle2">
+                            Copyright AEA 2020
+                        </Typography>
+                        <div style={{flexGrow: 1}} />
+                    </Toolbar>
+                </AppBar>
         </>
     )
 }

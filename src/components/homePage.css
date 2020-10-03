@@ -15,7 +15,6 @@
     width: 15vh;
     height: 15vh;
     background-color: white;
-    
     position:relative;
     border-radius: 50%;
   }
@@ -51,6 +50,8 @@ img {
     position: "relative";
 }
 
-.news{
-    background-color: #efefef;
+.team{
+    background-color: transparent;
+    width: 50%;
+    margin: 0 auto;
 }
