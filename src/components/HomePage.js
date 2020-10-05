@@ -113,10 +113,14 @@ const useStyles = makeStyles((theme) => ({
         bottom: 0,
     },
     focusHighlight: {},
+    focusVisible: {},
     actionArea: {
         "&:hover $focusHighlight": {
-          opacity: 0
-        }
+          opacity: 0,
+        },
+        '&$focusVisible $focusHighlight': {
+            opacity: 0,
+          },
       },
     // cardTeam: {
     //     height: "100px"
@@ -264,8 +268,9 @@ function CardDirettivo(props){
     const classes = useStyles();
     return (
         <Card className="cardTeam" elevation={0} style={{display: 'inline-block'}} >
-            <CardActionArea href={props.linkedin} target="_blank" classes={{
+            <CardActionArea onClick={() => window.open(props.linkedin)} classes={{
                 root: classes.actionArea,
+                focusVisible: classes.focusVisible,
                 focusHighlight: classes.focusHighlight
                 }}>
                 <CardMedia
@@ -490,7 +495,7 @@ function HomePage (){
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Filippo Tallon" ruolo=""/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/filippo-tallon-9a9b331b8/" immagine={giulio} nome="Filippo Tallon" ruolo=""/>
                                                     </Grid>
                                                     <Grid
                                                     item
