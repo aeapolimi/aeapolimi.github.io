@@ -484,7 +484,7 @@ function HomePage (){
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Cristian Gariboldi" ruolo=""/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gariboldicristian" immagine={giulio} nome="Cristian Gariboldi" ruolo=""/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -496,7 +496,7 @@ function HomePage (){
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Elena Bastianelli" ruolo=""/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/elena-bastianelli-a58222197" immagine={giulio} nome="Elena Bastianelli" ruolo=""/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -537,13 +537,13 @@ function HomePage (){
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Pasquale Cortese" ruolo=""/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pasqualecortese1994" immagine={giulio} nome="Pasquale Cortese" ruolo=""/>
                                                     </Grid>
                                                     <Grid
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Roberto Pellerito" ruolo=""/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" immagine={giulio} nome="Roberto Pellerito" ruolo=""/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
@@ -584,19 +584,19 @@ function HomePage (){
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Matteo Sacchetti" ruolo=""/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/matteo-sacchetti-92b95218a" immagine={giulio} nome="Matteo Sacchetti" ruolo=""/>
                                                     </Grid>
                                                     <Grid
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Leonardo Bertelli" ruolo=""/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/leonardo-bertelli-20a34816a" immagine={giulio} nome="Leonardo Bertelli" ruolo=""/>
                                                     </Grid>
                                                     <Grid
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Davide Zanatta" ruolo=""/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/davide-zanatta-207b12174" immagine={giulio} nome="Davide Zanatta" ruolo="Consigliere"/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
