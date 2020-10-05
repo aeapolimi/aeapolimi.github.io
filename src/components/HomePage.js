@@ -41,7 +41,7 @@ import firebase from 'firebase';
 
 import { navigate } from "gatsby"
 
-import nature from "../images/nature.jpeg"
+// import nature from "../images/news/nature.jpeg"
 import giulio from "../images/direttivo/giulio.jpeg"
 import guido from "../images/direttivo/guido.jpeg"
 import isabella from "../images/direttivo/isabella.jpeg"
@@ -173,7 +173,7 @@ function ArticoloCarousel(props){
                 />
                 <CardMedia
                     className={classes.media}
-                    image={nature}
+                    image={require("../images/news/"+props.immagine)}
                     title="Automazione"
                 />
                 <CardContent>
@@ -252,6 +252,7 @@ function NewsSection(){
                         sommario={articolo.data().sommario}
                         data={articolo.data().data}
                         testo={articolo.data().testo}
+                        immagine={articolo.data().immagine}
                         />
                     </div>
                 )
