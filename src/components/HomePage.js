@@ -209,7 +209,7 @@ function ArticoloCarousel(props){
                 >
                     <h2 id="titolo_articolo">{props.titolo}</h2>
                     <p id="contenuto_articolo">
-                        {props.testo}
+                        <div dangerouslySetInnerHTML={{ __html: props.testo }} />
                     </p>
                 </div>
             </Modal>
