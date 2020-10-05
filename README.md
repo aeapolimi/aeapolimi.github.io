@@ -3,7 +3,7 @@
 </h1>
 
 Creato con React + Gatsby.
-Per modeificarlo installa [React](https://www.reactjs.org/).
+Per modeificarlo installa [Node](https://www.nodejs.org/).
 Qui sotto quickstart.
 
 _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/)._
