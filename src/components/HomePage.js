@@ -548,7 +548,7 @@ function HomePage (){
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" immagine={giulio} nome="Roberto Pellerito" ruolo=""/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" immagine={giulio} nome="Roberto Pellerito" ruolo="Consigliere"/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
