@@ -489,7 +489,7 @@ function HomePage (){
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gariboldicristian" immagine={giulio} nome="Cristian Gariboldi" ruolo=""/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gariboldicristian" immagine={giulio} nome="Cristian Gariboldi" ruolo="Consigliere"/>
                                                     </Grid>
                                                     <Grid
                                                     item
