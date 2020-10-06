@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "40vh",
         display: 'inline-block',
         [theme.breakpoints.down('sm')]: {
-            maxWidth: "00vw",
+            maxWidth: "100vw",
         },
         [theme.breakpoints.up('sm')]: {
             maxWidth: "50vw",
