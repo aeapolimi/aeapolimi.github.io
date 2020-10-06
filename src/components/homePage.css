@@ -31,12 +31,6 @@ img {
     margin: 0 auto;
 }
 
-.cardAbout {
-    margin-top: 40vh;
-    display: 'inline-block';
-    max-width: "50vw"
-}
-
 
 .about{
     min-height: 100vh;

@@ -74,7 +74,16 @@ const useStyles = makeStyles((theme) => ({
         minHeight: 400,
         backgroundColor: "#efefef",
       },
-      
+    },
+    cardmedia: {
+        marginTop: "40vh",
+        display: 'inline-block',
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: "00vw",
+        },
+        [theme.breakpoints.up('sm')]: {
+            maxWidth: "50vw",
+      },
     },
     media: {
       height: 0,
@@ -293,7 +302,10 @@ function HomePage (){
     var maxCardwidth = "50vw";
     if (isMobile){
         width = "60%";
-        maxCardwidth = "100vw";
+        // maxCardwidth = "100vw";
+    }
+    else {
+        maxCardwidth = "50vw";
     }
     return(<>
             <div className="App">
@@ -334,13 +346,13 @@ function HomePage (){
                         item
                         xs={12}
                         >
-                            <Card className="cardAbout" style={{display: 'inline-block', maxWidth: {maxCardwidth}}}>
+                            <Card className={classes.cardmedia}>
                                 <CardContent>
                                     <Typography color="textSecondary" gutterBottom>
                                         Un punto di riferimento per il settore.
                                     </Typography>
                                     <Typography variant="h5" component="h2">
-                                        Automation Engineering Association Polimi .
+                                        Automation Engineering Association Polimi
                                     </Typography>
                                     <Typography variant="body2" component="p">
                                         L’AEA, l’Automation Engineering Association, è un’associazione del Politecnico di Milano fondata nel *//* e riconosciuta dallo Stato Italiano. 
