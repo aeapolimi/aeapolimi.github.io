@@ -340,11 +340,14 @@ function HomePage (){
                                         Un punto di riferimento per il settore.
                                     </Typography>
                                     <Typography variant="h5" component="h2">
-                                        Associazione Ingegneri dell'Automazione del Politecnico di Milano.
+                                        Automation Engineering Association Polimi .
                                     </Typography>
                                     <Typography variant="body2" component="p">
-                                        Una forte rete di networking, conoscenza del settore e rapporti con le aziende ci permettono di 
-                                        aiutare i nostri associati a diventare ancora più competitivi.
+                                        L’AEA, l’Automation Engineering Association, è un’associazione del Politecnico di Milano fondata nel *//* e riconosciuta dallo Stato Italiano. 
+                                        È un’associazione no-profit, apartitica, apolitica e aconfessionale. 
+                                        Costituita da studenti per gli studenti, lo scopo dell’associazione è quello di promuovere la figura dell’ingegnere 
+                                        dell’automazione e di essere un punto di riferimento per tutti gli studenti del Politecnico di Milano. 
+                                        La nostra mission è quella di offrire delle opportunità di crescita e di formazione, sia dal punto di vista accademico che da quello lavorativo.
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
