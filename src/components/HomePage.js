@@ -41,7 +41,6 @@ import firebase from 'firebase';
 
 import { navigate } from "gatsby"
 
-// import nature from "../images/news/nature.jpeg"
 import giulio from "../images/direttivo/giulio.jpeg"
 import guido from "../images/direttivo/guido.jpeg"
 import isabella from "../images/direttivo/isabella.jpeg"
@@ -88,14 +87,10 @@ const useStyles = makeStyles((theme) => ({
         margin: '28px'
     },
     info: {
-      transform: 'rotate(0deg)',
       marginTop: "auto",
       position: "absolute",
-      right: 0,
+      right: "45%",
       bottom: 0,
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-      }),
     },
     avatar: {
       backgroundColor: red[500],
@@ -186,14 +181,9 @@ function ArticoloCarousel(props){
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                    <Button
-                    className={classes.info}
-                    size="small"
-                    onClick={handleOpen}
-                    aria-label="leggi"
-                    >
-                        continua a leggere
-                    </Button>
+                    <IconButton className={classes.info} aria-label="expand row" size="small" onClick={handleOpen}>
+                        <KeyboardArrowDownIcon />
+                    </IconButton>
                 </CardActions>
             </Card>
             <Modal
@@ -231,16 +221,16 @@ function NewsSection(){
         }
     return(<Carousel
         swipeable={true}
-        // draggable={true}
+        draggable={true}
         showDots={false}
         responsive={responsive}
         ssr={true} // means to render carousel on server-side.
         infinite={true}
         autoPlay={true}
-        autoPlaySpeed={2000}
-        keyBoardControl={true}
+        autoPlaySpeed={4000}
+        keyBoardControl={false}
         customTransition="all .5"
-        transitionDuration={1000}
+        // transitionDuration={1000} rompe il draggable
         containerClass="carousel-container"
         removeArrowOnDeviceType={["tablet", "mobile"]}
         // deviceType={this.props.deviceType}
@@ -454,7 +444,7 @@ function HomePage (){
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Pietro Bosoni" ruolo="Consigliere"/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pietro-bosoni-4817291b8/" immagine={giulio} nome="Pietro Bosoni" ruolo="Consigliere"/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
@@ -483,7 +473,6 @@ function HomePage (){
                                                     justify="flex-start"
                                                     alignItems="center"
                                                     xs
-                                                    spacing={2}
                                                     >
                                                     <Grid
                                                     item
