@@ -34,6 +34,7 @@ img {
 
 .about{
     min-height: 100vh;
+    min-width: 100vw;
     background-color: black;
     color: white;
     background-image: url("../images/tizio_automazione.jpg"); 

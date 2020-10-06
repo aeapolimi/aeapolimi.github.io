@@ -75,14 +75,15 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#efefef",
       },
     },
-    cardmedia: {
-        marginTop: "40vh",
+    cardabout: {
         display: 'inline-block',
         [theme.breakpoints.down('sm')]: {
             maxWidth: "100vw",
+            marginTop: "20vh"
         },
         [theme.breakpoints.up('sm')]: {
             maxWidth: "50vw",
+            marginTop: "40vh"
       },
     },
     media: {
@@ -339,14 +340,14 @@ function HomePage (){
                     <Grid
                         container
                         direction="row"
-                        justify="flex-start"
+                        justify="center"
                         alignItems="center"
                     >
                         <Grid
                         item
-                        xs={12}
+                        xs
                         >
-                            <Card className={classes.cardmedia}>
+                            <Card className={classes.cardabout}>
                                 <CardContent>
                                     <Typography color="textSecondary" gutterBottom>
                                         Un punto di riferimento per il settore.
