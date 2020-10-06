@@ -483,7 +483,7 @@ function HomePage (){
                                                     justify="flex-start"
                                                     alignItems="center"
                                                     xs
-                                                    spacing={3}
+                                                    spacing={2}
                                                     >
                                                     <Grid
                                                     item
@@ -577,7 +577,7 @@ function HomePage (){
                                                     justify="flex-start"
                                                     alignItems="center"
                                                     xs={12}
-                                                    spacing={3}
+                                                    spacing={2}
                                                 >
                                                     <Grid
                                                     item
