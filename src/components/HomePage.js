@@ -501,7 +501,7 @@ function HomePage (){
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/filippo-tallon-9a9b331b8/" immagine={giulio} nome="Filippo Tallon" ruolo=""/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/filippo-tallon-9a9b331b8/" immagine={require("../images/direttivo/filippo.jpeg")} nome="Filippo Tallon" ruolo=""/>
                                                     </Grid>
                                                     <Grid
                                                     item
