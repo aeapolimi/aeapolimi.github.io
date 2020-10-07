@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
         },
       },
     cardroot: {
-        borderRadius: 30,
+        // borderRadius: 30,
         maxWidth: 345,
         position: "relative",
         [theme.breakpoints.down('sm')]: {
@@ -74,6 +74,9 @@ const useStyles = makeStyles((theme) => ({
         minHeight: 400,
         backgroundColor: "#efefef",
       },
+    },
+    cardheader: {
+        marginBottom:0
     },
     cardabout: {
         display: 'inline-block',
@@ -127,9 +130,6 @@ const useStyles = makeStyles((theme) => ({
             opacity: 0,
           },
       },
-    // cardTeam: {
-    //     height: "100px"
-    // }
   }));
 
 const responsive = {
@@ -170,7 +170,13 @@ function ArticoloCarousel(props){
     return (
         <>
         <Card key={props.titolo} className={classes.cardroot}>
+                <CardMedia
+                    className={classes.media}
+                    image={require("../images/news/"+props.immagine)}
+                    title="Automazione"
+                />
                 <CardHeader
+                    className={classes.cardheader}
                     // avatar={
                     // <Avatar aria-label="recipe" className={classes.avatar}>
                     //     A
@@ -179,11 +185,6 @@ function ArticoloCarousel(props){
                     raised={true}
                     title={props.titolo}
                     subheader={props.data}
-                />
-                <CardMedia
-                    className={classes.media}
-                    image={require("../images/news/"+props.immagine)}
-                    title="Automazione"
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
@@ -419,13 +420,13 @@ function HomePage (){
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="http://linkedin.com/in/isabella-luppi-006a9b177" immagine={isabella} nome="Isabella Luppi" ruolo="Segretario"/>
+                                                        <CardDirettivo linkedin="https://linkedin.com/in/isabella-luppi-006a9b177" immagine={isabella} nome="Isabella Luppi" ruolo="Segretario"/>
                                                     </Grid>
                                                     <Grid
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={sofia} nome="Sofia Trombini" ruolo="Tesoriere"/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/sofiatrombini" immagine={sofia} nome="Sofia Trombini" ruolo="Tesoriere"/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
