@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Automation Engineers Association`,
+    title: `Automation Engineering Association`,
     description: `Associazione Ingegneri dell'Automazione del Politecnico di Milano.`,
     author: `@giuliovv`,
   },

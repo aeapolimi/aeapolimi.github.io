@@ -661,7 +661,7 @@ function HomePage (){
                             Copyright AEA 2020
                         </Typography>
                         <div style={{flexGrow: 1}} />
-                        <Button style={{color:"white"}} size="small" onClick = {() => window.open("https://https://aeapolimi.github.io/pivacypolicy.html")}>Privacy policy</Button>
+                        <Button style={{color:"white"}} size="small" onClick = {() => window.open("https://aeapolimi.github.io/pivacypolicy.html")}>Privacy policy</Button>
                     </Toolbar>
                 </AppBar>
         </>
