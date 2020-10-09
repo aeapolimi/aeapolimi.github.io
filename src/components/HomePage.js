@@ -19,7 +19,6 @@ import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import Modal from '@material-ui/core/Modal';
-
 import Box from '@material-ui/core/Box';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
@@ -36,6 +35,8 @@ import "react-multi-carousel/lib/styles.css";
 
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+
+import CookieConsent from "react-cookie-consent";
 
 import firebase from 'firebase';
 
@@ -656,14 +657,21 @@ function HomePage (){
         </div>
         <div style={{height:"40px"}} />
         <AppBar position="relative" style={{backgroundColor: "black"}} className={classes.appBar} elevation={0}>
-                    <Toolbar>
-                        <Typography variant="subtitle2" component="subtitle2">
-                            Copyright AEA 2020
-                        </Typography>
-                        <div style={{flexGrow: 1}} />
-                        <Button style={{color:"white"}} size="small" onClick = {() => window.open("https://aeapolimi.github.io/pivacypolicy.html")}>Privacy policy</Button>
-                    </Toolbar>
-                </AppBar>
+            <Toolbar>
+                <Typography variant="subtitle2" component="subtitle2">
+                    Copyright AEA 2020
+                </Typography>
+                <div style={{flexGrow: 1}} />
+                <Button style={{color:"white"}} size="small" onClick = {() => window.open("https://aeapolimi.github.io/privacypolicy.html")}>Privacy policy</Button>
+            </Toolbar>
+        </AppBar>
+        <CookieConsent
+            location="bottom"
+            buttonText="Accetto"
+            buttonStyle={{ backgroundColor: "#ef6c00", fontSize: "13px" }}
+            cookieName="gatsby-gdpr-google-analytics">
+            AEA usa i cookies per il login. <a href="./privacypolicy.html"><b>Scopri di più</b></a>
+        </CookieConsent>
         </>
     )
 }
