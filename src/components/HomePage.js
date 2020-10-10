@@ -655,7 +655,10 @@ function HomePage (){
                     </TableContainer>
                 </div>
         </div>
-        <div style={{height:"40px"}} />
+        <div className="contatti">
+            Per informazioni: segreteria@aeapolimi.it
+        </div>
+        <div style={{height:"50px"}} />
         <AppBar position="relative" style={{backgroundColor: "black"}} className={classes.appBar} elevation={0}>
             <Toolbar>
                 <Typography variant="subtitle2" component="subtitle2">
