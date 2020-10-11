@@ -42,10 +42,10 @@ import firebase from 'firebase';
 
 import { navigate } from "gatsby"
 
-import giulio from "../images/direttivo/giulio.jpeg"
-import guido from "../images/direttivo/guido.jpeg"
-import isabella from "../images/direttivo/isabella.jpeg"
-import sofia from "../images/direttivo/sofia.jpeg"
+import giulio from "../images/direttivo/giulio.webp"
+import guido from "../images/direttivo/guido.webp"
+import isabella from "../images/direttivo/isabella.webp"
+import sofia from "../images/direttivo/sofia.webp"
 
 const firebaseConfig = {
     apiKey: "AIzaSyCN3qF77x39c9RtTO5_s4QMV3lQ589RdZU",
@@ -502,7 +502,7 @@ function HomePage (){
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/filippo-tallon-9a9b331b8/" immagine={require("../images/direttivo/filippo.jpeg")} nome="Filippo Tallon" ruolo=""/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/filippo-tallon-9a9b331b8/" immagine={require("../images/direttivo/filippo.webp")} nome="Filippo Tallon" ruolo=""/>
                                                     </Grid>
                                                     <Grid
                                                     item
