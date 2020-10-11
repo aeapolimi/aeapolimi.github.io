@@ -319,8 +319,8 @@ function HomePage (){
                         <Button style={{color:"white"}} onClick = {() => navigate("/UserPage")}>Login</Button>
                     </Toolbar>
                 </AppBar>
-                <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0"/>
-                {/* <iframe title="bg" id="bg" src='https://aeapolimi.it/robotrender.html' frameBorder="0"/>  */}
+                <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/>
+                {/* <iframe title="bg" id="bg" src='https://aeapolimi.it/robotrender.html' frameBorder="0" loading="lazy"/>  */}
                 <header className="App-header">
                     <div className="rectangle" key="titolo"><span className="titoloLogo">AEA</span></div>
                 </header>
