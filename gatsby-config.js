@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Automation Engineering Association`,
     description: `Associazione Ingegneri dell'Automazione del Politecnico di Milano.`,
-    author: `@giuliovv`,
+    author: `@giuliovaccari`,
   },
   pathPrefix: "/aea",
   plugins: [
@@ -16,6 +16,12 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-plugin-brotli',
+      options: {
+        extensions: ['css', 'html', 'js', 'dae']
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
