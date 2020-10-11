@@ -38,7 +38,8 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 import CookieConsent from "react-cookie-consent";
 
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 
 import { navigate } from "gatsby"
 
@@ -225,7 +226,7 @@ function ArticoloCarousel(props){
 
 function NewsSection(){
     const [articoli, setArticoli] = React.useState("Caricamento...")
-    if (articoli=="Caricamento..."){
+    if (articoli==="Caricamento..."){
         firebase.firestore().collection("news").get()
             .then(collec => {
                 setArticoli(collec.docs)
@@ -249,7 +250,7 @@ function NewsSection(){
         dotListClass="custom-dot-list-style"
         centerMode={true}
         >
-            {(articoli=="Caricamento...") ? <div>Caricamento...</div> : 
+            {(articoli==="Caricamento...") ? <div>Caricamento...</div> : 
             articoli.map(articolo => {
                 return (
                     <div key={articolo.data().titolo}>
@@ -402,7 +403,6 @@ function HomePage (){
                                                     direction="row"
                                                     justify="flex-start"
                                                     alignItems="center"
-                                                    xs={12}
                                                     spacing={3}
                                                 >
                                                     <Grid
@@ -455,7 +455,6 @@ function HomePage (){
                                                     direction="row"
                                                     justify="flex-start"
                                                     alignItems="center"
-                                                    xs
                                                     spacing={3}
                                                 >
                                                     <Grid
@@ -490,7 +489,6 @@ function HomePage (){
                                                     direction="row"
                                                     justify="flex-start"
                                                     alignItems="center"
-                                                    xs
                                                     >
                                                     <Grid
                                                     item
@@ -542,7 +540,6 @@ function HomePage (){
                                                     direction="row"
                                                     justify="flex-start"
                                                     alignItems="center"
-                                                    xs={12}
                                                     spacing={3}
                                                 >
                                                     <Grid
@@ -583,7 +580,6 @@ function HomePage (){
                                                     direction="row"
                                                     justify="flex-start"
                                                     alignItems="center"
-                                                    xs={12}
                                                     spacing={2}
                                                 >
                                                     <Grid
@@ -636,7 +632,6 @@ function HomePage (){
                                                     direction="row"
                                                     justify="flex-start"
                                                     alignItems="center"
-                                                    xs={12}
                                                     spacing={3}
                                                 >
                                                     <Grid
