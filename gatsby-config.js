@@ -22,15 +22,15 @@ module.exports = {
         name: `aea`,
         short_name: `aea`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#ef6c00`,
         theme_color: `#ef6c00`,
-        display: `browser`,
+        // display: `browser`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-    }
+    // {
+    //   resolve: `gatsby-plugin-gdpr-cookies`,
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
