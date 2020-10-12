@@ -14,7 +14,7 @@
     display: table;
     width: 15vh;
     height: 15vh;
-    background-color: white;
+    /* background-color: white; */
     position:relative;
     border-radius: 50%;
   }

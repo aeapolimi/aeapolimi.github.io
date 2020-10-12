@@ -43,6 +43,7 @@ import 'firebase/firestore';
 
 import { navigate } from "gatsby"
 
+import logo from "../images/logobianco.webp"
 import giulio from "../images/direttivo/giulio.webp"
 import guido from "../images/direttivo/guido.webp"
 import isabella from "../images/direttivo/isabella.webp"
@@ -320,10 +321,10 @@ function HomePage (){
                         <Button style={{color:"white"}} onClick = {() => navigate("/UserPage")}>Login</Button>
                     </Toolbar>
                 </AppBar>
-                <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/>
-                {/* <iframe title="bg" id="bg" src='https://aeapolimi.it/robotrender.html' frameBorder="0" loading="lazy"/>  */}
+                {/* <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/> */}
+                <iframe title="bg" id="bg" src='https://aeapolimi.it/robotrender.html' frameBorder="0" loading="lazy"/> 
                 <header className="App-header">
-                    <div className="rectangle" key="titolo"><span className="titoloLogo">AEA</span></div>
+                    <div className="rectangle" key="titolo"><span className="titoloLogo"><img src={logo}/></span></div>
                 </header>
                 <div className="freccia" style={{height:0, bottom:80, position:"relative"}}>
                     <Fab color="inherit" size="small" href="#news" aria-label="news">
