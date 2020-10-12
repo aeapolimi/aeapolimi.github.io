@@ -202,7 +202,7 @@ function ArticoloCarousel(props){
             </Card>
             <Modal
                 open={leggi}
-                style={{display:'flex',alignItems:'center',justifyContent:'center'}}
+                style={{display:'flex',alignItems:'center',justifyContent:'center', overflow:"scroll"}}
                 onClose={handleClose}
                 aria-labelledby="titolo_articolo"
                 aria-describedby="contenuto_articolo"
@@ -211,13 +211,14 @@ function ArticoloCarousel(props){
                     top: `50%`,
                     left: `50%`,
                     transform: `translate(-50%, -50%)`,
-                    maxWidth: "70vw"
+                    maxWidth: "70vw",
+                    overflowY: "scroll"
                     }} 
                     className={classes.paper}
                 >
                     <h2 id="titolo_articolo">{props.titolo}</h2>
                     <p id="contenuto_articolo">
-                        <div dangerouslySetInnerHTML={{ __html: props.testo }} />
+                        <div key={props.titolo} style={{overflowY: "scroll"}} dangerouslySetInnerHTML={{ __html: props.testo }} />
                     </p>
                 </div>
             </Modal>
