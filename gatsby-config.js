@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Automation Engineering Association`,
-    description: `Associazione Ingegneri dell'Automazione del Politecnico di Milano.`,
+    description: `Politecnico di Milano Automation Engineering Association.`,
     author: `@giuliovaccari`,
   },
   pathPrefix: "/aea",

@@ -1,7 +1,7 @@
 {
   "name": "aea",
   "private": true,
-  "description": "Il sito dell'Associazione Ingegneri dell'Automazione",
+  "description": "Politecnico di Milano Automation Engineering Association",
   "version": "0.1.0",
   "author": "Giulio Vaccari",
   "dependencies": {
@@ -41,7 +41,11 @@
   "keywords": [
     "automazione",
     "aea",
-    "polimi"
+    "polimi",
+    "associazione",
+    "association",
+    "automation",
+    "politecnico di milano"
   ],
   "license": "0BSD",
   "scripts": {
