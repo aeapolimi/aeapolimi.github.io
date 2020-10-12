@@ -324,7 +324,7 @@ function HomePage (){
                 {/* <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/> */}
                 <iframe title="bg" id="bg" src='https://aeapolimi.it/robotrender.html' frameBorder="0" loading="lazy"/> 
                 <header className="App-header">
-                    <div className="rectangle" key="titolo"><span className="titoloLogo"><img src={logo}/></span></div>
+                    <div className="rectangle" key="titolo"><span className="titoloLogo"><img alt="logo" src={logo}/></span></div>
                 </header>
                 <div className="freccia" style={{height:0, bottom:80, position:"relative"}}>
                     <Fab color="inherit" size="small" href="#news" aria-label="news">

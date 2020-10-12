@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap'); */
 
 #bg{
     margin: 0;
@@ -23,7 +23,7 @@
     display: table-cell;
     vertical-align: middle;
     color: black;
-    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Raleway', sans-serif; */
 }
 
 img {
