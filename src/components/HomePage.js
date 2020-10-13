@@ -586,7 +586,7 @@ function HomePage (){
                                                 >
                                                     <Grid
                                                     item
-                                                    xs={3}
+                                                    xs
                                                     >
                                                         <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Pietro Dardano" ruolo=""/>
                                                     </Grid>
