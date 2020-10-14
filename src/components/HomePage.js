@@ -169,13 +169,13 @@ function ArticoloCarousel(props){
       const handleClose = () => {
         setLeggi(false);
       };
-
+    console.log(props.immagine.includes("http") ? "ciao" : "non ciao");
     return (
         <>
         <Card key={props.titolo} className={classes.cardroot}>
                 <CardMedia
                     className={classes.media}
-                    image={require("../images/news/"+props.immagine)}
+                    image={props.immagine.includes("http") ? props.immagine : require("../images/news/"+props.immagine)}
                     title="Automazione"
                 />
                 <CardHeader
