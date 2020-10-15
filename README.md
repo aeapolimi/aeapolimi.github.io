@@ -4,11 +4,20 @@
 
 Creato con React + Gatsby.
 Per modeificarlo installa [Node](https://www.nodejs.org/).
-Qui sotto quickstart.
+Qui sotto due quickstart: il primo avendo già impostato l'environment e il secondo dovendolo impostare.
 
 _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/)._
 
-## 🚀 Quick start
+## 🚀 Super quick start con ambiente pronto
+0) git pull
+1) Modifico il codice
+2) npm run develop (per vedere se il sito funziona con le modifiche)
+3) git add .
+4) git commit -m "Messaggio del commit"
+5) git push
+6) npm run deploy (Se sono sicuro di voler pubblicare il sito)
+
+## 🚀 Quick start primo clone senza ambiente
 
 1.  **git clone.**
 
