@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Automation Engineering Association`,
-    description: `Politecnico di Milano Automation Engineering Association.`,
+    description: `Politecnico di Milano Automation Engineering Association. A no-profit organization made by students for students aimed at promoting the Automation Engineer through events and opportunities.`,
     author: `@giuliovaccari`,
   },
   pathPrefix: "/aea",

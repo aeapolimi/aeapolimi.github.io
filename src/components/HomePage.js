@@ -176,7 +176,7 @@ function ArticoloCarousel(props){
                 <CardMedia
                     className={classes.media}
                     image={props.immagine.includes("http") ? props.immagine : require("../images/news/"+props.immagine)}
-                    title="Automazione"
+                    title={props.titolo}
                 />
                 <CardHeader
                     className={classes.cardheader}
