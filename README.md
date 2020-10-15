@@ -11,7 +11,7 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
 ## :nerd_face: Comandi di routine
 0) **git pull**
 
-    NB: Se git pull restituisce qualcosa uso npm install per verificare che la nuova versione non abbia librerie che io non ho.
+    NB: Se git pull restituisce modifiche a package-lock.json uso npm install per verificare che la nuova versione non abbia librerie che io non ho.
     
 1) **Modifico il codice**
 2) **npm run develop** (per vedere se il sito funziona con le modifiche)
