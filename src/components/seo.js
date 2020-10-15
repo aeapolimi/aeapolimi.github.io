@@ -74,9 +74,9 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `it`,
   meta: [],
-  description: ``,
+  description: `Politecnico di Milano Automation Engineering Association. A no-profit organization made by students for students aimed at promoting the Automation Engineer through events and opportunities.`,
 }
 
 SEO.propTypes = {
