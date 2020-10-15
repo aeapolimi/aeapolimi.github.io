@@ -3,21 +3,22 @@
 </h1>
 
 Creato con React + Gatsby.
-Per modeificarlo installa [Node](https://www.nodejs.org/).
+Per modificarlo installa [Node](https://www.nodejs.org/).
 Qui sotto i comandi di routine da usare avendo l'ambiente pronto e un quickstart per impostare l'ambiente al primo avvio.
 
 _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/)._
 
 ## :nerd_face: Comandi di routine
-0) git pull
+0) **git pull**
 
-  NB: Se git pull restituisce qualcosa uso npm install per verificare che la nuova versione non abbia liberie che io non ho.
-1) Modifico il codice
-2) npm run develop (per vedere se il sito funziona con le modifiche)
-3) git add .
-4) git commit -m "Messaggio del commit"
-5) git push
-6) npm run deploy (Se sono sicuro di voler pubblicare il sito)
+    NB: Se git pull restituisce qualcosa uso npm install per verificare che la nuova versione non abbia librerie che io non ho.
+    
+1) **Modifico il codice**
+2) **npm run develop** (per vedere se il sito funziona con le modifiche)
+3) **git add .**
+4) **git commit -m "Messaggio del commit"**
+5) **git push**
+6) **npm run deploy** (Se sono sicuro di voler pubblicare il sito)
 
 ## 🚀 Quick start primo clone senza ambiente
 
