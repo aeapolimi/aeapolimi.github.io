@@ -201,7 +201,7 @@ function ArticoloCarousel(props){
             </Card>
             <Modal
                 open={leggi}
-                style={{display:'flex',alignItems:'center',justifyContent:'center', overflow:"scroll"}}
+                style={{display:'flex',alignItems:'center',justifyContent:'center'}}
                 onClose={handleClose}
                 aria-labelledby="titolo_articolo"
                 aria-describedby="contenuto_articolo"
