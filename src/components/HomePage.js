@@ -606,7 +606,7 @@ function HomePage (){
                                                     item
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/davide-zanatta-207b12174" immagine={giulio} nome="Davide Zanatta" ruolo="Consigliere"/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/davide-zanatta-207b12174" immagine={require("../images/direttivo/davide.webp")} nome="Davide Zanatta" ruolo="Consigliere"/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
