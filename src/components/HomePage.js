@@ -381,7 +381,7 @@ function HomePage (){
                             Chi siamo
                         </Typography>
                     </div>
-                    <TableContainer component={Paper} elevation={0}>
+                    <TableContainer component={Paper} elevation={0} style={{overflowX: "visible"}}>
                         <Table aria-label="collapsible table">
                             <TableBody>
                                 <TableRow className={classes.tableroot}>
