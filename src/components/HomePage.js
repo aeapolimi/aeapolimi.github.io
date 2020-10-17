@@ -369,7 +369,7 @@ function HomePage (){
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" onClick = {() => navigate("/UserPage")}>Associati</Button>
+                                    <Button size="small" onClick = {() => navigate("/UserPage")}>Join us</Button>
                                 </CardActions>
                             </Card>
                         </Grid>
