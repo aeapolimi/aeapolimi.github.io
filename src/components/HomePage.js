@@ -446,101 +446,6 @@ function HomePage (){
                                 </TableRow>
                                 <TableRow className={classes.tableroot}>
                                     <TableCell>
-                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenContenuti(!openContenuti)}>
-                                            {openContenuti ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                        </IconButton>
-                                    </TableCell>
-                                    <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5">
-                                            Team contenuti
-                                        </Typography>       
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                        <Collapse in={openContenuti} timeout="auto" unmountOnExit>
-                                                <Box margin={1}>
-                                                <Grid
-                                                    container
-                                                    direction="row"
-                                                    justify="flex-start"
-                                                    alignItems="center"
-                                                    spacing={3}
-                                                >
-                                                    <Grid
-                                                    item
-                                                    xl={3}
-                                                    sm={6}
-                                                    xs
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pietro-bosoni-4817291b8/" immagine={giulio} nome="Pietro Bosoni" ruolo="Consigliere" invisibile={false}/>
-                                                    </Grid>
-                                                </Grid>
-                                            </Box>
-                                        </Collapse>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow className={classes.tableroot}>
-                                    <TableCell>
-                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenEventi(!openEventi)}>
-                                            {openEventi ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                        </IconButton>
-                                    </TableCell>
-                                    <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5">
-                                            Team eventi
-                                        </Typography>       
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                        <Collapse in={openEventi} timeout="auto" unmountOnExit>
-                                                <Box margin={1}>
-                                                    <Grid
-                                                    container
-                                                    direction="row"
-                                                    justify="flex-start"
-                                                    alignItems="center"
-                                                    >
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gariboldicristian" immagine={giulio} nome="Cristian Gariboldi" ruolo="Consigliere" invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/filippo-tallon-9a9b331b8/" immagine={require("../images/direttivo/filippo.webp")} nome="Filippo Tallon" ruolo="Co-founder" invisibile={true}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/elena-bastianelli-a58222197" immagine={giulio} nome="Elena Bastianelli" ruolo="Co-founder" invisibile={true}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Giovanni Buzzao" ruolo="Co-founder" invisibile={true}/>
-                                                    </Grid>
-                                                </Grid>
-                                            </Box>
-                                        </Collapse>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow className={classes.tableroot}>
-                                    <TableCell>
                                         <IconButton aria-label="expand row" size="small" onClick={() => setOpenAccademico(!openAccademico)}>
                                             {openAccademico ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                                         </IconButton>
@@ -637,6 +542,101 @@ function HomePage (){
                                                     xs
                                                     >
                                                         <CardDirettivo linkedin="https://www.linkedin.com/in/matteo-sacchetti-92b95218a" immagine={giulio} nome="Matteo Sacchetti" ruolo="Co-founder" invisibile={true}/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Collapse>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow className={classes.tableroot}>
+                                    <TableCell>
+                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenContenuti(!openContenuti)}>
+                                            {openContenuti ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                        </IconButton>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row">
+                                        <Typography variant="h4" component="h5">
+                                            Team contenuti
+                                        </Typography>       
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                                        <Collapse in={openContenuti} timeout="auto" unmountOnExit>
+                                                <Box margin={1}>
+                                                <Grid
+                                                    container
+                                                    direction="row"
+                                                    justify="flex-start"
+                                                    alignItems="center"
+                                                    spacing={3}
+                                                >
+                                                    <Grid
+                                                    item
+                                                    xl={3}
+                                                    sm={6}
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pietro-bosoni-4817291b8/" immagine={giulio} nome="Pietro Bosoni" ruolo="Consigliere" invisibile={false}/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Collapse>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow className={classes.tableroot}>
+                                    <TableCell>
+                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenEventi(!openEventi)}>
+                                            {openEventi ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                        </IconButton>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row">
+                                        <Typography variant="h4" component="h5">
+                                            Team eventi
+                                        </Typography>       
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                                        <Collapse in={openEventi} timeout="auto" unmountOnExit>
+                                                <Box margin={1}>
+                                                    <Grid
+                                                    container
+                                                    direction="row"
+                                                    justify="flex-start"
+                                                    alignItems="center"
+                                                    >
+                                                    <Grid
+                                                    item
+                                                    md={6}
+                                                    xl={3}
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gariboldicristian" immagine={giulio} nome="Cristian Gariboldi" ruolo="Consigliere" invisibile={false}/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    md={6}
+                                                    xl={3}
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/filippo-tallon-9a9b331b8/" immagine={require("../images/direttivo/filippo.webp")} nome="Filippo Tallon" ruolo="Co-founder" invisibile={true}/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    md={6}
+                                                    xl={3}
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/elena-bastianelli-a58222197" immagine={giulio} nome="Elena Bastianelli" ruolo="Co-founder" invisibile={true}/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    md={6}
+                                                    xl={3}
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Giovanni Buzzao" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>

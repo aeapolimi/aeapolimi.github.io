@@ -18,16 +18,9 @@ import Button from '@material-ui/core/Button';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import IconButton from '@material-ui/core/IconButton';
 
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-
 import MenuIcon from '@material-ui/icons/Menu';
-import HomeIcon from '@material-ui/icons/Home';
-import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
-import CodeIcon from '@material-ui/icons/Code';
+
+import ElementiDrawer from "../components/ElementiDrawer"
 
 import "./layout.css"
 
@@ -106,22 +99,7 @@ const Layout = ({ children }) => {
               onClose={toggleDrawer(false)}
               onOpen={toggleDrawer(true)}
             >
-              <List>
-                <ListItem button key="Login" onClick = {() => navigate("/UserPage")} style={{backgroundColor: "#ef6c00", color:"white"}}>
-                  <ListItemIcon><CodeIcon style={{fill: "white"}} /></ListItemIcon>
-                  <ListItemText primary="LOGIN" />
-                </ListItem>
-                <Divider />
-                <ListItem button key="Home" onClick = {() => navigate("/")}>
-                  <ListItemIcon><HomeIcon /></ListItemIcon>
-                  <ListItemText primary="Home" />
-                </ListItem>
-                <Divider />
-                <ListItem button key="FAQ" onClick = {() => navigate("/Domande")}>
-                  <ListItemIcon><QuestionAnswerIcon /></ListItemIcon>
-                  <ListItemText primary="FAQ" />
-                </ListItem>
-              </List>
+              <ElementiDrawer />
           </SwipeableDrawer>
           <AppBar position="static" style={{backgroundColor: "transparent"}} elevation={0}>
             <Toolbar>
