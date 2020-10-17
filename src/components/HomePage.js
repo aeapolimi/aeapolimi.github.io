@@ -525,7 +525,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/leonardo-bertelli-20a34816a" immagine={giulio} nome="Leonardo Bertelli" ruolo="" invisibile={true}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/leonardo-bertelli-20a34816a" immagine={giulio} nome="Leonardo Bertelli" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                     <Grid
                                                     item
