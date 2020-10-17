@@ -53,12 +53,13 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    backgroundColor: "black"
+    backgroundColor: "black",
+    "&:hover": {
+      backgroundColor: "black"
+    }
   },
   title: {
     flexGrow: 1,
-  },
-  logo :{
   },
   footer: {
     position: "fixed",
@@ -125,9 +126,9 @@ const Layout = ({ children }) => {
           <AppBar position="static" style={{backgroundColor: "transparent"}} elevation={0}>
             <Toolbar>
               <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => setOpenDrawer(!openDrawer)}>
-                <MenuIcon />
+                <MenuIcon/>
               </IconButton>
-              <img src={logo} alt="logo" className={classes.logo} height="64px" onClick={() => navigate("/")}/>
+              <img src={logo} alt="logo" height="64px" onClick={() => navigate("/")}/>
             </Toolbar>
           </AppBar>
         </div>
