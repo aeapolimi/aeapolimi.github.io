@@ -33,6 +33,10 @@ module.exports = {
         theme_color: `#ef6c00`,
         // display: `browser`,
         icon: `src/images/aea_maskable.png`, // This path is relative to the root of the site.
+        icon_options: {
+          // For all the options available, please see the additional resources below.
+          purpose: `any maskable`,
+        },
       },
     },
     // {
