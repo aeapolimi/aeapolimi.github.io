@@ -322,6 +322,10 @@ function HomePage (){
                         <Button style={{color:"white"}} onClick = {() => navigate("/UserPage")}>Login</Button>
                     </Toolbar>
                 </AppBar>
+                {/* <video title="videorobot" id="videorobot" autoplay onLostPointerCapture>
+                    <source src={require("../../static/robot.mp4")} type="video/mp4"/>
+                </video> */}
+
                 <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/>
                 {/* <iframe title="bg" id="bg" src='https://aeapolimi.it/robotrender.html' frameBorder="0" loading="lazy"/>  */}
                 <header className="App-header">

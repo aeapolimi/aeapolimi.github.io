@@ -10,6 +10,17 @@
     z-index: -1;
 }
 
+#videorobot {
+    margin: 0;
+    height: 100vh;
+    /* width: 100vw; */
+    overflow: hidden;
+    position:absolute;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
+  }
+
 .rectangle {
     display: table;
     width: 15vh;
