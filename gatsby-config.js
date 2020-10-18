@@ -28,8 +28,7 @@ module.exports = {
       options: {
         extensions: ['dae']
       }
-    }
-
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
