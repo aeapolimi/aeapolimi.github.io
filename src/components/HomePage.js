@@ -326,7 +326,7 @@ function HomePage (){
                 </AppBar>
                 {isMobile ? 
                     <video title="videorobot" id="videorobot" playsinline loop muted autoPlay>
-                        <source src={require("../../static/robot.mp4")} type="video/mp4"/>
+                        <source src={RobotVideo} type="video/mp4"/>
                     </video> :
                     <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/>
                 }
