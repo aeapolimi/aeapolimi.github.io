@@ -22,4 +22,4 @@ exports.onCreateWebpackConfig = ({
       })
     });
   }
-};
+}

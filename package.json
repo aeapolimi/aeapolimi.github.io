@@ -22,6 +22,7 @@
     "gatsby-plugin-zopfli": "^2.0.0",
     "gatsby-source-filesystem": "^2.3.34",
     "gatsby-transformer-sharp": "^2.5.17",
+    "glob": "^7.1.6",
     "gsap": "^3.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
