@@ -15,6 +15,7 @@
     "gatsby-plugin-brotli": "^2.0.0",
     "gatsby-plugin-gdpr-cookies": "^1.0.7",
     "gatsby-plugin-manifest": "^2.4.34",
+    "gatsby-plugin-material-ui": "^2.1.10",
     "gatsby-plugin-offline": "^3.2.31",
     "gatsby-plugin-react-helmet": "^3.3.14",
     "gatsby-plugin-sharp": "^2.6.40",
