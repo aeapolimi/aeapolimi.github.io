@@ -20,9 +20,16 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-brotli',
       options: {
-        extensions: ['css', 'html', 'js', 'dae']
+        extensions: ['css', 'html', 'js']
       }
     },
+    {
+      resolve: 'gatsby-plugin-zopfli',
+      options: {
+        extensions: ['dae']
+      }
+    }
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
