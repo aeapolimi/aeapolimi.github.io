@@ -79,7 +79,7 @@ function UserPage(props){
             </AppBar>
             <div className="benvenuto">
                 {appunti ? <Appunti setAppunti={setAppunti}/> : 
-                <Benvenuto appunti={appunti} setAppunti={setAppunti}/>
+                <Benvenuto appunti={appunti} setAppunti={setAppunti} autorizzato={props.autorizzato}/>
                         }
             </div>
         </div>

@@ -1,12 +1,11 @@
 .sfondo {
     background-color: #ef6c00;
+    position: relative;
     min-height: 100vh;
-    min-width: 100vw;
-    margin: 0;
+    min-width: 100%;
     overflow: hidden;
-    position:absolute;
+    margin: 0;
     display: table;
-    position: absolute;
     flex-grow: 1;
 }
 
@@ -22,4 +21,5 @@
     color: white;
     min-width: 100%;
     flex-grow: 1;
+    overflow: hidden;
 }

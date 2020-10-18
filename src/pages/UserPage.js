@@ -9,6 +9,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import IconButton from '@material-ui/core/IconButton';
 
 import * as firebase from "firebase/app";
+import 'firebase/firestore';
 import "firebase/auth";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
@@ -34,6 +35,8 @@ class SignInScreen extends React.Component {
 
     state = {
       isSignedIn: false,
+      autorizzato: false,
+      primogiro: true,
     };
 
     uiConfig = {
@@ -87,11 +90,38 @@ class SignInScreen extends React.Component {
           </>
         );
       }
+
+      var docref = firebase.firestore().collection("utenti").doc(firebase.auth().currentUser.uid);
+      var setAutorizzato = (valore) => {
+        this.setState({autorizzato: valore})
+      };
+      var setPrimogiro = () => {
+        this.setState({primogiro: false})
+      };
+
+      if (this.state.primogiro){
+        docref.get().then(function(doc) {
+            if (doc.exists) {
+                setAutorizzato(doc.data().autorizzato);
+            } else {
+              docref.set(
+                {
+                  email : firebase.auth().currentUser.email,
+                  autorizzato : false
+                }
+              )
+            }
+            setPrimogiro();
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
+      }
+      
       return (
         <>
         <SEO title="Home Socio" />
         <ThemeProvider theme={theme}>
-            <PaginaUser utente={firebase.auth().currentUser.displayName}/>
+            <PaginaUser utente={firebase.auth().currentUser.displayName} autorizzato={this.state.autorizzato}/>
         </ThemeProvider>
         </>
       );
