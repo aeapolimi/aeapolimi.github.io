@@ -49,6 +49,8 @@ import guido from "../images/direttivo/guido.webp"
 import isabella from "../images/direttivo/isabella.webp"
 import sofia from "../images/direttivo/sofia.webp"
 
+import RobotVideo from "../../static/robot.mp4"
+
 const firebaseConfig = {
     apiKey: "AIzaSyCN3qF77x39c9RtTO5_s4QMV3lQ589RdZU",
     authDomain: "aeapolimiweb.firebaseapp.com",
@@ -322,11 +324,15 @@ function HomePage (){
                         <Button style={{color:"white"}} onClick = {() => navigate("/UserPage")}>Login</Button>
                     </Toolbar>
                 </AppBar>
-                <video title="videorobot" id="videorobot" loop muted autoplay>
-                    <source src={require("../../static/robot.mp4")} type="video/mp4"/>
-                </video>
+                {isMobile ? 
+                    <video title="videorobot" id="videorobot" playsinline loop muted autoPlay>
+                        <source src={require("../../static/robot.mp4")} type="video/mp4"/>
+                    </video> :
+                    <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/>
+                }
 
                 {/* <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/> */}
+                
                 {/* <iframe title="bg" id="bg" src='https://aeapolimi.it/robotrender.html' frameBorder="0" loading="lazy"/>  */}
                 <header className="App-header">
                     <div className="rectangle" key="titolo"><span className="titoloLogo"><img alt="logo" src={logo}/></span></div>
