@@ -321,7 +321,7 @@ function HomePage (){
                     </Toolbar>
                 </AppBar>
                 {/* Il render viene caricato solo su firefox non mobile. */}
-                {(isFirefox || !isMobile || !isAndroid) ? 
+                {(isFirefox && !isMobile && !isAndroid) ? 
                     <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/> :
                     <video title="videorobot" id="videorobot" playsinline loop muted autoPlay poster={require("../images/sfondorobot.png")}>
                         <source src={RobotVideo} type="video/mp4"/>
