@@ -43,11 +43,6 @@ import 'firebase/firestore';
 
 import { navigate } from "gatsby"
 
-import giulio from "../images/direttivo/giulio.webp"
-import guido from "../images/direttivo/guido.webp"
-import isabella from "../images/direttivo/isabella.webp"
-import sofia from "../images/direttivo/sofia.webp"
-
 import RobotVideo from "../../static/robot.mp4"
 
 const isSaf = isMobileSafari || isSafari;
