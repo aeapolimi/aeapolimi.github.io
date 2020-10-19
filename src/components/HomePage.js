@@ -22,6 +22,9 @@ import Modal from '@material-ui/core/Modal';
 import Box from '@material-ui/core/Box';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import TelegramIcon from '@material-ui/icons/Telegram';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -319,7 +322,7 @@ function HomePage (){
             <div className="App">
                 <AppBar position="absolute" style={{backgroundColor: "transparent"}} elevation={0}>
                     <Toolbar>
-                        <Button style={{color:"white"}} onClick = {() => window.open("https://t.me/aeapolimi")}>Telegram</Button>
+                        <Button style={{color:"white"}} onClick = {() => window.open("https://t.me/aeapolimi")}>TELEGRAM</Button>
                         <div style={{flexGrow: 1}} />
                         <Button style={{color:"white"}} onClick = {() => navigate("/UserPage")}>Login</Button>
                     </Toolbar>
@@ -703,6 +706,12 @@ function HomePage (){
                 <Typography variant="subtitle2" component="subtitle2">
                     Copyright AEA 2020
                 </Typography>
+                <div style={{flexGrow: 1}} />
+                
+                <IconButton href = "https://www.instagram.com/aeapolimi/" target="_blank"><InstagramIcon></InstagramIcon></IconButton>
+                <IconButton href = "https://www.linkedin.com/company/aeapolimi" target="_blank"><LinkedInIcon></LinkedInIcon></IconButton>
+                <IconButton href = "https://t.me/aeapolimi" target="_blank"><TelegramIcon></TelegramIcon></IconButton>
+
                 <div style={{flexGrow: 1}} />
                 <Button style={{color:"white"}} size="small" onClick = {() => window.open("https://aeapolimi.github.io/privacypolicy.html")}>Privacy policy</Button>
             </Toolbar>
