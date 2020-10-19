@@ -322,12 +322,12 @@ function HomePage (){
                 </AppBar>
                 {/* Il render viene caricato solo su firefox non mobile. */}
                 {(!isFirefox || isMobile || isAndroid) ? 
-                    <video title="videorobot" id="videorobot" playsinline loop muted autoPlay>
+                    <video title="videorobot" id="videorobot" playsinline loop muted autoPlay poster={require("../images/sfondorobot.png")}>
                         <source src={RobotVideo} type="video/mp4"/>
                     </video> :
                     <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/>
                 }
-                
+
                 <header className="App-header">
                     <div className="rectangle" key="titolo"><span className="titoloLogo"><img alt="logo" src={!isSaf ? require("../images/logobianco.webp") : require("../images/aeatondo.png")}/></span></div>
                 </header>
