@@ -39,6 +39,21 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          '/*': ['X-Frame-Options: SAMEORIGIN'],
+          "/static/*": [
+            "cache-control: public",
+            "cache-control: max-age=31536000",
+            "cache-control: immutable",
+            'X-Frame-Options: GOFORIT'
+          ],
+        },
+        mergeSecurityHeaders: false,
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-gdpr-cookies`,
     // },

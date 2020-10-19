@@ -2,6 +2,8 @@
   Automation Engineering Association on the web
 </h1>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dddf052d-2b33-408a-ac72-8f3616e76cb1/deploy-status)](https://app.netlify.com/sites/aeapolimi/deploys)
+
 Creato con React + Gatsby.
 Per modificarlo installa [Node](https://www.nodejs.org/).
 Qui sotto i comandi di routine da usare avendo l'ambiente pronto e un quickstart per impostare l'ambiente al primo avvio.
@@ -17,8 +19,9 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
 2) **npm run develop** (per vedere se il sito funziona con le modifiche)
 3) **git add .**
 4) **git commit -m "Messaggio del commit"**
-5) **git push**
-6) **npm run deploy** (Se sono sicuro di voler pubblicare il sito)
+5) **git push** (Pubblica il sito su netlify PROVVISORIO, VA FATTO UN BRANCH APPOSITO)
+
+6) **npm run deploy** (Se vuoi pubblicare anche su aeapolimi.github.io)
 
 ## 🚀 Quick start primo clone senza ambiente
 

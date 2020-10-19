@@ -9,6 +9,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+import {isSafari, isMobileSafari} from 'react-device-detect';
+
 import { createMuiTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -26,7 +28,7 @@ import "./layout.css"
 
 import { navigate } from "gatsby"
 
-import logo from "../images/logobianco.webp"
+const logo = !(isSafari || isMobileSafari) ? require("../images/logobianco.webp") : require("../images/aeatondo.png")
 
 let theme = createMuiTheme({
   palette: {

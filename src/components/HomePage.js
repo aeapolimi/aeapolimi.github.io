@@ -3,7 +3,7 @@ import './homePage.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import {isMobile} from 'react-device-detect';
+import {isMobile, isSafari, isMobileSafari, isAndroid, isFirefox} from 'react-device-detect';
 
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -46,13 +46,9 @@ import 'firebase/firestore';
 
 import { navigate } from "gatsby"
 
-import logo from "../images/logobianco.webp"
-import giulio from "../images/direttivo/giulio.webp"
-import guido from "../images/direttivo/guido.webp"
-import isabella from "../images/direttivo/isabella.webp"
-import sofia from "../images/direttivo/sofia.webp"
-
 import RobotVideo from "../../static/robot.mp4"
+
+const isSaf = isMobileSafari || isSafari;
 
 const firebaseConfig = {
     apiKey: "AIzaSyCN3qF77x39c9RtTO5_s4QMV3lQ589RdZU",
@@ -327,18 +323,16 @@ function HomePage (){
                         <Button style={{color:"white"}} onClick = {() => navigate("/UserPage")}>Login</Button>
                     </Toolbar>
                 </AppBar>
-                {isMobile ? 
-                    <video title="videorobot" id="videorobot" playsinline loop muted autoPlay>
-                        <source src={require("../../static/robot.mp4")} type="video/mp4"/>
-                    </video> :
-                    <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/>
+                {/* Il render viene caricato solo su firefox non mobile. */}
+                {(isFirefox && !isMobile && !isAndroid) ? 
+                    <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/> :
+                    <video title="videorobot" id="videorobot" playsinline loop muted autoPlay poster={require("../images/sfondorobot.png")}>
+                        <source src={RobotVideo} type="video/mp4"/>
+                    </video>                    
                 }
 
-                {/* <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/> */}
-                
-                {/* <iframe title="bg" id="bg" src='https://aeapolimi.it/robotrender.html' frameBorder="0" loading="lazy"/>  */}
                 <header className="App-header">
-                    <div className="rectangle" key="titolo"><span className="titoloLogo"><img alt="logo" src={logo}/></span></div>
+                    <div className="rectangle" key="titolo"><span className="titoloLogo"><img alt="logo" src={!isSaf ? require("../images/logobianco.webp") : require("../images/aeatondo.png")}/></span></div>
                 </header>
                 <div className="freccia" style={{height:0, bottom:80, position:"relative"}}>
                     <Fab color="inherit" size="small" href="#news" aria-label="news">
@@ -426,7 +420,7 @@ function HomePage (){
                                                     md={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Giulio Vaccari" ruolo="Presidente" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Giulio Vaccari" ruolo="Presidente" invisibile={false}/>
                                                     </Grid>
                                                 <Grid
                                                     item
@@ -434,7 +428,7 @@ function HomePage (){
                                                     md={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/guido-sassaroli-778548169/" immagine={guido} nome="Guido Sassaroli" ruolo="Vicepresidente" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/guido-sassaroli-778548169/" immagine={!isSaf ? require("../images/direttivo/guido.webp") : require("../images/direttivo/guido.jpeg")} nome="Guido Sassaroli" ruolo="Vicepresidente" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -442,7 +436,7 @@ function HomePage (){
                                                     md={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://linkedin.com/in/isabella-luppi-006a9b177" immagine={isabella} nome="Isabella Luppi" ruolo="Segretario" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://linkedin.com/in/isabella-luppi-006a9b177" immagine={!isSaf ? require("../images/direttivo/isabella.webp") : require("../images/direttivo/isabella.jpeg")} nome="Isabella Luppi" ruolo="Segretario" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -450,7 +444,7 @@ function HomePage (){
                                                     md={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/sofiatrombini" immagine={sofia} nome="Sofia Trombini" ruolo="Tesoriere" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/sofiatrombini" immagine={!isSaf ? require("../images/direttivo/sofia.webp") : require("../images/direttivo/sofia.jpeg")} nome="Sofia Trombini" ruolo="Tesoriere" invisibile={false}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
@@ -486,7 +480,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" immagine={giulio} nome="Roberto Pellerito" ruolo="Consigliere" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Roberto Pellerito" ruolo="Consigliere" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -494,7 +488,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pasqualecortese1994" immagine={giulio} nome="Pasquale Cortese" ruolo="Co-founder" invisibile={true}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pasqualecortese1994" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Pasquale Cortese" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
@@ -530,7 +524,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/davide-zanatta-207b12174" immagine={require("../images/direttivo/davide.webp")} nome="Davide Zanatta" ruolo="Consigliere" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/davide-zanatta-207b12174" immagine={!isSaf ? require("../images/direttivo/davide.webp") : require("../images/direttivo/davide.jpeg")} nome="Davide Zanatta" ruolo="Consigliere" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -538,7 +532,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/leonardo-bertelli-20a34816a" immagine={giulio} nome="Leonardo Bertelli" ruolo="Co-founder" invisibile={true}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/leonardo-bertelli-20a34816a" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Leonardo Bertelli" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -546,7 +540,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Pietro Dardano" ruolo="Co-founder" invisibile={true}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Pietro Dardano" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -554,7 +548,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/matteo-sacchetti-92b95218a" immagine={giulio} nome="Matteo Sacchetti" ruolo="Co-founder" invisibile={true}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/matteo-sacchetti-92b95218a" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Matteo Sacchetti" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
@@ -590,7 +584,7 @@ function HomePage (){
                                                     sm={6}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pietro-bosoni-4817291b8/" immagine={giulio} nome="Pietro Bosoni" ruolo="Consigliere" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pietro-bosoni-4817291b8/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Pietro Bosoni" ruolo="Consigliere" invisibile={false}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
@@ -625,7 +619,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gariboldicristian" immagine={giulio} nome="Cristian Gariboldi" ruolo="Consigliere" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gariboldicristian" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Cristian Gariboldi" ruolo="Consigliere" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -633,7 +627,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/filippo-tallon-9a9b331b8/" immagine={require("../images/direttivo/filippo.webp")} nome="Filippo Tallon" ruolo="Co-founder" invisibile={true}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/filippo-tallon-9a9b331b8/" immagine={!isSaf ? require("../images/direttivo/filippo.webp") : require("../images/direttivo/giulio.jpeg")} nome="Filippo Tallon" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -641,7 +635,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/elena-bastianelli-a58222197" immagine={giulio} nome="Elena Bastianelli" ruolo="Co-founder" invisibile={true}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/elena-bastianelli-a58222197" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Elena Bastianelli" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -649,7 +643,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Giovanni Buzzao" ruolo="Co-founder" invisibile={true}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Giovanni Buzzao" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
@@ -685,7 +679,7 @@ function HomePage (){
                                                     sm={6}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={giulio} nome="Andrea Archetti" ruolo="Consigliere" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Andrea Archetti" ruolo="Consigliere" invisibile={false}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
