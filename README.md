@@ -19,7 +19,8 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
 2) **npm run develop** (per vedere se il sito funziona con le modifiche)
 3) **git add .**
 4) **git commit -m "Messaggio del commit"**
-5) **git push** (Pubblica il sito su netlify PROVVISORIO, VA FATTO UN BRANCH APPOSITO)
+5) **git push**
+6) **git push origin master:build** (Per pubblicare USARE POCO CHE POI ANDIAMO FUORI DALLA QUOTA GRATIS)
 
 6) **npm run deploy** (Se vuoi pubblicare anche su aeapolimi.github.io)
 
