@@ -331,7 +331,7 @@ function HomePage (){
                 
                 {/* <iframe title="bg" id="bg" src='https://aeapolimi.it/robotrender.html' frameBorder="0" loading="lazy"/>  */}
                 <header className="App-header">
-                    <div className="rectangle" key="titolo"><span className="titoloLogo"><img alt="logo" src={!isSaf ? require("../images/logobianco.webp") : require("../images/logobianco.png")}/></span></div>
+                    <div className="rectangle" key="titolo"><span className="titoloLogo"><img alt="logo" src={!isSaf ? require("../images/logobianco.webp") : require("../images/aeatondo.png")}/></span></div>
                 </header>
                 <div className="freccia" style={{height:0, bottom:80, position:"relative"}}>
                     <Fab color="inherit" size="small" href="#news" aria-label="news">
@@ -626,7 +626,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/filippo-tallon-9a9b331b8/" immagine={require("../images/direttivo/filippo.webp")} nome="Filippo Tallon" ruolo="Co-founder" invisibile={true}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/filippo-tallon-9a9b331b8/" immagine={!isSaf ? require("../images/direttivo/filippo.webp") : require("../images/direttivo/giulio.jpeg")} nome="Filippo Tallon" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                     <Grid
                                                     item

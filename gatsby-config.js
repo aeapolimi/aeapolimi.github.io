@@ -39,6 +39,18 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          "/static/*": [
+            "cache-control: public",
+            "cache-control: max-age=31536000",
+            "cache-control: immutable",
+          ],
+        },
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-gdpr-cookies`,
     // },
