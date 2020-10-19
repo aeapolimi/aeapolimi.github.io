@@ -3,7 +3,7 @@ import './homePage.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import {isMobile, isSafari, isMobileSafari, isAndroid} from 'react-device-detect';
+import {isMobile, isSafari, isMobileSafari, isAndroid, isFirefox} from 'react-device-detect';
 
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -320,16 +320,14 @@ function HomePage (){
                         <Button style={{color:"white"}} onClick = {() => navigate("/UserPage")}>Login</Button>
                     </Toolbar>
                 </AppBar>
-                {isMobile || isAndroid ? 
+                {/* Il render viene caricato solo su firefox non mobile. */}
+                {(!isFirefox || isMobile || isAndroid) ? 
                     <video title="videorobot" id="videorobot" playsinline loop muted autoPlay>
                         <source src={RobotVideo} type="video/mp4"/>
                     </video> :
                     <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/>
                 }
-
-                {/* <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/> */}
                 
-                {/* <iframe title="bg" id="bg" src='https://aeapolimi.it/robotrender.html' frameBorder="0" loading="lazy"/>  */}
                 <header className="App-header">
                     <div className="rectangle" key="titolo"><span className="titoloLogo"><img alt="logo" src={!isSaf ? require("../images/logobianco.webp") : require("../images/aeatondo.png")}/></span></div>
                 </header>
