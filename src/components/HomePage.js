@@ -702,9 +702,9 @@ function HomePage (){
                 </Typography>
                 <div style={{flexGrow: 1}} />
                 
-                <IconButton href = "https://www.instagram.com/aeapolimi/" target="_blank"><InstagramIcon></InstagramIcon></IconButton>
-                <IconButton href = "https://www.linkedin.com/company/aeapolimi" target="_blank"><LinkedInIcon></LinkedInIcon></IconButton>
-                <IconButton href = "https://t.me/aeapolimi" target="_blank"><TelegramIcon></TelegramIcon></IconButton>
+                <IconButton href = "https://www.instagram.com/aeapolimi/" target="_blank"><InstagramIcon style={{fill: "white"}}/></IconButton>
+                <IconButton href = "https://www.linkedin.com/company/aeapolimi" target="_blank"><LinkedInIcon style={{fill: "white"}}/></IconButton>
+                <IconButton href = "https://t.me/aeapolimi" target="_blank"><TelegramIcon style={{fill: "white"}}/></IconButton>
 
                 <div style={{flexGrow: 1}} />
                 <Button style={{color:"white"}} size="small" onClick = {() => window.open("https://aeapolimi.github.io/privacypolicy.html")}>Privacy policy</Button>
