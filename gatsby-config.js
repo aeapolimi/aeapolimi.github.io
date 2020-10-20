@@ -47,8 +47,7 @@ module.exports = {
           "/static/*": [
             "cache-control: public",
             "cache-control: max-age=31536000",
-            "cache-control: immutable",
-            'X-Frame-Options: GOFORIT'
+            "cache-control: immutable"
           ],
         },
         mergeSecurityHeaders: false,
