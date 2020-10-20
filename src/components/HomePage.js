@@ -298,6 +298,7 @@ function CardDirettivo(props){
 }
 
 function HomePage (){
+    // HOOK
     const classes = useStyles();
     const [openBoard, setOpenBoard] = React.useState(true);
     const [openContenuti, setOpenContenuti] = React.useState(false);
