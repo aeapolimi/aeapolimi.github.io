@@ -6,38 +6,38 @@ import { makeStyles } from '@material-ui/core/styles';
 import {isMobile, isSafari, isMobileSafari, isAndroid, isFirefox} from 'react-device-detect';
 
 import AppBar from '@material-ui/core/AppBar';
+import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import Fab from '@material-ui/core/Fab';
-import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
+import Collapse from '@material-ui/core/Collapse';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
-import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import Modal from '@material-ui/core/Modal';
-import Box from '@material-ui/core/Box';
-import Collapse from '@material-ui/core/Collapse';
+import Fab from '@material-ui/core/Fab';
+import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import TelegramIcon from '@material-ui/icons/Telegram';
+import Modal from '@material-ui/core/Modal';
+import Paper from '@material-ui/core/Paper';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+
+import { red } from '@material-ui/core/colors';
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import MenuIcon from '@material-ui/icons/Menu';
 
 import CookieConsent from "react-cookie-consent";
 
@@ -45,6 +45,9 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 import { navigate } from "gatsby"
+
+import ElementiDrawer from "../components/ElementiDrawer"
+import Footer from "../components/Footer"
 
 import RobotVideo from "../../static/robot.mp4"
 
@@ -62,11 +65,21 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const useStyles = makeStyles((theme) => ({
-    tableroot: {
-        '& > *': {
-          borderBottom: 'unset',
+    appBar: {
+        top: 'auto',
+        bottom: 0,
+    },
+    actionArea: {
+        "&:hover $focusHighlight": {
+          opacity: 0,
         },
+        '&$focusVisible $focusHighlight': {
+            opacity: 0,
+          },
       },
+    avatar: {
+        backgroundColor: red[500],
+    },
     cardroot: {
         // borderRadius: 30,
         maxWidth: 345,
@@ -93,6 +106,12 @@ const useStyles = makeStyles((theme) => ({
             marginTop: "40vh"
       },
     },
+    info: {
+      marginTop: "auto",
+      position: "absolute",
+      right: "45%",
+      bottom: 0,
+    },
     media: {
       height: 0,
       paddingTop: '56.25%', // 16:9
@@ -103,14 +122,12 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '50%',
         margin: '28px'
     },
-    info: {
-      marginTop: "auto",
-      position: "absolute",
-      right: "45%",
-      bottom: 0,
-    },
-    avatar: {
-      backgroundColor: red[500],
+    menuButton: {
+        marginRight: theme.spacing(2),
+        backgroundColor: "black",
+        "&:hover": {
+        backgroundColor: "black"
+        }
     },
     paper: {
         position: 'absolute',
@@ -120,20 +137,13 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
     },
-    appBar: {
-        top: 'auto',
-        bottom: 0,
-    },
     focusHighlight: {},
     focusVisible: {},
-    actionArea: {
-        "&:hover $focusHighlight": {
-          opacity: 0,
-        },
-        '&$focusVisible $focusHighlight': {
-            opacity: 0,
-          },
-      },
+    tableroot: {
+    '& > *': {
+        borderBottom: 'unset',
+    },
+    },
   }));
 
 const responsive = {
@@ -300,6 +310,7 @@ function CardDirettivo(props){
 function HomePage (){
     // HOOK
     const classes = useStyles();
+    const [openDrawer, setOpenDrawer] = React.useState(false);
     const [openBoard, setOpenBoard] = React.useState(true);
     const [openContenuti, setOpenContenuti] = React.useState(false);
     const [openAziende, setOpenAziende] = React.useState(false);
@@ -315,13 +326,30 @@ function HomePage (){
     else {
         maxCardwidth = "50vw";
     }
+    const toggleDrawer = (open) => (event) => {
+        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setOpenDrawer(open);
+    };
     return(<>
             <div className="App">
+                <SwipeableDrawer
+                    anchor="left"
+                    open={openDrawer}
+                    onClose={toggleDrawer(false)}
+                    onOpen={toggleDrawer(true)}
+                >
+                    <ElementiDrawer />
+                </SwipeableDrawer>
                 <AppBar position="absolute" style={{backgroundColor: "transparent"}} elevation={0}>
                     <Toolbar>
-                        <Button style={{color:"white"}} onClick = {() => window.open("https://t.me/aeapolimi")}>TELEGRAM</Button>
+                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => setOpenDrawer(!openDrawer)}>
+                            <MenuIcon/>
+                        </IconButton>
                         <div style={{flexGrow: 1}} />
-                        <Button style={{color:"white"}} onClick = {() => navigate("/UserPage")}>Login</Button>
+                        <Button style={{color:"white"}} onClick = {() => window.open("https://t.me/aeapolimi")}>TELEGRAM</Button>
                     </Toolbar>
                 </AppBar>
                 {/* Il render viene caricato solo su firefox non mobile. */}
@@ -696,21 +724,7 @@ function HomePage (){
             Per informazioni: segreteria@aeapolimi.it
         </div>
         <div style={{height:"50px"}} />
-        <AppBar position="relative" style={{backgroundColor: "black"}} className={classes.appBar} elevation={0}>
-            <Toolbar>
-                <Typography variant="subtitle2" component="subtitle2">
-                    Copyright AEA 2020
-                </Typography>
-                <div style={{flexGrow: 1}} />
-                
-                <IconButton href = "https://www.instagram.com/aeapolimi/" target="_blank"><InstagramIcon style={{fill: "white"}}/></IconButton>
-                <IconButton href = "https://www.linkedin.com/company/aeapolimi" target="_blank"><LinkedInIcon style={{fill: "white"}}/></IconButton>
-                <IconButton href = "https://t.me/aeapolimi" target="_blank"><TelegramIcon style={{fill: "white"}}/></IconButton>
-
-                <div style={{flexGrow: 1}} />
-                <Button style={{color:"white"}} size="small" onClick = {() => window.open("https://aeapolimi.github.io/privacypolicy.html")}>Privacy policy</Button>
-            </Toolbar>
-        </AppBar>
+        <Footer />
         <CookieConsent
             location="bottom"
             buttonText="Accetto"

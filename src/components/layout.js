@@ -23,6 +23,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 import ElementiDrawer from "../components/ElementiDrawer"
+import Footer from "../components/Footer"
 
 import "./layout.css"
 
@@ -94,34 +95,30 @@ const Layout = ({ children }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <div className={classes.root}>
-          <SwipeableDrawer
-              anchor="left"
-              open={openDrawer}
-              onClose={toggleDrawer(false)}
-              onOpen={toggleDrawer(true)}
-            >
-              <ElementiDrawer />
-          </SwipeableDrawer>
-          <AppBar position="static" style={{backgroundColor: "transparent"}} elevation={0}>
-            <Toolbar>
-              <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => setOpenDrawer(!openDrawer)}>
-                <MenuIcon/>
-              </IconButton>
-              <img src={logo} alt="logo" height="64px" onClick={() => navigate("/")}/>
-            </Toolbar>
-          </AppBar>
+        <div style={{minHeight: "calc(100vh - 64px)"}} >
+          <div>
+            <SwipeableDrawer
+                anchor="left"
+                open={openDrawer}
+                onClose={toggleDrawer(false)}
+                onOpen={toggleDrawer(true)}
+              >
+                <ElementiDrawer />
+            </SwipeableDrawer>
+            <AppBar position="static" style={{backgroundColor: "transparent"}} elevation={0}>
+              <Toolbar>
+                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => setOpenDrawer(!openDrawer)}>
+                  <MenuIcon/>
+                </IconButton>
+                <img src={logo} alt="logo" height="64px" onClick={() => navigate("/")}/>
+              </Toolbar>
+            </AppBar>
+          </div>
+          <main>{children}</main>
         </div>
-        <main>{children}</main>
-        <AppBar position="fixed" style={{backgroundColor: "black"}} className={classes.appBar} elevation={0}>
-          <Toolbar>
-              <Typography variant="subtitle2" component="subtitle2">
-                  Copyright AEA 2020
-              </Typography>
-              <div style={{flexGrow: 1}} />
-              <Button style={{color:"white"}} size="small" onClick = {() => window.open("https://aeapolimi.github.io/privacypolicy.html")}>Privacy policy</Button>
-          </Toolbar>
-        </AppBar>
+        <div>
+          <Footer/>
+        </div>
       </ThemeProvider>
     </>
   )
