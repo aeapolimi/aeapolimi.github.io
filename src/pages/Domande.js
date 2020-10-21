@@ -39,7 +39,8 @@ function Domande() {
     const [state, setState] = React.useState({
         "chi":true,
         "cose": false,
-        "legali": false
+        "legali": false,
+        "ingresso":false
     })
     return (
       <>
@@ -56,7 +57,7 @@ function Domande() {
                             </TableCell>
                             <TableCell component="th" scope="row">
                                 <Typography variant="h4" component="h5">
-                                    Chi siamo
+                                    Che cos'è AEA?
                                 </Typography>       
                             </TableCell>
                         </TableRow>
@@ -64,7 +65,10 @@ function Domande() {
                             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                                 <Collapse in={state["chi"]} timeout="auto" unmountOnExit>
                                     <Typography variant="p" component="p">
-                                        Non lo sappiamo
+
+                                    AEA, acronimo di Automation Engineering Association, è un’associazione studentesca no profit del politecnico di Milano.
+                                    Come principale obbiettivo ha quello di promuovere la figura dell’ingegnere dell’automazione, incentivando rapporti di collaborazione e condivisione di interessi tra gli studenti.
+
                                     </Typography>   
                                 </ Collapse>
                             </ TableCell>
@@ -77,7 +81,7 @@ function Domande() {
                             </TableCell>
                             <TableCell component="th" scope="row">
                                 <Typography variant="h4" component="h5">
-                                    Cosa vogliamo
+                                    Cosa fate?
                                 </Typography>       
                             </TableCell>
                         </TableRow>
@@ -85,7 +89,11 @@ function Domande() {
                             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                                 <Collapse in={state["cosa"]} timeout="auto" unmountOnExit>
                                     <Typography variant="p" component="p">
-                                        Varie cose
+
+                                    Il nostro progetto è quello di creare una grande community di studenti disposti ad aiutarsi vicendevolmente al fine di rendere più entusiasmante il proprio percorso accademico. 
+                                    <br></br>Questo significa affiancare un accrescimento della propria conoscenza in abito ingegneristico ad un arricchimento personale e sociale.
+                                    Per fare ciò organizzeremo eventi di diverse tipologie, sia più formali in collaborazione con aziende del settore o ex alunni, sia semplici meeting o aperitivi tra studenti nei quali ognuno potrà raccontare la propria esperienza universitaria (esami a scelta, Erasmus, stages...).
+                                    <br></br>Sei ancora indeciso sulla scelta del piano di studi?! Vorresti conoscere qualcuno che ha già fatto un Erasmus e che ti puó dare consigli in merito?! Non preoccuparti, in AEA troverai tutto quello di cui hai bisogno.... e molto altro!
                                     </Typography>   
                                 </ Collapse>
                             </ TableCell>
@@ -98,7 +106,7 @@ function Domande() {
                             </TableCell>
                             <TableCell component="th" scope="row">
                                 <Typography variant="h4" component="h5">
-                                    Siamo legali
+                                    Siete in regola?
                                 </Typography>       
                             </TableCell>
                         </TableRow>
@@ -106,11 +114,37 @@ function Domande() {
                             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                                 <Collapse in={state["legali"]} timeout="auto" unmountOnExit>
                                     <Typography variant="p" component="p">
-                                        Insomma
+
+                                        Work in progress...
                                     </Typography>   
                                 </ Collapse>
                             </ TableCell>
                         </TableRow>
+
+                        <TableRow className={classes.tableroot}>
+                            <TableCell>
+                                <IconButton aria-label="expand row" size="small" onClick={() => setState({ ...state, "ingresso": !state["ingresso"] })}>
+                                    {state["ingresso"] ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                </IconButton>
+                            </TableCell>
+                            <TableCell component="th" scope="row">
+                                <Typography variant="h4" component="h5">
+                                    Come faccio ad associarmi?
+                                </Typography>       
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                                <Collapse in={state["ingresso"]} timeout="auto" unmountOnExit>
+                                    <Typography variant="p" component="p">
+                                    Puoi entrare a far parte dell’associazione se sei inscritto ad un qualsiasi corso di laurea, triennale o magistrale, o se sei dottorando presso il Politecnico di Milano.
+                                    Per ulteriori informazioni contatta la nostra segreteria all'indirizzo segreteria@aeapolimi.it !
+
+                                    </Typography>   
+                                </ Collapse>
+                            </ TableCell>
+                        </TableRow>
+
                     </TableBody>
                 </Table>
             </TableContainer>
