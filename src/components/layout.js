@@ -103,7 +103,7 @@ const Layout = ({ children }) => {
                 onClose={toggleDrawer(false)}
                 onOpen={toggleDrawer(true)}
               >
-                <ElementiDrawer />
+                <ElementiDrawer home={false}/>
             </SwipeableDrawer>
             <AppBar position="static" style={{backgroundColor: "transparent"}} elevation={0}>
               <Toolbar>

@@ -12,30 +12,30 @@ import CodeIcon from '@material-ui/icons/Code';
 import InfoIcon from '@material-ui/icons/Info';
 import PeopleIcon from '@material-ui/icons/People';
 
-import { navigate } from "gatsby"
+import { navigate, Link } from "gatsby"
 
-function ElementiDrawer(){
+function ElementiDrawer(props){
     return (
         <List>
-            <ListItem button key="Login" onClick = {() => navigate("/UserPage")} style={{backgroundColor: "#ef6c00", color:"white"}}>
+            <ListItem button key="Login" component={Link} to="/UserPage" style={{backgroundColor: "#ef6c00", color:"white"}}>
                 <ListItemIcon><CodeIcon style={{fill: "white"}} /></ListItemIcon>
                 <ListItemText primary="LOGIN" />
             </ListItem>
             <Divider />
-            <ListItem button key="Home" onClick = {() => navigate("/")}>
+            <ListItem button key="Home" component={Link} to="/" style={{color:"black"}}>
                 <ListItemIcon><HomeIcon /></ListItemIcon>
                 <ListItemText primary="Home" />
             </ListItem>
-            <ListItem button key="About" onClick = {() => navigate("/#about")}>
+            <ListItem button key="About" component={props.home ? "a" : Link} href="#about" to="/#about" style={{color:"black"}}>
                 <ListItemIcon><InfoIcon /></ListItemIcon>
                 <ListItemText primary="About" />
             </ListItem>
-            <ListItem button key="Chi siamo" onClick = {() => navigate("/#team")}>
+            <ListItem button key="team" component={props.home ? "a" : Link} href="#team" to="/#team" style={{color:"black"}}>
                 <ListItemIcon><PeopleIcon /></ListItemIcon>
-                <ListItemText primary="Chi siamo" />
+                <ListItemText primary="Team" />
             </ListItem>
             <Divider />
-            <ListItem button key="FAQ" onClick = {() => navigate("/Domande")}>
+            <ListItem button key="FAQ" component={Link} to="/Domande" style={{color:"black"}}>
                 <ListItemIcon><QuestionAnswerIcon /></ListItemIcon>
                 <ListItemText primary="FAQ" />
             </ListItem>

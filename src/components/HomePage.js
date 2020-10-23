@@ -341,7 +341,7 @@ function HomePage (){
                     onClose={toggleDrawer(false)}
                     onOpen={toggleDrawer(true)}
                 >
-                    <ElementiDrawer />
+                    <ElementiDrawer home={true}/>
                 </SwipeableDrawer>
                 <AppBar position="absolute" style={{backgroundColor: "transparent"}} elevation={0}>
                     <Toolbar>
@@ -390,18 +390,17 @@ function HomePage (){
                         >
                             <Card className={classes.cardabout}>
                                 <CardContent>
+                                        Always aiming for the top.
                                     <Typography color="textSecondary" gutterBottom>
-                                        Un punto di riferimento per il settore.
                                     </Typography>
                                     <Typography variant="h5" component="h2">
                                         Automation Engineering Association Polimi
                                     </Typography>
                                     <Typography variant="body2" component="p">
-                                        L’AEA, l’Automation Engineering Association, è un’associazione del Politecnico di Milano fondata nel *//* e riconosciuta dallo Stato Italiano. 
-                                        È un’associazione no-profit, apartitica, apolitica e aconfessionale. 
-                                        Costituita da studenti per gli studenti, lo scopo dell’associazione è quello di promuovere la figura dell’ingegnere 
-                                        dell’automazione e di essere un punto di riferimento per tutti gli studenti del Politecnico di Milano. 
-                                        La nostra mission è quella di offrire delle opportunità di crescita e di formazione, sia dal punto di vista accademico che da quello lavorativo.
+                                        AEA, Automation Engineering Association, is the Automation and Robotics Association of Politecnico di Milano. 
+                                        Built by students for students, if you join us you can learn with experts' speeches, build a strong network
+                                        getting in touch with future-oriented and open minded people, visit automation companies, work on automation related projects
+                                        and better understand your possible future working and academic career opportunities.
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
@@ -414,7 +413,7 @@ function HomePage (){
                 <div className="team" id="team">
                     <div style={{margin:"30px"}}>
                         <Typography variant="h3" component="h4">
-                            Chi siamo
+                            Team
                         </Typography>
                     </div>
                     <TableContainer component={Paper} elevation={0} style={{overflowX: "visible"}}>
@@ -449,7 +448,7 @@ function HomePage (){
                                                     md={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Giulio Vaccari" ruolo="Presidente" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Giulio Vaccari" ruolo="President" invisibile={false}/>
                                                     </Grid>
                                                 <Grid
                                                     item
@@ -457,7 +456,7 @@ function HomePage (){
                                                     md={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/guido-sassaroli-778548169/" immagine={!isSaf ? require("../images/direttivo/guido.webp") : require("../images/direttivo/guido.jpeg")} nome="Guido Sassaroli" ruolo="Vicepresidente" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/guido-sassaroli-778548169/" immagine={!isSaf ? require("../images/direttivo/guido.webp") : require("../images/direttivo/guido.jpeg")} nome="Guido Sassaroli" ruolo="Vicepresident" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -465,7 +464,7 @@ function HomePage (){
                                                     md={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://linkedin.com/in/isabella-luppi-006a9b177" immagine={!isSaf ? require("../images/direttivo/isabella.webp") : require("../images/direttivo/isabella.jpeg")} nome="Isabella Luppi" ruolo="Segretario" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://linkedin.com/in/isabella-luppi-006a9b177" immagine={!isSaf ? require("../images/direttivo/isabella.webp") : require("../images/direttivo/isabella.jpeg")} nome="Isabella Luppi" ruolo="Secretary" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -473,7 +472,7 @@ function HomePage (){
                                                     md={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/sofiatrombini" immagine={!isSaf ? require("../images/direttivo/sofia.webp") : require("../images/direttivo/sofia.jpeg")} nome="Sofia Trombini" ruolo="Tesoriere" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/sofiatrombini" immagine={!isSaf ? require("../images/direttivo/sofia.webp") : require("../images/direttivo/sofia.jpeg")} nome="Sofia Trombini" ruolo="Treasurer" invisibile={false}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
@@ -488,7 +487,7 @@ function HomePage (){
                                     </TableCell>
                                     <TableCell component="th" scope="row">
                                         <Typography variant="h4" component="h5">
-                                            Team accademico
+                                            Academic Relations
                                         </Typography>       
                                     </TableCell>
                                 </TableRow>
@@ -509,7 +508,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Roberto Pellerito" ruolo="Consigliere" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Roberto Pellerito" ruolo="Team leader" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -532,7 +531,7 @@ function HomePage (){
                                     </TableCell>
                                     <TableCell component="th" scope="row">
                                         <Typography variant="h4" component="h5">
-                                            Team aziende
+                                            Company Relations
                                         </Typography>       
                                     </TableCell>
                                 </TableRow>
@@ -553,7 +552,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/davide-zanatta-207b12174" immagine={!isSaf ? require("../images/direttivo/davide.webp") : require("../images/direttivo/davide.jpeg")} nome="Davide Zanatta" ruolo="Consigliere" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/davide-zanatta-207b12174" immagine={!isSaf ? require("../images/direttivo/davide.webp") : require("../images/direttivo/davide.jpeg")} nome="Davide Zanatta" ruolo="Team leader" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -592,7 +591,7 @@ function HomePage (){
                                     </TableCell>
                                     <TableCell component="th" scope="row">
                                         <Typography variant="h4" component="h5">
-                                            Team contenuti
+                                            Contents
                                         </Typography>       
                                     </TableCell>
                                 </TableRow>
@@ -613,7 +612,43 @@ function HomePage (){
                                                     sm={6}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pietro-bosoni-4817291b8/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Pietro Bosoni" ruolo="Consigliere" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pietro-bosoni-4817291b8/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Pietro Bosoni" ruolo="Team leader" invisibile={false}/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Collapse>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow className={classes.tableroot}>
+                                    <TableCell>
+                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenInformatico(!openInformatico)}>
+                                            {openInformatico ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                        </IconButton>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row">
+                                        <Typography variant="h4" component="h5">
+                                            DevOps
+                                        </Typography>       
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                                        <Collapse in={openInformatico} timeout="auto" unmountOnExit>
+                                            <Box margin={1}>
+                                                <Grid
+                                                    container
+                                                    direction="row"
+                                                    justify="flex-start"
+                                                    alignItems="center"
+                                                    spacing={3}
+                                                >
+                                                    <Grid
+                                                    item
+                                                    xl={3}
+                                                    sm={6}
+                                                    xs
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Andrea Archetti" ruolo="Team leader" invisibile={false}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
@@ -628,7 +663,7 @@ function HomePage (){
                                     </TableCell>
                                     <TableCell component="th" scope="row">
                                         <Typography variant="h4" component="h5">
-                                            Team eventi
+                                            Events
                                         </Typography>       
                                     </TableCell>
                                 </TableRow>
@@ -648,7 +683,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gariboldicristian" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Cristian Gariboldi" ruolo="Consigliere" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gariboldicristian" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Cristian Gariboldi" ruolo="Team leader" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -673,42 +708,6 @@ function HomePage (){
                                                     xs
                                                     >
                                                         <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Giovanni Buzzao" ruolo="Co-founder" invisibile={true}/>
-                                                    </Grid>
-                                                </Grid>
-                                            </Box>
-                                        </Collapse>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow className={classes.tableroot}>
-                                    <TableCell>
-                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenInformatico(!openInformatico)}>
-                                            {openInformatico ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                        </IconButton>
-                                    </TableCell>
-                                    <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5">
-                                            Team informatico
-                                        </Typography>       
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                        <Collapse in={openInformatico} timeout="auto" unmountOnExit>
-                                            <Box margin={1}>
-                                                <Grid
-                                                    container
-                                                    direction="row"
-                                                    justify="flex-start"
-                                                    alignItems="center"
-                                                    spacing={3}
-                                                >
-                                                    <Grid
-                                                    item
-                                                    xl={3}
-                                                    sm={6}
-                                                    xs
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Andrea Archetti" ruolo="Consigliere" invisibile={false}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
