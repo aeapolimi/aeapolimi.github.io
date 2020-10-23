@@ -3,6 +3,8 @@
 </h1>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dddf052d-2b33-408a-ac72-8f3616e76cb1/deploy-status)](https://app.netlify.com/sites/aeapolimi/deploys)
+[![Discord](https://img.shields.io/discord/591914197219016707.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/Cszywmt)
+![ForTheBadge built-with-swag](http://ForTheBadge.com/images/badges/built-with-swag.svg)
 
 Creato con React + Gatsby.
 Per modificarlo installa [Node](https://www.nodejs.org/).
