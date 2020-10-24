@@ -3,6 +3,8 @@
 </h1>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dddf052d-2b33-408a-ac72-8f3616e76cb1/deploy-status)](https://app.netlify.com/sites/aeapolimi/deploys)
+[![Discord](https://img.shields.io/discord/765233478190628894.svg?label=&logo=discord&logoColor=ffffff&color=e3a220&labelColor=ba5a0b)](https://discord.gg/Cszywmt)
+[![ForTheBadge built-with-swag](http://ForTheBadge.com/images/badges/built-with-swag.svg)](https://www.aeapolimi.it)
 
 Creato con React + Gatsby.
 Per modificarlo installa [Node](https://www.nodejs.org/).
