@@ -576,7 +576,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/matteo-sacchetti-92b95218a" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Matteo Sacchetti" ruolo="Co-founder" invisibile={true}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/matteo-sacchetti-92b95218a" immagine={!isSaf ? require("../images/direttivo/matteo.webp") : require("../images/direttivo/matteo.jpeg")} nome="Matteo Sacchetti" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
