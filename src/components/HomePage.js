@@ -15,6 +15,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Drawer from '@material-ui/core/Drawer';
 import Fab from '@material-ui/core/Fab';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
@@ -335,14 +337,17 @@ function HomePage (){
     };
     return(<>
             <div className="App">
-                <SwipeableDrawer
+            <SwipeableDrawer
                     anchor="left"
+                    variant="persistent"
                     open={openDrawer}
                     onClose={toggleDrawer(false)}
                     onOpen={toggleDrawer(true)}
                 >
                     <ElementiDrawer home={true}/>
                 </SwipeableDrawer>
+            <ClickAwayListener onClickAway={toggleDrawer(false)}>
+                <div className="areadrawer">
                 <AppBar position="absolute" style={{backgroundColor: "transparent"}} elevation={0}>
                     <Toolbar>
                         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => setOpenDrawer(!openDrawer)}>
@@ -352,6 +357,8 @@ function HomePage (){
                         <Button style={{color:"white"}} onClick = {() => window.open("https://t.me/aeapolimi")}>TELEGRAM</Button>
                     </Toolbar>
                 </AppBar>
+                </div>
+            </ClickAwayListener>
                 {/* Il render viene caricato solo su firefox non mobile. */}
                 {(isFirefox && !isMobile && !isAndroid) ? 
                     <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/> :
@@ -728,7 +735,7 @@ function HomePage (){
                 </div>
         </div>
         <div className="contatti">
-            Per informazioni: segreteria@aeapolimi.it
+            Info: segreteria@aeapolimi.it
         </div>
         <div style={{height:"50px"}} />
         <Footer />
@@ -737,7 +744,7 @@ function HomePage (){
             buttonText="Accetto"
             buttonStyle={{ backgroundColor: "#ef6c00", fontSize: "13px" }}
             cookieName="gatsby-gdpr-google-analytics">
-            AEA usa i cookies per il login. <a href="./privacypolicy.html"><b>Scopri di più</b></a>
+            AEA uses cookies to login. <a href="./privacypolicy.html"><b>More</b></a>
         </CookieConsent>
         </>
     )
