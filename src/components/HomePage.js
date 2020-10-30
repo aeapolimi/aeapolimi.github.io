@@ -50,6 +50,7 @@ import { navigate } from "gatsby"
 
 import ElementiDrawer from "../components/ElementiDrawer"
 import Footer from "../components/Footer"
+import IconeSocial from "../components/IconeSocial"
 
 import RobotVideo from "../../static/robot.mp4"
 
@@ -337,7 +338,7 @@ function HomePage (){
     };
     return(<>
             <div className="App">
-            <SwipeableDrawer
+                <SwipeableDrawer
                     anchor="left"
                     variant="persistent"
                     open={openDrawer}
@@ -354,7 +355,7 @@ function HomePage (){
                             <MenuIcon/>
                         </IconButton>
                         <div style={{flexGrow: 1}} />
-                        <Button style={{color:"white"}} onClick = {() => window.open("https://t.me/aeapolimi")}>TELEGRAM</Button>
+                        <IconeSocial/>
                     </Toolbar>
                 </AppBar>
                 </div>
@@ -627,7 +628,7 @@ function HomePage (){
                                                     sm={6}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pietro-bosoni-4817291b8/" immagine={!isSaf ? require("../images/direttivo/pietro.webp") : require("../images/direttivo/pietro.jpeg")} nome="Giovanni Ploner" ruolo="Co-founder" invisibile={true}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giovanni-ploner-703b25187/" immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} nome="Giovanni Ploner" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
@@ -663,7 +664,7 @@ function HomePage (){
                                                     sm={6}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Andrea Archetti" ruolo="Team leader" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} nome="Andrea Archetti" ruolo="Team leader" invisibile={false}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
@@ -722,7 +723,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio.webp") : require("../images/direttivo/giulio.jpeg")} nome="Giovanni Buzzao" ruolo="Co-founder" invisibile={true}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} nome="Giovanni Buzzao" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>

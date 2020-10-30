@@ -12,7 +12,7 @@ import CodeIcon from '@material-ui/icons/Code';
 import InfoIcon from '@material-ui/icons/Info';
 import PeopleIcon from '@material-ui/icons/People';
 
-import { navigate, Link } from "gatsby"
+import { Link } from "gatsby"
 
 function ElementiDrawer(props){
     return (
