@@ -43,7 +43,11 @@ module.exports = {
       resolve: `gatsby-plugin-netlify`,
       options: {
         headers: {
-          '/*': ['X-Frame-Options: SAMEORIGIN'],
+          '/*': [
+            'X-Frame-Options: SAMEORIGIN',
+            // Range per stream su Safari
+            'Accept-Ranges: bytes'
+          ],
           "/static/*": [
             "cache-control: public",
             "cache-control: max-age=31536000",
