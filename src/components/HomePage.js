@@ -3,7 +3,7 @@ import './homePage.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import {isMobile, isSafari, isMobileSafari, isAndroid, isFirefox} from 'react-device-detect';
+import {isMobile, isSafari, isMobileSafari, isAndroid, isFirefox, browserVersion} from 'react-device-detect';
 
 import AppBar from '@material-ui/core/AppBar';
 import Box from '@material-ui/core/Box';
@@ -361,9 +361,9 @@ function HomePage (){
                 </div>
             </ClickAwayListener>
                 {/* Il render viene caricato solo su firefox non mobile. */}
-                {(isFirefox && !isMobile && !isAndroid) ? 
+                {((isFirefox && !isMobile && !isAndroid) || (isMobileSafari && browserVersion >= 14)) ? 
                     <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/> :
-                    <video title="videorobot" id="videorobot" crossOrigin="anonymous" playsinline loop muted autoPlay poster={require("../images/sfondorobot.png")}>
+                    <video title="videorobot" id="videorobot" playsinline loop muted autoPlay poster={require("../images/sfondorobot.png")}>
                         <source src={RobotVideo} type="video/mp4"/>
                     </video>                    
                 }

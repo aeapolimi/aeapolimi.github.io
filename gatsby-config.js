@@ -66,9 +66,9 @@ module.exports = {
     // https://dev.to/glukmann/how-to-get-videos-to-work-in-safari-with-gatsby-and-service-workers-4edc
     {
       resolve: `gatsby-plugin-offline`,
-      options: {
-        appendScript: require.resolve(`./sw-range-request-handler.js`),
-      },
+      // options: {
+      //   appendScript: require.resolve(`./sw-range-request-handler.js`),
+      // },
     },  
     // {
     //   resolve: 'gatsby-plugin-i18n',
