@@ -27,17 +27,17 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-46c03a2e419f6dc4d01d.js"
+    "url": "webpack-runtime-b95654109ce849e8340e.js"
   },
   {
     "url": "framework-73dfc43896e80fc89ebf.js"
   },
   {
-    "url": "app-91583f9467550f3d916a.js"
+    "url": "app-151635cdade3b5e2bf46.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "5333d797bfb6b93fdea8cf3a6557293b"
+    "revision": "76967629906f0f5338063e68d0896c65"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-dec0309332051048554e.js"
@@ -47,7 +47,7 @@ self.__precacheManifest = [
   },
   {
     "url": "manifest.json",
-    "revision": "2bb718ac395fda1a1f6f94dc1e913970"
+    "revision": "ea3b0a53b66cd044401422a41491ac19"
   },
   {
     "url": "manifest.webmanifest",
@@ -143,7 +143,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-91583f9467550f3d916a.js`))) {
+  if (!resources || !(await caches.match(`/app-151635cdade3b5e2bf46.js`))) {
     return await fetch(event.request)
   }
 
@@ -165,3 +165,18 @@ workbox.routing.registerRoute(navigationRoute)
 
 // this route is used when performing a non-navigation request (e.g. fetch)
 workbox.routing.registerRoute(/\/.gatsby-plugin-offline:.+/, handleAPIRequest)
+
+// Add Range Request support to fetching videos from cache
+// Funziona con gastby-plugin-offline con workbox v.4 se aggiornato vedi 
+// https://dev.to/glukmann/how-to-get-videos-to-work-in-safari-with-gatsby-and-service-workers-4edc
+workbox.routing.registerRoute(
+    /.*\.mp4/,
+    new workbox.strategies.CacheFirst({
+      plugins: [
+        new workbox.cacheableResponse.Plugin({ statuses: [200] }),
+        new workbox.rangeRequests.Plugin(),
+      ],
+    }),
+    'GET',
+  );
+  
