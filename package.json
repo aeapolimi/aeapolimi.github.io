@@ -19,6 +19,7 @@
     "gatsby-plugin-netlify": "^2.3.21",
     "gatsby-plugin-offline": "^3.2.31",
     "gatsby-plugin-react-helmet": "^3.3.14",
+    "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-sharp": "^2.6.40",
     "gatsby-plugin-zopfli": "^2.0.0",
     "gatsby-source-filesystem": "^2.3.34",
