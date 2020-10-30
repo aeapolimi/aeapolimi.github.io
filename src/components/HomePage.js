@@ -692,6 +692,7 @@ function HomePage (){
                                                     direction="row"
                                                     justify="flex-start"
                                                     alignItems="center"
+                                                    spacing={3}
                                                     >
                                                     <Grid
                                                     item
