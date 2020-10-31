@@ -635,6 +635,7 @@ function HomePage (){
                                         </Collapse>
                                     </TableCell>
                                 </TableRow>
+
                                 <TableRow className={classes.tableroot}>
                                     <TableCell>
                                         <IconButton aria-label="expand row" size="small" onClick={() => setOpenInformatico(!openInformatico)}>
@@ -664,13 +665,32 @@ function HomePage (){
                                                     sm={6}
                                                     xs={12}
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} nome="Andrea Archetti" ruolo="Team leader" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giovanni-cherubini-1690201a7/" immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} nome="Giovanni Cherubini" ruolo="Team leader" invisibile={false}/>
                                                     </Grid>
+
+                                                    <Grid
+                                                    item
+                                                    xl={3}
+                                                    sm={6}
+                                                    xs={12}
+                                                    >
+                                                        <CardDirettivo linkedin="" immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} nome="Andrea Archetti" ruolo="Co-Founder" invisibile={true}/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xl={3}
+                                                    sm={6}
+                                                    xs={12}
+                                                    >
+                                                        <CardDirettivo linkedin="" immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} nome="Gabriele Liuzzo" ruolo="Co-Founder" invisibile={true}/>
+                                                    </Grid>
+
                                                 </Grid>
                                             </Box>
                                         </Collapse>
                                     </TableCell>
                                 </TableRow>
+
                                 <TableRow className={classes.tableroot}>
                                     <TableCell>
                                         <IconButton aria-label="expand row" size="small" onClick={() => setOpenEventi(!openEventi)}>
