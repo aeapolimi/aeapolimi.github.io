@@ -21,6 +21,8 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
+import 'fontsource-roboto';
+
 const useStyles = makeStyles((theme) => ({
     tablecontainer:{
         // overflowX: "visible",

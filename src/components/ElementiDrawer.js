@@ -6,6 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import HomeIcon from '@material-ui/icons/Home';
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import CodeIcon from '@material-ui/icons/Code';
@@ -13,6 +14,7 @@ import InfoIcon from '@material-ui/icons/Info';
 import PeopleIcon from '@material-ui/icons/People';
 
 import { Link } from "gatsby"
+import 'fontsource-roboto';
 
 function ElementiDrawer(props){
     return (
@@ -35,6 +37,10 @@ function ElementiDrawer(props){
                 <ListItemText primary="Team" />
             </ListItem>
             <Divider />
+            <ListItem button key="Insiders" component={Link} to="/Insiders" style={{color:"black"}}>
+                <ListItemIcon><AccountBalanceIcon /></ListItemIcon>
+                <ListItemText primary="Insiders" />
+            </ListItem>
             <ListItem button key="FAQ" component={Link} to="/Domande" style={{color:"black"}}>
                 <ListItemIcon><QuestionAnswerIcon /></ListItemIcon>
                 <ListItemText primary="FAQ" />

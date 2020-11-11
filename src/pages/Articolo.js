@@ -23,20 +23,23 @@ function Carica(props){
       }
   console.log(articolo);
   return (
-    (articolo==="Caricamento...") ? (<div>Caricamento...</div>) : 
+    (articolo==="Caricamento...") ? (<div>Loading...</div>) : 
     <div className="contenuto">
       {/* <img height="700vh" src={articolo.immagine.includes("http") ? articolo.immagine : require("../images/news/"+articolo.immagine)} alt={articolo.titolo} /> */}
       <Divider style={{marginTop: "20px", marginBottom: "20px"}}/>
       <Typography variant="h6" align="center">
         {articolo.data}
       </Typography>
+      <Typography color="textSecondary" gutterBottom>
+        by {articolo.autore}
+      </Typography>
      <Typography variant="h1" align="center">
         {articolo.titolo}
       </Typography>
-      <Typography variant="p" align="center">
+      <Typography variant="subtitle1" align="center">
         {articolo.sommario}
       </Typography>
-      <Divider style={{marginTop: "20px", marginBottom: "20px"}}/>
+      <Divider style={{marginTop: "20px", marginBottom: "40px"}}/>
       <div key={articolo.titolo} dangerouslySetInnerHTML={{ __html: articolo.testo }}/>
     </div>
   )

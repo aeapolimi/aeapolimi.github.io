@@ -44,13 +44,13 @@ function News(props){
         <Card className={classes.root} variant="outlined">
                 <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    Word of the Day
+                    {props.data}
                     </Typography>
                     <Typography variant="h5" component="h2">
                     {props.titolo}
                     </Typography>
                     <Typography className={classes.pos} color="textSecondary">
-                    adjective
+                     by {props.autore}
                     </Typography>
                     <Typography variant="body2" component="p">
                     {props.descrizione}
@@ -72,10 +72,10 @@ function NewsSection(){
             })
         }
     return (
-        (articoli==="Caricamento...") ? (<div>Caricamento...</div>) : 
+        (articoli==="Caricamento...") ? (<div>Loading...</div>) : 
             articoli.map(articolo => {
                 return (
-                    <News titolo={articolo.data().titolo} descrizione={articolo.data().sommario} codice={articolo.id}/>
+                    <News autore={articolo.data().autore} titolo={articolo.data().titolo} data={articolo.data().data} descrizione={articolo.data().sommario} codice={articolo.id}/>
                 )
             })
     )

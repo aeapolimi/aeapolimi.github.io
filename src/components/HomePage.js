@@ -54,6 +54,8 @@ import IconeSocial from "../components/IconeSocial"
 
 import RobotVideo from "../../static/robot.mp4"
 
+import 'fontsource-roboto';
+
 const isSaf = isMobileSafari || isSafari;
 
 const firebaseConfig = {
@@ -234,7 +236,7 @@ function NewsSection(){
         dotListClass="custom-dot-list-style"
         centerMode={true}
         >
-            {(articoli==="Caricamento...") ? <div>Caricamento...</div> : 
+            {(articoli==="Caricamento...") ? <div>Loading...</div> : 
             articoli.map(articolo => {
                 return (
                     <div key={articolo.data().titolo}>
