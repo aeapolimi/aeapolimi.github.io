@@ -12,6 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
+import { Link } from "gatsby"
+
 // Gatsby
 import SEO from "../components/seo"
 import Layout from "../components/layout"
@@ -37,6 +39,7 @@ const useStyles = makeStyles({
 
 function News(props){
     const classes = useStyles();
+    var codice = props.codice;
     return (
         <Card className={classes.root} variant="outlined">
                 <CardContent>
@@ -54,7 +57,7 @@ function News(props){
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small">Learn More</Button>
+                    <Button component={Link} to={'/Articolo/?'+codice} size="small" style={{color:"black"}}>Learn More</Button>
                 </CardActions>
             </Card>
     )
@@ -72,20 +75,13 @@ function NewsSection(){
         (articoli==="Caricamento...") ? (<div>Caricamento...</div>) : 
             articoli.map(articolo => {
                 return (
-                    <News titolo={articolo.data().titolo} descrizione={articolo.data().sommario}/>
+                    <News titolo={articolo.data().titolo} descrizione={articolo.data().sommario} codice={articolo.id}/>
                 )
             })
     )
 }
 
 function Insiders() {
-    const classes = useStyles();
-    const [state, setState] = React.useState({
-        "chi":true,
-        "cose": false,
-        "legali": false,
-        "ingresso":false
-    })
     return (
       <>
         <Layout>

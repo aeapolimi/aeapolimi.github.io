@@ -46,7 +46,7 @@ import CookieConsent from "react-cookie-consent";
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-import { navigate } from "gatsby"
+import { navigate, Link } from "gatsby"
 
 import ElementiDrawer from "../components/ElementiDrawer"
 import Footer from "../components/Footer"
@@ -170,19 +170,10 @@ const responsive = {
 
 function ArticoloCarousel(props){
     const classes = useStyles();
-    const [leggi, setLeggi] = React.useState(false)
     var height="300"
     if (isMobile){
         height = "100vh";
     }
-
-    const handleOpen = () => {
-        setLeggi(true);
-      };
-    
-      const handleClose = () => {
-        setLeggi(false);
-      };
     return (
         <>
         <Card key={props.titolo} className={classes.cardroot}>
@@ -208,34 +199,11 @@ function ArticoloCarousel(props){
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                    <IconButton className={classes.info} aria-label="expand row" size="small" onClick={handleOpen}>
+                    <IconButton style={{color:"black"}} className={classes.info} aria-label="expand row" size="small" component={Link} to={'/Articolo/?'+props.codice}>
                         <KeyboardArrowDownIcon />
                     </IconButton>
                 </CardActions>
             </Card>
-            <Modal
-                open={leggi}
-                style={{display:'block',alignItems:'center',justifyContent:'center', maxHeight:"90vh", marginTop: "5vh"}}
-                onClose={handleClose}
-                aria-labelledby="titolo_articolo"
-                aria-describedby="contenuto_articolo"
-            >
-                <div style={{
-                    top: `50%`,
-                    left: `50%`,
-                    transform: `translate(-50%, -50%)`,
-                    maxWidth: "70vw",
-                    maxHeight: "90vh",
-                    overflowY: "scroll"
-                    }} 
-                    className={classes.paper}
-                >
-                    <h2 id="titolo_articolo">{props.titolo}</h2>
-                    <p id="contenuto_articolo">
-                        <div key={props.titolo} dangerouslySetInnerHTML={{ __html: props.testo }}/>
-                    </p>
-                </div>
-            </Modal>
         </>
     );
 }
@@ -276,6 +244,7 @@ function NewsSection(){
                         data={articolo.data().data}
                         testo={articolo.data().testo}
                         immagine={articolo.data().immagine}
+                        codice={articolo.id}
                         />
                     </div>
                 )
