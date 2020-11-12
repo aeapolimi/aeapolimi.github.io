@@ -48,9 +48,13 @@ class SignInScreen extends React.Component {
         firebase.auth.GithubAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
       ],
+      credentialHelper: 'none',
       callbacks: {
         // Avoid redirects after sign-in.
         signInSuccessWithAuthResult: () => false
+      },
+      privacyPolicyUrl: function() {
+        window.location.assign('https://www.aeapolimi.it/privacypolicy.html');
       }
     };
   
