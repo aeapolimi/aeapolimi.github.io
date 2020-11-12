@@ -38,12 +38,10 @@ const useStyles = makeStyles({
     root: {
       minWidth: 275,
       maxWidth: "75vw",
-      margin: "0 auto"
-    },
-    bullet: {
-      display: 'inline-block',
-      margin: '0 2px',
-      transform: 'scale(0.8)',
+      margin: "0 auto",
+      marginBottom: "20px",
+      textAlign: "center",
+      borderColor: '#ef6c00',
     },
     title: {
       fontSize: 14,
@@ -57,7 +55,7 @@ function News(props){
     const classes = useStyles();
     var codice = props.codice;
     return (
-        <Card className={classes.root} variant="outlined">
+        <Card className={classes.root} variant="outlined" raised={true}>
                 <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
                     {props.data}
@@ -72,7 +70,7 @@ function News(props){
                     {props.descrizione}
                     </Typography>
                 </CardContent>
-                <CardActions>
+                <CardActions style={{justifyContent: 'center'}}>
                     <Button component={Link} to={'/Articolo/?'+codice} size="small" style={{color:"black"}}>Keep reading</Button>
                 </CardActions>
             </Card>
@@ -102,8 +100,11 @@ function Insiders() {
       <>
         <Layout>
             <SEO title="Insider" />
-            <Typography variant="h3" align="center">
+            <Typography variant="h3" align="center" style={{marginBottom:"10px", marginTop:"20px"}}>
               AEA Insiders
+            </Typography>
+            <Typography variant="subtitle1" align="center" style={{marginBottom:"40px"}}>
+              The best articles crafted with love by our associates.
             </Typography>
             <NewsSection />
             <div style={{height:"40px"}}/>
