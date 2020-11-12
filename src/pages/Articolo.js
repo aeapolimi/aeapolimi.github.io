@@ -1,6 +1,8 @@
 import React from 'react';
 import './Articolo.css';
 
+import { makeStyles } from '@material-ui/core/styles';
+
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
@@ -27,7 +29,18 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
+const useStyles = makeStyles((theme) => ({
+  testoArticolo: {
+    textAlign:"justify",
+    margin:"0 auto",
+    [theme.breakpoints.up('sm')]: {
+      maxWidth:"55vw",
+    },
+  },
+}))
+
 function Carica(props){
+  const classes = useStyles();
   const [articolo, setArticolo] = React.useState("Caricamento...")
   if (articolo==="Caricamento..."){
       firebase.firestore().collection("news").doc(props.articolo).get()
@@ -43,7 +56,7 @@ function Carica(props){
       }
   return (
     (articolo==="Caricamento...") ? (<div>Loading...</div>) : 
-    <div className="contenuto"  style={{marginBottom: "40px"}}>
+    <div className="contenuto">
       {/* <img height="700vh" src={articolo.immagine.includes("http") ? articolo.immagine : require("../images/news/"+articolo.immagine)} alt={articolo.titolo} /> */}
       <Divider style={{marginTop: "20px", marginBottom: "20px"}}/>
       <Typography variant="h6" align="center">
@@ -59,7 +72,8 @@ function Carica(props){
         {articolo.sommario}
       </Typography>
       <Divider style={{marginTop: "20px", marginBottom: "40px"}}/>
-      <div key={articolo.titolo} dangerouslySetInnerHTML={{ __html: articolo.testo }}/>
+      <div className={classes.testoArticolo} key={articolo.titolo} dangerouslySetInnerHTML={{ __html: articolo.testo }}/>
+      <div style={{height:"40px"}} />
     </div>
   )
 }

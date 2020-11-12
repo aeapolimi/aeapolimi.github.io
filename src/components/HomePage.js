@@ -90,12 +90,14 @@ const useStyles = makeStyles((theme) => ({
         // borderRadius: 30,
         maxWidth: 345,
         position: "relative",
+        borderColor: 'black',
         [theme.breakpoints.down('sm')]: {
             minHeight: "70vh",
+            marginLeft: "10px",
         },
         [theme.breakpoints.up('sm')]: {
-        minHeight: 400,
-        backgroundColor: "#efefef",
+            minHeight: 400,
+            backgroundColor: "#efefef",
       },
     },
     cardheader: {
@@ -179,7 +181,7 @@ function ArticoloCarousel(props){
     }
     return (
         <>
-        <Card key={props.titolo} className={classes.cardroot}>
+        <Card key={props.titolo} variant="outlined" className={classes.cardroot}>
                 <CardMedia
                     className={classes.media}
                     image={props.immagine.includes("http") ? props.immagine : require("../images/news/"+props.immagine)}
@@ -197,7 +199,7 @@ function ArticoloCarousel(props){
                     subheader={props.data}
                 />
                 <CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p">
+                    <Typography variant="body2" color="textSecondary" component="p" align="center">
                         {props.sommario}
                     </Typography>
                 </CardContent>
@@ -258,7 +260,7 @@ function NewsSection(){
 function CardDirettivo(props){
     const classes = useStyles();
     return (
-        <Card className="cardTeam" elevation={0} style={{display: 'block', height: "80%", width: "80%"}} >
+        <Card className="cardTeam" elevation={0} style={{display: 'block', height: "80%", width: "80%", margin: "0 auto"}} >
             <CardActionArea onClick={() => window.open(props.linkedin)} classes={{
                 root: classes.actionArea,
                 focusVisible: classes.focusVisible,
@@ -270,10 +272,10 @@ function CardDirettivo(props){
                 title={props.nome}
                 />
                 <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography gutterBottom variant="h5" component="h2" align="center">
                     {props.nome}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p" style={{color: props.invisibile ? "transparent" : undefined }}>
+                <Typography variant="body2" color="textSecondary" align="center" component="p" style={{color: props.invisibile ? "transparent" : undefined }}>
                     {props.ruolo}
                 </Typography>
                 </CardContent>
