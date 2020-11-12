@@ -73,7 +73,7 @@ function News(props){
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button component={Link} to={'/Articolo/?'+codice} size="small" style={{color:"black"}}>Learn More</Button>
+                    <Button component={Link} to={'/Articolo/?'+codice} size="small" style={{color:"black"}}>Keep reading</Button>
                 </CardActions>
             </Card>
     )
@@ -106,6 +106,7 @@ function Insiders() {
               AEA Insiders
             </Typography>
             <NewsSection />
+            <div style={{height:"40px"}}/>
         </Layout>
       </>
   );
