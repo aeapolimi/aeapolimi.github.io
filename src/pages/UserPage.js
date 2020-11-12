@@ -20,6 +20,19 @@ import PaginaUser from '../components/PaginaUser';
 
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 
+const firebaseConfig = {
+  apiKey: "AIzaSyCN3qF77x39c9RtTO5_s4QMV3lQ589RdZU",
+  authDomain: "aeapolimiweb.firebaseapp.com",
+  databaseURL: "https://aeapolimiweb.firebaseio.com",
+  projectId: "aeapolimiweb",
+  storageBucket: "aeapolimiweb.appspot.com",
+  messagingSenderId: "252147138104",
+  appId: "1:252147138104:web:cc2a953476b0b77f65b0cd"
+};
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
 let theme = createMuiTheme({
     palette: {
       primary: { main: '#ef6c00' },
