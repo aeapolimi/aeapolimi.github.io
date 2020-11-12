@@ -23,13 +23,13 @@ function Footer(props){
     return(
         <AppBar className={classes.appBar} elevation={0}>
             <Toolbar>
-                <Typography variant="subtitle2" component="subtitle2">
+                <Typography variant="subtitle2">
                     Copyright AEA 2020
                 </Typography>
                 <div style={{flexGrow: 1}} />
                 <IconeSocial/>
                 <div style={{flexGrow: 1}} />
-                <Button style={{color:"white"}} size="small" onClick = {() => window.open("https://aeapolimi.github.io/privacypolicy.html")}>Privacy policy</Button>
+                <Button style={{color:"white"}} size="small" onClick = {() => window.open("https://aeapolimi.it/privacypolicy.html")}>Privacy policy</Button>
             </Toolbar>
         </AppBar>
         )

@@ -7,7 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-// Gatsby
+import { navigate } from "gatsby"
+
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
@@ -18,7 +19,12 @@ function Carica(props){
   if (articolo==="Caricamento..."){
       firebase.firestore().collection("news").doc(props.articolo).get()
           .then(collec => {
-              setArticolo(collec.data())
+              if (!collec.exists){
+                navigate("/Insiders")
+              }
+              else{
+                setArticolo(collec.data())
+              }
           })
       }
   console.log(articolo);
@@ -46,13 +52,17 @@ function Carica(props){
 }
 
 function Articolo(props) {
-    return (
-      <>
-        <Layout>
-            <SEO title="Articolo" />
-            <Carica articolo={props.location.search.substring(1)} />
-        </Layout>
-      </>
+  const codice = props.location.search.substring(1);
+  return (
+    <>
+      <Layout>
+          <SEO title="Article" />
+          {(codice==="") ? 
+          <img src={require("../images/meme/meme_articoli.jpg")} alt="You shouldn't be here."/>:
+          <Carica articolo={codice} />
+          }
+      </Layout>
+    </>
   );
 }
 
