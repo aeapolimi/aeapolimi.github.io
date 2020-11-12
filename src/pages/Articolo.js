@@ -14,6 +14,19 @@ import Layout from "../components/layout"
 
 import 'fontsource-roboto';
 
+const firebaseConfig = {
+  apiKey: "AIzaSyCN3qF77x39c9RtTO5_s4QMV3lQ589RdZU",
+  authDomain: "aeapolimiweb.firebaseapp.com",
+  databaseURL: "https://aeapolimiweb.firebaseio.com",
+  projectId: "aeapolimiweb",
+  storageBucket: "aeapolimiweb.appspot.com",
+  messagingSenderId: "252147138104",
+  appId: "1:252147138104:web:cc2a953476b0b77f65b0cd"
+};
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
 function Carica(props){
   const [articolo, setArticolo] = React.useState("Caricamento...")
   if (articolo==="Caricamento..."){
@@ -24,13 +37,13 @@ function Carica(props){
               }
               else{
                 setArticolo(collec.data())
+                props.setInfo({titolo: collec.data().titolo, descrizione: collec.data().sommario})
               }
           })
       }
-  console.log(articolo);
   return (
     (articolo==="Caricamento...") ? (<div>Loading...</div>) : 
-    <div className="contenuto">
+    <div className="contenuto"  style={{marginBottom: "40px"}}>
       {/* <img height="700vh" src={articolo.immagine.includes("http") ? articolo.immagine : require("../images/news/"+articolo.immagine)} alt={articolo.titolo} /> */}
       <Divider style={{marginTop: "20px", marginBottom: "20px"}}/>
       <Typography variant="h6" align="center">
@@ -52,14 +65,15 @@ function Carica(props){
 }
 
 function Articolo(props) {
+  const [info, setInfo] = React.useState({titolo:"Article", descrizione:"An Article on AEA Insiders by a member of the Automation Engineering Association."})
   const codice = props.location.search.substring(1);
   return (
     <>
       <Layout>
-          <SEO title="Article" />
+          <SEO title={info.titolo} description={info.descrizione}/>
           {(codice==="") ? 
           <img src={require("../images/meme/meme_articoli.jpg")} alt="You shouldn't be here."/>:
-          <Carica articolo={codice} />
+          <Carica articolo={codice} setInfo={setInfo}/>
           }
       </Layout>
     </>

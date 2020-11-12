@@ -67,8 +67,9 @@ const firebaseConfig = {
     messagingSenderId: "252147138104",
     appId: "1:252147138104:web:cc2a953476b0b77f65b0cd"
   };
-firebase.initializeApp(firebaseConfig);
-
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 const useStyles = makeStyles((theme) => ({
     appBar: {
         top: 'auto',

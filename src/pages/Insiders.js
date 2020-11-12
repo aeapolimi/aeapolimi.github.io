@@ -18,6 +18,22 @@ import { Link } from "gatsby"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
+import 'fontsource-roboto';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCN3qF77x39c9RtTO5_s4QMV3lQ589RdZU",
+  authDomain: "aeapolimiweb.firebaseapp.com",
+  databaseURL: "https://aeapolimiweb.firebaseio.com",
+  projectId: "aeapolimiweb",
+  storageBucket: "aeapolimiweb.appspot.com",
+  messagingSenderId: "252147138104",
+  appId: "1:252147138104:web:cc2a953476b0b77f65b0cd"
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
 const useStyles = makeStyles({
     root: {
       minWidth: 275,
@@ -86,6 +102,9 @@ function Insiders() {
       <>
         <Layout>
             <SEO title="Insider" />
+            <Typography variant="h3" align="center">
+              AEA Insiders
+            </Typography>
             <NewsSection />
         </Layout>
       </>

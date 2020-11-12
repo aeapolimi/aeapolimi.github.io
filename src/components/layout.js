@@ -110,6 +110,7 @@ const Layout = ({ children }) => {
                 <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => setOpenDrawer(!openDrawer)}>
                   <MenuIcon/>
                 </IconButton>
+                <div style={{flexGrow:"true"}} />
                 <img src={logo} alt="logo" height="64px" onClick={() => navigate("/")}/>
               </Toolbar>
             </AppBar>
