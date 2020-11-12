@@ -99,7 +99,7 @@ function Insiders() {
     return (
       <>
         <Layout>
-            <SEO title="Insider" />
+            <SEO title="Insiders" />
             <Typography variant="h3" align="center" style={{marginBottom:"10px", marginTop:"20px"}}>
               AEA Insiders
             </Typography>
