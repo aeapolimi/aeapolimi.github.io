@@ -194,7 +194,6 @@ function ArticoloCarousel(props){
                     //     A
                     // </Avatar>
                     // }
-                    raised={true}
                     title={props.titolo}
                     subheader={props.data.toLocaleString("default", { month: "long", day: "numeric", year: "numeric" })}
                 />

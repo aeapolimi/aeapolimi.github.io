@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 
 // Gatsby
 import SEO from "../components/seo"
@@ -105,14 +105,14 @@ function Authors(props) {
         var autore = require("../images/direttivo/" + nome.substr(0,nome.indexOf(' ')).toLowerCase() + ".jpeg")
     }
     catch(error){
-        var autore = undefined;
+        autore = undefined;
     }
     return (
         <>
         <Layout>
             <SEO title={nome} />
             {autore ? 
-            <div style={{minWidth: "100%"}}><img src={autore} height="100px" style={{borderRadius: 30, display:"block", margin: "0 auto"}}/></div>
+            <div style={{minWidth: "100%"}}><img src={autore} alt={nome} height="100px" style={{borderRadius: 30, display:"block", margin: "0 auto"}}/></div>
                  : null}
             <Typography variant="h3" align="center" style={{marginBottom:"10px", marginTop:"20px"}}>
               {nome}
