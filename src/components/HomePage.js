@@ -45,7 +45,7 @@ import CookieConsent from "react-cookie-consent";
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-// import '@firebase/analytics';
+import 'firebase/analytics';
 
 import { navigate, Link } from "gatsby"
 
