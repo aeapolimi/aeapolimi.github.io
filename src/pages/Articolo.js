@@ -88,7 +88,7 @@ function Carica(props){
 }
 
 function Articolo(props) {
-  const [info, setInfo] = React.useState({titolo:"Article", descrizione:"An Article on AEA Insiders by a member of the Automation Engineering Association."})
+  const [info, setInfo] = React.useState({titolo:"AEA Polimi", descrizione:"An Article on AEA Insiders by a member of the Automation Engineering Association."})
   const codice = props.location.search.substring(1);
   return (
     <>

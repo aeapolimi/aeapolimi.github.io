@@ -101,7 +101,7 @@ function Insiders() {
     return (
       <>
         <Layout>
-            <SEO title="Insiders" />
+            <SEO title="Insiders" description="The best articles crafted with love by our associates."/>
             <Typography variant="h3" align="center" style={{marginBottom:"10px", marginTop:"20px"}}>
               AEA Insiders
             </Typography>
