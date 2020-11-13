@@ -45,7 +45,7 @@ import CookieConsent from "react-cookie-consent";
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import 'firebase/analytics';
+// import '@firebase/analytics';
 
 import { navigate, Link } from "gatsby"
 
@@ -69,10 +69,10 @@ const firebaseConfig = {
     appId: "1:252147138104:web:cc2a953476b0b77f65b0cd",
     measurementId: "G-0D5Z9JD5XH"
   };
-if (!firebase.apps.length) {
+if (typeof window!== "undefined" && !firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
 }
-firebase.analytics();
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
