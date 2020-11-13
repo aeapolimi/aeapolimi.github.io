@@ -7,7 +7,7 @@ module.exports = {
   pathPrefix: "/aea",
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-material-ui`,
+    `gatsby-theme-material-ui`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

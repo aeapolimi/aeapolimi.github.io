@@ -17,19 +17,19 @@ const useStyles = makeStyles((theme) => ({
         position: "relative"
     },
 }))
+function Footer(){
 
-function Footer(props){
     const classes = useStyles();
     return(
-        <AppBar className={classes.appBar} elevation={0}>
-            <Toolbar>
+        <AppBar className={classes.appBar} elevation={0} key="fintoFooter">
+            <Toolbar key="footerToolbar">
                 <Typography variant="subtitle2">
                     Copyright AEA 2020
                 </Typography>
                 <div style={{flexGrow: 1}} />
                 <IconeSocial/>
                 <div style={{flexGrow: 1}} />
-                <Button style={{color:"white"}} size="small" onClick = {() => window.open("https://aeapolimi.it/privacypolicy.html")}>Privacy policy</Button>
+                <Button style={{color:"white"}} size="small" onClick = {() => window.open("https://www.aeapolimi.it/privacypolicy.html")}>Privacy policy</Button>
             </Toolbar>
         </AppBar>
         )

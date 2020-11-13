@@ -95,8 +95,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <div style={{minHeight: "calc(100vh - 64px)"}} >
-          <div>
+        <div style={{minHeight: "calc(100vh - 64px)"}} key="corpo">
+          <div key="headerdrawaer">
             <SwipeableDrawer
                 anchor="left"
                 open={openDrawer}
@@ -116,7 +116,7 @@ const Layout = ({ children }) => {
           </div>
           <main>{children}</main>
         </div>
-        <div>
+        <div key="barraFooter">
           <Footer/>
         </div>
       </ThemeProvider>

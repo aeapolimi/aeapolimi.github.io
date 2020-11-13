@@ -42,6 +42,10 @@ const useStyles = makeStyles((theme) => ({
 function Carica(props){
   const classes = useStyles();
   const [articolo, setArticolo] = React.useState("Caricamento...")
+  if (props.codice == ""){
+    return ("You shouldn't be here. Neither should I.");
+    // return (<img src={require("../images/meme/meme_articoli.jpg")} alt="You shouldn't be here."/>;)
+  }
   if (articolo==="Caricamento..."){
       firebase.firestore().collection("news").doc(props.articolo).get()
           .then(collec => {
@@ -85,10 +89,7 @@ function Articolo(props) {
     <>
       <Layout>
           <SEO title={info.titolo} description={info.descrizione}/>
-          {(codice==="") ? 
-          <img src={require("../images/meme/meme_articoli.jpg")} alt="You shouldn't be here."/>:
-          <Carica articolo={codice} setInfo={setInfo}/>
-          }
+          <Carica articolo={codice} setInfo={setInfo} codice={codice}/>
       </Layout>
     </>
   );
