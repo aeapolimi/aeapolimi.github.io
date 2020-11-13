@@ -29,7 +29,7 @@ import "./layout.css"
 
 import { navigate } from "gatsby"
 
-const logo = !(isSafari || isMobileSafari) ? require("../images/logobianco.webp") : require("../images/aeatondo.png")
+const logo = !(isSafari || isMobileSafari) ? require("../images/AEAtondo_trasparente.webp") : require("../images/AEAtondo_trasparente.png")
 
 let theme = createMuiTheme({
   palette: {

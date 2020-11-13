@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   testoArticolo: {
     textAlign:"justify",
     margin:"0 auto",
+    fontSize: "1rem",
     [theme.breakpoints.up('sm')]: {
       maxWidth:"55vw",
     },
@@ -76,7 +77,9 @@ function Carica(props){
         {articolo.sommario}
       </Typography>
       <Divider style={{marginTop: "20px", marginBottom: "40px"}}/>
-      <div className={classes.testoArticolo} key={articolo.titolo} dangerouslySetInnerHTML={{ __html: articolo.testo }}/>
+      <Typography variant="p">
+        <div className={classes.testoArticolo} key={articolo.titolo} dangerouslySetInnerHTML={{ __html: articolo.testo }}/>
+      </Typography>
       <div style={{height:"40px"}} />
     </div>
   )

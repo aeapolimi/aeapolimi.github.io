@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
         // overflowX: "visible",
         maxWidth: "80vw",
         marginLeft: "10vw",
+        backgroundColor: "transparent"
     },
     tableroot: {
         '& > *': {

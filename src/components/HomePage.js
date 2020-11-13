@@ -105,6 +105,7 @@ const useStyles = makeStyles((theme) => ({
     },
     cardabout: {
         display: 'inline-block',
+        backgroundColor: "#fafafa",
         [theme.breakpoints.down('sm')]: {
             maxWidth: "100vw",
             marginTop: "20vh"
@@ -175,10 +176,6 @@ const responsive = {
 
 function ArticoloCarousel(props){
     const classes = useStyles();
-    var height="300"
-    if (isMobile){
-        height = "100vh";
-    }
     return (
         <>
         <Card key={props.titolo} variant="outlined" className={classes.cardroot}>
@@ -259,7 +256,7 @@ function NewsSection(){
 function CardDirettivo(props){
     const classes = useStyles();
     return (
-        <Card className="cardTeam" elevation={0} style={{display: 'block', height: "80%", width: "80%", margin: "0 auto"}} >
+        <Card className="cardTeam" elevation={0} style={{display: 'block', height: "80%", width: "80%", margin: "0 auto", backgroundColor:"transparent"}} >
             <CardActionArea onClick={() => window.open(props.linkedin)} classes={{
                 root: classes.actionArea,
                 focusVisible: classes.focusVisible,
@@ -342,7 +339,7 @@ function HomePage (){
                 }
 
                 <header className="App-header">
-                    <div className="rectangle" key="titolo"><span className="titoloLogo"><img alt="logo" src={!isSaf ? require("../images/logobianco.webp") : require("../images/aeatondo.png")}/></span></div>
+                    <div className="rectangle" key="titolo"><span className="titoloLogo"><img alt="logo" src={!isSaf ? require("../images/AEAtondo_grigio.webp") : require("../images/AEAtondo_grigio.png")}/></span></div>
                 </header>
                 <div className="freccia" style={{height:0, bottom:80, position:"relative"}}>
                     <Fab color="inherit" size="small" href="#news" aria-label="news">
@@ -397,7 +394,7 @@ function HomePage (){
                             Team
                         </Typography>
                     </div>
-                    <TableContainer component={Paper} elevation={0} style={{overflowX: "visible"}}>
+                    <TableContainer component={Paper} elevation={0} style={{overflowX: "visible", backgroundColor:"transparent"}}>
                         <Table aria-label="collapsible table">
                             <TableBody>
                                 <TableRow className={classes.tableroot}>
