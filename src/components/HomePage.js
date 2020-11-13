@@ -193,7 +193,7 @@ function ArticoloCarousel(props){
                     // }
                     raised={true}
                     title={props.titolo}
-                    subheader={props.data}
+                    subheader={props.data.toLocaleString("default", { month: "long", day: "numeric", year: "numeric" })}
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p" align="center">
@@ -213,7 +213,7 @@ function ArticoloCarousel(props){
 function NewsSection(){
     const [articoli, setArticoli] = React.useState("Caricamento...")
     if (articoli==="Caricamento..."){
-        firebase.firestore().collection("news").get()
+        firebase.firestore().collection("news").orderBy('data', 'desc').limit(10).get()
             .then(collec => {
                 setArticoli(collec.docs)
             })
@@ -243,7 +243,7 @@ function NewsSection(){
                         <ArticoloCarousel 
                         titolo={articolo.data().titolo} 
                         sommario={articolo.data().sommario}
-                        data={articolo.data().data}
+                        data={articolo.data().data.toDate()}
                         immagine={articolo.data().immagine}
                         codice={articolo.id}
                         />

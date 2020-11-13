@@ -58,7 +58,7 @@ function News(props){
         <Card className={classes.root} variant="outlined" raised={true}>
                 <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    {props.data}
+                    {props.data.toLocaleString("default", { month: "long", day: "numeric", year: "numeric" })}
                     </Typography>
                     <Typography variant="h5" component="h2">
                     {props.titolo}
@@ -80,7 +80,7 @@ function News(props){
 function NewsSection(){
     const [articoli, setArticoli] = React.useState("Caricamento...")
     if (articoli==="Caricamento..."){
-        firebase.firestore().collection("news").get()
+        firebase.firestore().collection("news").orderBy('data', 'desc').get()
             .then(collec => {
                 setArticoli(collec.docs)
             })
@@ -89,7 +89,7 @@ function NewsSection(){
         (articoli==="Caricamento...") ? (<div>Loading...</div>) : 
             articoli.map(articolo => {
                 return (
-                    <News autore={articolo.data().autore} titolo={articolo.data().titolo} data={articolo.data().data} descrizione={articolo.data().sommario} codice={articolo.id}/>
+                    <News autore={articolo.data().autore} titolo={articolo.data().titolo} data={articolo.data().data.toDate()} descrizione={articolo.data().sommario} codice={articolo.id}/>
                 )
             })
     )

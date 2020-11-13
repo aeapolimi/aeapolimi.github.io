@@ -65,7 +65,7 @@ function Carica(props){
       {/* <img height="700vh" src={articolo.immagine.includes("http") ? articolo.immagine : require("../images/news/"+articolo.immagine)} alt={articolo.titolo} /> */}
       <Divider style={{marginTop: "20px", marginBottom: "20px"}}/>
       <Typography variant="h6" align="center">
-        {articolo.data}
+        {articolo.data.toDate().toLocaleString("default", { month: "long", day: "numeric", year: "numeric" })}
       </Typography>
       <Typography color="textSecondary" gutterBottom>
         by {articolo.autore}
