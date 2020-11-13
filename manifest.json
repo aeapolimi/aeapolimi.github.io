@@ -2,6 +2,8 @@
   "main.js": "render-page.js",
   "main.js.map": "render-page.js.map",
   "static/aeatondo.png": "static/aeatondo-679c6ecec5f1cf1597dd40472ed2a753.png",
+  "static/board1.jpg": "static/board1-3cdd6f0e5a75e43b5af24ed1699464c1.jpg",
+  "static/comingsoon.jpg": "static/comingsoon-2eb1458bdd1cada7d15d28129fb08d74.jpg",
   "static/cristian.jpeg": "static/cristian-148681e7ab2b7fddbb3ee56da212656e.jpeg",
   "static/cristian.webp": "static/cristian-79dd4c1c6881e54d1481eb6ef9b87da8.webp",
   "static/davide.jpeg": "static/davide-07ffdf9e2d969a64672fc9f89718e946.jpeg",
@@ -25,6 +27,7 @@
   "static/logobianco.webp": "static/logobianco-bdc63c66ee67c0830a9d374842fc1b2f.webp",
   "static/matteo.jpeg": "static/matteo-48ccf946514bc806133729a1940e5f15.jpeg",
   "static/matteo.webp": "static/matteo-1d78bf62888da43fe3c516fddb113158.webp",
+  "static/meme_articoli.jpg": "static/meme_articoli-554e63dee08ed2c08b38b7558f47310f.jpg",
   "static/nature.jpeg": "static/nature-5065449e193d23db2566015e295360d9.jpeg",
   "static/pasquale.jpeg": "static/pasquale-fda0097af3cb578c84547ce68d0502dc.jpeg",
   "static/pasquale.webp": "static/pasquale-ab1bcabc726947da7a7f324c830ef816.webp",
@@ -32,10 +35,14 @@
   "static/pietro.webp": "static/pietro-679de773d66dcd99c4b6235c8847ffc2.webp",
   "static/pit.jpeg": "static/pit-186155ec3e5828426d4cbf5b112bd4ec.jpeg",
   "static/pit.webp": "static/pit-9012ac64056a557aa1bd1654ed75d637.webp",
+  "static/polimi1.jpg": "static/polimi1-a4a20088d134a66f699de15ce8bb77fd.jpg",
   "static/roberto.jpeg": "static/roberto-2a6547cd3ecf96ea5dd1b93f8914f1de.jpeg",
   "static/roberto.webp": "static/roberto-34c46a85c7af74e144cc3b98964291c0.webp",
+  "static/robot.jpg": "static/robot-257be2ddf32f712499faa8b88733a774.jpg",
   "static/robot.mp4": "static/robot-f3de8db4b62c4283f4a1353f41c2d1df.mp4",
   "static/sfondorobot.png": "static/sfondorobot-943e7ef499a5ad52b21206d636841571.png",
   "static/sofia.jpeg": "static/sofia-de81b32345ab2ee11724e0ce48bf71a4.jpeg",
-  "static/sofia.webp": "static/sofia-74da287c66e3586f65d398c5a9da4976.webp"
+  "static/sofia.webp": "static/sofia-74da287c66e3586f65d398c5a9da4976.webp",
+  "static/yumi.jpg": "static/yumi-b9beac2bfb1a2aaabc444118ec275ee6.jpg",
+  "static/yumi_sierologici.jpeg": "static/yumi_sierologici-f4f40b0979c256e068e5db4af10c0f2b.jpeg"
 }
