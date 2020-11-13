@@ -247,7 +247,6 @@ function NewsSection(){
                         titolo={articolo.data().titolo} 
                         sommario={articolo.data().sommario}
                         data={articolo.data().data}
-                        testo={articolo.data().testo}
                         immagine={articolo.data().immagine}
                         codice={articolo.id}
                         />
