@@ -1,6 +1,10 @@
 {
   "main.js": "render-page.js",
   "main.js.map": "render-page.js.map",
+  "static/AEAtondo_grigio.png": "static/AEAtondo_grigio-c3fc5911e4361fcf548fa4cbe299a966.png",
+  "static/AEAtondo_grigio.webp": "static/AEAtondo_grigio-00c3a58e7075542efa2f0ac7411f4a0c.webp",
+  "static/AEAtondo_trasparente.png": "static/AEAtondo_trasparente-a7ee8d6e56760b4e5588a1b02a0ae2c3.png",
+  "static/AEAtondo_trasparente.webp": "static/AEAtondo_trasparente-2767ae7e5cf0f6f4a698552d6ed3a22e.webp",
   "static/aeatondo.png": "static/aeatondo-679c6ecec5f1cf1597dd40472ed2a753.png",
   "static/board1.jpg": "static/board1-3cdd6f0e5a75e43b5af24ed1699464c1.jpg",
   "static/comingsoon.jpg": "static/comingsoon-2eb1458bdd1cada7d15d28129fb08d74.jpg",
