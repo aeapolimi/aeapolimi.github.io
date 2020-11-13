@@ -47,6 +47,8 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/analytics';
 
+import { useIntl, FormattedMessage } from "gatsby-plugin-intl"
+
 import { navigate, Link } from "gatsby"
 
 import ElementiDrawer from "../components/ElementiDrawer"
@@ -293,15 +295,8 @@ function HomePage (){
     const [openAccademico, setOpenAccademico] = React.useState(false);
     const [openInformatico, setOpenInformatico] = React.useState(false);
     const [openEventi, setOpenEventi] = React.useState(false);
-    var width = "20%";
-    var maxCardwidth = "50vw";
-    if (isMobile){
-        width = "60%";
-        // maxCardwidth = "100vw";
-    }
-    else {
-        maxCardwidth = "50vw";
-    }
+    const intl = useIntl();
+    const locale = intl.locale !== "en" ? `/${intl.locale}` : "";
     const toggleDrawer = (open) => (event) => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -371,21 +366,18 @@ function HomePage (){
                         >
                             <Card className={classes.cardabout}>
                                 <CardContent>
-                                        Always aiming for the top.
                                     <Typography color="textSecondary" gutterBottom>
+                                        <FormattedMessage id="preTitoloAbout" />
                                     </Typography>
                                     <Typography variant="h5" component="h2">
                                         Automation Engineering Association Polimi
                                     </Typography>
                                     <Typography variant="body2" component="p">
-                                        AEA, Automation Engineering Association, is the Automation and Robotics Association of Politecnico di Milano. 
-                                        Built by students for students, if you join us you can learn with experts' speeches, build a strong network
-                                        getting in touch with future-oriented and open minded people, visit automation companies, work on automation related projects
-                                        and better understand your possible future working and academic career opportunities.
+                                        {intl.formatMessage({ id: "about" })}
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" onClick = {() => navigate("/UserPage")}>Join us</Button>
+                                    <Button size="small" onClick = {() => navigate("/UserPage")}>{intl.formatMessage({ id: "joinus" })}</Button>
                                 </CardActions>
                             </Card>
                         </Grid>

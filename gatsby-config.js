@@ -69,7 +69,20 @@ module.exports = {
       // options: {
       //   appendScript: require.resolve(`./sw-range-request-handler.js`),
       // },
-    },  
+    },
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        // Directory with the strings JSON
+        path: `${__dirname}/src/intl`,
+        // Supported languages
+        languages: [`it`, `en`],
+        // Default site language
+        defaultLanguage: `en`,
+        // Redirects to `/en` in the route `/`
+        redirect: true,
+      },
+    },
     // {
     //   resolve: 'gatsby-plugin-i18n',
     //   options: {        
