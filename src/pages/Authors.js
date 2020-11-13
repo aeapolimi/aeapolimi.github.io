@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 
 // Gatsby
 import SEO from "../components/seo"
@@ -55,7 +55,7 @@ function News(props){
     const classes = useStyles();
     var codice = props.codice;
     return (
-        <Card key={props.codice} className={classes.root} variant="outlined" raised={true}>
+        <Card key={props.titolo} className={classes.root} variant="outlined" raised={true}>
                 <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
                     {props.data.toLocaleString("default", { month: "long", day: "numeric", year: "numeric" })}
@@ -64,9 +64,7 @@ function News(props){
                     {props.titolo}
                     </Typography>
                     <Typography className={classes.pos} color="textSecondary">
-                      <Link to={"/Authors?"+props.autore} style={{color:"inherit"}}>
-                        by {props.autore}
-                      </Link>
+                     by {props.autore}
                     </Typography>
                     <Typography variant="body2" component="p">
                     {props.descrizione}
@@ -79,10 +77,13 @@ function News(props){
     )
 }
 
-function NewsSection(){
+function NewsSection(props){
     const [articoli, setArticoli] = React.useState("Caricamento...")
+    if(props.autore == "" || !props.autore){
+        return("You shouldn't be here.")
+    }
     if (articoli==="Caricamento..."){
-        firebase.firestore().collection("news").orderBy('data', 'desc').get()
+        firebase.firestore().collection("news").where("autore", "==", props.autore).get()
             .then(collec => {
                 setArticoli(collec.docs)
             })
@@ -97,22 +98,33 @@ function NewsSection(){
     )
 }
 
-function Insiders() {
+function Authors(props) {
+    const nome = props.location.search.substring(1).replace("%20", " ");
+    console.log("../images/direttivo/"+ nome.substr(0,nome.indexOf(' ')).toLowerCase() + ".jpeg")
+    try {
+        var autore = require("../images/direttivo/" + nome.substr(0,nome.indexOf(' ')).toLowerCase() + ".jpeg")
+    }
+    catch(error){
+        var autore = undefined;
+    }
     return (
-      <>
+        <>
         <Layout>
-            <SEO title="Insiders" />
+            <SEO title={nome} />
+            {autore ? 
+            <div style={{minWidth: "100%"}}><img src={autore} height="100px" style={{borderRadius: 30, display:"block", margin: "0 auto"}}/></div>
+                 : null}
             <Typography variant="h3" align="center" style={{marginBottom:"10px", marginTop:"20px"}}>
-              AEA Insiders
+              {nome}
             </Typography>
             <Typography variant="subtitle1" align="center" style={{marginBottom:"40px"}}>
-              The best articles crafted with love by our associates.
+              All the articles written by {nome}.
             </Typography>
-            <NewsSection />
+            <NewsSection autore={nome}/>
             <div style={{height:"40px"}}/>
         </Layout>
-      </>
-  );
+        </>
+    );
 }
 
-export default Insiders;
+export default Authors;

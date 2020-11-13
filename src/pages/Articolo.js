@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-import { navigate } from "gatsby"
+import { navigate, Link } from "gatsby"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
@@ -48,7 +48,7 @@ function Carica(props){
     // return (<img src={require("../images/meme/meme_articoli.jpg")} alt="You shouldn't be here."/>;)
   }
   if (articolo==="Caricamento..."){
-      firebase.firestore().collection("news").doc(props.articolo).get()
+      firebase.firestore().collection("news").doc(props.codice).get()
           .then(collec => {
               if (!collec.exists){
                 navigate("/Insiders")
@@ -68,7 +68,9 @@ function Carica(props){
         {articolo.data.toDate().toLocaleString("default", { month: "long", day: "numeric", year: "numeric" })}
       </Typography>
       <Typography color="textSecondary" gutterBottom>
-        by {articolo.autore}
+        <Link to={"/Authors?"+articolo.autore} style={{color:"inherit"}}>
+          by {articolo.autore}
+        </Link>
       </Typography>
      <Typography variant="h1" align="center">
         {articolo.titolo}
@@ -92,7 +94,7 @@ function Articolo(props) {
     <>
       <Layout>
           <SEO title={info.titolo} description={info.descrizione}/>
-          <Carica articolo={codice} setInfo={setInfo} codice={codice}/>
+          <Carica setInfo={setInfo} codice={codice}/>
       </Layout>
     </>
   );
