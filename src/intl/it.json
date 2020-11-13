@@ -1,5 +1,7 @@
 {
-  "preTitoloAbout": "Puntiamo al meglio.",
-  "joinus": "Unisciti a noi",
-  "about": "AEA, Automation Engineering Association, è la associazione di Automatione e Robotica Politecnico di Milano. Costruita da studenti per gli studenti, se ti unisci a noi potrai seguire masterclass di esperti, costruire un forte network di persone che condividono obiettivi comuni, visitare aziende di automazione, lavorare su progetti e comprendere meglio le tue future possibilità di carriera."
-}
+  "about":{
+    "pretitolo": "Puntiamo al meglio.",
+    "joinus": "Unisciti a noi",
+    "testo": "AEA, Automation Engineering Association, è la associazione di Automatione e Robotica Politecnico di Milano. Costruita da studenti per gli studenti, se ti unisci a noi potrai seguire masterclass di esperti, costruire un forte network di persone che condividono obiettivi comuni, visitare aziende di automazione, lavorare su progetti e comprendere meglio le tue future possibilità di carriera."
+  }
+ }

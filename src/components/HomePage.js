@@ -368,17 +368,17 @@ function HomePage (){
                             <Card className={classes.cardabout}>
                                 <CardContent>
                                     <Typography color="textSecondary" gutterBottom>
-                                        <FormattedMessage id="preTitoloAbout" />
+                                        <FormattedMessage id="about.pretitolo" />
                                     </Typography>
                                     <Typography variant="h5" component="h2">
                                         Automation Engineering Association Polimi
                                     </Typography>
                                     <Typography variant="body2" component="p">
-                                        {intl.formatMessage({ id: "about" })}
+                                        <FormattedMessage id="about.testo"/>
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" onClick = {() => navigate("/UserPage")}>{intl.formatMessage({ id: "joinus" })}</Button>
+                                    <Button size="small" onClick = {() => navigate("/UserPage")}><FormattedMessage id="about.joinus"/></Button>
                                 </CardActions>
                             </Card>
                         </Grid>
