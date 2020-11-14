@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-import { navigate, Link } from "gatsby"
+import { navigate, Link } from "gatsby-plugin-intl"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"

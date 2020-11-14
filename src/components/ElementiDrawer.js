@@ -13,7 +13,7 @@ import CodeIcon from '@material-ui/icons/Code';
 import InfoIcon from '@material-ui/icons/Info';
 import PeopleIcon from '@material-ui/icons/People';
 
-import { Link } from "gatsby"
+import { Link } from "gatsby-plugin-intl"
 import 'fontsource-roboto';
 
 function ElementiDrawer(props){

@@ -47,9 +47,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/analytics';
 
-import { useIntl, FormattedMessage } from "gatsby-plugin-intl"
-
-import { navigate, Link } from "gatsby"
+import { useIntl, FormattedMessage, Link } from "gatsby-plugin-intl"
 
 import ElementiDrawer from "../components/ElementiDrawer"
 import Footer from "../components/Footer"
@@ -331,7 +329,7 @@ function HomePage (){
             </ClickAwayListener>
                 {/* Il render viene caricato solo su firefox non mobile. */}
                 {((isFirefox && !isMobile && !isAndroid) || (isMobileSafari && browserVersion >= 14)) ? 
-                    <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/> :
+                    <iframe title="bg" id="bg" src='../robotrender.html' frameBorder="0" loading="lazy"/> :
                     <video title="videorobot" id="videorobot" playsinline loop muted autoPlay poster={require("../images/sfondorobot.png")}>
                         <source src={RobotVideo} type="video/mp4"/>
                     </video>                    
@@ -378,7 +376,7 @@ function HomePage (){
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" onClick = {() => navigate("/UserPage")}><FormattedMessage id="about.joinus"/></Button>
+                                    <Button component={Link} to="/UserPage" size="small"><FormattedMessage id="about.joinus"/></Button>
                                 </CardActions>
                             </Card>
                         </Grid>
@@ -732,7 +730,7 @@ function HomePage (){
             buttonText="Accetto"
             buttonStyle={{ backgroundColor: "#ef6c00", fontSize: "13px" }}
             cookieName="gatsby-gdpr-google-analytics">
-            AEA uses cookies to login. <a href="./privacypolicy.html"><b>More</b></a>
+            AEA uses cookies to login. <a to="./privacypolicy.html"><b>More</b></a>
         </CookieConsent>
         </>
     )

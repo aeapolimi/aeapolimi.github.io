@@ -13,7 +13,7 @@ import HomeIcon from '@material-ui/icons/Home';
 
 import * as firebase from "firebase/app";
 
-import { navigate } from "gatsby"
+import { navigate } from "gatsby-plugin-intl"
 
 function Appunti(props){
     return (

@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-import { Link } from "gatsby"
+import { Link } from "gatsby-plugin-intl"
 
 // Gatsby
 import SEO from "../components/seo"

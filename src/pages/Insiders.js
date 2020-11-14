@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-import { Link } from "gatsby"
+import { Link, useIntl } from "gatsby-plugin-intl"
 
 // Gatsby
 import SEO from "../components/seo"
@@ -98,10 +98,11 @@ function NewsSection(){
 }
 
 function Insiders() {
+  const intl = useIntl()
     return (
       <>
         <Layout>
-            <SEO title="Insiders" description="The best articles crafted with love by our associates."/>
+            <SEO title="Insiders" description="The best articles crafted with love by our associates." lang={intl.locale}/>
             <Typography variant="h3" align="center" style={{marginBottom:"10px", marginTop:"20px"}}>
               AEA Insiders
             </Typography>
