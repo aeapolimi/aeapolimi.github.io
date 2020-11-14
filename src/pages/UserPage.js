@@ -15,7 +15,7 @@ import "firebase/auth";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 import SEO from "../components/seo"
-import { navigate } from "gatsby"
+import { navigate } from "gatsby-plugin-intl"
 
 import PaginaUser from '../components/PaginaUser';
 

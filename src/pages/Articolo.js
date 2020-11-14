@@ -10,7 +10,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/analytics';
 
-import { navigate, Link } from "gatsby"
+import { navigate, Link } from "gatsby-plugin-intl"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"

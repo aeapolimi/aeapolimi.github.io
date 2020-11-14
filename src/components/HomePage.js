@@ -43,7 +43,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/analytics';
 
-import { navigate, Link } from "gatsby"
+import { useIntl, FormattedMessage, Link } from "gatsby-plugin-intl"
 
 import ElementiDrawer from "../components/ElementiDrawer"
 import Footer from "../components/Footer"
@@ -65,6 +65,10 @@ const firebaseConfig = {
     appId: "1:252147138104:web:cc2a953476b0b77f65b0cd",
     measurementId: "G-0D5Z9JD5XH"
   };
+<<<<<<< HEAD
+=======
+
+>>>>>>> intl
 if (typeof window!== "undefined" && !firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
@@ -289,15 +293,7 @@ function HomePage (){
     const [openAccademico, setOpenAccademico] = React.useState(false);
     const [openInformatico, setOpenInformatico] = React.useState(false);
     const [openEventi, setOpenEventi] = React.useState(false);
-    var width = "20%";
-    var maxCardwidth = "50vw";
-    if (isMobile){
-        width = "60%";
-        // maxCardwidth = "100vw";
-    }
-    else {
-        maxCardwidth = "50vw";
-    }
+    const intl = useIntl();
     const toggleDrawer = (open) => (event) => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -331,7 +327,7 @@ function HomePage (){
             </ClickAwayListener>
                 {/* Il render viene caricato solo su firefox non mobile. */}
                 {((isFirefox && !isMobile && !isAndroid) || (isMobileSafari && browserVersion >= 14)) ? 
-                    <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/> :
+                    <iframe title="bg" id="bg" src='../robotrender.html' frameBorder="0" loading="lazy"/> :
                     <video title="videorobot" id="videorobot" playsinline loop muted autoPlay poster={require("../images/sfondorobot.png")}>
                         <source src={RobotVideo} type="video/mp4"/>
                     </video>                    
@@ -367,21 +363,18 @@ function HomePage (){
                         >
                             <Card className={classes.cardabout}>
                                 <CardContent>
-                                        Always aiming for the top.
                                     <Typography color="textSecondary" gutterBottom>
+                                        <FormattedMessage id="about.pretitolo" />
                                     </Typography>
                                     <Typography variant="h5" component="h2">
                                         Automation Engineering Association Polimi
                                     </Typography>
                                     <Typography variant="body2" component="p">
-                                        AEA, Automation Engineering Association, is the Automation and Robotics Association of Politecnico di Milano. 
-                                        Built by students for students, if you join us you can learn with experts' speeches, build a strong network
-                                        getting in touch with future-oriented and open minded people, visit automation companies, work on automation related projects
-                                        and better understand your possible future working and academic career opportunities.
+                                        <FormattedMessage id="about.testo"/>
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" onClick = {() => navigate("/UserPage")}>Join us</Button>
+                                    <Button component={Link} to="/UserPage" size="small"><FormattedMessage id="about.joinus"/></Button>
                                 </CardActions>
                             </Card>
                         </Grid>

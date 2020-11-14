@@ -13,7 +13,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/analytics';
 
-import { Link } from "gatsby"
+import { Link, useIntl, FormattedMessage } from "gatsby-plugin-intl"
 
 // Gatsby
 import SEO from "../components/seo"
@@ -67,7 +67,7 @@ function News(props){
                     </Typography>
                     <Typography className={classes.pos} color="textSecondary">
                       <Link to={"/Authors?"+props.autore} style={{color:"inherit"}}>
-                        by {props.autore}
+                        <FormattedMessage id="insiders.by" /> {props.autore}
                       </Link>
                     </Typography>
                     <Typography variant="body2" component="p">
@@ -100,15 +100,16 @@ function NewsSection(){
 }
 
 function Insiders() {
+  const intl = useIntl()
     return (
       <>
         <Layout>
-            <SEO title="Insiders" description="The best articles crafted with love by our associates."/>
+            <SEO title="Insiders" description="The best articles crafted with love by our associates." lang={intl.locale}/>
             <Typography variant="h3" align="center" style={{marginBottom:"10px", marginTop:"20px"}}>
               AEA Insiders
             </Typography>
             <Typography variant="subtitle1" align="center" style={{marginBottom:"40px"}}>
-              The best articles crafted with love by our associates.
+              <FormattedMessage id="insiders.about" />
             </Typography>
             <NewsSection />
             <div style={{height:"40px"}}/>

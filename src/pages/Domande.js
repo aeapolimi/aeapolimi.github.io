@@ -17,7 +17,8 @@ import IconButton from '@material-ui/core/IconButton';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
-// Gatsby
+import { useIntl, FormattedMessage } from "gatsby-plugin-intl"
+
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
@@ -39,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Domande() {
     const classes = useStyles();
+    const intl = useIntl();
     const [state, setState] = React.useState({
         "chi":true,
         "cose": false,
@@ -48,7 +50,7 @@ function Domande() {
     return (
       <>
         <Layout>
-            <SEO title="Domande" />
+            <SEO title="Domande" lang={intl.locale}/>
             <TableContainer component={Paper} elevation={0} className={classes.tablecontainer}>
                 <Table aria-label="collapsible table">
                     <TableBody>
@@ -60,7 +62,7 @@ function Domande() {
                             </TableCell>
                             <TableCell component="th" scope="row">
                                 <Typography variant="h4" component="h5">
-                                    Che cos'è AEA?
+                                    <FormattedMessage id="domande.checosa" />
                                 </Typography>       
                             </TableCell>
                         </TableRow>
@@ -68,10 +70,7 @@ function Domande() {
                             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                                 <Collapse in={state["chi"]} timeout="auto" unmountOnExit>
                                     <Typography variant="p" component="p">
-
-                                    AEA, acronimo di Automation Engineering Association, è un’associazione studentesca no profit del politecnico di Milano.
-                                    Come principale obbiettivo ha quello di promuovere la figura dell’ingegnere dell’automazione, incentivando rapporti di collaborazione e condivisione di interessi tra gli studenti.
-
+                                        <FormattedMessage id="domande.checosatesto" />
                                     </Typography>   
                                 </ Collapse>
                             </ TableCell>
@@ -84,7 +83,7 @@ function Domande() {
                             </TableCell>
                             <TableCell component="th" scope="row">
                                 <Typography variant="h4" component="h5">
-                                    Cosa fate?
+                                    <FormattedMessage id="domande.cosafate" />
                                 </Typography>       
                             </TableCell>
                         </TableRow>
@@ -92,11 +91,11 @@ function Domande() {
                             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                                 <Collapse in={state["cosa"]} timeout="auto" unmountOnExit>
                                     <Typography variant="p" component="p">
-
-                                    Il nostro progetto è quello di creare una grande community di studenti disposti ad aiutarsi vicendevolmente al fine di rendere più entusiasmante il proprio percorso accademico. 
-                                    <br></br>Questo significa affiancare un accrescimento della propria conoscenza in abito ingegneristico ad un arricchimento personale e sociale.
-                                    Per fare ciò organizzeremo eventi di diverse tipologie, sia più formali in collaborazione con aziende del settore o ex alunni, sia semplici meeting o aperitivi tra studenti nei quali ognuno potrà raccontare la propria esperienza universitaria (esami a scelta, Erasmus, stages...).
-                                    <br></br>Sei ancora indeciso sulla scelta del piano di studi?! Vorresti conoscere qualcuno che ha già fatto un Erasmus e che ti puó dare consigli in merito?! Non preoccuparti, in AEA troverai tutto quello di cui hai bisogno.... e molto altro!
+                                        <FormattedMessage id="domande.cosafate.progetto" />
+                                        <br/>
+                                        <FormattedMessage id="domande.cosafate.accrescimento" />
+                                        <br/>
+                                        <FormattedMessage id="domande.cosafate.pianostudi" />
                                     </Typography>   
                                 </ Collapse>
                             </ TableCell>
@@ -109,7 +108,7 @@ function Domande() {
                             </TableCell>
                             <TableCell component="th" scope="row">
                                 <Typography variant="h4" component="h5">
-                                    Siete in regola?
+                                <FormattedMessage id="domande.inregola" />
                                 </Typography>       
                             </TableCell>
                         </TableRow>
@@ -117,8 +116,7 @@ function Domande() {
                             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                                 <Collapse in={state["legali"]} timeout="auto" unmountOnExit>
                                     <Typography variant="p" component="p">
-
-                                        Work in progress...
+                                        <FormattedMessage id="domande.cosafate.testoinregola" />
                                     </Typography>   
                                 </ Collapse>
                             </ TableCell>
@@ -132,7 +130,7 @@ function Domande() {
                             </TableCell>
                             <TableCell component="th" scope="row">
                                 <Typography variant="h4" component="h5">
-                                    Come faccio ad associarmi?
+                                <FormattedMessage id="domande.cosafate.associarmi" />
                                 </Typography>       
                             </TableCell>
                         </TableRow>
@@ -140,9 +138,7 @@ function Domande() {
                             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                                 <Collapse in={state["ingresso"]} timeout="auto" unmountOnExit>
                                     <Typography variant="p" component="p">
-                                    Puoi entrare a far parte dell’associazione se sei inscritto ad un qualsiasi corso di laurea, triennale o magistrale, o se sei dottorando presso il Politecnico di Milano.
-                                    Per ulteriori informazioni contatta la nostra segreteria all'indirizzo segreteria@aeapolimi.it !
-
+                                        <FormattedMessage id="domande.cosafate.testoassociarmi" />
                                     </Typography>   
                                 </ Collapse>
                             </ TableCell>

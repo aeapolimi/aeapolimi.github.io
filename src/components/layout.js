@@ -27,7 +27,7 @@ import Footer from "../components/Footer"
 
 import "./layout.css"
 
-import { navigate } from "gatsby"
+import { navigate } from "gatsby-plugin-intl"
 
 const logo = !(isSafari || isMobileSafari) ? require("../images/AEAtondo_trasparente.webp") : require("../images/AEAtondo_trasparente.png")
 

@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
+import { Link } from "gatsby-plugin-intl"
+
 import IconeSocial from "../components/IconeSocial"
 
 const useStyles = makeStyles((theme) => ({
@@ -31,7 +33,7 @@ function Footer(){
                 <div style={{flexGrow: 1}} />
                 <IconeSocial/>
                 <div style={{flexGrow: 1}} />
-                <Button style={{color:"white"}} size="small" onClick = {() => window.open("./privacypolicy.html")}>Privacy policy</Button>
+                <Button style={{color:"white"}} component={Link} to="/PrivacyPolicy" size="small">Privacy policy</Button>
             </Toolbar>
         </AppBar>
         <CookieConsent
