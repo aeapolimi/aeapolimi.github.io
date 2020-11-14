@@ -177,6 +177,7 @@ const responsive = {
 
 function ArticoloCarousel(props){
     const classes = useStyles();
+    const intl = useIntl();
     return (
         <>
         <Card key={props.titolo} variant="outlined" className={classes.cardroot}>
@@ -193,7 +194,7 @@ function ArticoloCarousel(props){
                     // </Avatar>
                     // }
                     title={props.titolo}
-                    subheader={props.data.toLocaleString("default", { month: "long", day: "numeric", year: "numeric" })}
+                    subheader={props.data.toLocaleString(intl.locale, { month: "long", day: "numeric", year: "numeric" })}
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p" align="center">
@@ -212,6 +213,8 @@ function ArticoloCarousel(props){
 
 function NewsSection(){
     const [articoli, setArticoli] = React.useState("Caricamento...")
+    const intl = useIntl();
+    var it = intl.locale === "it";
     if (articoli==="Caricamento..."){
         firebase.firestore().collection("news").orderBy('data', 'desc').limit(10).get()
             .then(collec => {
@@ -241,8 +244,8 @@ function NewsSection(){
                 return (
                     <div key={articolo.data().titolo}>
                         <ArticoloCarousel 
-                        titolo={articolo.data().titolo} 
-                        sommario={articolo.data().sommario}
+                        titolo={it ? articolo.data().titolo_it: articolo.data().titolo} 
+                        sommario={it ? articolo.data().sommario_it : articolo.data().sommario}
                         data={articolo.data().data.toDate()}
                         immagine={articolo.data().immagine}
                         codice={articolo.id}
@@ -290,7 +293,6 @@ function HomePage (){
     const [openAccademico, setOpenAccademico] = React.useState(false);
     const [openInformatico, setOpenInformatico] = React.useState(false);
     const [openEventi, setOpenEventi] = React.useState(false);
-    const intl = useIntl();
     const toggleDrawer = (open) => (event) => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;

@@ -12,6 +12,8 @@ import 'firebase/analytics';
 
 import { navigate, Link } from "gatsby-plugin-intl"
 
+import { useIntl, FormattedMessage } from "gatsby-plugin-intl"
+
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
@@ -46,6 +48,8 @@ const useStyles = makeStyles((theme) => ({
 function Carica(props){
   const classes = useStyles();
   const [articolo, setArticolo] = React.useState("Caricamento...")
+  const intl = useIntl();
+  var it = intl.locale === "it";
   if (props.codice == ""){
     return ("You shouldn't be here. Neither should I.");
     // return (<img src={require("../images/meme/meme_articoli.jpg")} alt="You shouldn't be here."/>;)
@@ -58,7 +62,9 @@ function Carica(props){
               }
               else{
                 setArticolo(collec.data())
-                props.setInfo({titolo: collec.data().titolo, descrizione: collec.data().sommario})
+                let titolo = it ? collec.data().titolo_it : collec.data().titolo;
+                let sommario = it ? collec.data().sommario_it : collec.data().sommario;
+                props.setInfo({titolo: titolo, descrizione: sommario})
               }
           })
       }
@@ -72,14 +78,14 @@ function Carica(props){
       </Typography>
       <Typography color="textSecondary" gutterBottom>
         <Link to={"/authors?"+articolo.autore} style={{color:"inherit"}}>
-          by {articolo.autore}
+          <FormattedMessage id="insiders.by" /> {articolo.autore}
         </Link>
       </Typography>
      <Typography variant="h1" align="center">
-        {articolo.titolo}
+        {it ? articolo.titolo_it : articolo.titolo}
       </Typography>
       <Typography variant="subtitle1" align="center">
-        {articolo.sommario}
+        {it ? articolo.sommario_it : articolo.sommario}
       </Typography>
       <Divider style={{marginTop: "20px", marginBottom: "40px"}}/>
       <Typography variant="p">

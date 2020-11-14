@@ -1,21 +1,15 @@
 import React from 'react';
 import './App.css';
 
-import { makeStyles } from '@material-ui/core/styles';
-
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/analytics';
 
-import { Link } from "gatsby-plugin-intl"
+import { useIntl } from "gatsby-plugin-intl"
 
-// Gatsby
+import News from "../components/News"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
@@ -37,51 +31,10 @@ if (typeof window!== "undefined" && !firebase.apps.length) {
   firebase.analytics();
 }
 
-const useStyles = makeStyles({
-    root: {
-      minWidth: 275,
-      maxWidth: "75vw",
-      margin: "0 auto",
-      marginBottom: "20px",
-      textAlign: "center",
-      borderColor: '#ef6c00',
-    },
-    title: {
-      fontSize: 14,
-    },
-    pos: {
-      marginBottom: 12,
-    },
-  });
-
-function News(props){
-    const classes = useStyles();
-    var codice = props.codice;
-    return (
-        <Card key={props.titolo} className={classes.root} variant="outlined" raised={true}>
-                <CardContent>
-                    <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    {props.data.toLocaleString("default", { month: "long", day: "numeric", year: "numeric" })}
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-                    {props.titolo}
-                    </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
-                     by {props.autore}
-                    </Typography>
-                    <Typography variant="body2" component="p">
-                    {props.descrizione}
-                    </Typography>
-                </CardContent>
-                <CardActions style={{justifyContent: 'center'}}>
-                    <Button component={Link} to={'/Articolo/?'+codice} size="small" style={{color:"black"}}>Keep reading</Button>
-                </CardActions>
-            </Card>
-    )
-}
-
 function NewsSection(props){
-    const [articoli, setArticoli] = React.useState("Caricamento...")
+    const [articoli, setArticoli] = React.useState("Caricamento...");
+    const intl = useIntl();
+    var it = intl.locale === "it";
     if(props.autore == "" || !props.autore){
         return("You shouldn't be here.")
     }
@@ -95,7 +48,13 @@ function NewsSection(props){
         (articoli==="Caricamento...") ? (<div>Loading...</div>) : 
             articoli.map(articolo => {
                 return (
-                    <News autore={articolo.data().autore} titolo={articolo.data().titolo} data={articolo.data().data.toDate()} descrizione={articolo.data().sommario} codice={articolo.id}/>
+                    <News 
+                    autore={articolo.data().autore} 
+                    titolo={it ? articolo.data().titolo_it : articolo.data().titolo} 
+                    data={articolo.data().data.toDate()} 
+                    descrizione={it ? articolo.data().sommario_it : articolo.data().sommario} 
+                    codice={articolo.id}
+                    />
                 )
             })
     )
