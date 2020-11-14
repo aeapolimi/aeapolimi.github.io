@@ -371,7 +371,7 @@ function HomePage (){
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button component={Link} to="/userpage" size="small"><FormattedMessage id="about.joinus"/></Button>
+                                    <Button component={Link} style={{color:"black"}} to="/userpage" size="small"><FormattedMessage id="about.joinus"/></Button>
                                 </CardActions>
                             </Card>
                         </Grid>
