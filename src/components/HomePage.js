@@ -65,7 +65,7 @@ const firebaseConfig = {
     appId: "1:252147138104:web:cc2a953476b0b77f65b0cd",
     measurementId: "G-0D5Z9JD5XH"
   };
-  
+
 if (typeof window!== "undefined" && !firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
@@ -324,7 +324,7 @@ function HomePage (){
             </ClickAwayListener>
                 {/* Il render viene caricato solo su firefox non mobile. */}
                 {((isFirefox && !isMobile && !isAndroid) || (isMobileSafari && browserVersion >= 14)) ? 
-                    <iframe title="bg" id="bg" src='../robotrender.html' frameBorder="0" loading="lazy"/> :
+                    <iframe title="bg" id="bg" src='./robotrender.html' frameBorder="0" loading="lazy"/> :
                     <video title="videorobot" id="videorobot" playsinline loop muted autoPlay poster={require("../images/sfondorobot.png")}>
                         <source src={RobotVideo} type="video/mp4"/>
                     </video>                    

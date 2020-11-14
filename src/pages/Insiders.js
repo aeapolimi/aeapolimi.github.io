@@ -32,7 +32,7 @@ const firebaseConfig = {
   measurementId: "G-0D5Z9JD5XH"
 };
 
-if (!firebase.apps.length) {
+if (typeof window!== "undefined" && !firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 }
