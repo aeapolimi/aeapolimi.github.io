@@ -67,7 +67,7 @@ function News(props){
                     {props.titolo}
                     </Typography>
                     <Typography className={classes.pos} color="textSecondary">
-                      <Link to={"/Authors?"+props.autore} style={{color:"inherit"}}>
+                      <Link to={"/authors?"+props.autore} style={{color:"inherit"}}>
                         <FormattedMessage id="insiders.by" /> {props.autore}
                       </Link>
                     </Typography>
@@ -76,7 +76,7 @@ function News(props){
                     </Typography>
                 </CardContent>
                 <CardActions style={{justifyContent: 'center'}}>
-                    <Button component={Link} to={'/Articolo/?'+codice} size="small" style={{color:"black"}}>Keep reading</Button>
+                    <Button component={Link} to={'/articolo/?'+codice} size="small" style={{color:"black"}}>Keep reading</Button>
                 </CardActions>
             </Card>
     )

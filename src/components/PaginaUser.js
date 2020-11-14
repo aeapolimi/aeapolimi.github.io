@@ -15,6 +15,8 @@ import * as firebase from "firebase/app";
 
 import { navigate } from "gatsby-plugin-intl"
 
+import Note from "../components/Note"
+
 function Appunti(props){
     return (
         <div style={{marginTop: "20px"}}>
@@ -52,7 +54,7 @@ function Benvenuto(props){
                     </Button>
                 </Grid>
                 <Grid item>
-                <Button variant="contained">
+                <Button variant="contained" onClick={() => props.setNote(!props.note)}>
                         note sui corsi
                     </Button>
                 </Grid>
@@ -63,6 +65,7 @@ function Benvenuto(props){
 
 function UserPage(props){
     const [appunti, setAppunti] = React.useState(false);
+    const [note, setNote] = React.useState(false);
     return(
         <div className="sfondo">
             <AppBar position="fixed" style={{backgroundColor: "transparent"}} elevation={0}>
@@ -79,7 +82,8 @@ function UserPage(props){
             </AppBar>
             <div className="benvenuto">
                 {appunti ? <Appunti setAppunti={setAppunti}/> : 
-                <Benvenuto appunti={appunti} setAppunti={setAppunti} autorizzato={props.autorizzato}/>
+                note ? <Note setAppunti={setNote}/> :
+                <Benvenuto appunti={appunti} setAppunti={setAppunti} note={note} setNote={setNote} autorizzato={props.autorizzato}/>
                         }
             </div>
         </div>

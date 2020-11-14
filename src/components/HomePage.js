@@ -201,7 +201,7 @@ function ArticoloCarousel(props){
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                    <IconButton style={{color:"black"}} className={classes.info} aria-label="expand row" size="small" component={Link} to={'/Articolo/?'+props.codice}>
+                    <IconButton style={{color:"black"}} className={classes.info} aria-label="expand row" size="small" component={Link} to={'/articolo/?'+props.codice}>
                         <KeyboardArrowDownIcon />
                     </IconButton>
                 </CardActions>
@@ -371,7 +371,7 @@ function HomePage (){
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button component={Link} to="/UserPage" size="small"><FormattedMessage id="about.joinus"/></Button>
+                                    <Button component={Link} to="/userpage" size="small"><FormattedMessage id="about.joinus"/></Button>
                                 </CardActions>
                             </Card>
                         </Grid>

@@ -19,7 +19,7 @@ import 'fontsource-roboto';
 function ElementiDrawer(props){
     return (
         <List>
-            <ListItem button key="Login" component={Link} to="/UserPage" style={{backgroundColor: "#ef6c00", color:"white"}}>
+            <ListItem button key="Login" component={Link} to="/userpage" style={{backgroundColor: "#ef6c00", color:"white"}}>
                 <ListItemIcon><CodeIcon style={{fill: "white"}} /></ListItemIcon>
                 <ListItemText primary="LOGIN" />
             </ListItem>
@@ -37,11 +37,11 @@ function ElementiDrawer(props){
                 <ListItemText primary="Team" />
             </ListItem>
             <Divider />
-            <ListItem button key="Insiders" component={Link} to="/Insiders" style={{color:"black"}}>
+            <ListItem button key="Insiders" component={Link} to="/insiders" style={{color:"black"}}>
                 <ListItemIcon><AccountBalanceIcon /></ListItemIcon>
                 <ListItemText primary="Insiders" />
             </ListItem>
-            <ListItem button key="FAQ" component={Link} to="/Domande" style={{color:"black"}}>
+            <ListItem button key="FAQ" component={Link} to="/domande" style={{color:"black"}}>
                 <ListItemIcon><QuestionAnswerIcon /></ListItemIcon>
                 <ListItemText primary="FAQ" />
             </ListItem>

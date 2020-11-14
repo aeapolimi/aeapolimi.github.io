@@ -33,7 +33,7 @@ function Footer(){
                 <div style={{flexGrow: 1}} />
                 <IconeSocial/>
                 <div style={{flexGrow: 1}} />
-                <Button style={{color:"white"}} component={Link} to="/PrivacyPolicy" size="small">Privacy policy</Button>
+                <Button style={{color:"white"}} component={Link} to="/privacypolicy" size="small">Privacy policy</Button>
             </Toolbar>
         </AppBar>
         <CookieConsent
@@ -41,7 +41,7 @@ function Footer(){
             buttonText="Ok"
             buttonStyle={{ backgroundColor: "#ef6c00", fontSize: "13px" }}
             cookieName="gatsby-gdpr-google-analytics">
-            AEA uses cookies to login. <a href="./privacypolicy.html"><b>More</b></a>
+            AEA uses cookies to login. <Link to="/privacypolicy"><b>More</b></Link>
         </CookieConsent>
         </>
         )

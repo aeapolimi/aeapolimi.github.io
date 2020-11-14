@@ -71,7 +71,7 @@ function Carica(props){
         {articolo.data.toDate().toLocaleString("default", { month: "long", day: "numeric", year: "numeric" })}
       </Typography>
       <Typography color="textSecondary" gutterBottom>
-        <Link to={"/Authors?"+articolo.autore} style={{color:"inherit"}}>
+        <Link to={"/authors?"+articolo.autore} style={{color:"inherit"}}>
           by {articolo.autore}
         </Link>
       </Typography>
