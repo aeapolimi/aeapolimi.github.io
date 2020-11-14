@@ -90,11 +90,11 @@ function Domande() {
                             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                                 <Collapse in={state["cosa"]} timeout="auto" unmountOnExit>
                                     <Typography variant="p" component="p">
-                                        <FormattedMessage id="domande.cosafate.progetto" />
+                                        <FormattedMessage id="domande.testocosafate.progetto" />
                                         <br/>
-                                        <FormattedMessage id="domande.cosafate.accrescimento" />
+                                        <FormattedMessage id="domande.testocosafate.accrescimento" />
                                         <br/>
-                                        <FormattedMessage id="domande.cosafate.pianostudi" />
+                                        <FormattedMessage id="domande.testocosafate.pianostudi" />
                                     </Typography>   
                                 </ Collapse>
                             </ TableCell>
@@ -115,7 +115,7 @@ function Domande() {
                             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                                 <Collapse in={state["legali"]} timeout="auto" unmountOnExit>
                                     <Typography variant="p" component="p">
-                                        <FormattedMessage id="domande.cosafate.testoinregola" />
+                                        <FormattedMessage id="domande.testoinregola" />
                                     </Typography>   
                                 </ Collapse>
                             </ TableCell>
@@ -129,7 +129,7 @@ function Domande() {
                             </TableCell>
                             <TableCell component="th" scope="row">
                                 <Typography variant="h4" component="h5">
-                                <FormattedMessage id="domande.cosafate.associarmi" />
+                                <FormattedMessage id="domande.associarmi" />
                                 </Typography>       
                             </TableCell>
                         </TableRow>
@@ -137,7 +137,7 @@ function Domande() {
                             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                                 <Collapse in={state["ingresso"]} timeout="auto" unmountOnExit>
                                     <Typography variant="p" component="p">
-                                        <FormattedMessage id="domande.cosafate.testoassociarmi" />
+                                        <FormattedMessage id="domande.testoassociarmi" />
                                     </Typography>   
                                 </ Collapse>
                             </ TableCell>
