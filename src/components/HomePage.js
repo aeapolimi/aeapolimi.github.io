@@ -41,8 +41,6 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import CookieConsent from "react-cookie-consent";
-
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/analytics';
@@ -734,13 +732,6 @@ function HomePage (){
         </div>
         <div style={{height:"50px"}} />
         <Footer />
-        <CookieConsent
-            location="bottom"
-            buttonText="Accetto"
-            buttonStyle={{ backgroundColor: "#ef6c00", fontSize: "13px" }}
-            cookieName="gatsby-gdpr-google-analytics">
-            AEA uses cookies to login. <a href="./privacypolicy.html"><b>More</b></a>
-        </CookieConsent>
         </>
     )
 }

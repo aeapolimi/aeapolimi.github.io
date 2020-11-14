@@ -10,6 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 
 import * as firebase from "firebase/app";
 import 'firebase/firestore';
+import 'firebase/analytics';
 import "firebase/auth";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
@@ -31,6 +32,7 @@ const firebaseConfig = {
 };
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
 }
 
 let theme = createMuiTheme({
