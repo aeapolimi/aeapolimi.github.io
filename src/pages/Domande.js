@@ -138,7 +138,7 @@ function Domande() {
                             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                                 <Collapse in={state["ingresso"]} timeout="auto" unmountOnExit>
                                     <Typography variant="p" component="p">
-                                    <FormattedMessage id="domande.cosafate.testoassociarmi" />
+                                        <FormattedMessage id="domande.cosafate.testoassociarmi" />
                                     </Typography>   
                                 </ Collapse>
                             </ TableCell>

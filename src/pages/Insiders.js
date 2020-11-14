@@ -107,7 +107,7 @@ function Insiders() {
               AEA Insiders
             </Typography>
             <Typography variant="subtitle1" align="center" style={{marginBottom:"40px"}}>
-            <FormattedMessage id="insiders.about" />
+              <FormattedMessage id="insiders.about" />
             </Typography>
             <NewsSection />
             <div style={{height:"40px"}}/>

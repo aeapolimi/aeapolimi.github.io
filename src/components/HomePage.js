@@ -295,7 +295,6 @@ function HomePage (){
     const [openInformatico, setOpenInformatico] = React.useState(false);
     const [openEventi, setOpenEventi] = React.useState(false);
     const intl = useIntl();
-    const locale = intl.locale !== "en" ? `/${intl.locale}` : "";
     const toggleDrawer = (open) => (event) => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
