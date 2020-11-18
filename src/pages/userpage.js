@@ -112,46 +112,47 @@ class SignInScreen extends React.Component {
           </>
         );
       }
+      else {
+        var docref = firebase.firestore().collection("utenti").doc(firebase.auth().currentUser.uid);
+        var setAutorizzato = (valore) => {
+          this.setState({autorizzato: valore})
+        };
+        var setPrimogiro = () => {
+          this.setState({primogiro: false})
+        };
+        var setNewsletter = (valore) => {
+          this.setState({newsletter: valore})
+        };
 
-      var docref = firebase.firestore().collection("utenti").doc(firebase.auth().currentUser.uid);
-      var setAutorizzato = (valore) => {
-        this.setState({autorizzato: valore})
-      };
-      var setPrimogiro = () => {
-        this.setState({primogiro: false})
-      };
-      var setNewsletter = (valore) => {
-        this.setState({newsletter: valore})
-      };
-
-      if (this.state.primogiro){
-        docref.get().then(function(doc) {
-            if (doc.exists) {
-                setAutorizzato(doc.data().autorizzato);
-                setNewsletter(doc.data().newsletter);
-            } else {
-              docref.set(
-                {
-                  email : firebase.auth().currentUser.email,
-                  autorizzato : false,
-                  newsletter: true,
-                }
-              )
-            }
-            setPrimogiro();
-        }).catch(function(error) {
-            console.log("Error getting document:", error);
-        });
+        if (this.state.primogiro){
+          docref.get().then(function(doc) {
+              if (doc.exists) {
+                  setAutorizzato(doc.data().autorizzato);
+                  setNewsletter(doc.data().newsletter);
+              } else {
+                docref.set(
+                  {
+                    email : firebase.auth().currentUser.email,
+                    autorizzato : false,
+                    newsletter: true,
+                  }
+                )
+              }
+              setPrimogiro();
+          }).catch(function(error) {
+              console.log("Error getting document:", error);
+          });
+        }
+        
+        return (
+          <>
+          <SEO title="Home Socio" />
+          <ThemeProvider theme={theme}>
+              <PaginaUser utente={firebase.auth().currentUser.displayName} autorizzato={this.state.autorizzato} setNewsletter={setNewsletter} newsletter={this.state.newsletter}/>
+          </ThemeProvider>
+          </>
+        );
       }
-      
-      return (
-        <>
-        <SEO title="Home Socio" />
-        <ThemeProvider theme={theme}>
-            <PaginaUser utente={firebase.auth().currentUser.displayName} autorizzato={this.state.autorizzato} setNewsletter={setNewsletter} newsletter={this.state.newsletter}/>
-        </ThemeProvider>
-        </>
-      );
     }
   }
 

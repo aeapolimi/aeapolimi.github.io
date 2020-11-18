@@ -99,10 +99,11 @@ function Carica(props){
 function Articolo(props) {
   const [info, setInfo] = React.useState({titolo:"AEA Polimi", descrizione:"An Article on AEA Insiders by a member of the Automation Engineering Association."})
   const codice = props.location.search.substring(1);
+  const intl = useIntl();
   return (
     <>
       <Layout>
-          <SEO title={info.titolo} description={info.descrizione}/>
+          <SEO title={info.titolo} description={info.descrizione} lang={intl.locale}/>
           <Carica setInfo={setInfo} codice={codice}/>
       </Layout>
     </>

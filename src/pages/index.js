@@ -4,6 +4,8 @@ import './App.css';
 // Import dei vari material-ui
 import { createMuiTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 
+import { useIntl } from "gatsby-plugin-intl"
+
 
 // I miei component
 import HomePage from '../components/HomePage';
@@ -25,9 +27,10 @@ theme = responsiveFontSizes(theme);
 
 function App() {
   // L'equivalente del main
+  const intl = useIntl();
   return (
       <div>
-        <SEO title="Home" />
+        <SEO title="Home" lang={intl.locale}/>
         <ThemeProvider theme={theme}>
           <HomePage/>
         </ThemeProvider>
