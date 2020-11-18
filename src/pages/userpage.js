@@ -120,6 +120,9 @@ class SignInScreen extends React.Component {
         var setPrimogiro = () => {
           this.setState({primogiro: false})
         };
+        var setPrimogiroTrue = () => {
+          this.setState({primogiro: true});
+        };
         var setNewsletter = (valore) => {
           this.setState({newsletter: valore})
         };
@@ -148,7 +151,13 @@ class SignInScreen extends React.Component {
           <>
           <SEO title="Home Socio" />
           <ThemeProvider theme={theme}>
-              <PaginaUser utente={firebase.auth().currentUser.displayName} autorizzato={this.state.autorizzato} setNewsletter={setNewsletter} newsletter={this.state.newsletter}/>
+              <PaginaUser 
+              utente={firebase.auth().currentUser.displayName}
+              autorizzato={this.state.autorizzato}
+              setNewsletter={setNewsletter}
+              newsletter={this.state.newsletter}
+              setPrimogiro={setPrimogiroTrue}
+              />
           </ThemeProvider>
           </>
         );

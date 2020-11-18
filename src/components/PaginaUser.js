@@ -93,6 +93,10 @@ function Benvenuto(props){
 function UserPage(props){
     const [appunti, setAppunti] = React.useState(false);
     const [note, setNote] = React.useState(false);
+    var onLogout = () => {
+        firebase.auth().signOut();
+        props.setPrimogiro();
+      };
     return(
         <div className="sfondo">
             <AppBar position="fixed" style={{backgroundColor: "transparent"}} elevation={0}>
@@ -102,7 +106,11 @@ function UserPage(props){
                     </IconButton>
                     <Button style={{color:"white"}} onClick = {() => navigate("/")}>Home</Button>
                     <div style={{flexGrow: 1}} />
-                    <IconButton aria-label="home" style={{color:"white"}} onClick = {() => firebase.auth().signOut()}>
+                    <IconButton 
+                    aria-label="home" 
+                    style={{color:"white"}} 
+                    onClick = {() => onLogout()}
+                    >
                         <ExitToAppIcon style={{fill: "white"}}/>
                     </IconButton>
                 </Toolbar>
