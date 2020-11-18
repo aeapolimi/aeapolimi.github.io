@@ -3,6 +3,8 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
@@ -35,12 +37,21 @@ function Appunti(props){
 }
 
 function Benvenuto(props){
+    var setNewsletter = () => {
+        props.setNewsletter(!props.newsletter)
+        var docref = firebase.firestore().collection("utenti").doc(firebase.auth().currentUser.uid);
+        docref.update(
+            {
+                newsletter: !props.newsletter,
+            }
+        )
+      };
     return (
         <>
             Ciao {props.utente}
             <Grid
                 container
-                direction="row"
+                direction="column"
                 justify="center"
                 alignItems="center"
                 spacing={3}
@@ -48,15 +59,31 @@ function Benvenuto(props){
                     marginTop: "20px"
                 }}
             >
+                {props.autorizzato ? <Grid item>
+                    <Grid
+                        container
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                        spacing={3}
+                    >
+                        <Grid item>
+                            <Button variant="contained" onClick={() => props.setAppunti(!props.appunti)}>
+                                appunti
+                            </Button>
+                        </Grid>
+                        <Grid item>
+                        <Button variant="contained" onClick={() => props.setNote(!props.note)}>
+                                note sui corsi
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Grid> : null}
                 <Grid item>
-                    <Button variant="contained" onClick={() => props.setAppunti(!props.appunti)}>
-                        appunti
-                    </Button>
-                </Grid>
-                <Grid item>
-                <Button variant="contained" onClick={() => props.setNote(!props.note)}>
-                        note sui corsi
-                    </Button>
+                <FormControlLabel
+                    control={<Checkbox checked={props.newsletter} onChange={setNewsletter} name="Newsletter" />}
+                    label="Newsletter"
+                />
                 </Grid>
             </Grid>
         </>
@@ -83,7 +110,7 @@ function UserPage(props){
             <div className="benvenuto">
                 {appunti ? <Appunti setAppunti={setAppunti}/> : 
                 note ? <Note setAppunti={setNote}/> :
-                <Benvenuto appunti={appunti} setAppunti={setAppunti} note={note} setNote={setNote} autorizzato={props.autorizzato}/>
+                <Benvenuto appunti={appunti} setAppunti={setAppunti} note={note} setNote={setNote} autorizzato={props.autorizzato} setNewsletter={props.setNewsletter} newsletter={props.newsletter}/>
                         }
             </div>
         </div>

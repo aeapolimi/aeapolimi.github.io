@@ -54,6 +54,7 @@ class SignInScreen extends React.Component {
       isSignedIn: false,
       autorizzato: false,
       primogiro: true,
+      newsletter: true,
     };
 
     uiConfig = {
@@ -119,16 +120,21 @@ class SignInScreen extends React.Component {
       var setPrimogiro = () => {
         this.setState({primogiro: false})
       };
+      var setNewsletter = (valore) => {
+        this.setState({newsletter: valore})
+      };
 
       if (this.state.primogiro){
         docref.get().then(function(doc) {
             if (doc.exists) {
                 setAutorizzato(doc.data().autorizzato);
+                setNewsletter(doc.data().newsletter);
             } else {
               docref.set(
                 {
                   email : firebase.auth().currentUser.email,
-                  autorizzato : false
+                  autorizzato : false,
+                  newsletter: true,
                 }
               )
             }
@@ -142,7 +148,7 @@ class SignInScreen extends React.Component {
         <>
         <SEO title="Home Socio" />
         <ThemeProvider theme={theme}>
-            <PaginaUser utente={firebase.auth().currentUser.displayName} autorizzato={this.state.autorizzato}/>
+            <PaginaUser utente={firebase.auth().currentUser.displayName} autorizzato={this.state.autorizzato} setNewsletter={setNewsletter} newsletter={this.state.newsletter}/>
         </ThemeProvider>
         </>
       );
