@@ -89,7 +89,7 @@ function Carica(props){
       </Typography>
       <Divider style={{marginTop: "20px", marginBottom: "40px"}}/>
       <Typography variant="p">
-        <div className={classes.testoArticolo} key={articolo.titolo} dangerouslySetInnerHTML={{ __html: articolo.testo }}/>
+        <div className={classes.testoArticolo} key={articolo.titolo} dangerouslySetInnerHTML={{ __html: it ? articolo.testo_it : articolo.testo }}/>
       </Typography>
       <div style={{height:"40px"}} />
     </div>
