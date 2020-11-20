@@ -5,12 +5,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
 import Snackbar from '@material-ui/core/Snackbar';
 import Typography from '@material-ui/core/Typography';
 
+import ImageIcon from '@material-ui/icons/Image';
+import FormatBoldIcon from '@material-ui/icons/FormatBold';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
+import YouTubeIcon from '@material-ui/icons/YouTube';
+import FormatItalicIcon from '@material-ui/icons/FormatItalic';
 
 import { FormattedMessage } from "gatsby-plugin-intl"
 
@@ -40,6 +45,28 @@ const useStyles = makeStyles((theme) => ({
         },
       },
   }));
+
+function BarraStrumenti(props){
+    return (
+        <>
+            <IconButton size="small" aria-label="bold" color="inherit" onClick={() => props.setTesto(props.testo + "<b></b>")}>
+                <FormatBoldIcon fontSize="small" />
+            </IconButton>
+            <IconButton size="small" aria-label="italic" color="inherit" onClick={() => props.setTesto(props.testo + "<i></i>")}>
+                <FormatItalicIcon fontSize="small" />
+            </IconButton>
+            <IconButton size="small" aria-label="new line" color="inherit" onClick={() => props.setTesto(props.testo + "<br/>")}>
+                br
+            </IconButton>
+            <IconButton size="small" aria-label="img" color="inherit" onClick={() => props.setTesto(props.testo + ' <img src= "INSERIRE URL" tag="DESCRIZIONE IMMAGINE"/>')}>
+                <ImageIcon fontSize="small" />
+            </IconButton>
+            <IconButton size="small" aria-label="yt" color="inherit" onClick={() => props.setTesto(props.testo + ' <div style="position:relative;padding-bottom: 56.25%"> <iframe style="position:absolute" width="100%" height="100%" src="URL YOUTUBE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>')}>
+                <YouTubeIcon fontSize="small" />
+            </IconButton>
+        </>
+    )
+}
 
 function EditorMode(props){
     const classes = useStyles();
@@ -145,6 +172,23 @@ function EditorMode(props){
                 onChange={(event) => setSommario_it(event.target.value)}
                 multiline />
             </form>
+            <Grid
+                container
+                direction="row"
+                justify="space-evenly"
+                alignItems="center"
+                spacing={3}
+                style={{
+                    marginTop: "20px"
+                }}
+            >
+                <Grid item>
+                    <BarraStrumenti testo={testo} setTesto={setTesto}/>
+                </Grid>
+                <Grid item>
+                    <BarraStrumenti testo={testo_it} setTesto={setTesto_it}/>
+                </Grid>
+            </Grid>
             <form className={classes.root} noValidate autoComplete="off">
                 <TextField 
                     id="standard-basic" 
@@ -205,7 +249,7 @@ function EditorMode(props){
                         Fatto
                     </Button>
                     <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
-                    <CloseIcon fontSize="small" />
+                        <CloseIcon fontSize="small" />
                     </IconButton>
                 </React.Fragment>
                 }
