@@ -35,23 +35,33 @@ function News(props){
     return (
         <Card key={props.codice} className={classes.root} variant="outlined" raised={true}>
                 <CardContent>
+                    <Typography variant="overline" color="textSecondary" gutterBottom>
+                      TAG:
+                      {
+                        props.tag === undefined ?
+                        "" :
+                          props.tag.map((el) => <Link to={"/tags?"+el} style={{color:"inherit"}}> {el}</Link>)
+                      }
+                    </Typography>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
                     {props.data.toLocaleString(intl.locale, { month: "long", day: "numeric", year: "numeric" })}
                     </Typography>
                     <Typography variant="h5" component="h2">
                     {props.titolo}
                     </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
+                    <Typography color="textSecondary">
                       <Link to={"/authors?"+props.autore} style={{color:"inherit"}}>
                         <FormattedMessage id="insiders.by" /> {props.autore}
                       </Link>
                     </Typography>
-                    <Typography variant="body2" component="p">
+                    <Typography variant="body2" component="p" className={classes.pos}>
                     {props.descrizione}
                     </Typography>
                 </CardContent>
                 <CardActions style={{justifyContent: 'center'}}>
-                    <Button component={Link} to={'/articolo/?'+codice} size="small" style={{color:"black"}}>Keep reading</Button>
+                    <Button component={Link} to={'/articolo/?'+codice} size="small" variant="outlined"  style={{color:"black"}}>
+                      <FormattedMessage id="insiders.read" />
+                    </Button>
                 </CardActions>
             </Card>
     )

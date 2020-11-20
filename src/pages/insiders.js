@@ -50,7 +50,9 @@ function NewsSection(){
                     titolo={it ? articolo.data().titolo_it : articolo.data().titolo} 
                     data={articolo.data().data.toDate()} 
                     descrizione={it ? articolo.data().sommario_it : articolo.data().sommario} 
-                    codice={articolo.id}/>
+                    codice={articolo.id}
+                    tag={articolo.data().tag}
+                    />
                 )
             })
     )

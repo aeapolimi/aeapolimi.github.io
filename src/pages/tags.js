@@ -39,7 +39,7 @@ function NewsSection(props){
         return("You shouldn't be here.")
     }
     if (articoli==="Caricamento..."){
-        firebase.firestore().collection("news").where("autore", "==", props.autore).get()
+        firebase.firestore().collection("news").where("tag", "array-contains", props.autore).get()
             .then(collec => {
                 setArticoli(collec.docs)
             })
@@ -61,32 +61,23 @@ function NewsSection(props){
     )
 }
 
-function Authors(props) {
-    const nome = props.location.search.substring(1).replace("%20", " ");
-    try {
-        var autore = require("../images/direttivo/" + nome.substr(0,nome.indexOf(' ')).toLowerCase() + ".jpeg")
-    }
-    catch(error){
-        autore = undefined;
-    }
+function Tags(props) {
+    const tag = props.location.search.substring(1).replace("%20", " ");
     return (
         <>
         <Layout>
-            <SEO title={nome} />
-            {autore ? 
-            <div style={{minWidth: "100%"}}><img src={autore} alt={nome} height="100px" style={{borderRadius: 30, display:"block", margin: "0 auto"}}/></div>
-                 : null}
+            <SEO title={tag} />
             <Typography variant="h3" align="center" style={{marginBottom:"10px", marginTop:"20px"}}>
-              {nome}
+              {tag.toUpperCase()}
             </Typography>
             <Typography variant="subtitle1" align="center" style={{marginBottom:"40px"}}>
-              All the articles written by {nome}.
+              All the articles in: {tag.toUpperCase()}.
             </Typography>
-            <NewsSection autore={nome}/>
+            <NewsSection autore={tag}/>
             <div style={{height:"40px"}}/>
         </Layout>
         </>
     );
 }
 
-export default Authors;
+export default Tags;

@@ -55,6 +55,7 @@ class SignInScreen extends React.Component {
       autorizzato: false,
       primogiro: true,
       newsletter: true,
+      editor: false,
     };
 
     uiConfig = {
@@ -126,18 +127,23 @@ class SignInScreen extends React.Component {
         var setNewsletter = (valore) => {
           this.setState({newsletter: valore})
         };
+        var setEditor = (valore) => {
+          this.setState({editor: valore})
+        };
 
         if (this.state.primogiro){
           docref.get().then(function(doc) {
               if (doc.exists) {
                   setAutorizzato(doc.data().autorizzato);
                   setNewsletter(doc.data().newsletter);
+                  setEditor(doc.data().editor);
               } else {
                 docref.set(
                   {
                     email : firebase.auth().currentUser.email,
                     autorizzato : false,
                     newsletter: true,
+                    editor: false
                   }
                 )
               }

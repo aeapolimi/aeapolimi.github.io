@@ -58,7 +58,7 @@ function Carica(props){
       firebase.firestore().collection("news").doc(props.codice).get()
           .then(collec => {
               if (!collec.exists){
-                navigate("/Insiders")
+                navigate("/insiders")
               }
               else{
                 setArticolo(collec.data())
@@ -73,6 +73,14 @@ function Carica(props){
     <div className="contenuto">
       {/* <img height="700vh" src={articolo.immagine.includes("http") ? articolo.immagine : require("../images/news/"+articolo.immagine)} alt={articolo.titolo} /> */}
       <Divider style={{marginTop: "20px", marginBottom: "20px"}}/>
+      <Typography variant="overline" color="textSecondary" gutterBottom>
+          TAG:
+          {
+            articolo.tag === undefined ?
+            "" :
+              articolo.tag.map((el) => <Link to={"/tags?"+el} style={{color:"inherit"}}> {el}</Link>)
+          }
+        </Typography>
       <Typography variant="h6" align="center">
         {articolo.data.toDate().toLocaleString("default", { month: "long", day: "numeric", year: "numeric" })}
       </Typography>
