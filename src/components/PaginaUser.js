@@ -17,6 +17,7 @@ import * as firebase from "firebase/app";
 
 import { navigate } from "gatsby-plugin-intl"
 
+import EditorMode from "../components/EditorMode"
 import Note from "../components/Note"
 
 function Appunti(props){
@@ -73,10 +74,20 @@ function Benvenuto(props){
                             </Button>
                         </Grid>
                         <Grid item>
-                        <Button variant="contained" onClick={() => props.setNote(!props.note)}>
+                            <Button variant="contained" onClick={() => props.setNote(!props.note)}>
                                 note sui corsi
                             </Button>
                         </Grid>
+                        {
+                            props.editor ? 
+                            <Grid item xs={12}>
+                                <Button variant="outlined" onClick={() => props.setEditormode(!props.editormode)}>
+                                    nuovo articolo
+                                </Button>
+                            </Grid>
+                            :
+                            null
+                        }
                     </Grid>
                 </Grid> : null}
                 <Grid item>
@@ -93,6 +104,7 @@ function Benvenuto(props){
 function UserPage(props){
     const [appunti, setAppunti] = React.useState(false);
     const [note, setNote] = React.useState(false);
+    const [editormode, setEditormode] = React.useState(false);
     var onLogout = () => {
         firebase.auth().signOut();
         props.setPrimogiro();
@@ -118,7 +130,18 @@ function UserPage(props){
             <div className="benvenuto">
                 {appunti ? <Appunti setAppunti={setAppunti}/> : 
                 note ? <Note setAppunti={setNote}/> :
-                <Benvenuto appunti={appunti} setAppunti={setAppunti} note={note} setNote={setNote} autorizzato={props.autorizzato} setNewsletter={props.setNewsletter} newsletter={props.newsletter}/>
+                editormode ? <EditorMode setEditormode={setEditormode}/> :
+                <Benvenuto 
+                appunti={appunti} 
+                setAppunti={setAppunti} 
+                note={note} 
+                setNote={setNote}
+                autorizzato={props.autorizzato} 
+                setNewsletter={props.setNewsletter} 
+                newsletter={props.newsletter}
+                editor={props.editor}
+                editormode={editormode}
+                setEditormode={setEditormode}/>
                         }
             </div>
         </div>

@@ -163,6 +163,7 @@ class SignInScreen extends React.Component {
               setNewsletter={setNewsletter}
               newsletter={this.state.newsletter}
               setPrimogiro={setPrimogiroTrue}
+              editor={this.state.editor}
               />
           </ThemeProvider>
           </>
