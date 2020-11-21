@@ -15,7 +15,9 @@ import "firebase/auth";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 import SEO from "../components/seo"
-import { navigate } from "gatsby-plugin-intl"
+import { navigate, Link } from "gatsby-plugin-intl"
+
+import CookieConsent from "react-cookie-consent";
 
 import PaginaUser from '../components/PaginaUser';
 
@@ -109,6 +111,13 @@ class SignInScreen extends React.Component {
                     <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
                   </div>
               </div>
+              <CookieConsent
+                location="bottom"
+                buttonText="Ok"
+                buttonStyle={{ backgroundColor: "#ef6c00", fontSize: "13px" }}
+                cookieName="gatsby-gdpr-google-analytics">
+                AEA uses cookies to login. <Link to="/privacypolicy"><b>More</b></Link>
+            </CookieConsent>
           </ThemeProvider>
           </>
         );
@@ -165,6 +174,13 @@ class SignInScreen extends React.Component {
               setPrimogiro={setPrimogiroTrue}
               editor={this.state.editor}
               />
+              <CookieConsent
+                location="bottom"
+                buttonText="Ok"
+                buttonStyle={{ backgroundColor: "#ef6c00", fontSize: "13px" }}
+                cookieName="gatsby-gdpr-google-analytics">
+                AEA uses cookies to login. <Link to="/privacypolicy"><b>More</b></Link>
+            </CookieConsent>
           </ThemeProvider>
           </>
         );
