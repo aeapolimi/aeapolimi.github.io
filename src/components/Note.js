@@ -17,7 +17,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
-import { useIntl, FormattedMessage } from "gatsby-plugin-intl"
+import { FormattedMessage } from "gatsby-plugin-intl"
 
 const useStyles = makeStyles((theme) => ({
     tablecontainer:{
@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Note(props){
     const classes = useStyles();
-    const intl = useIntl();
     const [state, setState] = React.useState({
         "automazione":false,
     })

@@ -35,7 +35,7 @@ function NewsSection(props){
     const [articoli, setArticoli] = React.useState("Caricamento...");
     const intl = useIntl();
     var it = intl.locale === "it";
-    if(props.autore == "" || !props.autore){
+    if(props.autore === "" || !props.autore){
         return("You shouldn't be here.")
     }
     if (articoli==="Caricamento..."){

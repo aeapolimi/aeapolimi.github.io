@@ -39,6 +39,7 @@ module.exports = {
         },
       },
     },
+    'gatsby-plugin-loadable-components-ssr',
     {
       resolve: `gatsby-plugin-netlify`,
       options: {

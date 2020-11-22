@@ -1,9 +1,11 @@
 import React from 'react';
 import './homePage.css';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { useIntl, FormattedMessage, Link } from "gatsby-plugin-intl"
 
 import { isSafari, isMobileSafari } from 'react-device-detect';
+
+import { makeStyles } from '@material-ui/core/styles';
 
 import AppBar from '@material-ui/core/AppBar';
 import Box from '@material-ui/core/Box';
@@ -29,28 +31,25 @@ import TableRow from '@material-ui/core/TableRow';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-import { red } from '@material-ui/core/colors';
-
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import MenuIcon from '@material-ui/icons/Menu';
+
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/analytics';
 
-import { useIntl, FormattedMessage, Link } from "gatsby-plugin-intl"
-
-import ElementiDrawer from "../components/ElementiDrawer"
-import Footer from "../components/Footer"
-import IconeSocial from "../components/IconeSocial"
-
 import RobotVideo from "../../static/robot.mp4"
 
 import 'fontsource-roboto';
+
+import loadable from '@loadable/component';
+const ElementiDrawer = loadable(() => import(`../components/ElementiDrawer`));
+const Footer = loadable(() => import(`../components/Footer`));
+const IconeSocial = loadable(() => import(`../components/IconeSocial`));
 
 const isSaf = isMobileSafari || isSafari;
 
@@ -83,9 +82,6 @@ const useStyles = makeStyles((theme) => ({
             opacity: 0,
           },
       },
-    avatar: {
-        backgroundColor: red[500],
-    },
     cardroot: {
         // borderRadius: 30,
         maxWidth: 345,
@@ -187,11 +183,6 @@ function ArticoloCarousel(props){
                 />
                 <CardHeader
                     className={classes.cardheader}
-                    // avatar={
-                    // <Avatar aria-label="recipe" className={classes.avatar}>
-                    //     A
-                    // </Avatar>
-                    // }
                     title={props.titolo}
                     subheader={props.data.toLocaleString(intl.locale, { month: "long", day: "numeric", year: "numeric" })}
                 />

@@ -50,7 +50,7 @@ function Carica(props){
   const [articolo, setArticolo] = React.useState("Caricamento...")
   const intl = useIntl();
   var it = intl.locale === "it";
-  if (props.codice == ""){
+  if (props.codice === ""){
     return ("You shouldn't be here. Neither should I.");
     // return (<img src={require("../images/meme/meme_articoli.jpg")} alt="You shouldn't be here."/>;)
   }
