@@ -317,7 +317,7 @@ function HomePage (){
                 {/* Il render viene caricato solo su firefox non mobile. */}
                 {/* {((isFirefox && !isMobile && !isAndroid) || (isMobileSafari && browserVersion >= 14)) ? 
                     <iframe title="bg" id="bg" src='https://www.aeapolimi.it/robotrender.html' frameBorder="0" loading="lazy"/> : */}
-                    <video title="videorobot" id="videorobot" playsinline loop muted autoPlay poster={!isSaf ? require("../images/sfondorobot.webp") : require("../images/direttivo/sfondorobot.png")}>
+                    <video title="videorobot" id="videorobot" playsinline loop muted autoPlay poster={!isSaf ? require("../images/sfondorobot.webp") : require("../images/sfondorobot.png")}>
                         <source src={RobotVideo} type="video/mp4"/>
                     </video>                    
                 {/* } */}

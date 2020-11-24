@@ -4,6 +4,7 @@ import '../components/PaginaUser.css';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import IconButton from '@material-ui/core/IconButton';
@@ -108,6 +109,9 @@ class SignInScreen extends React.Component {
                       </Toolbar>
                   </AppBar>
                   <div className="login">
+                    <Typography variant="h4" style={{color:"white", marginBottom: "30px"}}>
+                        Join our newsletter!
+                    </Typography>
                     <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
                   </div>
               </div>
