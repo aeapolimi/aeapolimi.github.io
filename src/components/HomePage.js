@@ -1,6 +1,8 @@
 import React from 'react';
 import './homePage.css';
 
+import { graphql } from 'gatsby'
+
 import { useIntl, FormattedMessage, Link } from "gatsby-plugin-intl"
 
 import { isSafari, isMobileSafari } from 'react-device-detect';
@@ -201,7 +203,7 @@ function ArticoloCarousel(props){
     );
 }
 
-function NewsSection(){
+function NewsSection(props){
     const [articoli, setArticoli] = React.useState("Caricamento...")
     const intl = useIntl();
     var it = intl.locale === "it";
@@ -230,15 +232,15 @@ function NewsSection(){
         centerMode={true}
         >
             {(articoli==="Caricamento...") ? <div>Loading...</div> : 
-            articoli.map(articolo => {
+            props.data.allNews.edges.map(articolo => {
                 return (
-                    <div key={articolo.data().titolo}>
+                    <div key={articolo.node.titolo}>
                         <ArticoloCarousel 
-                        titolo={it ? articolo.data().titolo_it: articolo.data().titolo} 
-                        sommario={it ? articolo.data().sommario_it : articolo.data().sommario}
-                        data={articolo.data().data.toDate()}
-                        immagine={articolo.data().immagine}
-                        codice={articolo.id}
+                        titolo={it ? articolo.node.titolo_it: articolo.node.titolo} 
+                        sommario={it ? articolo.node.sommario_it : articolo.node.sommario}
+                        data={new Date()}
+                        immagine={articolo.node.immagine}
+                        codice={articolo.node.id}
                         />
                     </div>
                 )
@@ -273,7 +275,7 @@ function CardDirettivo(props){
     )
 }
 
-function HomePage (){
+function HomePage ({data}){
     // HOOK
     const classes = useStyles();
     const [openDrawer, setOpenDrawer] = React.useState(false);
@@ -283,6 +285,7 @@ function HomePage (){
     const [openAccademico, setOpenAccademico] = React.useState(false);
     const [openInformatico, setOpenInformatico] = React.useState(false);
     const [openEventi, setOpenEventi] = React.useState(false);
+    console.log(data)
     const toggleDrawer = (open) => (event) => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -336,7 +339,7 @@ function HomePage (){
                             NEWS
                         </Typography>
                     </div>
-                    <NewsSection/>
+                    <NewsSection data={data}/>
                     <div style={{minHeight:"20px"}} />
                 </div>
                 <div className="about" id="about">
@@ -715,5 +718,27 @@ function HomePage (){
         </>
     )
 }
+
+export const query = graphql`
+query MyQuery {
+    allNews {
+      edges {
+        node {
+          sommario
+          autore
+          immagine
+          sommario_it
+          tag
+          testo
+          testo_it
+          titolo
+          titolo_it
+          id
+        }
+      }
+    }
+  }
+  
+`
 
 export default HomePage;
