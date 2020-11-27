@@ -1,7 +1,7 @@
 import React from 'react';
 import './homePage.css';
 
-import { graphql } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 
 import { useIntl, FormattedMessage, Link } from "gatsby-plugin-intl"
 
@@ -203,37 +203,50 @@ function ArticoloCarousel(props){
     );
 }
 
-function NewsSection(props){
-    const [articoli, setArticoli] = React.useState("Caricamento...")
+function NewsSection(){
     const intl = useIntl();
     var it = intl.locale === "it";
-    if (articoli==="Caricamento..."){
-        firebase.firestore().collection("news").orderBy('data', 'desc').limit(10).get()
-            .then(collec => {
-                setArticoli(collec.docs)
-            })
-        }
-    return(<Carousel
-        swipeable={true}
-        draggable={true}
-        showDots={false}
-        responsive={responsive}
-        ssr={true} // means to render carousel on server-side.
-        infinite={true}
-        autoPlay={true}
-        autoPlaySpeed={4000}
-        keyBoardControl={false}
-        customTransition="all .5"
-        // transitionDuration={1000} rompe il draggable
-        containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        // deviceType={this.props.deviceType}
-        dotListClass="custom-dot-list-style"
-        centerMode={true}
-        >
-            {(articoli==="Caricamento...") ? <div>Loading...</div> : 
-            props.data.allNews.edges.map(articolo => {
-                return (
+    return(
+        <StaticQuery
+        query={graphql`
+        query MyQuery {
+            allNews {
+              edges {
+                node {
+                  sommario
+                  autore
+                  immagine
+                  sommario_it
+                  tag
+                  testo
+                  testo_it
+                  titolo
+                  titolo_it
+                  id
+                }
+              }
+            }
+          }
+          `}
+        render={data => <Carousel
+            swipeable={true}
+            draggable={true}
+            showDots={false}
+            responsive={responsive}
+            ssr={true} // means to render carousel on server-side.
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={4000}
+            keyBoardControl={false}
+            customTransition="all .5"
+            // transitionDuration={1000} rompe il draggable
+            containerClass="carousel-container"
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            // deviceType={this.props.deviceType}
+            dotListClass="custom-dot-list-style"
+            centerMode={true}
+            >
+            {data.allNews.edges.map( articolo => (
                     <div key={articolo.node.titolo}>
                         <ArticoloCarousel 
                         titolo={it ? articolo.node.titolo_it: articolo.node.titolo} 
@@ -243,9 +256,11 @@ function NewsSection(props){
                         codice={articolo.node.id}
                         />
                     </div>
-                )
-            })}
-    </Carousel>)
+                ))}
+            
+        </Carousel>
+        }
+    />)
 }
 
 function CardDirettivo(props){
@@ -275,7 +290,7 @@ function CardDirettivo(props){
     )
 }
 
-function HomePage ({data}){
+const HomePage = () => {
     // HOOK
     const classes = useStyles();
     const [openDrawer, setOpenDrawer] = React.useState(false);
@@ -285,7 +300,6 @@ function HomePage ({data}){
     const [openAccademico, setOpenAccademico] = React.useState(false);
     const [openInformatico, setOpenInformatico] = React.useState(false);
     const [openEventi, setOpenEventi] = React.useState(false);
-    console.log(data)
     const toggleDrawer = (open) => (event) => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -339,7 +353,7 @@ function HomePage ({data}){
                             NEWS
                         </Typography>
                     </div>
-                    <NewsSection data={data}/>
+                    <NewsSection/>
                     <div style={{minHeight:"20px"}} />
                 </div>
                 <div className="about" id="about">
@@ -719,26 +733,5 @@ function HomePage ({data}){
     )
 }
 
-export const query = graphql`
-query MyQuery {
-    allNews {
-      edges {
-        node {
-          sommario
-          autore
-          immagine
-          sommario_it
-          tag
-          testo
-          testo_it
-          titolo
-          titolo_it
-          id
-        }
-      }
-    }
-  }
-  
-`
 
 export default HomePage;
