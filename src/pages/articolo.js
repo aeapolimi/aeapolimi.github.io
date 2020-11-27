@@ -51,6 +51,9 @@ const useStyles = makeStyles((theme) => ({
     "& a:visited": {
       color: '#ef6c00',
     },
+    "& img": {
+      width: '100vw',
+    }
   },
 }))
 
