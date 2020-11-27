@@ -42,6 +42,15 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       maxWidth:"55vw",
     },
+    "& a": {
+      color: '#ef6c00',
+    },
+    "& a:active": {
+      color: '#ef6c00',
+    },
+    "& a:visited": {
+      color: '#ef6c00',
+    },
   },
 }))
 
