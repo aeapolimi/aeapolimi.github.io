@@ -39,6 +39,27 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: '@deanc/gatsby-source-firestorer',
+      options: {
+        config: {
+          apiKey: "AIzaSyCN3qF77x39c9RtTO5_s4QMV3lQ589RdZU",
+          authDomain: "aeapolimiweb.firebaseapp.com",
+          databaseURL: "https://aeapolimiweb.firebaseio.com",
+          projectId: "aeapolimiweb",
+          storageBucket: "aeapolimiweb.appspot.com",
+          messagingSenderId: "252147138104",
+          appId: "1:252147138104:web:cc2a953476b0b77f65b0cd",
+          measurementId: "G-0D5Z9JD5XH"
+        },
+        types: [
+          {
+            type: 'News',
+            collection: 'news',
+          },
+        ],
+      },
+    },
     'gatsby-plugin-loadable-components-ssr',
     {
       resolve: `gatsby-plugin-netlify`,

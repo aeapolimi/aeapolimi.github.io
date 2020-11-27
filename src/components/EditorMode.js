@@ -87,7 +87,7 @@ function EditorMode(props){
     }
 
     const salva = () => {
-        var docref = firebase.firestore().collection("news").doc(titolo.replace(" ", "_").replace(":", "_").replace(",", "_").replace(".", ""));
+        var docref = firebase.firestore().collection("news").doc(titolo.replace(/\ /g, "_").replace(/\;/g, "_").replace(/\:/g, "").replace(/\,/g, "").replace(/\./g, "").toLowerCase());
         docref.set(
                 {
                     autore : autore,
