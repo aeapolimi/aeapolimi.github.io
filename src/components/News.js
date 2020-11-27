@@ -59,7 +59,7 @@ function News(props){
                     </Typography>
                 </CardContent>
                 <CardActions style={{justifyContent: 'center'}}>
-                    <Button component={Link} to={'/articolo/?'+codice} size="small" variant="outlined"  style={{color:"black"}}>
+                    <Button component={Link} to={'/'+codice} size="small" variant="outlined"  style={{color:"black"}}>
                       <FormattedMessage id="insiders.read" />
                     </Button>
                 </CardActions>

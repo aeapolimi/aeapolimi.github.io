@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, image }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -45,6 +45,10 @@ function SEO({ description, lang, meta, title }) {
           content: title,
         },
         {
+          property: `og:image`,
+          content: image,
+        },
+        {
           property: `og:description`,
           content: metaDescription,
         },
@@ -77,6 +81,7 @@ SEO.defaultProps = {
   lang: `it`,
   meta: [],
   description: `Politecnico di Milano Automation Engineering Association. A no-profit organization made by students for students aimed at promoting the Automation Engineer through events and opportunities.`,
+  image: "https://raw.githubusercontent.com/aeapolimi/aeapolimi.github.io/master/src/images/aea_maskable.png"
 }
 
 SEO.propTypes = {

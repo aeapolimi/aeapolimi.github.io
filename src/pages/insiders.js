@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 
+import { graphql, StaticQuery } from 'gatsby'
+
 import Typography from '@material-ui/core/Typography';
 
 import firebase from 'firebase/app';
@@ -42,19 +44,36 @@ function NewsSection(){
             })
         }
     return (
-        (articoli==="Caricamento...") ? (<div>Loading...</div>) : 
-            articoli.map(articolo => {
-                return (
-                    <News 
-                    autore={articolo.data().autore} 
-                    titolo={it ? articolo.data().titolo_it : articolo.data().titolo} 
-                    data={articolo.data().data.toDate()} 
-                    descrizione={it ? articolo.data().sommario_it : articolo.data().sommario} 
-                    codice={articolo.id}
-                    tag={articolo.data().tag}
-                    />
-                )
-            })
+      <StaticQuery
+        query={graphql`
+        query Insiders {
+            allNews(sort: {fields: date, order: DESC}) {
+              edges {
+                node {
+                  sommario
+                  autore
+                  date
+                  immagine
+                  sommario_it
+                  tag
+                  titolo
+                  titolo_it
+                  id
+                }
+              }
+            }
+          }
+          `}
+        render={data => data.allNews.edges.map(articolo => 
+          <News 
+            autore={articolo.node.autore} 
+            titolo={it ? articolo.node.titolo_it : articolo.node.titolo} 
+            data={new Date(articolo.node.date)} 
+            descrizione={it ? articolo.node.sommario_it : articolo.node.sommario} 
+            codice={articolo.node.id}
+            tag={articolo.node.tag ? articolo.node.tag : undefined}
+          />)}
+        />
     )
 }
 

@@ -194,7 +194,7 @@ function ArticoloCarousel(props){
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                    <IconButton style={{color:"black"}} className={classes.info} aria-label="expand row" size="small" component={Link} to={'/articolo/?'+props.codice}>
+                    <IconButton style={{color:"black"}} className={classes.info} aria-label="expand row" size="small" component={Link} to={'/'+props.codice}>
                         <KeyboardArrowDownIcon />
                     </IconButton>
                 </CardActions>
@@ -209,17 +209,16 @@ function NewsSection(){
     return(
         <StaticQuery
         query={graphql`
-        query MyQuery {
-            allNews {
+        query HomeQuery {
+            allNews(sort: {fields: date, order: DESC}, limit: 10) {
               edges {
                 node {
                   sommario
                   autore
+                  date
                   immagine
                   sommario_it
                   tag
-                  testo
-                  testo_it
                   titolo
                   titolo_it
                   id
@@ -251,7 +250,7 @@ function NewsSection(){
                         <ArticoloCarousel 
                         titolo={it ? articolo.node.titolo_it: articolo.node.titolo} 
                         sommario={it ? articolo.node.sommario_it : articolo.node.sommario}
-                        data={new Date()}
+                        data={new Date(articolo.node.date)}
                         immagine={articolo.node.immagine}
                         codice={articolo.node.id}
                         />

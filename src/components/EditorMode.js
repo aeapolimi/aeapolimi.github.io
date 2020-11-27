@@ -92,6 +92,7 @@ function EditorMode(props){
                 {
                     autore : autore,
                     data : data,
+                    date: data.now(),
                     immagine: immagine,
                     sommario: sommario,
                     sommario_it: sommario_it,
