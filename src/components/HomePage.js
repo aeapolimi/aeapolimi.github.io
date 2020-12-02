@@ -527,7 +527,7 @@ function HomePage (){
                                                     xl={3}
                                                     xs={12}
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/pit.webp") : require("../images/direttivo/pit.jpeg")} nome="Pietro Dardano" ruolo="Co-founder" invisibile={true}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pietro-dardano-41016320" immagine={!isSaf ? require("../images/direttivo/pit.webp") : require("../images/direttivo/pit.jpeg")} nome="Pietro Dardano" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                     <Grid
                                                     item
