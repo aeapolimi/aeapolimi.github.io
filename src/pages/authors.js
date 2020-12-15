@@ -64,7 +64,7 @@ function NewsSection(props){
 function Authors(props) {
     const nome = props.location.search.substring(1).replace("%20", " ");
     try {
-        var autore = require("../images/direttivo/" + nome.substr(0,nome.indexOf(' ')).toLowerCase() + ".jpeg")
+        var autore = require("../images/direttivo/" + nome.replace(/\ /g, "_") + ".jpeg")
     }
     catch(error){
         autore = undefined;

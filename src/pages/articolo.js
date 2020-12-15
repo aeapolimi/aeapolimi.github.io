@@ -117,8 +117,8 @@ function Carica(props){
 }
 
 function Articolo(props) {
-  const [info, setInfo] = React.useState({titolo:"AEA Polimi", descrizione:"An Article on AEA Insiders by a member of the Automation Engineering Association."})
   const codice = props.location.search.substring(1);
+  const [info, setInfo] = React.useState({titolo:"AEA Polimi | " + codice.replace(/\_/g, " "), descrizione:"An Article on AEA Insiders by a member of the Automation Engineering Association."})
   const intl = useIntl();
   return (
     <>
