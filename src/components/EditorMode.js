@@ -61,7 +61,7 @@ function BarraStrumenti(props){
             <IconButton size="small" aria-label="img" color="inherit" onClick={() => props.setTesto(props.testo + ' <img src= "INSERIRE URL" tag="DESCRIZIONE IMMAGINE"/>')}>
                 <ImageIcon fontSize="small" />
             </IconButton>
-            <IconButton size="small" aria-label="yt" color="inherit" onClick={() => props.setTesto(props.testo + ' <div style="position:relative;padding-bottom: 56.25%"> <iframe style="position:absolute" width="100%" height="100%" src="URL YOUTUBE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>')}>
+            <IconButton size="small" aria-label="yt" color="inherit" onClick={() => props.setTesto(props.testo + ' <div style={{"position":"relative","paddingBottom": "56.25%"}}> <iframe style={{"position":"absolute"}} width="100%" height="100%" src="URL YOUTUBE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe></div>')}>
                 <YouTubeIcon fontSize="small" />
             </IconButton>
         </>

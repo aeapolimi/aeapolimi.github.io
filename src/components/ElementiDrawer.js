@@ -12,6 +12,7 @@ import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import CodeIcon from '@material-ui/icons/Code';
 import InfoIcon from '@material-ui/icons/Info';
 import PeopleIcon from '@material-ui/icons/People';
+import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 
 import { Link } from "gatsby-plugin-intl"
 import 'fontsource-roboto';
@@ -40,6 +41,10 @@ function ElementiDrawer(props){
             <ListItem button key="Insiders" component={Link} to="/insiders" style={{color:"black"}}>
                 <ListItemIcon><AccountBalanceIcon /></ListItemIcon>
                 <ListItemText primary="Insiders" />
+            </ListItem>
+            <ListItem button key="AEA+" component={Link} to="/aeaplus" style={{color:"black"}}>
+                <ListItemIcon><VideoLibraryIcon /></ListItemIcon>
+                <ListItemText primary="AEA+" />
             </ListItem>
             <ListItem button key="FAQ" component={Link} to="/domande" style={{color:"black"}}>
                 <ListItemIcon><QuestionAnswerIcon /></ListItemIcon>
