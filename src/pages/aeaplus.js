@@ -3,9 +3,15 @@ import './App.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import { isMobile } from 'react-device-detect';
+
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import { useIntl, FormattedMessage } from "gatsby-plugin-intl"
+
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
@@ -26,8 +32,88 @@ const useStyles = makeStyles((theme) => ({
       },
   }));
 
-function Domande() {
+  const responsive = {
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+    }
+};
+
+function Carosello(props){
+  var videos = props.videos
+  return (
+      <div style={{"marginTop":"10vh"}}>
+        <Carousel
+        swipeable={true}
+        draggable={true}
+        showDots={false}
+        responsive={responsive}
+        ssr={true} // means to render carousel on server-side.
+        infinite={true}
+        autoPlay={true}
+        autoPlaySpeed={4000}
+        keyBoardControl={false}
+        customTransition="all .5"
+        // transitionDuration={1000} rompe il draggable
+        containerClass="carousel-container"
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        // deviceType={this.props.deviceType}
+        dotListClass="custom-dot-list-style"
+        centerMode={true}
+        >
+        {videos.map(video => {
+            return (
+                <div key={video[0]}>
+                    <Typography variant="h4" align="center" style={{marginBottom:"10px"}}>
+                        {video[0]}
+                    </Typography>
+                    <div style={{"position":"relative","paddingBottom": "56.25%", "marginLeft":"10%"}}>
+                        <iframe title={video[0]} style={{"position":"absolute"}} width="90%" height="90%" src={video[1]+"?color=white&theme=light&rel=0"} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            )
+        })}
+      </Carousel>
+    </div>
+  )
+}
+
+function GrigliaMobile(props){
+  var videos = props.videos
+  return (
+    <Grid container direction="column" justify="center" alignItems="center">
+      {videos.map( video => {
+        return(
+        <Grid item>
+          <div key={video[0]} style={{"marginTop":"20px", "width": "100vw"}}>
+            <Typography variant="h4" align="center" style={{marginBottom:"10px"}}>
+                {video[0]}
+            </Typography>
+            <div style={{"position":"relative","paddingBottom": "56.25%", "marginLeft":"10%"}}>
+                <iframe title={video[0]} style={{"position":"absolute"}} width="90%" height="90%" src={video[1]+"?color=white&theme=light&rel=0"} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </Grid>
+        )}
+      )}
+      </Grid>
+  )
+}
+
+function Video() {
     const classes = useStyles();
+    const videos = [["AEAround The World", "https://www.youtube.com/embed/sx8VzeHlfOc"], ["AEA Meets Prof. Savaresi", "https://www.youtube.com/embed/YRuNQF-eeKg"]]
     const intl = useIntl();
     return (
       <>
@@ -36,15 +122,13 @@ function Domande() {
             <Typography variant="h3" align="center" style={{marginBottom:"10px", marginTop:"20px"}}>
               AEA+
             </Typography>
-            <Typography variant="h4" align="center" style={{marginBottom:"10px"}}>
-                AEAround The World
-            </Typography>
-            <div style={{"position":"relative","paddingBottom": "56.25%", "marginLeft":"10%"}}>
-                <iframe style={{"position":"absolute"}} width="90%" height="90%" src="https://www.youtube.com/embed/sx8VzeHlfOc?color=white&theme=light&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            </Layout>
+            {isMobile ? 
+            <GrigliaMobile videos={videos} /> //Se mobile griglia verticale
+            : <Carosello videos={videos} /> //Se desktop carousel
+            }
+        </Layout>
       </>
   );
 }
 
-export default Domande;
+export default Video;
