@@ -33,6 +33,7 @@ import Typography from '@material-ui/core/Typography';
 
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import MenuIcon from '@material-ui/icons/Menu';
 
 import Carousel from "react-multi-carousel";
@@ -261,6 +262,7 @@ function CardDirettivo(props){
                 title={props.nome}
                 />
                 <CardContent>
+                <IconButton style={{width:"100%", display:"flex", justifyContent: "center", marginTop:"-30px" }}><LinkedInIcon style={{fill: "#0072b1"}}/></IconButton>
                 <Typography gutterBottom variant="h5" component="h2" align="center">
                     {props.nome}
                 </Typography>
