@@ -12,7 +12,7 @@
     "@material-ui/icons": "^4.9.1",
     "firebase": "^7.24.0",
     "fontsource-roboto": "^3.0.3",
-    "gatsby": "^2.27.0",
+    "gatsby": "^2.31.1",
     "gatsby-image": "^2.6.0",
     "gatsby-plugin-brotli": "^2.0.0",
     "gatsby-plugin-gdpr-cookies": "^1.0.10",
@@ -38,6 +38,7 @@
     "react-dom": "^16.14.0",
     "react-firebaseui": "^4.1.0",
     "react-helmet": "^6.1.0",
+    "react-load-script": "0.0.6",
     "react-loadable": "^5.5.0",
     "react-multi-carousel": "^2.5.5"
   },
