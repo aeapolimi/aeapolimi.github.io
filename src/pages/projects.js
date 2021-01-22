@@ -27,7 +27,7 @@ function Projects() {
       <>
         <Layout>
             <SEO title="Projects" lang={intl.locale}/>
-            <iframe className={classes.frame} src='./duckiegist.html' frameBorder="0" loading="lazy"/> 
+            <iframe className={classes.frame} src='https://www.aeapolimi.it/duckiegist.html' frameBorder="0" loading="lazy"/> 
         </Layout>
       </>
   );
