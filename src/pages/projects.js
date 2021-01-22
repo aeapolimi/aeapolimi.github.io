@@ -3,10 +3,16 @@ import './App.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import { useIntl } from "gatsby-plugin-intl"
+import Typography from '@material-ui/core/Typography';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import IconButton from '@material-ui/core/IconButton';
+
+import { useIntl, Link, FormattedMessage } from "gatsby-plugin-intl"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
+
+import logoduckie from "../images/duckie.png"
 
 import 'fontsource-roboto';
 
@@ -25,7 +31,26 @@ function Projects() {
       <>
         <Layout>
             <SEO title="Projects" lang={intl.locale}/>
-            <iframe className={classes.frame} src='https://www.aeapolimi.it/duckiegist.html' frameBorder="0" loading="lazy"/> 
+            <Typography variant="h1" gutterBottom align="center">
+                <img src={logoduckie} height="60px" alt="duckietown"/>
+                Duckietown
+                <img src={logoduckie} height="60px" alt="duckietown"/>
+            </Typography>
+            <Typography variant="subtitle1" gutterBottom align="center">
+              <FormattedMessage id="projects.sottotitoloduckie" />
+            </Typography>
+            <Typography variant="body1" gutterBottom align="center">
+              <FormattedMessage id="projects.descrizioneduckie" />
+            </Typography>
+            <Typography variant="h3" gutterBottom align="center">
+              <FormattedMessage id="projects.1_introduzione" />
+              <IconButton color="primary" aria-label="upload picture" component={Link} to="/duckie/getting_started">
+                <ArrowForwardIosIcon style={{"fill":"black"}}/>
+              </IconButton>
+            </Typography>
+            <Typography variant="subtitle2" gutterBottom align="center">
+              <FormattedMessage id="projects.1_sottotitolo" />
+            </Typography>
         </Layout>
       </>
   );
