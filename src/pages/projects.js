@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     frame:{
         // overflowX: "visible",
         minWidth: "100%",
-        minHeight: "80vh"
+        minHeight: "85vh"
     },
   }));
 
