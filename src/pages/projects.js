@@ -5,8 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { useIntl } from "gatsby-plugin-intl"
 
-import Script from 'react-load-script'
-
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
