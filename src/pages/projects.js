@@ -36,21 +36,23 @@ function Projects() {
                 Duckietown
                 <img src={logoduckie} height="60px" alt="duckietown"/>
             </Typography>
-            <Typography variant="subtitle1" gutterBottom align="center">
-              <FormattedMessage id="projects.sottotitoloduckie" />
-            </Typography>
-            <Typography variant="body1" gutterBottom align="center">
-              <FormattedMessage id="projects.descrizioneduckie" />
-            </Typography>
-            <Typography variant="h3" gutterBottom align="center">
-              <FormattedMessage id="projects.1_introduzione" />
-              <IconButton color="primary" aria-label="upload picture" component={Link} to="/duckie/getting_started">
-                <ArrowForwardIosIcon style={{"fill":"black"}}/>
-              </IconButton>
-            </Typography>
-            <Typography variant="subtitle2" gutterBottom align="center">
-              <FormattedMessage id="projects.1_sottotitolo" />
-            </Typography>
+            <div>
+              <Typography variant="h4" gutterBottom align="center">
+                <FormattedMessage id="projects.sottotitoloduckie" />
+              </Typography>
+              <Typography variant="body1" gutterBottom align="center">
+                <FormattedMessage id="projects.descrizioneduckie" />
+              </Typography>
+              <Typography variant="h3" gutterBottom align="left" style={{marginTop:"40px"}}>
+                <FormattedMessage id="projects.1_introduzione" />
+                <IconButton color="primary" aria-label="upload picture" component={Link} to="/duckie/getting_started">
+                  <ArrowForwardIosIcon style={{"fill":"black"}}/>
+                </IconButton>
+              </Typography>
+              <Typography variant="subtitle2" gutterBottom align="left">
+                <FormattedMessage id="projects.1_sottotitolo" />
+              </Typography>
+            </div>
         </Layout>
       </>
   );
