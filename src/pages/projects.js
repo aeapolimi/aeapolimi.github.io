@@ -17,11 +17,21 @@ import logoduckie from "../images/duckie.png"
 import 'fontsource-roboto';
 
 const useStyles = makeStyles((theme) => ({
-    frame:{
-        // overflowX: "visible",
-        minWidth: "100%",
-        minHeight: "85vh"
+    body:{
+      [theme.breakpoints.up('sm')]: {
+        maxWidth:"55vw",
+      },
+      margin: "0 auto",
     },
+    titlelogo:{
+      [theme.breakpoints.up('sm')]: {
+        height: "60px"
+      },
+      [theme.breakpoints.down('sm')]: {
+        height: "30px"
+      },
+      
+    }
   }));
 
 function Projects() {
@@ -31,21 +41,20 @@ function Projects() {
       <>
         <Layout>
             <SEO title="Projects" lang={intl.locale}/>
-            <Typography variant="h1" gutterBottom align="center">
-                <img src={logoduckie} height="60px" alt="duckietown"/>
-                Duckietown
-                <img src={logoduckie} height="60px" alt="duckietown"/>
-            </Typography>
-            <div>
+            <div className={classes.body}>
+              <Typography variant="h1" gutterBottom align="center">
+                <img src={logoduckie} className={classes.titlelogo} alt="duckietown"/>
+                  Duckietown
+              </Typography>
               <Typography variant="h4" gutterBottom align="center">
                 <FormattedMessage id="projects.sottotitoloduckie" />
               </Typography>
-              <Typography variant="body1" gutterBottom align="center">
+              <Typography variant="body1" gutterBottom align="justified">
                 <FormattedMessage id="projects.descrizioneduckie" />
               </Typography>
               <Typography variant="h3" gutterBottom align="left" style={{marginTop:"40px"}}>
                 <FormattedMessage id="projects.1_introduzione" />
-                <IconButton color="primary" aria-label="upload picture" component={Link} to="/duckie/getting_started">
+                <IconButton color="primary" aria-label="read_more" component={Link} to="/duckie/getting_started">
                   <ArrowForwardIosIcon style={{"fill":"black"}}/>
                 </IconButton>
               </Typography>
