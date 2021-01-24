@@ -25,7 +25,7 @@ function Projects() {
       <>
         <Layout>
             <SEO title="Getting started with Duckietown" lang={intl.locale}/>
-            <iframe className={classes.frame} src='https://www.aeapolimi.it/duckie_gists/duckiegist.html' frameBorder="0" loading="lazy"/> 
+            <iframe className={classes.frame} src='https://www.aeapolimi.it/duckie_gists/stable_baseline_example.html' frameBorder="0" loading="lazy"/> 
         </Layout>
       </>
   );

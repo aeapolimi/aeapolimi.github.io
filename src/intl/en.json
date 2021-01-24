@@ -30,6 +30,8 @@
     "sottotitoloduckie": "Learn autonomy with duckietown.",
     "descrizioneduckie": "Every year universities from all over the world compete in the AI Driving Olympics hosted by the Duckietown Foundation, AEA wants to compete. Here you can find resources made by our team to help you learn autonomous driving and reinforcement learning with python.",
     "1_introduzione": "1. Introduction to Duckietown",
-    "1_sottotitolo": "Setting up your headless Duckietown environment in Google Colab"
+    "1_sottotitolo": "Setting up your headless Duckietown environment in Google Colab",
+    "2_introduzione": "2. Introduction to Stable Baseline",
+    "2_sottotitolo": "Make an autonomous agents with Reinforcement Learning and Stable Baseline"
   }
  }
