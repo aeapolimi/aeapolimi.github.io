@@ -19,23 +19,7 @@ import { navigate } from "gatsby-plugin-intl"
 
 import EditorMode from "../components/EditorMode"
 import Note from "../components/Note"
-
-function Appunti(props){
-    return (
-        <div style={{marginTop: "20px"}}>
-            <IconButton aria-label="home" style={{color:"white"}} onClick = {() => props.setAppunti(false)}>
-                <HomeIcon style={{fill: "white"}}/>
-            </IconButton>
-            <Typography variant="h4" component="h5">
-                Appunti
-            </Typography>
-            <div style={{height: "20px"}} />
-            <Button variant="contained" href="https://drive.google.com/file/d/1rrlZdiWcQZQrZKrDdXGSSXwQ_zVjZ2dz/view" target="_blank">
-                Fondamenti di automatica
-            </Button>
-        </div>
-    )
-}
+import Appunti from "../components/Appunti"
 
 function Benvenuto(props){
     var setNewsletter = () => {
@@ -73,18 +57,18 @@ function Benvenuto(props){
                                 appunti
                             </Button>
                         </Grid>
-                        <Grid item>
+                        {
+                            props.editor ? 
+                            <><Grid item>
                             <Button variant="contained" onClick={() => props.setNote(!props.note)}>
                                 note sui corsi
                             </Button>
-                        </Grid>
-                        {
-                            props.editor ? 
+                            </Grid>
                             <Grid item xs={12}>
                                 <Button variant="outlined" onClick={() => props.setEditormode(!props.editormode)}>
                                     nuovo articolo
                                 </Button>
-                            </Grid>
+                            </Grid></>
                             :
                             null
                         }
