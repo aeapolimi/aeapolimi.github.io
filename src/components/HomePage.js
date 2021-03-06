@@ -325,7 +325,13 @@ function HomePage (){
                 {/* } */}
 
                 <header className="App-header">
-                    <div className="rectangle" key="titolo"><span className="titoloLogo"><img alt="logo" src={!isSaf ? require("../images/AEAtondo_grigio.webp") : require("../images/AEAtondo_grigio.png")}/></span></div>
+                    <div className="rectangle" key="titolo">
+                        <span className="titoloLogo">
+                            {/* Safari non riconosce */}
+                            {/* <img alt="logo" src={!isSaf ? require("../images/AEAtondo_grigio.webp") : require("../images/AEAtondo_grigio.png")}/> */}
+                            <img alt="logo" src={require("../images/AEAtondo_grigio.png")}/>
+                        </span>
+                    </div>
                 </header>
                 <div className="freccia" style={{height:0, bottom:80, position:"relative"}}>
                     <Fab color="inherit" size="small" href="#news" aria-label="news">
