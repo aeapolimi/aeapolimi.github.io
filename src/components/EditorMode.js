@@ -96,7 +96,6 @@ function EditorMode(props){
     }
 
     async function caricaSelezione() {
-        console.log(articolo_selezionato)
         if(articolo_selezionato==""){
             return
         }
@@ -123,7 +122,7 @@ function EditorMode(props){
 
     const salva = () => {
         let id = titolo.replace(/\ /g, "_").replace(/\;/g, "_").replace(/\:/g, "").replace(/\,/g, "").replace(/\./g, "").toLowerCase();
-        if (articolo_selezionato){
+        if (articolo_selezionato != ""){
             id = articolo_selezionato;
         }
         var docref = firebase.firestore().collection("news").doc(id);
