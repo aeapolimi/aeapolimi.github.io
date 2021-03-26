@@ -6,6 +6,8 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 import Snackbar from '@material-ui/core/Snackbar';
 import Typography from '@material-ui/core/Typography';
 
@@ -80,14 +82,51 @@ function EditorMode(props){
     const [testo, setTesto] = React.useState('Text');
     const [titolo, setTitolo] = React.useState('Title');
     const [titolo_it, setTitolo_it] = React.useState('Titolo');
-    const data = new Date();
+    const [articolo_selezionato, setArticoloSelezionato] = React.useState("");
+    const [lista_articoli, setLista_articoli] = React.useState([""]);
+    const [data, setData] = React.useState(new Date());
+
+    React.useEffect(() => {   
+        carica()
+      });
+
+    async function carica() {
+        var snapshot = await firebase.firestore().collection("news").orderBy('data', 'desc').limit(20).get()
+        setLista_articoli(snapshot.docs.map(doc => doc.id))
+    }
+
+    async function caricaSelezione() {
+        console.log(articolo_selezionato)
+        if(articolo_selezionato==""){
+            return
+        }
+        var doc = await firebase.firestore().collection("news").doc(articolo_selezionato).get()
+        setImmagine(doc.data().immagine)
+        setAutore(doc.data().autore)
+        setSommario(doc.data().sommario)
+        setSommario_it(doc.data().sommario_it)
+        setTitolo(doc.data().titolo)
+        setTitolo_it(doc.data().titolo_it)
+        setTesto(doc.data().testo)
+        setTesto_it(doc.data().testo_it)
+        setData(doc.data().data)
+        if(doc.data().tag){
+            setTags(doc.data().tag)
+        } else {
+            setTags([""])
+        }
+    }
 
     const handleClose = (event, reason) => {
         setOpen(false)
     }
 
     const salva = () => {
-        var docref = firebase.firestore().collection("news").doc(titolo.replace(/\ /g, "_").replace(/\;/g, "_").replace(/\:/g, "").replace(/\,/g, "").replace(/\./g, "").toLowerCase());
+        let id = titolo.replace(/\ /g, "_").replace(/\;/g, "_").replace(/\:/g, "").replace(/\,/g, "").replace(/\./g, "").toLowerCase();
+        if (articolo_selezionato){
+            id = articolo_selezionato;
+        }
+        var docref = firebase.firestore().collection("news").doc(id);
         docref.set(
                 {
                     autore : autore,
@@ -116,6 +155,25 @@ function EditorMode(props){
             <Typography variant="h4" component="h5">
                 EditorMode
             </Typography>
+            <Select
+                labelId="select-article"
+                id="select-article"
+                value={articolo_selezionato}
+                onChange={(event) => setArticoloSelezionato(event.target.value)}
+            >
+                <MenuItem value="">
+                    <em>None</em>
+                </MenuItem>
+                {lista_articoli.map((articolo) =>
+                    <MenuItem value={articolo}>
+                        <em>{articolo}</em>
+                    </MenuItem>
+                )}
+            </Select>
+            <div />
+            <Button onClick={() => caricaSelezione()}>
+                Carica
+            </Button>
             <div style={{height: "20px"}} />
             <form className={classes.titolo} noValidate autoComplete="off">
                 <TextField 
