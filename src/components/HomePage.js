@@ -716,7 +716,7 @@ function HomePage (){
                 </div>
         </div>
         <div className="contatti">
-            Info: segreteria@aeapolimi.it
+            Info: info@aeapolimi.it
         </div>
         <div style={{height:"50px"}} />
         <Footer />
