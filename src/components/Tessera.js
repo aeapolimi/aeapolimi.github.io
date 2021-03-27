@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -6,16 +6,12 @@ import Typography from '@material-ui/core/Typography';
 
 import { PDFViewer } from '@react-pdf/renderer';
 
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 
 import { FormattedMessage } from "gatsby-plugin-intl"
+
+import { isMobile } from 'react-device-detect';
 
 import MemberCard from "../components/MemberCard"
 
@@ -41,9 +37,11 @@ function Tessera(props){
             </Typography>
 
             <div style={{height: "20px"}} />
+            {isMobile ? 
+            "Membership card is downloadable only from a computer :(" :
             <PDFViewer style={{height:"50vh", width: "50vw"}}>
                 <MemberCard username={props.username}/>
-            </PDFViewer>
+            </PDFViewer>}
         </div>
     )
 }
