@@ -68,7 +68,10 @@ class SignInScreen extends React.Component {
       signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.GithubAuthProvider.PROVIDER_ID,
-        "microsoft.com",
+        {
+          provider: 'microsoft.com',
+          fullLabel: 'Microsoft, Polimi, AEA',
+        },
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
       ],
       credentialHelper: 'none',
