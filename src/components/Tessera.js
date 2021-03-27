@@ -29,7 +29,7 @@ function Tessera(props){
 
     return (
         <div style={{marginTop: "20px"}}>
-            <IconButton aria-label="home" style={{color:"white"}} onClick = {() => props.setAppunti(false)}>
+            <IconButton aria-label="home" style={{color:"white"}} onClick = {() => props.setCard(false)}>
                 <HomeIcon style={{fill: "white"}}/>
             </IconButton>
             <Typography variant="h4" component="h5">
