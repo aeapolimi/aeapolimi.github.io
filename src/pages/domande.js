@@ -3,6 +3,7 @@ import './App.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -12,6 +13,7 @@ import Paper from '@material-ui/core/Paper';
 import Collapse from '@material-ui/core/Collapse';
 import Typography from '@material-ui/core/Typography';
 
+import GetAppIcon from '@material-ui/icons/GetApp';
 import IconButton from '@material-ui/core/IconButton';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
@@ -117,6 +119,12 @@ function Domande() {
                                     <Typography variant="p" component="p">
                                         <FormattedMessage id="domande.testoinregola" />
                                     </Typography>   
+                                    <Button variant="contained" color="secondary" startIcon={<GetAppIcon />} style={{margin:"30px", marginLeft:"auto"}}>
+                                        <a href="https://www.aeapolimi.it/atto_aea.pdf">Atto Associativo</a>
+                                    </Button>
+                                    <Button variant="contained" color="secondary" startIcon={<GetAppIcon />}>
+                                        <a href="https://www.aeapolimi.it/statuto_aea.pdf">Statuto Associativo</a>
+                                    </Button>
                                 </ Collapse>
                             </ TableCell>
                         </TableRow>
