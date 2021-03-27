@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
@@ -13,6 +14,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HomeIcon from '@material-ui/icons/Home';
 
+
 import * as firebase from "firebase/app";
 
 import { navigate } from "gatsby-plugin-intl"
@@ -20,6 +22,7 @@ import { navigate } from "gatsby-plugin-intl"
 import EditorMode from "../components/EditorMode"
 import Note from "../components/Note"
 import Appunti from "../components/Appunti"
+import Tessera from "../components/Tessera"
 
 function Benvenuto(props){
     var setNewsletter = () => {
@@ -57,6 +60,11 @@ function Benvenuto(props){
                                 appunti
                             </Button>
                         </Grid>
+                        <Grid item>
+                            <Button variant="contained" onClick={() => props.setCard(!props.card)}>
+                                card
+                            </Button>
+                        </Grid>
                         {
                             props.editor ? 
                             <><Grid item>
@@ -88,6 +96,7 @@ function Benvenuto(props){
 function UserPage(props){
     const [appunti, setAppunti] = React.useState(false);
     const [note, setNote] = React.useState(false);
+    const [card, setCard] = React.useState(false);
     const [editormode, setEditormode] = React.useState(false);
     var onLogout = () => {
         firebase.auth().signOut();
@@ -115,6 +124,7 @@ function UserPage(props){
                 {appunti ? <Appunti setAppunti={setAppunti}/> : 
                 note ? <Note setAppunti={setNote}/> :
                 editormode ? <EditorMode setEditormode={setEditormode}/> :
+                card ? <Tessera username={firebase.auth().currentUser.displayName} /> :
                 <Benvenuto 
                 appunti={appunti} 
                 setAppunti={setAppunti} 
@@ -125,6 +135,9 @@ function UserPage(props){
                 newsletter={props.newsletter}
                 editor={props.editor}
                 editormode={editormode}
+                card={card}
+                setCard={setCard}
+                utente={firebase.auth().currentUser.displayName}
                 setEditormode={setEditormode}/>
                         }
             </div>

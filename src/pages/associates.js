@@ -42,7 +42,7 @@ function Domande() {
             </Typography>
             <div style={{height:"40px"}}/>
             <div style={{width: "60%", margin: "0 auto"}}>
-                <Grid container spacing={8} alignItems="center" justify="center">
+                <Grid container spacing={9} alignItems="center" justify="center">
                     <Grid item xs={12} sm={6} spacing={3}>
                         <Typography variant="h4" align="center">
                             <FormattedMessage id="join.1.titolo" />
@@ -85,7 +85,7 @@ function Domande() {
                     </Grid>
                 </Grid>
             </div>
-            <Typography variant="h5" align="center" style={{marginTop:"20%"}}>
+            <Typography variant="h6" align="center" style={{marginTop:"15%", marginbottom:"10px"}}>
                 <FormattedMessage id="join.costo" />
             </Typography>
             <Typography variant="h5" align="center" style={{marginBottom: "20%"}}>

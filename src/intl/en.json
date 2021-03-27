@@ -1,7 +1,7 @@
 {
   "about":{
     "pretitolo": "Always aiming for the top.",
-    "joinus": "Join our newsletter",
+    "joinus": "Join us",
     "testo": "AEA, Automation Engineering Association, is the Automation and Robotics Association of Politecnico di Milano. Built by students for students, if you join us you can learn with experts' speeches, build a strong network getting in touch with future-oriented and open minded people, visit automation companies, work on automation related projects and better understand your possible future working and academic career opportunities."  
   },
   "insiders":{
@@ -38,19 +38,19 @@
     "about" :"Be part of the Association",
     "1": {
       "titolo": "Help us grow",
-      "descrizione": "Joining a team you can propose projects and help us build the future of the Association."
+      "descrizione": "Joining a team you can propose adn develope projects and help us build the future of the Association."
     },
     "2": {
       "titolo": "Networking",
-      "descrizione": "Join a dynamic and always evolving group of passionates about autmoation, join our private groups and be part of the discussion."
+      "descrizione": "Join a dynamic and always evolving group of passionates about automation, join our private groups and be part of the discussion."
     },
     "3": {
       "titolo": "Candidate and vote",
-      "descrizione": "Candidate yourself in teh executive teams and vote in the next elections."
+      "descrizione": "Candidate yourself for s position in the executive team and vote in the next elections."
     },
     "4": {
       "titolo": "Compete",
-      "descrizione": "Join our team and compete in international competitions with ou selected team."
+      "descrizione": "Join our team and compete in international competitions with our selected team."
     },
     "5": {
       "titolo": "And much more",
