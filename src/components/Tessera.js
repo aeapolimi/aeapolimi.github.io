@@ -35,7 +35,7 @@ function Tessera(props){
             <Typography variant="h4" component="h5">
                 Membership card
             </Typography>
-
+            (Work in progress...)
             <div style={{height: "20px"}} />
             {isMobile ? 
             "Membership card is downloadable only from a computer :(" :

@@ -7,7 +7,7 @@ import logo from "../images/AEAtondo_trasparente.png"
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'row',
-    // backgroundColor: '#E4E4E4'
+    // backgroundColor: '#ffe5c0'
   },
   section: {
     margin: 10,
