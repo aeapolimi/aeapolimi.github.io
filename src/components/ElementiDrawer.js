@@ -7,6 +7,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import HomeIcon from '@material-ui/icons/Home';
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import CodeIcon from '@material-ui/icons/Code';
@@ -38,6 +39,10 @@ function ElementiDrawer(props){
                 <ListItemText primary="Team" />
             </ListItem>
             <Divider />
+            <ListItem button key="Join us" component={Link} to="/associates" style={{color:"black"}}>
+                <ListItemIcon><BusinessCenterIcon /></ListItemIcon>
+                <ListItemText primary="Join us" />
+            </ListItem>
             <ListItem button key="Insiders" component={Link} to="/insiders" style={{color:"black"}}>
                 <ListItemIcon><AccountBalanceIcon /></ListItemIcon>
                 <ListItemText primary="Insiders" />

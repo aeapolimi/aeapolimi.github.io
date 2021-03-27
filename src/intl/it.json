@@ -33,5 +33,30 @@
     "1_sottotitolo": "Configurazione di un environment Duckietown in Google Colab",
     "2_introduzione": "2. Introduzione a Stable Baseline",
     "2_sottotitolo": "Fa un agente autonomo col Reinforcement Learning e Stable Baseline"
+  },
+  "join":{
+    "about" :"Diventa parte dell'Associazione",
+    "1": {
+      "titolo": "Aiutaci a crescere",
+      "descrizione": "Entrando in un team avrai la possiblità di avanzare proposte e aiutarci a costruire il futuro dell'Associazione."
+    },
+    "2": {
+      "titolo": "Networking",
+      "descrizione": "Unisciti ad un gruppo dinamico e in evoluzione di appassionati del settore, entra nei nostri gruppi riservati e partecipa alle discussioni."
+    },
+    "3": {
+      "titolo": "Candidati e vota",
+      "descrizione": "Candidati nel consiglio direttivo e vota alle prossime elezioni."
+    },
+    "4": {
+      "titolo": "Partecipa a competizioni",
+      "descrizione": "Partecipa a competizioni internazionali sulla robotica col nostro team selezionato."
+    },
+    "5": {
+      "titolo": "Molti altri vantaggi",
+      "descrizione": "Ottieni un posto garantito ai nostri eventi e alle future visite aziendali. Ottieni inoltre una tessera di membership."
+    },
+    "costo": "Per supportare AEA la membership ha un costo annuo di 10€.",
+    "come": "Per unirti a noi scrivi a segreteria@aeapolimi.it o contattaci tramite uno dei nostri canali social."
   }
  }
