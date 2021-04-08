@@ -28,7 +28,7 @@
   },
   "duckietown":{
     "sottotitoloduckie": "Learn autonomy with duckietown.",
-    "descrizioneduckie": "Ogni anno università da tutto il mondo competono nelle AI Driving Olympics, create dalla Duckietown Foundation. Anche AEA buole competere. In questa pagina puoi trovare risorse create dal nostro team che ti potranno aiutare ad imparare guida autonoma e reinforcement learning con python.",
+    "descrizioneduckie": "Ogni anno università da tutto il mondo competono nelle AI Driving Olympics, create dalla Duckietown Foundation. Anche AEA e i PMDS vogliono competere. In questa pagina puoi trovare il form con cui fare l'application per entrare nel team di Duckietown e alcune risorse create dal nostro team che ti potranno aiutare ad iniziare a lavorare su duckietown.",
     "1_introduzione": "1. Introduzione a Duckietown",
     "1_sottotitolo": "Configurazione di un environment Duckietown in Google Colab",
     "2_introduzione": "2. Introduzione a Stable Baseline",
