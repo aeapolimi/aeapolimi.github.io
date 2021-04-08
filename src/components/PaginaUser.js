@@ -124,7 +124,7 @@ function UserPage(props){
                 {appunti ? <Appunti setAppunti={setAppunti}/> : 
                 note ? <Note setAppunti={setNote}/> :
                 editormode ? <EditorMode setEditormode={setEditormode}/> :
-                card ? <Tessera username={firebase.auth().currentUser.displayName} /> :
+                card ? <Tessera setCard={setCard} username={firebase.auth().currentUser.displayName} /> :
                 <Benvenuto 
                 appunti={appunti} 
                 setAppunti={setAppunti} 
