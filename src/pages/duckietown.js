@@ -47,11 +47,11 @@ function Projects() {
                 <img src={logoduckie} className={classes.titlelogo} alt="duckietown"/>
                   Duckietown
               </Typography>
-              <Typography variant="h4" gutterBottom align="center">
+              <Typography variant="h4" gutterBottom align="justified">
                 <FormattedMessage id="duckietown.sottotitoloduckie" />
               </Typography>
               <Typography variant="body1" gutterBottom align="center" style={{marginTop:"20px"}}>
-                <IconButton color="primary" aria-label="read_more" component={Link} to="/duckie/getting_started">
+                <IconButton color="primary" aria-label="read_more" href="https://www.duckietown.org/">
                   <LinkIcon style={{"fill":"#ef6c00"}}/>
                 </IconButton>
                 <a href="https://www.duckietown.org/" style={{color:"#ef6c00"}}>www.duckietown.org</a>
@@ -82,7 +82,7 @@ function Projects() {
                <Typography variant="h3" gutterBottom align="center" style={{marginTop:"40px"}}>
                 Join our team:
               </Typography>
-              <iframe width="100%" height="480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=z6hZgX372UeNMEsbTqkLe9qaZb8UCbFBq16bhK-qrq5UQjgyT1dVMjlXMEpTOTA5U0tWTUpRT0RZRS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style={{border: "none", maxWidth:"100%", maxHeight:"100vh"}} allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+              <iframe width="100%" height="600px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=z6hZgX372UeNMEsbTqkLe9qaZb8UCbFBq16bhK-qrq5UQjgyT1dVMjlXMEpTOTA5U0tWTUpRT0RZRS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style={{border: "none", maxWidth:"100%", maxHeight:"100vh"}} allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
             </div>
         </Layout>
       </>

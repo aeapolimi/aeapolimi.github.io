@@ -53,7 +53,7 @@ function Projects() {
                             title="Duckietown"
                             />
                             <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
+                            <Typography gutterBottom variant="h5" style={{color:"black"}} component="h2">
                                 Duckietown
                             </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
