@@ -114,9 +114,9 @@ function GrigliaMobile(props){
 function Video() {
     const classes = useStyles();
     const videos = [
+      ["Intelligent Collaborative Robotics at Merlin Lab", "https://www.youtube.com/embed/XqWN4rFf7sA"],
       ["AEAround The World", "https://www.youtube.com/embed/sx8VzeHlfOc"], 
-      ["AEA Meets Prof. Savaresi", "https://www.youtube.com/embed/YRuNQF-eeKg"],
-      ["Intelligent Collaborative Robotics at Merlin Lab", "https://www.youtube.com/embed/XqWN4rFf7sA"]
+      ["AEA Meets Prof. Savaresi", "https://www.youtube.com/embed/YRuNQF-eeKg"]
     ]
     const intl = useIntl();
     return (

@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
       },
   }));
 
-function Domande() {
+function Associati() {
     const classes = useStyles();
     const intl = useIntl();
     return (
@@ -96,4 +96,4 @@ function Domande() {
   );
 }
 
-export default Domande;
+export default Associati;

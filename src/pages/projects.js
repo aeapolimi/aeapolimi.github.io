@@ -3,73 +3,72 @@ import './App.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import IconButton from '@material-ui/core/IconButton';
 
-import { useIntl, Link, FormattedMessage } from "gatsby-plugin-intl"
+import { useIntl, FormattedMessage } from "gatsby-plugin-intl"
+import { Link } from "gatsby-plugin-intl"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
-import logoduckie from "../images/duckie.png"
+import duckie from "../images/duckietown.jpg"
 
 import 'fontsource-roboto';
 
-const useStyles = makeStyles((theme) => ({
-    body:{
-      [theme.breakpoints.up('sm')]: {
-        maxWidth:"55vw",
-      },
-      margin: "0 auto",
+const useStyles = makeStyles({
+    root: {
+      maxWidth: 345,
     },
-    titlelogo:{
-      [theme.breakpoints.up('sm')]: {
-        height: "60px"
-      },
-      [theme.breakpoints.down('sm')]: {
-        height: "30px"
-      },
-      
-    }
-  }));
+    media: {
+      height: 240,
+    },
+  });
 
 function Projects() {
     const classes = useStyles();
     const intl = useIntl();
     return (
-      <>
+        <>
         <Layout>
-            <SEO title="Projects" lang={intl.locale}/>
-            <div className={classes.body}>
-              <Typography variant="h1" gutterBottom align="center">
-                <img src={logoduckie} className={classes.titlelogo} alt="duckietown"/>
-                  Duckietown
-              </Typography>
-              <Typography variant="h4" gutterBottom align="center">
-                <FormattedMessage id="projects.sottotitoloduckie" />
-              </Typography>
-              <Typography variant="body1" gutterBottom align="justified">
-                <FormattedMessage id="projects.descrizioneduckie" />
-              </Typography>
-              <Typography variant="h3" gutterBottom align="left" style={{marginTop:"40px"}}>
-                <FormattedMessage id="projects.1_introduzione" />
-                <IconButton color="primary" aria-label="read_more" component={Link} to="/duckie/getting_started">
-                  <ArrowForwardIosIcon style={{"fill":"black"}}/>
-                </IconButton>
-              </Typography>
-              <Typography variant="subtitle2" gutterBottom align="left">
-                <FormattedMessage id="projects.1_sottotitolo" />
-              </Typography>
-              <Typography variant="h3" gutterBottom align="left" style={{marginTop:"40px"}}>
-                <FormattedMessage id="projects.2_introduzione" />
-                <IconButton color="primary" aria-label="read_more" component={Link} to="/duckie/stable_baseline_example">
-                  <ArrowForwardIosIcon style={{"fill":"black"}}/>
-                </IconButton>
-              </Typography>
-              <Typography variant="subtitle2" gutterBottom align="left">
-                <FormattedMessage id="projects.2_sottotitolo" />
-              </Typography>
+            <SEO title="Projects" description="AEA Projects." lang={intl.locale}/>
+            <Typography variant="h3" align="center" style={{marginBottom:"10px", marginTop:"20px"}}>
+                <FormattedMessage id="projects.title" />
+            </Typography>
+            <div style={{height:"40px"}}/>
+            <div style={{width: "60%", margin: "0 auto"}}>
+                <Grid container spacing={9} alignItems="center" justify="center">
+                    <Grid item xs={12} sm={6} spacing={3}>
+                    <Card className={classes.root}>
+                        <CardActionArea component={Link} to="/duckietown">
+                            <CardMedia
+                            className={classes.media}
+                            image={duckie}
+                            title="Duckietown"
+                            />
+                            <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                Duckietown
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                <FormattedMessage id="projects.duckietown" />
+                            </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                        <CardActions>
+                            <Button size="small" style={{color:"#ef6c00"}} component={Link} to="/duckietown" color="primary">
+                            Learn More
+                            </Button>
+                        </CardActions>
+                        </Card>
+                    </Grid>
+                </Grid>
             </div>
         </Layout>
       </>

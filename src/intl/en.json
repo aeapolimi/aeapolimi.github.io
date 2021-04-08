@@ -26,7 +26,7 @@
   "note":{
     "automazione": "Mara the best"
   },
-  "projects":{
+  "duckietown":{
     "sottotitoloduckie": "Learn autonomy with duckietown.",
     "descrizioneduckie": "Every year universities from all over the world compete in the AI Driving Olympics hosted by the Duckietown Foundation, AEA wants to compete. Here you can find resources made by our team to help you learn autonomous driving and reinforcement learning with python.",
     "1_introduzione": "1. Introduction to Duckietown",
@@ -58,5 +58,9 @@
     },
     "costo": "To support AEA the membership has a cost of 10€, billed yearly",
     "come": "To join us please email secretary@aeapolimi.it or contact us through our socials."
+  },
+  "projects":{
+    "title": "Our projects",
+    "duckietown": "Duckietown is an autonomous driving project in collaboration with Polimi Data Scientists"
   }
  }
