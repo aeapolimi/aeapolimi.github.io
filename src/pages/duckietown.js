@@ -47,7 +47,7 @@ function Projects() {
                 <img src={logoduckie} className={classes.titlelogo} alt="duckietown"/>
                   Duckietown
               </Typography>
-              <Typography variant="h4" gutterBottom align="justified">
+              <Typography variant="h4" gutterBottom align="center">
                 <FormattedMessage id="duckietown.sottotitoloduckie" />
               </Typography>
               <Typography variant="body1" gutterBottom align="center" style={{marginTop:"20px"}}>
@@ -56,7 +56,7 @@ function Projects() {
                 </IconButton>
                 <a href="https://www.duckietown.org/" style={{color:"#ef6c00"}}>www.duckietown.org</a>
               </Typography>
-              <Typography variant="body1" gutterBottom align="justified">
+              <Typography variant="body1" gutterBottom align="justify">
                 <FormattedMessage id="duckietown.descrizioneduckie" />
               </Typography>
               <hr style={{marginTop:"40px"}}/>
