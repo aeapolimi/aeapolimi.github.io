@@ -119,9 +119,9 @@ function Domande() {
                                     <Typography variant="p" component="p">
                                         <FormattedMessage id="domande.testoinregola" />
                                     </Typography>   
-                                    <Button variant="contained" color="secondary" startIcon={<GetAppIcon />} style={{margin:"30px", marginLeft:"auto"}}>
+                                    {/* <Button variant="contained" color="secondary" startIcon={<GetAppIcon />} style={{margin:"30px", marginLeft:"auto"}}>
                                         <a href="https://www.aeapolimi.it/atto_aea.pdf">Atto Associativo</a>
-                                    </Button>
+                                    </Button> */}
                                     <Button variant="contained" color="secondary" startIcon={<GetAppIcon />}>
                                         <a href="https://www.aeapolimi.it/statuto_aea.pdf">Statuto Associativo</a>
                                     </Button>
