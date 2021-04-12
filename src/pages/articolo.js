@@ -63,7 +63,7 @@ function Carica(props){
   const intl = useIntl();
   var it = intl.locale === "it";
   if (props.codice === ""){
-    return ("You shouldn't be here. Neither should I.");
+    return ("If you see this message please refresh the page. If you see it again something has gone super wrong.");
     // return (<img src={require("../images/meme/meme_articoli.jpg")} alt="You shouldn't be here."/>;)
   }
   if (articolo==="Caricamento..."){
