@@ -14,6 +14,7 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 
 import logoduckie from "../images/duckie.png"
+import immagineduckie from "../images/news/duckiebot.jpg"
 
 import 'fontsource-roboto';
 
@@ -56,19 +57,20 @@ function Projects() {
                 </IconButton>
                 <a href="https://www.duckietown.org/" style={{color:"#ef6c00"}}>www.duckietown.org</a>
               </Typography>
-              <Typography variant="h5" gutterBottom align="justify">
+              <Typography variant="h5" gutterBottom align="center">
                 <FormattedMessage id="duckietown.whatistitolo" />
               </Typography>
               <Typography variant="body1" gutterBottom align="justify">
                 <FormattedMessage id="duckietown.whatis" />
               </Typography>
-              <Typography variant="h5" gutterBottom align="justify">
+              <img src={immagineduckie} alt="Duckie" width="100%"/>
+              <Typography variant="h5" gutterBottom align="center">
                 <FormattedMessage id="duckietown.aidotitolo" />
               </Typography>
               <Typography variant="body1" gutterBottom align="justify">
                 <FormattedMessage id="duckietown.aido" />
               </Typography>
-              <Typography variant="h5" gutterBottom align="justify">
+              <Typography variant="h5" gutterBottom align="center">
                 <FormattedMessage id="duckietown.ourprojecttitolo" />
               </Typography>
               <Typography variant="body1" gutterBottom align="justify">
