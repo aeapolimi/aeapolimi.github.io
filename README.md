@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-  Static site generator for the site of Polimi Automation Engineering Association <a href="https://www.aeapolimi.it/">AEA Polimi</a>, built with React and Gatsby.js.
+  Static site generator for the site of the Politecnico di Milano Automation Engineering Association <a href="https://www.aeapolimi.it/">AEA Polimi</a>, built with React and Gatsby.js.
 </p>
 
 <p align="center">
