@@ -85,7 +85,7 @@ function Projects() {
               </Typography>
               <iframe width="100%" height="600px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=z6hZgX372UeNMEsbTqkLe9qaZb8UCbFBq16bhK-qrq5UQjgyT1dVMjlXMEpTOTA5U0tWTUpRT0RZRS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style={{border: "none", maxWidth:"100%", maxHeight:"100vh"}} allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
               <hr style={{marginTop:"40px"}}/>
-              <Typography variant="body1" gutterBottom align="justify">
+              <Typography variant="body1" gutterBottom align="justify" style={{marginBottom: "40px"}}>
                 <FormattedMessage id="duckietown.resources" />
               </Typography>
               <Typography variant="h3" gutterBottom align="left" style={{marginTop:"40px", color: "black"}} component={Link} to="/duckie/getting_started">
