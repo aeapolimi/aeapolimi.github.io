@@ -20,13 +20,13 @@ import 'fontsource-roboto';
 
 const useStyles = makeStyles((theme) => ({
     body:{
-      [theme.breakpoints.up('sm')]: {
+      [theme.breakpoints.up('md')]: {
         maxWidth:"55vw",
       },
       margin: "0 auto",
     },
     description:{
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('md')]: {
         maxWidth:"95%",
       },
       margin: "0 auto",
