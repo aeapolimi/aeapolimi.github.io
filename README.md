@@ -78,7 +78,7 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
 
     Open the `aea` directory in your code editor of choice and edit `src/components/HomePage.js`. Save your changes and the browser will update in real time!
     
-1.  **Pubblica sulla github page**
+1.  **Pubblica il sito su Netlify**
 
     Se sei sicuro che tutto vada bene puoi pubblicare la nuova versione del sito con le tue modifiche.
     Per vedere le modifiche su [aeapolimi.github.io](https://aeapolimi.github.io) potresti dover aspettare cinque minuti.
