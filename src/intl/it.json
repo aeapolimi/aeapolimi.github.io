@@ -33,7 +33,7 @@
     "aidotitolo": "Le AI Driving Olympics:",
     "aido": "La Duckietown Foundation ospita anche le AI Driving Olympics (AI-DO) due volte all'anno, in occasione delle famose conferenze di machine learning ICRA e NeurIPS. L'AI-DO è un insieme di competizione con l'obiettivo di valutare lo stato dell'arte per ML/AI.  L'obiettivo principale del team è quello di riuscire a partecipare alla prossima AIDO!",
     "pmdstitolo": "Collaborazione coi PMDS:",
-    "pmds": "Abbiamo chiesto ai Polimi Data Scientists di unire le forze e lavorare insieme per creare un team eterogeneo composto da ingegneri informatici e dell'automazione.Pensiamo che questa sia una grande opportunità per tutti gli studenti che hanno voglia di mettersi in gioco, affrontare una nuova sfida e imparare nuove cose!",
+    "pmds": "Abbiamo chiesto ai {PMDSURL} di unire le forze e lavorare insieme per creare un team eterogeneo composto da ingegneri informatici e dell'automazione. Pensiamo che questa sia una grande opportunità per tutti gli studenti che hanno voglia di mettersi in gioco, affrontare una nuova sfida e imparare nuove cose!",
     "ourprojecttitolo": "Il nostro progetto:",
     "ourproject": "Cerchiamo persone interessate al mondo della guida autonoma, della robotica e dell'intelligenza artificiale, per creare un team in grado di lavorare con la Duckietown Platform e di affrontare sfide come la prossima competizione AIDO!",
     "interested": "Se sei interessato alla guida autonoma e alla robotica, compila il form sottostante e potresti essere selezionato per far parte del team!  Il team lavorerà in ambiente Linux, utilizzando principalmente tecnologie come Python, ROS, Docker.",

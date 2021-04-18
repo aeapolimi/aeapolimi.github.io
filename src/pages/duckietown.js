@@ -74,7 +74,12 @@ function Projects() {
                 <FormattedMessage id="duckietown.pmdstitolo" defaultMessage="Collaboration with PMDS:"/>
               </Typography>
               <Typography variant="body1" gutterBottom align="justify">
-                <FormattedMessage id="duckietown.pmds" />
+                <FormattedMessage
+                  id="duckietown.pmds"
+                  values={{
+                    link: <a href="https://polimidatascientists.it/" style={{color:"#ef6c00"}}>Polimi Data Scientists</a>
+                }}
+                />
               </Typography>
               <Typography variant="h4" gutterBottom align="center" style={{marginTop:"40px"}}>
                 <FormattedMessage id="duckietown.ourprojecttitolo" />
