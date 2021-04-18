@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/aeapolimi/aeapolimi.github.io/master/src/images/AEAtondo_trasparente.png" width="100" alt="AEA Polimi">
+  <img src="https://raw.githubusercontent.com/aeapolimi/aeapolimi.github.io/master/src/images/AEAtondo_grigio.png" width="100" alt="AEA Polimi">
   <br>
   AEA Polimi on the web
 </h1>
