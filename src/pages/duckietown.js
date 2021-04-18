@@ -76,7 +76,7 @@ function Projects() {
               <Typography variant="body1" gutterBottom align="justify">
                 <FormattedMessage id="duckietown.ourproject" />
               </Typography>
-              <Typography variant="body1" gutterBottom align="justify" style={{marginTop:"60px"}}>
+              <Typography variant="subtitle2" gutterBottom align="justify" style={{marginTop:"60px"}}>
                 <FormattedMessage id="duckietown.interested" />
               </Typography>
               <hr style={{marginTop:"40px"}}/>
@@ -88,7 +88,7 @@ function Projects() {
               <Typography variant="body1" gutterBottom align="justify">
                 <FormattedMessage id="duckietown.resources" />
               </Typography>
-              <Typography variant="h3" gutterBottom align="left" style={{marginTop:"40px"}}>
+              <Typography variant="h3" gutterBottom align="left" style={{marginTop:"40px", color: "black"}} component={Link} to="/duckie/getting_started">
                 <FormattedMessage id="duckietown.1_introduzione" />
                 <IconButton color="primary" aria-label="read_more" component={Link} to="/duckie/getting_started">
                   <ArrowForwardIosIcon style={{"fill":"black"}}/>
