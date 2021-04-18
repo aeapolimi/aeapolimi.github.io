@@ -56,17 +56,43 @@ function Projects() {
                 </IconButton>
                 <a href="https://www.duckietown.org/" style={{color:"#ef6c00"}}>www.duckietown.org</a>
               </Typography>
+              <Typography variant="h5" gutterBottom align="justify">
+                <FormattedMessage id="duckietown.whatistitolo" />
+              </Typography>
               <Typography variant="body1" gutterBottom align="justify">
-                <FormattedMessage id="duckietown.descrizioneduckie" />
+                <FormattedMessage id="duckietown.whatis" />
+              </Typography>
+              <Typography variant="h5" gutterBottom align="justify">
+                <FormattedMessage id="duckietown.aidotitolo" />
+              </Typography>
+              <Typography variant="body1" gutterBottom align="justify">
+                <FormattedMessage id="duckietown.aido" />
+              </Typography>
+              <Typography variant="h5" gutterBottom align="justify">
+                <FormattedMessage id="duckietown.ourprojecttitolo" />
+              </Typography>
+              <Typography variant="body1" gutterBottom align="justify">
+                <FormattedMessage id="duckietown.ourproject" />
+              </Typography>
+              <Typography variant="body1" gutterBottom align="justify">
+                <FormattedMessage id="duckietown.interested" />
               </Typography>
               <hr style={{marginTop:"40px"}}/>
+               <Typography variant="h3" gutterBottom align="center" style={{marginTop:"40px"}}>
+                Join our team:
+              </Typography>
+              <iframe width="100%" height="600px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=z6hZgX372UeNMEsbTqkLe9qaZb8UCbFBq16bhK-qrq5UQjgyT1dVMjlXMEpTOTA5U0tWTUpRT0RZRS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style={{border: "none", maxWidth:"100%", maxHeight:"100vh"}} allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+              <hr style={{marginTop:"40px"}}/>
+              <Typography variant="body1" gutterBottom align="justify">
+                <FormattedMessage id="duckietown.resources" />
+              </Typography>
               <Typography variant="h3" gutterBottom align="left" style={{marginTop:"40px"}}>
                 <FormattedMessage id="duckietown.1_introduzione" />
                 <IconButton color="primary" aria-label="read_more" component={Link} to="/duckie/getting_started">
                   <ArrowForwardIosIcon style={{"fill":"black"}}/>
                 </IconButton>
               </Typography>
-              <Typography variant="subtitle2" gutterBottom align="left">
+              <Typography variant="subtitle2" gutterBottom align="left" style={{marginBottom:"40px"}}>
                 <FormattedMessage id="duckietown.1_sottotitolo" />
               </Typography>
               {/* <Typography variant="h3" gutterBottom align="left" style={{marginTop:"40px"}}>
@@ -78,11 +104,6 @@ function Projects() {
               <Typography variant="subtitle2" gutterBottom align="left">
                 <FormattedMessage id="duckietown.2_sottotitolo" />
               </Typography> */}
-              <hr style={{marginTop:"40px"}}/>
-               <Typography variant="h3" gutterBottom align="center" style={{marginTop:"40px"}}>
-                Join our team:
-              </Typography>
-              <iframe width="100%" height="600px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=z6hZgX372UeNMEsbTqkLe9qaZb8UCbFBq16bhK-qrq5UQjgyT1dVMjlXMEpTOTA5U0tWTUpRT0RZRS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style={{border: "none", maxWidth:"100%", maxHeight:"100vh"}} allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
             </div>
         </Layout>
       </>
