@@ -71,6 +71,12 @@ function Projects() {
                 <FormattedMessage id="duckietown.aido" />
               </Typography>
               <Typography variant="h4" gutterBottom align="center" style={{marginTop:"40px"}}>
+                <FormattedMessage id="duckietown.pmdstitolo" defaultMessage="Collaboration with PMDS:"/>
+              </Typography>
+              <Typography variant="body1" gutterBottom align="justify">
+                <FormattedMessage id="duckietown.pmds" />
+              </Typography>
+              <Typography variant="h4" gutterBottom align="center" style={{marginTop:"40px"}}>
                 <FormattedMessage id="duckietown.ourprojecttitolo" />
               </Typography>
               <Typography variant="body1" gutterBottom align="justify">
