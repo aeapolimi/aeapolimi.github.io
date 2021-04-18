@@ -67,7 +67,7 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
     ```shell
     gatsby develop
     # If gatsby develop doesn't work:
-    npm run deploy
+    npm run develop
     ```
 
 1.  **Open the source code and start editing!**
@@ -141,7 +141,9 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 - **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
 ## 💫 Altri possibili deployment
+Nel caso dovessimo finire la quota gratuita o ci dovessero essere altri problemi con netlify possiamo momentaneamente usare la github page aeapolimi.github.io con questo comando:
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
+    ```shell
+    npm run deploy
+    ```
+Ricorda in caso di aggiornare il dns.
