@@ -143,7 +143,7 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 ## 💫 Altri possibili deployment
 Nel caso dovessimo finire la quota gratuita o ci dovessero essere altri problemi con netlify possiamo momentaneamente usare la github page aeapolimi.github.io con questo comando:
 
-    ```shell
+    
     npm run deploy
-    ```
+    
 Ricorda in caso di aggiornare il dns.
