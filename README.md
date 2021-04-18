@@ -40,11 +40,11 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
 
 6) **npm run deploy** (Se vuoi pubblicare anche su aeapolimi.github.io)
 
-## 🚀 Quick start primo clone senza ambiente
+## 🚀 First start
 
 1.  **git clone.**
 
-    Clona questa repo, sotto esempio con https.
+    Clona questa repository, sotto esempio con https.
 
     ```shell
     # clone repo con https
@@ -53,10 +53,10 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
 
 1.  **npm install.**
 
-    Entra nella repo clonata e installa l'environment di questa web app.
+    Entra nella repository clonata e installa il necessario richiesto da questa web app.
 
     ```shell
-    # entra nella repo
+    # entra nella repository
     cd aea
     # installa
     npm install
@@ -64,10 +64,12 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
 
 1.  **Start developing.**
 
-    inizia a sviluppare aprendo la development build.
+    inizia a sviluppare aprendo la development build, si dovrebbe aprire da solo il browser col sito.
 
     ```shell
     gatsby develop
+    # If gatsby develop doesn't work:
+    npm run deploy
     ```
 
 1.  **Open the source code and start editing!**
