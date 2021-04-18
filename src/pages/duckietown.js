@@ -57,26 +57,26 @@ function Projects() {
                 </IconButton>
                 <a href="https://www.duckietown.org/" style={{color:"#ef6c00"}}>www.duckietown.org</a>
               </Typography>
-              <Typography variant="h5" gutterBottom align="center">
+              <img src={immagineduckie} alt="Duckie" width="100%"/>
+              <Typography variant="h4" gutterBottom align="center" style={{marginTop:"40px"}}>
                 <FormattedMessage id="duckietown.whatistitolo" />
               </Typography>
               <Typography variant="body1" gutterBottom align="justify">
                 <FormattedMessage id="duckietown.whatis" />
               </Typography>
-              <img src={immagineduckie} alt="Duckie" width="100%"/>
-              <Typography variant="h5" gutterBottom align="center">
+              <Typography variant="h4" gutterBottom align="center" style={{marginTop:"40px"}}>
                 <FormattedMessage id="duckietown.aidotitolo" />
               </Typography>
               <Typography variant="body1" gutterBottom align="justify">
                 <FormattedMessage id="duckietown.aido" />
               </Typography>
-              <Typography variant="h5" gutterBottom align="center">
+              <Typography variant="h4" gutterBottom align="center" style={{marginTop:"40px"}}>
                 <FormattedMessage id="duckietown.ourprojecttitolo" />
               </Typography>
               <Typography variant="body1" gutterBottom align="justify">
                 <FormattedMessage id="duckietown.ourproject" />
               </Typography>
-              <Typography variant="body1" gutterBottom align="justify">
+              <Typography variant="body1" gutterBottom align="justify" style={{marginTop:"60px"}}>
                 <FormattedMessage id="duckietown.interested" />
               </Typography>
               <hr style={{marginTop:"40px"}}/>
