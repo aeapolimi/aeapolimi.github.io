@@ -1,6 +1,13 @@
 <h1 align="center">
-  Automation Engineering Association on the web
+  <img src="https://raw.githubusercontent.com/aeapolimi/aeapolimi.github.io/master/src/images/AEAtondo_trasparente.png" width="100" alt="AEA Polimi">
+  <br>
+  AEA Polimi on the web
 </h1>
+
+<p align="center">
+  Static site generator for the site of Polimi Automation Engineering Association <a href="https://www.aeapolimi.it/">AEA Polimi</a>, built with React and Gatsby.js.
+</p>
+
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dddf052d-2b33-408a-ac72-8f3616e76cb1/deploy-status)](https://app.netlify.com/sites/aeapolimi/deploys)
 [![Discord](https://img.shields.io/discord/765233478190628894.svg?label=&logo=discord&logoColor=ffffff&color=e3a220&labelColor=ba5a0b)](https://discord.gg/Cszywmt)
