@@ -38,8 +38,6 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
 5) **git push**
 6) **git push origin master:build** (Per pubblicare USARE POCO CHE POI ANDIAMO FUORI DALLA QUOTA GRATIS)
 
-6) **npm run deploy** (Se vuoi pubblicare anche su aeapolimi.github.io)
-
 ## 🚀 First start
 
 1.  **git clone.**
