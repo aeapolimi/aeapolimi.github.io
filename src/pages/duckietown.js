@@ -77,7 +77,7 @@ function Projects() {
                 <FormattedMessage
                   id="duckietown.pmds"
                   values={{
-                    link: <a href="https://polimidatascientists.it/" style={{color:"#ef6c00"}}>Polimi Data Scientists</a>
+                    PMDSURL: <a href="https://polimidatascientists.it/" style={{color:"#ef6c00"}}>Polimi Data Scientists</a>
                 }}
                 />
               </Typography>
