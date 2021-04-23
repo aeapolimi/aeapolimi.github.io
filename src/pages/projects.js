@@ -3,6 +3,7 @@ import './App.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -43,29 +44,29 @@ function Projects() {
             </Typography>
             <div style={{height:"40px"}}/>
             <div style={{width: "60%", margin: "0 auto"}}>
-                <Grid container spacing={9} alignItems="center" justify="center">
-                    <Grid item xs={12} sm={6} spacing={3}>
-                    <Card className={classes.root}>
-                        <CardActionArea component={Link} to="/duckietown">
-                            <CardMedia
-                            className={classes.media}
-                            image={duckie}
-                            title="Duckietown"
-                            />
-                            <CardContent>
-                            <Typography gutterBottom variant="h5" style={{color:"black"}} component="h2">
-                                Duckietown
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                <FormattedMessage id="projects.duckietown" />
-                            </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                        <CardActions>
-                            <Button size="small" style={{color:"#ef6c00"}} component={Link} to="/duckietown" color="primary">
-                            Learn More
-                            </Button>
-                        </CardActions>
+                <Grid container spacing={9}direction="row" alignItems="center" justify="center"  style={{minWidth: "100%"}}>
+                    <Grid item xs={12} md={6}>
+                        <Card className={classes.root}>
+                            <CardActionArea component={Link} to="/duckietown">
+                                <CardMedia
+                                className={classes.media}
+                                image={duckie}
+                                title="Duckietown"
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="h5" style={{color:"black"}} component="h2">
+                                    Duckietown
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    <FormattedMessage id="projects.duckietown" />
+                                </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" style={{color:"#ef6c00"}} component={Link} to="/duckietown" color="primary">
+                                Learn More
+                                </Button>
+                            </CardActions>
                         </Card>
                     </Grid>
                 </Grid>
