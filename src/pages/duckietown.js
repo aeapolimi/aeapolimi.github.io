@@ -3,6 +3,7 @@ import './App.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import IconButton from '@material-ui/core/IconButton';
@@ -98,11 +99,14 @@ function Projects() {
                   <FormattedMessage id="duckietown.interested" />
                 </Typography>
               </div>
-              <hr style={{marginTop:"40px"}}/>
-               <Typography variant="h3" gutterBottom align="center" style={{marginTop:"40px"}}>
+              {/* <hr style={{marginTop:"40px"}}/> */}
+               {/* <Typography variant="h3" gutterBottom align="center" style={{marginTop:"40px"}}>
                 Join our team:
-              </Typography>
-              <iframe width="100%" height="600px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=z6hZgX372UeNMEsbTqkLe9qaZb8UCbFBq16bhK-qrq5UQjgyT1dVMjlXMEpTOTA5U0tWTUpRT0RZRS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style={{border: "none", maxWidth:"100%", maxHeight:"100vh"}} allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+              </Typography> */}
+              {/* <iframe width="100%" height="600px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=z6hZgX372UeNMEsbTqkLe9qaZb8UCbFBq16bhK-qrq5UQjgyT1dVMjlXMEpTOTA5U0tWTUpRT0RZRS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style={{border: "none", maxWidth:"100%", maxHeight:"100vh"}} allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe> */}
+              <Button style={{marginLeft: "40%", marginTop: "40px", color:"#ef6c00"}} size="large" variant="outlined" color="primary" href="https://forms.office.com/Pages/ResponsePage.aspx?id=z6hZgX372UeNMEsbTqkLe9qaZb8UCbFBq16bhK-qrq5UQjgyT1dVMjlXMEpTOTA5U0tWTUpRT0RZRS4u">
+                Join our team
+              </Button>
               <hr style={{marginTop:"40px"}}/>
               <div className={classes.description}>
                 <Typography variant="body1" gutterBottom align="justify" style={{marginBottom: "40px"}}>
