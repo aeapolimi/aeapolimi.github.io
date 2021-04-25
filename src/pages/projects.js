@@ -55,7 +55,7 @@ function Projects() {
                                 />
                                 <CardContent>
                                 <Typography gutterBottom variant="h5" style={{color:"black"}} component="h2">
-                                    Duckietown
+                                    AI Driving Olympics, Duckietown
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
                                     <FormattedMessage id="projects.duckietown" />
