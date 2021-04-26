@@ -9,6 +9,11 @@
     "by": "di",
     "read": "Continua a leggere"
   },
+  "events":{
+    "about": "Tutti gli eventi passati, presenti e futuri di AEA.",
+    "by": "di",
+    "read": "Continua a leggere"
+  },
   "domande":{
     "checosa": "Che cos'è AEA?",
     "checosatesto": "AEA, acronimo di Automation Engineering Association, è un’associazione studentesca no profit del politecnico di Milano. Come principale obbiettivo ha quello di promuovere la figura dell’ingegnere dell’automazione, incentivando rapporti di collaborazione e condivisione di interessi tra gli studenti.",
