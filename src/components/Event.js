@@ -2,6 +2,7 @@ import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -21,14 +22,15 @@ const useStyles = makeStyles({
       borderColor: '#ef6c00',
     },
     title: {
-      fontSize: 14,
+      fontSize: 20,
+      marginBottom: "15px"
     },
     pos: {
       marginBottom: 12,
     },
     media: {
         height: 0,
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '100%', // 16:9
       },
   });
 
@@ -38,33 +40,28 @@ function Event(props){
     var codice = props.codice;
     const intl = useIntl();
     return (
-        <Card key={props.codice} className={classes.root} variant="outlined" raised={true}>
+        <Card key={props.codice} className={classes.root} variant="outlined" raised={true} >
                 <CardMedia
                     className={classes.media}
                     image={props.immagine.includes("http") ? props.immagine : require("../images/news/"+props.immagine)}
                     title={props.titolo}
                 />
                 <CardContent>
-                    <Typography variant="overline" color="textSecondary" gutterBottom>
-                      TAG:
-                      {
-                        props.tag === undefined ?
-                        "" :
-                          props.tag.map((el) => <Link to={"/tags?"+el} style={{color:"inherit"}}> {el}</Link>)
-                      }
-                    </Typography>
-                    <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    {props.data.toLocaleString(intl.locale, { month: "long", day: "numeric", year: "numeric" })}
-                    </Typography>
-                    <Typography variant="h5" component="h2">
+                    <Typography variant="h5" component="h2" style={{minHeight:"80px"}}>
                     {props.titolo}
                     </Typography>
-                    <Typography color="textSecondary">
-                      <Link to={"/authors?"+props.autore} style={{color:"inherit"}}>
-                        <FormattedMessage id="events.by" /> {props.autore}
-                      </Link>
-                    </Typography>
-                    <Typography variant="body2" component="p" className={classes.pos}>
+                    <hr/>
+                    <Box
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    minHeight="30px">
+                      <Typography variant="h5" className={classes.title}>
+                      {props.data.toLocaleString(intl.locale, { month: "long", day: "numeric", year: "numeric" })}
+                      </Typography>
+                    </Box>
+                    <hr/>
+                    <Typography variant="body2" component="p" color="textSecondary" className={classes.pos} style={{minHeight:"80px"}}>
                     {props.descrizione}
                     </Typography>
                 </CardContent>

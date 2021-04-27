@@ -88,7 +88,7 @@ function Events() {
               <FormattedMessage id="events.about" />
             </Typography>
             <div className={classes.body}>
-                <Grid container spacing={3}>
+                <Grid container spacing={3} justify="center">
                     <NewsSection />
                 </Grid>
             </div>
