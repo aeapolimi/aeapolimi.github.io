@@ -207,7 +207,7 @@ function NewsSection(){
     const intl = useIntl();
     var it = intl.locale === "it";
     if (articoli==="Caricamento..."){
-        firebase.firestore().collection("news").orderBy('data', 'desc').limit(10).get()
+        firebase.firestore().collection("news").where("in_home", "==", true).orderBy('data', 'desc').limit(10).get()
             .then(collec => {
                 setArticoli(collec.docs)
             })

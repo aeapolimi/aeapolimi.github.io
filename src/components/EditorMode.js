@@ -3,6 +3,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
@@ -75,6 +77,7 @@ function EditorMode(props){
     const [immagine, setImmagine] = React.useState("https://raw.githubusercontent.com/aeapolimi/aeapolimi.github.io/master/src/images/news/robot.jpg");
     const [tag, setTags] = React.useState(['Tag1', 'tag2']);
     const [autore, setAutore] = React.useState('Autore');
+    const [visible_in_home, setVisible_in_home] = React.useState(true);
     const [open, setOpen] = React.useState(false);
     const [sommario, setSommario] = React.useState('Summary');
     const [sommario_it, setSommario_it] = React.useState('Sommario');
@@ -108,6 +111,7 @@ function EditorMode(props){
         setTitolo_it(doc.data().titolo_it)
         setTesto(doc.data().testo)
         setTesto_it(doc.data().testo_it)
+        setVisible_in_home(doc.data().in_home)
         setData(doc.data().data)
         if(doc.data().tag){
             setTags(doc.data().tag)
@@ -137,7 +141,8 @@ function EditorMode(props){
                     testo: testo,
                     testo_it: testo_it,
                     titolo: titolo,
-                    titolo_it: titolo_it
+                    titolo_it: titolo_it,
+                    in_home: visible_in_home
                 }
             )
         .catch(function(error) {
@@ -174,6 +179,17 @@ function EditorMode(props){
                 Carica
             </Button>
             <div style={{height: "20px"}} />
+            <FormControlLabel
+                control={
+                    <Checkbox
+                        checked={visible_in_home}
+                        onChange={(event) => setVisible_in_home(event.target.checked)}
+                        inputProps={{ 'aria-label': 'primary checkbox' }}
+                    />
+                }
+                label="News visibile dalla home"
+                style={{color:"black"}}
+              />
             <form className={classes.titolo} noValidate autoComplete="off">
                 <TextField 
                 id="standard-basic" 
