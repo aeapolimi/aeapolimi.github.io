@@ -36,8 +36,9 @@ if (typeof window!== "undefined" && !firebase.apps.length) {
 
 const useStyles = makeStyles((theme) => ({
     body:{
+      maxWidth:"100%",
       [theme.breakpoints.up('md')]: {
-        maxWidth:"55vw",
+        maxWidth:"57vw",
       },
       margin: "0 auto",
     },
@@ -87,8 +88,8 @@ function Events() {
             <Typography variant="subtitle1" align="center" style={{marginBottom:"40px"}}>
               <FormattedMessage id="events.about" />
             </Typography>
-            <div className={classes.body}>
-                <Grid container spacing={3} justify="center">
+            <div>
+                <Grid container spacing={3} justify="center" className={classes.body}>
                     <NewsSection />
                 </Grid>
             </div>
