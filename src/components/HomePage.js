@@ -448,50 +448,6 @@ function HomePage (){
                                 </TableRow>
                                 <TableRow className={classes.tableroot}>
                                     <TableCell>
-                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenAccademico(!openAccademico)}>
-                                            {openAccademico ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                        </IconButton>
-                                    </TableCell>
-                                    <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5">
-                                            Academic Relations
-                                        </Typography>       
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                        <Collapse in={openAccademico} timeout="auto" unmountOnExit>
-                                                <Box margin={1}>
-                                                <Grid
-                                                    container
-                                                    direction="row"
-                                                    justify="flex-start"
-                                                    alignItems="center"
-                                                    spacing={3}
-                                                >
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" immagine={!isSaf ? require("../images/direttivo/roberto_pellerito.webp") : require("../images/direttivo/roberto_pellerito.jpeg")} nome="Roberto Pellerito" ruolo="Team leader" invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pasqualecortese1994" immagine={!isSaf ? require("../images/direttivo/pasquale_cortese.webp") : require("../images/direttivo/pasquale_cortese.jpeg")} nome="Pasquale Cortese" ruolo="Co-founder" invisibile={true}/>
-                                                    </Grid>
-                                                </Grid>
-                                            </Box>
-                                        </Collapse>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow className={classes.tableroot}>
-                                    <TableCell>
                                         <IconButton aria-label="expand row" size="small" onClick={() => setOpenAziende(!openAziende)}>
                                             {openAziende ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                                         </IconButton>
@@ -704,6 +660,50 @@ function HomePage (){
                                                     xs={12}
                                                     >
                                                         <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} nome="Giovanni Buzzao" ruolo="Co-founder" invisibile={true}/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Collapse>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow className={classes.tableroot}>
+                                    <TableCell>
+                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenAccademico(!openAccademico)}>
+                                            {openAccademico ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                        </IconButton>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row">
+                                        <Typography variant="h4" component="h5">
+                                            Projects Development
+                                        </Typography>       
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                                        <Collapse in={openAccademico} timeout="auto" unmountOnExit>
+                                                <Box margin={1}>
+                                                <Grid
+                                                    container
+                                                    direction="row"
+                                                    justify="flex-start"
+                                                    alignItems="center"
+                                                    spacing={3}
+                                                >
+                                                    <Grid
+                                                    item
+                                                    md={6}
+                                                    xl={3}
+                                                    xs={12}
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" immagine={!isSaf ? require("../images/direttivo/roberto_pellerito.webp") : require("../images/direttivo/roberto_pellerito.jpeg")} nome="Roberto Pellerito" ruolo="Chief Projects Officer" invisibile={false}/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    md={6}
+                                                    xl={3}
+                                                    xs={12}
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pasqualecortese1994" immagine={!isSaf ? require("../images/direttivo/pasquale_cortese.webp") : require("../images/direttivo/pasquale_cortese.jpeg")} nome="Pasquale Cortese" ruolo="Co-founder" invisibile={true}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
