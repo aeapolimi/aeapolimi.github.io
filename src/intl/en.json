@@ -42,7 +42,7 @@
     "pmds": "We asked the {PMDSURL} to join forces and work together to create an heterogeneous team composed of both Computer Science and Automation Egineers. We think that this is a great opportunity for all the students who want to face a new challenge and learn new things!",
     "ourprojecttitolo": "Our project:",
     "ourproject": "We are looking for people interested in the world of autonomous driving, robotics and AI, in order to create a team capable of working with the Duckietown Platform and facing challenges (like the next AIDO competiotion)! The purpose is to teach a small robotic car to navigate on a track, which is no easy task. The main objective of the team is to take part in the AIDO competition.",
-    "interested": "If you are interested in autonomous driving and robotics, please fill the forms below and you might get selected to be part of the team!  The team will work in a Linux enviroment, using mainly technologies like Python, ROS, Docker. ",
+    "interested": "If you are interested in autonomous driving and robotics, please fill the forms below and you might get selected to be part of the team!  The team will work in a Linux enviroment, using mainly technologies like Python, ROS, Docker and Reinforcement Learning. ",
     "resources": "Here you will find usefull resources made by our team to help you get started with autonomous driving and reinforcement learning with python.",
     "1_introduzione": "Introduction to Duckietown",
     "1_sottotitolo": "Setting up your headless Duckietown environment in Google Colab",
