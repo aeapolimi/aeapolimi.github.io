@@ -3,7 +3,7 @@ import './homePage.css';
 
 import { useIntl, FormattedMessage, Link } from "gatsby-plugin-intl"
 
-import { isSafari, isMobileSafari } from 'react-device-detect';
+import { isMobile, isTablet, isSafari, isMobileSafari } from 'react-device-detect';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -215,7 +215,7 @@ function NewsSection(){
     return(<Carousel
         swipeable={true}
         draggable={true}
-        showDots={false}
+        showDots={!isMobile & !isTablet}
         responsive={responsive}
         ssr={true} // means to render carousel on server-side.
         infinite={true}
