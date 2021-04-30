@@ -15,6 +15,7 @@ import { useIntl, Link, FormattedMessage } from "gatsby-plugin-intl"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
+import duckie from "../images/duckietown.jpg"
 import logoduckie from "../images/duckie.png"
 import immagineduckie from "../images/news/duckiebot.jpg"
 
@@ -50,7 +51,7 @@ function Projects() {
     return (
       <>
         <Layout>
-            <SEO title="Projects" lang={intl.locale}/>
+            <SEO title="Duckietown" image={duckie} lang={intl.locale}/>
             <div className={classes.body}>
               <Typography variant="h1" gutterBottom align="center">
                 <img src={logoduckie} className={classes.titlelogo} alt="duckietown"/>
