@@ -4,13 +4,16 @@ import './App.css';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/analytics';
 
-import { useIntl, FormattedMessage } from "gatsby-plugin-intl"
+import { Link, useIntl, FormattedMessage } from "gatsby-plugin-intl"
 
 import News from "../components/News"
 import SEO from "../components/seo"
@@ -42,10 +45,19 @@ const useStyles = makeStyles((theme) => ({
     },
     margin: "0 auto",
   },
+  search: {
+    maxWidth: "80vw",
+    [theme.breakpoints.up('md')]: {
+      maxWidth: "10vw",
+    },
+    margin: "0 auto",
+    marginBottom: "30px"
+  }
 }));
 
 
 function NewsSection(){
+    const classes = useStyles();
     const [articoli, setArticoli] = React.useState("Caricamento...")
     const intl = useIntl();
     var it = intl.locale === "it";
@@ -56,27 +68,49 @@ function NewsSection(){
             })
         }
     return (
-        (articoli==="Caricamento...") ? (<div>Loading...</div>) : 
-            articoli.map(articolo => {
-                return (
-                  <Grid item xs={12} sm={6} xl={3} key={articolo.id}>
-                      <News 
-                      autore={articolo.data().autore} 
-                      titolo={it ? articolo.data().titolo_it : articolo.data().titolo} 
-                      data={articolo.data().data.toDate()} 
-                      descrizione={it ? articolo.data().sommario_it : articolo.data().sommario} 
-                      codice={articolo.id}
-                      tag={articolo.data().tag}
-                      immagine={articolo.data().immagine}
-                      />
-                  </Grid>
-                )
-            })
+      <>
+        {(articoli==="Caricamento...") ? (<div></div>) : 
+        <Autocomplete
+          id="search"
+          className={classes.search}
+          freeSolo
+          options={articoli.map((articolo) => it ? {"id": articolo.id, "title": articolo.data().titolo_it} : {"id": articolo.id, "title" : articolo.data().titolo})}
+          getOptionLabel={(option) =>  option.title}
+          renderOption={(option) => (
+              <Link
+                style={{ color: "black" }}
+                to={"/articolo/?"+option.id}
+              >
+                {option.title}
+              </Link>
+          )}
+          renderInput={(params) => (
+            <TextField {...params} label="Search" margin="normal" variant="outlined" />
+          )}
+        />}
+        <Grid container spacing={3} justify="center" className={classes.body}>
+          {(articoli==="Caricamento...") ? (<div>Loading...</div>) : 
+              articoli.map(articolo => {
+                  return (
+                    <Grid item xs={12} sm={6} xl={3} key={articolo.id}>
+                        <News 
+                        autore={articolo.data().autore} 
+                        titolo={it ? articolo.data().titolo_it : articolo.data().titolo} 
+                        data={articolo.data().data.toDate()} 
+                        descrizione={it ? articolo.data().sommario_it : articolo.data().sommario} 
+                        codice={articolo.id}
+                        tag={articolo.data().tag}
+                        immagine={articolo.data().immagine}
+                        />
+                    </Grid>
+                  )
+              })}
+        </Grid>
+      </>
     )
 }
 
 function Insiders() {
-  const classes = useStyles();
   const intl = useIntl()
     return (
       <>
@@ -88,9 +122,7 @@ function Insiders() {
             <Typography variant="subtitle1" align="center" style={{marginBottom:"40px"}}>
               <FormattedMessage id="insiders.about" />
             </Typography>
-            <Grid container spacing={3} justify="center" className={classes.body}>
-              <NewsSection />
-            </Grid>
+            <NewsSection />
             <div style={{height:"40px"}}/>
         </Layout>
       </>
