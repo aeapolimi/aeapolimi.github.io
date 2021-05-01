@@ -19,15 +19,19 @@ const useStyles = makeStyles({
       textAlign: "center",
       borderColor: '#ef6c00',
     },
-    tags:{
-      minHeight: "40px",
+    autore:{
+      minHeight: "50px"
+    },
+    date: {
+      fontSize: 14,
+      minHeight: "40px"
     },
     title: {
-      fontSize: 14,
-      minHeight: "50px"
+      minHeight: "70px"
     },
     pos: {
       marginBottom: 12,
+      minHeight: "100px",
     },
   });
 
@@ -39,7 +43,7 @@ function News(props){
     return (
         <Card key={props.codice} className={classes.root} variant="outlined" raised={true}>
                 <CardContent>
-                    <Typography variant="overline" color="textSecondary" gutterBottom className={classes.tags}>
+                    <Typography variant="overline" color="textSecondary" >
                       TAG:
                       {
                         props.tag === undefined ?
@@ -47,13 +51,13 @@ function News(props){
                           props.tag.map((el) => <Link to={"/tags?"+el} style={{color:"inherit"}}> {el}</Link>)
                       }
                     </Typography>
-                    <Typography className={classes.title} color="textSecondary" gutterBottom>
+                    <Typography className={classes.date} color="textSecondary" gutterBottom>
                     {props.data.toLocaleString(intl.locale, { month: "long", day: "numeric", year: "numeric" })}
                     </Typography>
-                    <Typography variant="h5" component="h2">
+                    <Typography variant="h5" component="h2" className={classes.title}>
                     {props.titolo}
                     </Typography>
-                    <Typography color="textSecondary">
+                    <Typography color="textSecondary" className={classes.autore}>
                       <Link to={"/authors?"+props.autore} style={{color:"inherit"}}>
                         <FormattedMessage id="insiders.by" /> {props.autore}
                       </Link>
