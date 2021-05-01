@@ -55,6 +55,7 @@ function NewsSection(props){
                     descrizione={it ? articolo.data().sommario_it : articolo.data().sommario} 
                     codice={articolo.id}
                     tag={articolo.data().tag}
+                    immagine={articolo.data().immagine}
                     />
                 )
             })
