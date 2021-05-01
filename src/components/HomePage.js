@@ -228,6 +228,7 @@ function NewsSection(){
         removeArrowOnDeviceType={["tablet", "mobile"]}
         // deviceType={this.props.deviceType}
         dotListClass="custom-dot-list-style"
+        sliderClass="custom-react-carousel-track"
         centerMode={true}
         >
             {(articoli==="Caricamento...") ? <div>Loading...</div> : 
