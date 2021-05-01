@@ -3,7 +3,7 @@ import './homePage.css';
 
 import { useIntl, FormattedMessage, Link } from "gatsby-plugin-intl"
 
-import { isSafari, isMobileSafari } from 'react-device-detect';
+import { isMobile, isSafari, isMobileSafari } from 'react-device-detect';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -151,6 +151,14 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
     },
+    team: {
+        backgroundColor: "transparent",
+        width: "95%",
+        [theme.breakpoints.up('sm')]: {
+            width: "60%"
+        },
+        margin: "0 auto"
+    },
     focusHighlight: {},
     focusVisible: {},
     tableroot: {
@@ -295,12 +303,8 @@ function HomePage (){
     // HOOK
     const classes = useStyles();
     const [openDrawer, setOpenDrawer] = React.useState(false);
-    const [openBoard, setOpenBoard] = React.useState(true);
-    const [openContenuti, setOpenContenuti] = React.useState(false);
-    const [openAziende, setOpenAziende] = React.useState(false);
-    const [openAccademico, setOpenAccademico] = React.useState(false);
-    const [openInformatico, setOpenInformatico] = React.useState(false);
-    const [openEventi, setOpenEventi] = React.useState(false);
+    const [openBoard, setOpenBoard] = React.useState(!isMobile);
+    const [openChairs, setOpenChairs] = React.useState(!isMobile);
     const toggleDrawer = (open) => (event) => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -393,7 +397,7 @@ function HomePage (){
                         </Grid>
                     </Grid>
                 </div>
-                <div className="team" id="team">
+                <div className={classes.team} id="team">
                     <div style={{margin:"30px"}}>
                         <Typography variant="h3" component="h3">
                             Board & Chairs
@@ -402,143 +406,152 @@ function HomePage (){
                     <TableContainer component={Paper} elevation={0} style={{overflowX: "visible", backgroundColor:"transparent"}}>
                         <Table aria-label="collapsible table">
                             <TableBody>
-                                <TableRow className={classes.tableroot}>
+                                <TableRow className={classes.tableroot} onClick={() => setOpenBoard(!openBoard)}>
+                                    {isMobile ?
+                                        <TableCell>
+                                        <IconButton aria-label="expand row" size="small">
+                                            {openBoard ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                        </IconButton>
+                                    </TableCell> : null}
                                     <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5" align="center">
+                                        <Typography variant="h4" component="h5" align={isMobile ? "left" : "center"}>
                                             Board
                                         </Typography>       
                                     </TableCell>
                                 </TableRow>
                                 <TableRow className={classes.tableroot}>
                                     <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6} >
-                                        <Box margin={1}>
-                                            <Grid
-                                                container
-                                                direction="row"
-                                                justify="flex-start"
-                                                alignItems="center"
-                                                spacing={3}
-                                            >
+                                        <Collapse in={openBoard} timeout="auto" unmountOnExit>
+                                            <Box margin={1}>
                                                 <Grid
-                                                item
-                                                xs={12}
-                                                md={6}
-                                                xl={3}
+                                                    container
+                                                    direction="row"
+                                                    justify="space-evenly"
+                                                    alignItems="center"
+                                                    // spacing={3}
                                                 >
-                                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio_vaccari.webp") : require("../images/direttivo/giulio_vaccari.jpeg")} nome="Giulio Vaccari" ruolo="President" invisibile={false}/>
+                                                    <Grid
+                                                    item
+                                                    xs={6}
+                                                    md={6}
+                                                    xl={3}
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio_vaccari.webp") : require("../images/direttivo/giulio_vaccari.jpeg")} nome={"Giulio Vaccari"} ruolo="President" invisibile={false}/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xs={6}
+                                                    md={6}
+                                                    xl={3}
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/guido-sassaroli-778548169/" immagine={!isSaf ? require("../images/direttivo/guido_sassaroli.webp") : require("../images/direttivo/guido_sassaroli.jpeg")} nome="Guido Sassaroli" ruolo="Vicepresident" invisibile={false}/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xs={6}
+                                                    xl={3}
+                                                    >
+                                                        <CardDirettivo linkedin="https://linkedin.com/in/isabella-luppi-006a9b177" immagine={!isSaf ? require("../images/direttivo/isabella_luppi.webp") : require("../images/direttivo/isabella_luppi.jpeg")} nome="Isabella Luppi" ruolo="Secretary" invisibile={false}/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xs={6}
+                                                    xl={3}
+                                                    >
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/sofiatrombini" immagine={!isSaf ? require("../images/direttivo/sofia_trombini.webp") : require("../images/direttivo/sofia_trombini.jpeg")} nome="Sofia Trombini" ruolo="Treasurer" invisibile={false}/>
+                                                    </Grid>
                                                 </Grid>
-                                                <Grid
-                                                item
-                                                xs={12}
-                                                md={6}
-                                                xl={3}
-                                                >
-                                                    <CardDirettivo linkedin="https://www.linkedin.com/in/guido-sassaroli-778548169/" immagine={!isSaf ? require("../images/direttivo/guido_sassaroli.webp") : require("../images/direttivo/guido_sassaroli.jpeg")} nome="Guido Sassaroli" ruolo="Vicepresident" invisibile={false}/>
-                                                </Grid>
-                                                <Grid
-                                                item
-                                                xs={12}
-                                                md={6}
-                                                xl={3}
-                                                >
-                                                    <CardDirettivo linkedin="https://linkedin.com/in/isabella-luppi-006a9b177" immagine={!isSaf ? require("../images/direttivo/isabella_luppi.webp") : require("../images/direttivo/isabella_luppi.jpeg")} nome="Isabella Luppi" ruolo="Secretary" invisibile={false}/>
-                                                </Grid>
-                                                <Grid
-                                                item
-                                                xs={12}
-                                                md={6}
-                                                xl={3}
-                                                >
-                                                    <CardDirettivo linkedin="https://www.linkedin.com/in/sofiatrombini" immagine={!isSaf ? require("../images/direttivo/sofia_trombini.webp") : require("../images/direttivo/sofia_trombini.jpeg")} nome="Sofia Trombini" ruolo="Treasurer" invisibile={false}/>
-                                                </Grid>
-                                            </Grid>
-                                        </Box>
+                                            </Box>
+                                        </Collapse>
                                     </TableCell>
                                 </TableRow>
-                                <TableRow className={classes.tableroot}>
+                                <TableRow className={classes.tableroot} onClick={() => setOpenChairs(!openChairs)}>
+                                    {isMobile ?
+                                        <TableCell>
+                                            <IconButton aria-label="expand row" size="small">
+                                                {openChairs ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                            </IconButton>
+                                        </TableCell> : null}
                                     <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5" align="center">
+                                        <Typography variant="h4" component="h5" align={isMobile ? "left" : "center"}>
                                             Chairs
                                         </Typography>       
                                     </TableCell>
                                 </TableRow>
-                                <TableRow >
+                                <TableRow className={classes.tableroot}>
                                     <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                        <Box margin={1}>
-                                            <Grid
-                                                container
-                                                direction="row"
-                                                justify="center"
-                                                alignItems="center"
-                                                // spacing={3}
-                                            >
+                                        <Collapse in={openChairs} timeout="auto" unmountOnExit>
+                                            <Box margin={1}>
                                                 <Grid
-                                                item
-                                                md={6}
-                                                xl={2}
-                                                xs={12}
+                                                    container
+                                                    direction="row"
+                                                    justify="space-evenly"
+                                                    alignItems="center"
+                                                    // spacing={3}
                                                 >
-                                                    <CardDirettivo 
-                                                        linkedin="https://www.linkedin.com/in/pietro-bosoni-4817291b8/" 
-                                                        immagine={!isSaf ? require("../images/direttivo/pietro_bosoni.webp") : require("../images/direttivo/pietro_bosoni.jpeg")} 
-                                                        nome="Pietro Bosoni" 
-                                                        ruolo="Contents" 
-                                                        invisibile={false}/>
-                                                </Grid>
-                                                <Grid
-                                                item
-                                                xl={2}
-                                                sm={6}
-                                                xs={12}
-                                                >
-                                                    <CardDirettivo 
-                                                        linkedin="https://www.linkedin.com/in/giovanni-cherubini-1690201a7/" 
-                                                        immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} 
-                                                        nome="Giovanni Cherubini" 
-                                                        ruolo="DevOps" 
-                                                        invisibile={false}/>
-                                                </Grid>
-                                                <Grid
-                                                item
-                                                md={6}
-                                                xl={2}
-                                                xs={12}
-                                                >
-                                                    <CardDirettivo 
-                                                        linkedin="https://www.linkedin.com/in/gariboldicristian" 
-                                                        immagine={!isSaf ? require("../images/direttivo/cristian_gariboldi.webp") : require("../images/direttivo/cristian_gariboldi.jpeg")} 
-                                                        nome="Cristian Gariboldi" 
-                                                        ruolo="Events" 
-                                                        invisibile={false}/>
-                                                </Grid>
-                                                <Grid
-                                                item
-                                                md={6}
-                                                xl={2}
-                                                xs={12}
-                                                >
-                                                    <CardDirettivo 
-                                                        linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" 
-                                                        immagine={!isSaf ? require("../images/direttivo/roberto_pellerito.webp") : require("../images/direttivo/roberto_pellerito.jpeg")} 
-                                                        nome="Roberto Pellerito" 
-                                                        ruolo="Projects" 
-                                                        invisibile={false}/>
-                                                </Grid>
-                                                <Grid
+                                                    <Grid
                                                     item
-                                                    md={6}
                                                     xl={2}
-                                                    xs={12}
+                                                    xs={6}
                                                     >
-                                                        <CardDirettivo
-                                                            linkedin="https://www.linkedin.com/in/davide-zanatta-207b12174"
-                                                            immagine={!isSaf ? require("../images/direttivo/davide_zanatta.webp") : require("../images/direttivo/davide_zanatta.jpeg")} 
-                                                            nome="Davide Zanatta" 
-                                                            ruolo="Companies"
+                                                        <CardDirettivo 
+                                                            linkedin="https://www.linkedin.com/in/pietro-bosoni-4817291b8/" 
+                                                            immagine={!isSaf ? require("../images/direttivo/pietro_bosoni.webp") : require("../images/direttivo/pietro_bosoni.jpeg")} 
+                                                            nome="Pietro Bosoni" 
+                                                            ruolo="Contents" 
                                                             invisibile={false}/>
                                                     </Grid>
-                                            </Grid>
-                                        </Box>
+                                                    <Grid
+                                                    item
+                                                    xl={2}
+                                                    xs={6}
+                                                    >
+                                                        <CardDirettivo 
+                                                            linkedin="https://www.linkedin.com/in/giovanni-cherubini-1690201a7/" 
+                                                            immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} 
+                                                            nome="Giovanni Cherubini" 
+                                                            ruolo="DevOps" 
+                                                            invisibile={false}/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xl={2}
+                                                    xs={6}
+                                                    >
+                                                        <CardDirettivo 
+                                                            linkedin="https://www.linkedin.com/in/gariboldicristian" 
+                                                            immagine={!isSaf ? require("../images/direttivo/cristian_gariboldi.webp") : require("../images/direttivo/cristian_gariboldi.jpeg")} 
+                                                            nome="Cristian Gariboldi" 
+                                                            ruolo="Events" 
+                                                            invisibile={false}/>
+                                                    </Grid>
+                                                    <Grid
+                                                    item
+                                                    xl={2}
+                                                    xs={6}
+                                                    >
+                                                        <CardDirettivo 
+                                                            linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" 
+                                                            immagine={!isSaf ? require("../images/direttivo/roberto_pellerito.webp") : require("../images/direttivo/roberto_pellerito.jpeg")} 
+                                                            nome="Roberto Pellerito" 
+                                                            ruolo="Projects" 
+                                                            invisibile={false}/>
+                                                    </Grid>
+                                                    <Grid
+                                                        item
+                                                        xl={2}
+                                                        xs={6}
+                                                        >
+                                                            <CardDirettivo
+                                                                linkedin="https://www.linkedin.com/in/davide-zanatta-207b12174"
+                                                                immagine={!isSaf ? require("../images/direttivo/davide_zanatta.webp") : require("../images/direttivo/davide_zanatta.jpeg")} 
+                                                                nome="Davide Zanatta" 
+                                                                ruolo="Companies"
+                                                                invisibile={false}/>
+                                                        </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Collapse>
                                     </TableCell>
                                 </TableRow>
                             </TableBody>
@@ -546,6 +559,7 @@ function HomePage (){
                     </TableContainer>
                 </div>
         </div>
+        {!isMobile ? <hr style={{width: "60vw", margin: "0 auto"}}/> : null }
         <div className="contatti">
             Info: info@aeapolimi.it
         </div>
