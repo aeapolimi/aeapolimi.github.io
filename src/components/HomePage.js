@@ -83,6 +83,12 @@ const useStyles = makeStyles((theme) => ({
             opacity: 0,
           },
       },
+    autore:{
+        height: 20,
+        marginTop: 10,
+        marginBottom: 0,
+        padding: 0
+    },
     cardroot: {
         // borderRadius: 30,
         maxWidth: 345,
@@ -98,6 +104,8 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     cardheader: {
+        marginTop: 0,
+        padding: 0,
         marginBottom:0
     },
     cardabout: {
@@ -183,9 +191,15 @@ function ArticoloCarousel(props){
                     title={props.titolo}
                 />
                 <CardHeader
+                    className={classes.autore}
+                    subheader={props.autore}
+                    subheaderTypographyProps={{variant:"overline"}}
+                />
+                <CardHeader
                     className={classes.cardheader}
                     title={props.titolo}
                     subheader={props.data.toLocaleString(intl.locale, { month: "long", day: "numeric", year: "numeric" })}
+                    subheaderTypographyProps={{variant:"overline"}}
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p" align="center">
@@ -241,6 +255,7 @@ function NewsSection(){
                         data={articolo.data().data.toDate()}
                         immagine={articolo.data().immagine}
                         codice={articolo.id}
+                        autore={articolo.data().autore}
                         />
                     </div>
                 )
@@ -380,335 +395,150 @@ function HomePage (){
                 </div>
                 <div className="team" id="team">
                     <div style={{margin:"30px"}}>
-                        <Typography variant="h3" component="h4">
-                            Team
+                        <Typography variant="h3" component="h3">
+                            Board & Chairs
                         </Typography>
                     </div>
                     <TableContainer component={Paper} elevation={0} style={{overflowX: "visible", backgroundColor:"transparent"}}>
                         <Table aria-label="collapsible table">
                             <TableBody>
                                 <TableRow className={classes.tableroot}>
-                                    <TableCell>
-                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenBoard(!openBoard)}>
-                                            {openBoard ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                        </IconButton>
-                                    </TableCell>
                                     <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5">
+                                        <Typography variant="h4" component="h5" align="center">
                                             Board
                                         </Typography>       
                                     </TableCell>
                                 </TableRow>
-                                <TableRow>
-                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                        <Collapse in={openBoard} timeout="auto" unmountOnExit>
-                                                <Box margin={1}>
+                                <TableRow className={classes.tableroot}>
+                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6} >
+                                        <Box margin={1}>
+                                            <Grid
+                                                container
+                                                direction="row"
+                                                justify="flex-start"
+                                                alignItems="center"
+                                                spacing={3}
+                                            >
                                                 <Grid
-                                                    container
-                                                    direction="row"
-                                                    justify="flex-start"
-                                                    alignItems="center"
-                                                    spacing={3}
+                                                item
+                                                xs={12}
+                                                md={6}
+                                                xl={3}
                                                 >
-                                                    <Grid
-                                                    item
-                                                    xs={12}
-                                                    md={6}
-                                                    xl={3}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio_vaccari.webp") : require("../images/direttivo/giulio_vaccari.jpeg")} nome="Giulio Vaccari" ruolo="President" invisibile={false}/>
-                                                    </Grid>
-                                                <Grid
-                                                    item
-                                                    xs={12}
-                                                    md={6}
-                                                    xl={3}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/guido-sassaroli-778548169/" immagine={!isSaf ? require("../images/direttivo/guido_sassaroli.webp") : require("../images/direttivo/guido_sassaroli.jpeg")} nome="Guido Sassaroli" ruolo="Vicepresident" invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    xs={12}
-                                                    md={6}
-                                                    xl={3}
-                                                    >
-                                                        <CardDirettivo linkedin="https://linkedin.com/in/isabella-luppi-006a9b177" immagine={!isSaf ? require("../images/direttivo/isabella_luppi.webp") : require("../images/direttivo/isabella_luppi.jpeg")} nome="Isabella Luppi" ruolo="Secretary" invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    xs={12}
-                                                    md={6}
-                                                    xl={3}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/sofiatrombini" immagine={!isSaf ? require("../images/direttivo/sofia_trombini.webp") : require("../images/direttivo/sofia_trombini.jpeg")} nome="Sofia Trombini" ruolo="Treasurer" invisibile={false}/>
-                                                    </Grid>
+                                                    <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio_vaccari.webp") : require("../images/direttivo/giulio_vaccari.jpeg")} nome="Giulio Vaccari" ruolo="President" invisibile={false}/>
                                                 </Grid>
-                                            </Box>
-                                        </Collapse>
+                                                <Grid
+                                                item
+                                                xs={12}
+                                                md={6}
+                                                xl={3}
+                                                >
+                                                    <CardDirettivo linkedin="https://www.linkedin.com/in/guido-sassaroli-778548169/" immagine={!isSaf ? require("../images/direttivo/guido_sassaroli.webp") : require("../images/direttivo/guido_sassaroli.jpeg")} nome="Guido Sassaroli" ruolo="Vicepresident" invisibile={false}/>
+                                                </Grid>
+                                                <Grid
+                                                item
+                                                xs={12}
+                                                md={6}
+                                                xl={3}
+                                                >
+                                                    <CardDirettivo linkedin="https://linkedin.com/in/isabella-luppi-006a9b177" immagine={!isSaf ? require("../images/direttivo/isabella_luppi.webp") : require("../images/direttivo/isabella_luppi.jpeg")} nome="Isabella Luppi" ruolo="Secretary" invisibile={false}/>
+                                                </Grid>
+                                                <Grid
+                                                item
+                                                xs={12}
+                                                md={6}
+                                                xl={3}
+                                                >
+                                                    <CardDirettivo linkedin="https://www.linkedin.com/in/sofiatrombini" immagine={!isSaf ? require("../images/direttivo/sofia_trombini.webp") : require("../images/direttivo/sofia_trombini.jpeg")} nome="Sofia Trombini" ruolo="Treasurer" invisibile={false}/>
+                                                </Grid>
+                                            </Grid>
+                                        </Box>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow className={classes.tableroot}>
-                                    <TableCell>
-                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenAziende(!openAziende)}>
-                                            {openAziende ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                        </IconButton>
-                                    </TableCell>
                                     <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5">
-                                            Company Relations
+                                        <Typography variant="h4" component="h5" align="center">
+                                            Chairs
                                         </Typography>       
                                     </TableCell>
                                 </TableRow>
-                                <TableRow>
+                                <TableRow >
                                     <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                        <Collapse in={openAziende} timeout="auto" unmountOnExit>
-                                                <Box margin={1}>
+                                        <Box margin={1}>
+                                            <Grid
+                                                container
+                                                direction="row"
+                                                justify="center"
+                                                alignItems="center"
+                                                // spacing={3}
+                                            >
                                                 <Grid
-                                                    container
-                                                    direction="row"
-                                                    justify="flex-start"
-                                                    alignItems="center"
-                                                    spacing={2}
+                                                item
+                                                md={6}
+                                                xl={2}
+                                                xs={12}
                                                 >
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/davide-zanatta-207b12174" immagine={!isSaf ? require("../images/direttivo/davide_zanatta.webp") : require("../images/direttivo/davide_zanatta.jpeg")} nome="Davide Zanatta" ruolo="Team leader" invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/leonardo-bertelli-20a34816a" immagine={!isSaf ? require("../images/direttivo/leonardo_bertelli.webp") : require("../images/direttivo/leonardo_bertelli.jpeg")} nome="Leonardo Bertelli" ruolo="Co-founder" invisibile={true}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pietro-dardano-41016320" immagine={!isSaf ? require("../images/direttivo/pietro_dardano.webp") : require("../images/direttivo/pietro_dardano.jpeg")} nome="Pietro Dardano" ruolo="Co-founder" invisibile={true}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/matteo-sacchetti-92b95218a" immagine={!isSaf ? require("../images/direttivo/matteo_sacchetti.webp") : require("../images/direttivo/matteo_sacchetti.jpeg")} nome="Matteo Sacchetti" ruolo="Co-founder" invisibile={true}/>
-                                                    </Grid>
+                                                    <CardDirettivo 
+                                                        linkedin="https://www.linkedin.com/in/pietro-bosoni-4817291b8/" 
+                                                        immagine={!isSaf ? require("../images/direttivo/pietro_bosoni.webp") : require("../images/direttivo/pietro_bosoni.jpeg")} 
+                                                        nome="Pietro Bosoni" 
+                                                        ruolo="Contents" 
+                                                        invisibile={false}/>
                                                 </Grid>
-                                            </Box>
-                                        </Collapse>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow className={classes.tableroot}>
-                                    <TableCell>
-                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenContenuti(!openContenuti)}>
-                                            {openContenuti ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                        </IconButton>
-                                    </TableCell>
-                                    <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5">
-                                            Contents
-                                        </Typography>       
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                        <Collapse in={openContenuti} timeout="auto" unmountOnExit>
-                                                <Box margin={1}>
                                                 <Grid
-                                                    container
-                                                    direction="row"
-                                                    justify="flex-start"
-                                                    alignItems="center"
-                                                    spacing={3}
+                                                item
+                                                xl={2}
+                                                sm={6}
+                                                xs={12}
                                                 >
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pietro-bosoni-4817291b8/" immagine={!isSaf ? require("../images/direttivo/pietro_bosoni.webp") : require("../images/direttivo/pietro_bosoni.jpeg")} nome="Pietro Bosoni" ruolo="Team leader" invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giovanni-ploner-703b25187/" immagine={!isSaf ? require("../images/direttivo/giovanni_ploner.webp") : require("../images/direttivo/giovanni_ploner.jpeg")} nome="Giovanni Ploner" ruolo="Co-founder" invisibile={true}/>
-                                                    </Grid>
+                                                    <CardDirettivo 
+                                                        linkedin="https://www.linkedin.com/in/giovanni-cherubini-1690201a7/" 
+                                                        immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} 
+                                                        nome="Giovanni Cherubini" 
+                                                        ruolo="DevOps" 
+                                                        invisibile={false}/>
                                                 </Grid>
-                                            </Box>
-                                        </Collapse>
-                                    </TableCell>
-                                </TableRow>
-
-                                <TableRow className={classes.tableroot}>
-                                    <TableCell>
-                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenInformatico(!openInformatico)}>
-                                            {openInformatico ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                        </IconButton>
-                                    </TableCell>
-                                    <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5">
-                                            DevOps
-                                        </Typography>       
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                        <Collapse in={openInformatico} timeout="auto" unmountOnExit>
-                                            <Box margin={1}>
                                                 <Grid
-                                                    container
-                                                    direction="row"
-                                                    justify="flex-start"
-                                                    alignItems="center"
-                                                    spacing={3}
+                                                item
+                                                md={6}
+                                                xl={2}
+                                                xs={12}
                                                 >
-                                                    <Grid
-                                                    item
-                                                    xl={3}
-                                                    sm={6}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giovanni-cherubini-1690201a7/" immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} nome="Giovanni Cherubini" ruolo="Team leader" invisibile={false}/>
-                                                    </Grid>
-
-                                                    <Grid
-                                                    item
-                                                    xl={3}
-                                                    sm={6}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="" immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} nome="Andrea Archetti" ruolo="Co-Founder" invisibile={true}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    xl={3}
-                                                    sm={6}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="" immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} nome="Gabriele Liuzzo" ruolo="Co-Founder" invisibile={true}/>
-                                                    </Grid>
-
+                                                    <CardDirettivo 
+                                                        linkedin="https://www.linkedin.com/in/gariboldicristian" 
+                                                        immagine={!isSaf ? require("../images/direttivo/cristian_gariboldi.webp") : require("../images/direttivo/cristian_gariboldi.jpeg")} 
+                                                        nome="Cristian Gariboldi" 
+                                                        ruolo="Events" 
+                                                        invisibile={false}/>
                                                 </Grid>
-                                            </Box>
-                                        </Collapse>
-                                    </TableCell>
-                                </TableRow>
-
-                                <TableRow className={classes.tableroot}>
-                                    <TableCell>
-                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenEventi(!openEventi)}>
-                                            {openEventi ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                        </IconButton>
-                                    </TableCell>
-                                    <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5">
-                                            Events
-                                        </Typography>       
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                        <Collapse in={openEventi} timeout="auto" unmountOnExit>
-                                                <Box margin={1}>
-                                                    <Grid
-                                                    container
-                                                    direction="row"
-                                                    justify="flex-start"
-                                                    alignItems="center"
-                                                    spacing={3}
-                                                    >
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gariboldicristian" immagine={!isSaf ? require("../images/direttivo/cristian_gariboldi.webp") : require("../images/direttivo/cristian_gariboldi.jpeg")} nome="Cristian Gariboldi" ruolo="Team leader" invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/filippo-tallon-9a9b331b8/" immagine={!isSaf ? require("../images/direttivo/filippo_tallon.webp") : require("../images/direttivo/filippo_tallon.jpeg")} nome="Filippo Tallon" ruolo="Co-founder" invisibile={true}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/elena-bastianelli-a58222197" immagine={!isSaf ? require("../images/direttivo/elena_bastianelli.webp") : require("../images/direttivo/elena_bastianelli.jpeg")} nome="Elena Bastianelli" ruolo="Co-founder" invisibile={true}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} nome="Giovanni Buzzao" ruolo="Co-founder" invisibile={true}/>
-                                                    </Grid>
-                                                </Grid>
-                                            </Box>
-                                        </Collapse>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow className={classes.tableroot}>
-                                    <TableCell>
-                                        <IconButton aria-label="expand row" size="small" onClick={() => setOpenAccademico(!openAccademico)}>
-                                            {openAccademico ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                        </IconButton>
-                                    </TableCell>
-                                    <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5">
-                                            Projects Development
-                                        </Typography>       
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                        <Collapse in={openAccademico} timeout="auto" unmountOnExit>
-                                                <Box margin={1}>
                                                 <Grid
-                                                    container
-                                                    direction="row"
-                                                    justify="flex-start"
-                                                    alignItems="center"
-                                                    spacing={3}
+                                                item
+                                                md={6}
+                                                xl={2}
+                                                xs={12}
                                                 >
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" immagine={!isSaf ? require("../images/direttivo/roberto_pellerito.webp") : require("../images/direttivo/roberto_pellerito.jpeg")} nome="Roberto Pellerito" ruolo="Chief Projects Officer" invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    md={6}
-                                                    xl={3}
-                                                    xs={12}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/pasqualecortese1994" immagine={!isSaf ? require("../images/direttivo/pasquale_cortese.webp") : require("../images/direttivo/pasquale_cortese.jpeg")} nome="Pasquale Cortese" ruolo="Co-founder" invisibile={true}/>
-                                                    </Grid>
+                                                    <CardDirettivo 
+                                                        linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" 
+                                                        immagine={!isSaf ? require("../images/direttivo/roberto_pellerito.webp") : require("../images/direttivo/roberto_pellerito.jpeg")} 
+                                                        nome="Roberto Pellerito" 
+                                                        ruolo="Projects" 
+                                                        invisibile={false}/>
                                                 </Grid>
-                                            </Box>
-                                        </Collapse>
+                                                <Grid
+                                                    item
+                                                    md={6}
+                                                    xl={2}
+                                                    xs={12}
+                                                    >
+                                                        <CardDirettivo
+                                                            linkedin="https://www.linkedin.com/in/davide-zanatta-207b12174"
+                                                            immagine={!isSaf ? require("../images/direttivo/davide_zanatta.webp") : require("../images/direttivo/davide_zanatta.jpeg")} 
+                                                            nome="Davide Zanatta" 
+                                                            ruolo="Companies"
+                                                            invisibile={false}/>
+                                                    </Grid>
+                                            </Grid>
+                                        </Box>
                                     </TableCell>
                                 </TableRow>
                             </TableBody>
