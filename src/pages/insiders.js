@@ -59,7 +59,7 @@ function NewsSection(){
         (articoli==="Caricamento...") ? (<div>Loading...</div>) : 
             articoli.map(articolo => {
                 return (
-                  <Grid item xs={12} sm={6} xl={3}>
+                  <Grid item xs={12} sm={6} xl={3} key={articolo.id}>
                       <News 
                       autore={articolo.data().autore} 
                       titolo={it ? articolo.data().titolo_it : articolo.data().titolo} 
@@ -67,6 +67,7 @@ function NewsSection(){
                       descrizione={it ? articolo.data().sommario_it : articolo.data().sommario} 
                       codice={articolo.id}
                       tag={articolo.data().tag}
+                      immagine={articolo.data().immagine}
                       />
                   </Grid>
                 )
