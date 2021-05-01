@@ -19,8 +19,12 @@ const useStyles = makeStyles({
       textAlign: "center",
       borderColor: '#ef6c00',
     },
+    tags:{
+      minHeight: "40px",
+    },
     title: {
       fontSize: 14,
+      minHeight: "50px"
     },
     pos: {
       marginBottom: 12,
@@ -35,7 +39,7 @@ function News(props){
     return (
         <Card key={props.codice} className={classes.root} variant="outlined" raised={true}>
                 <CardContent>
-                    <Typography variant="overline" color="textSecondary" gutterBottom>
+                    <Typography variant="overline" color="textSecondary" gutterBottom className={classes.tags}>
                       TAG:
                       {
                         props.tag === undefined ?

@@ -66,3 +66,11 @@ img {
     text-align: center;
     margin-top: 40px;
 }
+
+/* .custom-dot-list-style{
+    bottom: -20px;
+} */
+
+.react-multi-carousel-track {
+    margin-bottom: 50px;
+}

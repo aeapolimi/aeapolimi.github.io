@@ -3,7 +3,7 @@ import './homePage.css';
 
 import { useIntl, FormattedMessage, Link } from "gatsby-plugin-intl"
 
-import { isMobile, isTablet, isSafari, isMobileSafari } from 'react-device-detect';
+import { isSafari, isMobileSafari } from 'react-device-detect';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -93,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: "10px",
         },
         [theme.breakpoints.up('sm')]: {
-            minHeight: 400,
+            minHeight: 600,
             backgroundColor: "#efefef",
       },
     },
@@ -120,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
       height: 0,
-      paddingTop: '56.25%', // 16:9
+      paddingTop: '100%', // 16:9
     },
     mediaAvatar: {
         height: 0,
@@ -215,7 +215,7 @@ function NewsSection(){
     return(<Carousel
         swipeable={true}
         draggable={true}
-        showDots={!isMobile & !isTablet}
+        showDots={true}
         responsive={responsive}
         ssr={true} // means to render carousel on server-side.
         infinite={true}
@@ -345,9 +345,9 @@ function HomePage (){
                         </Typography>
                     </div>
                     <NewsSection/>
-                    <div style={{minHeight:"20px"}} />
+                    <div style={{minHeight:"10px"}} />
                 </div>
-                <div className="about" id="about">
+                <div title="about" className="about" id="about">
                     <Grid
                         container
                         direction="row"

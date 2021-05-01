@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
 
+import { makeStyles } from '@material-ui/core/styles';
+
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import firebase from 'firebase/app';
@@ -31,6 +34,17 @@ if (typeof window!== "undefined" && !firebase.apps.length) {
   firebase.analytics();
 }
 
+const useStyles = makeStyles((theme) => ({
+  body:{
+    maxWidth:"100%",
+    [theme.breakpoints.up('md')]: {
+      maxWidth:"57vw",
+    },
+    margin: "0 auto",
+  },
+}));
+
+
 function NewsSection(){
     const [articoli, setArticoli] = React.useState("Caricamento...")
     const intl = useIntl();
@@ -45,20 +59,23 @@ function NewsSection(){
         (articoli==="Caricamento...") ? (<div>Loading...</div>) : 
             articoli.map(articolo => {
                 return (
-                    <News 
-                    autore={articolo.data().autore} 
-                    titolo={it ? articolo.data().titolo_it : articolo.data().titolo} 
-                    data={articolo.data().data.toDate()} 
-                    descrizione={it ? articolo.data().sommario_it : articolo.data().sommario} 
-                    codice={articolo.id}
-                    tag={articolo.data().tag}
-                    />
+                  <Grid item xs={12} sm={6} xl={3}>
+                      <News 
+                      autore={articolo.data().autore} 
+                      titolo={it ? articolo.data().titolo_it : articolo.data().titolo} 
+                      data={articolo.data().data.toDate()} 
+                      descrizione={it ? articolo.data().sommario_it : articolo.data().sommario} 
+                      codice={articolo.id}
+                      tag={articolo.data().tag}
+                      />
+                  </Grid>
                 )
             })
     )
 }
 
 function Insiders() {
+  const classes = useStyles();
   const intl = useIntl()
     return (
       <>
@@ -70,7 +87,9 @@ function Insiders() {
             <Typography variant="subtitle1" align="center" style={{marginBottom:"40px"}}>
               <FormattedMessage id="insiders.about" />
             </Typography>
-            <NewsSection />
+            <Grid container spacing={3} justify="center" className={classes.body}>
+              <NewsSection />
+            </Grid>
             <div style={{height:"40px"}}/>
         </Layout>
       </>
