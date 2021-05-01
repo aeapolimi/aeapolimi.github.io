@@ -155,6 +155,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "transparent",
         width: "95%",
         [theme.breakpoints.up('sm')]: {
+            width: "80%"
+        },
+        [theme.breakpoints.up('md')]: {
             width: "60%"
         },
         margin: "0 auto"
