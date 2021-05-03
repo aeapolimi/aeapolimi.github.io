@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
 import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -12,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import IconButton from '@material-ui/core/IconButton';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import HomeIcon from '@material-ui/icons/Home';
+import LinkIcon from '@material-ui/icons/Link';
 
 
 import * as firebase from "firebase/app";
@@ -21,7 +22,6 @@ import { navigate } from "gatsby-plugin-intl"
 
 import EditorMode from "../components/EditorMode"
 import Note from "../components/Note"
-import Appunti from "../components/Appunti"
 import Tessera from "../components/Tessera"
 
 function Benvenuto(props){
@@ -56,11 +56,6 @@ function Benvenuto(props){
                         spacing={3}
                     >
                         <Grid item>
-                            <Button variant="contained" onClick={() => props.setAppunti(!props.appunti)}>
-                                appunti
-                            </Button>
-                        </Grid>
-                        <Grid item>
                             <Button variant="contained" onClick={() => props.setCard(!props.card)}>
                                 card
                             </Button>
@@ -83,10 +78,19 @@ function Benvenuto(props){
                     </Grid>
                 </Grid> : null}
                 <Grid item>
-                <FormControlLabel
-                    control={<Checkbox checked={props.newsletter} onChange={setNewsletter} name="Newsletter" />}
-                    label="Newsletter"
-                />
+                    <FormControlLabel
+                        control={<Checkbox checked={props.newsletter} onChange={setNewsletter} name="Newsletter" />}
+                        label="Newsletter"
+                    />
+                </Grid>
+                <Grid item>
+                    <Link componnet="button" href="https://aeapolimi-my.sharepoint.com/:f:/g/personal/appunti_aeapolimi_it/Er5BmlldGotJoUJFuIkIAL0BvD-fZfGUWy8NwHCcKNfzlQ" rel="noopener" target="_blank" style={{textDecoration: "underline"}}>Notes</Link> 
+                </Grid>
+                <Grid item>
+                    <p>
+                        If you want to help the community with new notes please
+                    <Link componnet="button" href="" rel="noopener" target="_blank" style={{textDecoration: "underline"}}> upload your work here</Link> 
+                    </p> 
                 </Grid>
             </Grid>
         </>
@@ -94,7 +98,6 @@ function Benvenuto(props){
 }
 
 function UserPage(props){
-    const [appunti, setAppunti] = React.useState(false);
     const [note, setNote] = React.useState(false);
     const [card, setCard] = React.useState(false);
     const [editormode, setEditormode] = React.useState(false);
@@ -121,13 +124,10 @@ function UserPage(props){
                 </Toolbar>
             </AppBar>
             <div className="benvenuto">
-                {appunti ? <Appunti setAppunti={setAppunti}/> : 
-                note ? <Note setAppunti={setNote}/> :
+                {note ? <Note setAppunti={setNote}/> :
                 editormode ? <EditorMode setEditormode={setEditormode}/> :
                 card ? <Tessera setCard={setCard} username={firebase.auth().currentUser.displayName} /> :
-                <Benvenuto 
-                appunti={appunti} 
-                setAppunti={setAppunti} 
+                <Benvenuto  
                 note={note} 
                 setNote={setNote}
                 autorizzato={props.autorizzato} 
