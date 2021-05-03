@@ -41,7 +41,7 @@ const MemberCard = (props) => (
             <Image src={logo} style={styles.image}/>
         </View>
         <View style={styles.section}>
-            <Text>{props.username}</Text>
+            <Text>{props.username.replace(" ", "\n")}</Text>
         </View>
     </Page>
   </Document>
