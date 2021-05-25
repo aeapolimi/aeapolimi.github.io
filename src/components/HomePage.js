@@ -271,21 +271,20 @@ function NewsSection(){
         sliderClass="custom-react-carousel-track"
         centerMode={true}
         >
-            {(articoli==="Caricamento...") ? <div>Loading...</div> : 
-            articoli.map(articolo => {
+            {data.allNews.edges.map(articolo => {
                 return (
-                    <div key={articolo.data().titolo}>
+                    <div key={articolo.node.titolo}>
                         <ArticoloCarousel 
-                        titolo={it ? articolo.data().titolo_it: articolo.data().titolo} 
-                        sommario={it ? articolo.data().sommario_it : articolo.data().sommario}
-                        data={articolo.data().data.toDate()}
-                        immagine={articolo.data().immagine}
-                        codice={articolo.id}
-                        autore={articolo.data().autore}
+                        titolo={it ? articolo.node.titolo_it: articolo.node.titolo} 
+                        sommario={it ? articolo.node.sommario_it : articolo.node.sommario}
+                        data={new Date(articolo.node.date)}
+                        immagine={articolo.node.immagine}
+                        codice={articolo.node.id}
+                        autore={articolo.node.autore}
                         />
                     </div>
-                )})}
-            
+                )})
+            }
         </Carousel>
         }
     />)

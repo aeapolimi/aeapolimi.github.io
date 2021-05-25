@@ -107,13 +107,13 @@ function NewsSection(){
                     return (
                       <Grid item xs={12} sm={6} xl={3} key={articolo.id}>
                           <News 
-                          autore={articolo.data().autore} 
-                          titolo={it ? articolo.data().titolo_it : articolo.data().titolo} 
-                          data={articolo.data().data.toDate()} 
-                          descrizione={it ? articolo.data().sommario_it : articolo.data().sommario} 
-                          codice={articolo.id}
-                          tag={articolo.data().tag}
-                          immagine={articolo.data().immagine}
+                          autore={articolo.node.autore} 
+                          titolo={it ? articolo.node.titolo_it : articolo.node.titolo} 
+                          data={new Date(articolo.node.date)} 
+                          descrizione={it ? articolo.node.sommario_it : articolo.node.sommario} 
+                          codice={articolo.node.id}
+                          tag={articolo.node.tag}
+                          immagine={articolo.node.immagine}
                           />
                       </Grid>
                     )
