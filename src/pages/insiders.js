@@ -88,7 +88,7 @@ function NewsSection(){
             id="search"
             className={classes.search}
             freeSolo
-            options={data.allNews.edges.map((articolo) => it ? {"id": articolo.id, "title": articolo.data().titolo_it} : {"id": articolo.id, "title" : articolo.data().titolo})}
+            options={data.allNews.edges.map((articolo) => it ? {"id": articolo.node.id, "title": articolo.node.titolo_it} : {"id": articolo.id, "title" : articolo.node.titolo})}
             getOptionLabel={(option) =>  option.title}
             renderOption={(option) => (
                 <Link
@@ -105,7 +105,7 @@ function NewsSection(){
           <Grid container spacing={3} justify="center" className={classes.body}>
             {data.allNews.edges.map(articolo => {
                     return (
-                      <Grid item xs={12} sm={6} xl={3} key={articolo.id}>
+                      <Grid item xs={12} sm={6} xl={3} key={articolo.node.id}>
                           <News 
                           autore={articolo.node.autore} 
                           titolo={it ? articolo.node.titolo_it : articolo.node.titolo} 
