@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 
+import { graphql, StaticQuery } from 'gatsby'
+
 import Typography from '@material-ui/core/Typography';
 
 import firebase from 'firebase/app';
@@ -55,6 +57,7 @@ function NewsSection(props){
                     descrizione={it ? articolo.data().sommario_it : articolo.data().sommario} 
                     codice={articolo.id}
                     tag={articolo.data().tag}
+                    immagine={articolo.data().immagine}
                     />
                 )
             })
@@ -64,7 +67,7 @@ function NewsSection(props){
 function Authors(props) {
     const nome = props.location.search.substring(1).replace("%20", " ");
     try {
-        var autore = require("../images/direttivo/" + nome.substr(0,nome.indexOf(' ')).toLowerCase() + ".jpeg")
+        var autore = require("../images/direttivo/" + nome.replace(/\ /g, "_").toLowerCase() + ".jpeg")
     }
     catch(error){
         autore = undefined;

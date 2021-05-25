@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import IconButton from '@material-ui/core/IconButton';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import HomeIcon from '@material-ui/icons/Home';
+import LinkIcon from '@material-ui/icons/Link';
+
 
 import * as firebase from "firebase/app";
 
@@ -19,23 +22,7 @@ import { navigate } from "gatsby-plugin-intl"
 
 import EditorMode from "../components/EditorMode"
 import Note from "../components/Note"
-
-function Appunti(props){
-    return (
-        <div style={{marginTop: "20px"}}>
-            <IconButton aria-label="home" style={{color:"white"}} onClick = {() => props.setAppunti(false)}>
-                <HomeIcon style={{fill: "white"}}/>
-            </IconButton>
-            <Typography variant="h4" component="h5">
-                Appunti
-            </Typography>
-            <div style={{height: "20px"}} />
-            <Button variant="contained" href="https://drive.google.com/file/d/1rrlZdiWcQZQrZKrDdXGSSXwQ_zVjZ2dz/view" target="_blank">
-                Fondamenti di automatica
-            </Button>
-        </div>
-    )
-}
+import Tessera from "../components/Tessera"
 
 function Benvenuto(props){
     var setNewsletter = () => {
@@ -69,32 +56,41 @@ function Benvenuto(props){
                         spacing={3}
                     >
                         <Grid item>
-                            <Button variant="contained" onClick={() => props.setAppunti(!props.appunti)}>
-                                appunti
-                            </Button>
-                        </Grid>
-                        <Grid item>
-                            <Button variant="contained" onClick={() => props.setNote(!props.note)}>
-                                note sui corsi
+                            <Button variant="contained" onClick={() => props.setCard(!props.card)}>
+                                card
                             </Button>
                         </Grid>
                         {
                             props.editor ? 
+                            <><Grid item>
+                            <Button variant="contained" onClick={() => props.setNote(!props.note)}>
+                                note sui corsi
+                            </Button>
+                            </Grid>
                             <Grid item xs={12}>
                                 <Button variant="outlined" onClick={() => props.setEditormode(!props.editormode)}>
                                     nuovo articolo
                                 </Button>
-                            </Grid>
+                            </Grid></>
                             :
                             null
                         }
                     </Grid>
                 </Grid> : null}
                 <Grid item>
-                <FormControlLabel
-                    control={<Checkbox checked={props.newsletter} onChange={setNewsletter} name="Newsletter" />}
-                    label="Newsletter"
-                />
+                    <FormControlLabel
+                        control={<Checkbox checked={props.newsletter} onChange={setNewsletter} name="Newsletter" />}
+                        label="Newsletter"
+                    />
+                </Grid>
+                <Grid item>
+                    <Link componnet="button" href="https://aeapolimi-my.sharepoint.com/:f:/g/personal/appunti_aeapolimi_it/Er5BmlldGotJoUJFuIkIAL0BvD-fZfGUWy8NwHCcKNfzlQ" rel="noopener" target="_blank" style={{textDecoration: "underline"}}>Notes</Link> 
+                </Grid>
+                <Grid item>
+                    <p>
+                        If you want to help the community with new notes please
+                    <Link componnet="button" href="https://aeapolimi-my.sharepoint.com/:f:/g/personal/appunti_aeapolimi_it/EnK8ies6XUVJl9LEOWMhGRsBDeH6GWcnG1azV4_UKD5VYA" rel="noopener" target="_blank" style={{textDecoration: "underline"}}> upload your work here</Link> 
+                    </p> 
                 </Grid>
             </Grid>
         </>
@@ -102,8 +98,8 @@ function Benvenuto(props){
 }
 
 function UserPage(props){
-    const [appunti, setAppunti] = React.useState(false);
     const [note, setNote] = React.useState(false);
+    const [card, setCard] = React.useState(false);
     const [editormode, setEditormode] = React.useState(false);
     var onLogout = () => {
         firebase.auth().signOut();
@@ -128,12 +124,10 @@ function UserPage(props){
                 </Toolbar>
             </AppBar>
             <div className="benvenuto">
-                {appunti ? <Appunti setAppunti={setAppunti}/> : 
-                note ? <Note setAppunti={setNote}/> :
+                {note ? <Note setAppunti={setNote}/> :
                 editormode ? <EditorMode setEditormode={setEditormode}/> :
-                <Benvenuto 
-                appunti={appunti} 
-                setAppunti={setAppunti} 
+                card ? <Tessera setCard={setCard} username={firebase.auth().currentUser.displayName} /> :
+                <Benvenuto  
                 note={note} 
                 setNote={setNote}
                 autorizzato={props.autorizzato} 
@@ -141,6 +135,9 @@ function UserPage(props){
                 newsletter={props.newsletter}
                 editor={props.editor}
                 editormode={editormode}
+                card={card}
+                setCard={setCard}
+                utente={firebase.auth().currentUser.displayName}
                 setEditormode={setEditormode}/>
                         }
             </div>

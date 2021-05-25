@@ -1,11 +1,16 @@
 {
   "about":{
     "pretitolo": "Puntiamo al meglio.",
-    "joinus": "Segui la nostra newsletter",
-    "testo": "AEA, Automation Engineering Association, è la associazione di Automatione e Robotica Politecnico di Milano. Costruita da studenti per gli studenti, se ti unisci a noi potrai seguire masterclass di esperti, costruire un forte network di persone che condividono obiettivi comuni, visitare aziende di automazione, lavorare su progetti e comprendere meglio le tue future possibilità di carriera."
+    "joinus": "Associati",
+    "testo": "AEA, Automation Engineering Association, è la associazione di Automazione e Robotica del Politecnico di Milano. Costruita da studenti per gli studenti, se ti unisci a noi potrai seguire masterclass di esperti, costruire un forte network di persone che condividono obiettivi comuni, visitare aziende di automazione, lavorare su progetti e comprendere meglio le tue future possibilità di carriera."
   },
   "insiders":{
     "about": "I migliori articoli realizzati con cura dai nostri associati.",
+    "by": "di",
+    "read": "Continua a leggere"
+  },
+  "events":{
+    "about": "Tutti gli eventi passati, presenti e futuri di AEA.",
     "by": "di",
     "read": "Continua a leggere"
   },
@@ -19,11 +24,58 @@
       "pianostudi": "Sei ancora indeciso sulla scelta del piano di studi?! Vorresti conoscere qualcuno che ha già fatto un Erasmus e che ti puó dare consigli in merito?! Non preoccuparti, in AEA troverai tutto quello di cui hai bisogno.... e molto altro!"  
     },
     "inregola": "Siete in regola?",
-    "testoinregola": "Work in progress...",
+    "testoinregola": "Siamo registrati all'Agenzia delle Entrate dal 4 marzo 2021.",
     "associarmi": "Come faccio ad associarmi?",
     "testoassociarmi": "Puoi entrare a far parte dell’associazione se sei inscritto ad un qualsiasi corso di laurea, triennale o magistrale, o se sei dottorando presso il Politecnico di Milano. Per ulteriori informazioni contatta la nostra segreteria all'indirizzo segreteria@aeapolimi.it !"
   },
   "note":{
     "automazione": "Mara the best"
+  },
+  "duckietown":{
+    "sottotitoloduckie": "E le AI Driving Olympics.",
+    "whatistitolo": "Che cos'è Duckietown:",
+    "whatis": "Duckietown è nata come un corso al MIT nel 2016 e tutto il materiale del corso (le diapositive, le demo, la piattaforma, il software) sono stati resi disponibili e altre istituzioni hanno iniziato ad interessarsi. Da allora la piattaforma è stata utilizzata in diverse università in tutto il mondo, tra cui NCTU, Tsinghua, ETH, Université de Montréal e molte altre. Ora è un'iniziativa mondiale che ha lo scopo di diffondere una nuova visione per l'IA e l'educazione alla robotica. Nel 2018 è nata la Duckietown Foundation, fondazione senza scopo di lucro, il cui scopo è sviluppare e promuovere il progetto Duckietown.",
+    "aidotitolo": "Le AI Driving Olympics:",
+    "aido": "La Duckietown Foundation ospita anche le AI Driving Olympics (AI-DO) due volte all'anno, in occasione delle famose conferenze di machine learning ICRA e NeurIPS. L'AI-DO è un insieme di competizione con l'obiettivo di valutare lo stato dell'arte per ML/AI.  L'obiettivo principale del team è quello di riuscire a partecipare alla prossima AIDO!",
+    "pmdstitolo": "Collaborazione coi PMDS:",
+    "pmds": "Abbiamo chiesto ai {PMDSURL} di unire le forze e lavorare insieme per creare un team eterogeneo composto da ingegneri informatici e dell'automazione. Pensiamo che questa sia una grande opportunità per tutti gli studenti che hanno voglia di mettersi in gioco, affrontare una nuova sfida e imparare nuove cose!",
+    "ourprojecttitolo": "Il nostro progetto:",
+    "ourproject": "Cerchiamo persone interessate al mondo della guida autonoma, della robotica e dell'intelligenza artificiale, per creare un team in grado di lavorare con la Duckietown Platform e di affrontare sfide come la prossima competizione AIDO!",
+    "interested": "Se sei interessato alla guida autonoma e alla robotica, compila il form sottostante e potresti essere selezionato per far parte del team!  Il team lavorerà in ambiente Linux, utilizzando principalmente tecnologie come Python, ROS, Docker e il Reinforcement Learning.",
+    "resources": "Qui troverai anche le risorse realizzate dal team di AEA per aiutarti a iniziare con la guida autonoma e il Reinforcement Learning con Python.",
+    "descrizioneduckie": "Duckietown è nata nel 2016 sotto forma di corso al MIT e tutte le parti del corso (le diapositive, le demo, la piattaforma, i software) sono stati resi disponibili apertamente e altre istituzioni hanno iniziato a interessarsi. Da allora la piattaforma è stata utilizzata in diverse università in tutto il mondo, tra cui NCTU, Tsinghua, ETH, Université de Montréal e molte altre. Ora è diventata un'iniziativa mondiale che ha lo scopo di realizzare una nuova visione per l'IA e la robotica. Nel 2018 è nata la Duckietown Foundation,come fondazione senza scopo di lucro, il cui scopo è sviluppare e promuovere il progetto Duckietown. La Duckietown Foundation inoltre organizza le AI Driving Olympics (AI-DO) due volte all'anno, presso ICRA e NeurIPS. L'AI-DO è un insieme di competizioni con l'obiettivo di valutare lo stato dell'arte per quanto riguarda il ML/AI per embodied intelligence. Stiamo cercando persone interessate al mondo della guida autonoma, della robotica e dell'intelligenza artificiale, per creare un team in grado di lavorare con la piattaforma Duckietown e di affrontare diverse sfide (come la prossima AIDO competition)! Se vuoi candidarti per poter entrare a far parte del team, compila il form sottostante.Tutto il progetto è già disponibile in GitHub. Il team dovrà lavorare in un ambiente Linux, utilizzando principalmente tecnologie come Python, ROS, Docker.",
+    "1_introduzione": "Introduzione a Duckietown",
+    "1_sottotitolo": "Configurazione di un environment Duckietown in Google Colab",
+    "2_introduzione": "2. Introduzione a Stable Baseline",
+    "2_sottotitolo": "Fa un agente autonomo col Reinforcement Learning e Stable Baseline"
+  },
+  "join":{
+    "about" :"Diventa parte dell'Associazione",
+    "1": {
+      "titolo": "Aiutaci a crescere",
+      "descrizione": "Entrando in un team avrai la possiblità di avanzare proposte, partecipare a progetto e aiutarci a costruire il futuro dell'Associazione."
+    },
+    "2": {
+      "titolo": "Networking",
+      "descrizione": "Unisciti ad un gruppo dinamico e in evoluzione di appassionati del settore, entra nei nostri gruppi riservati e partecipa alle discussioni."
+    },
+    "3": {
+      "titolo": "Candidati e vota",
+      "descrizione": "Candidati nel consiglio direttivo e vota alle prossime elezioni."
+    },
+    "4": {
+      "titolo": "Partecipa a competizioni",
+      "descrizione": "Partecipa a competizioni internazionali sulla robotica col nostro team selezionato."
+    },
+    "5": {
+      "titolo": "Molti altri vantaggi",
+      "descrizione": "Ottieni un posto garantito ai nostri eventi e alle future visite aziendali. Ottieni inoltre una tessera di membership."
+    },
+    "costo": "Per supportare AEA la membership ha un costo annuo di 10€.",
+    "come": "Per unirti a noi scrivi a segreteria@aeapolimi.it o contattaci tramite uno dei nostri canali social."
+  },
+  "projects":{
+    "title": "I nostri progetti",
+    "duckietown": "Duckietown è un progetto di guida autonoma in collaborazione coi Polimi Data Scientists"
   }
  }

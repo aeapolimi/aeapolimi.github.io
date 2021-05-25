@@ -42,6 +42,18 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       maxWidth:"55vw",
     },
+    "& a": {
+      color: '#ef6c00',
+    },
+    "& a:active": {
+      color: '#ef6c00',
+    },
+    "& a:visited": {
+      color: '#ef6c00',
+    },
+    "& img": {
+      width: '100vw',
+    }
   },
 }))
 
@@ -51,7 +63,7 @@ function Carica(props){
   const intl = useIntl();
   var it = intl.locale === "it";
   if (props.codice === ""){
-    return ("You shouldn't be here. Neither should I.");
+    return ("If you see this message please refresh the page. If you see it again something has gone super wrong.");
     // return (<img src={require("../images/meme/meme_articoli.jpg")} alt="You shouldn't be here."/>;)
   }
   if (articolo==="Caricamento..."){
@@ -105,8 +117,8 @@ function Carica(props){
 }
 
 function Articolo(props) {
-  const [info, setInfo] = React.useState({titolo:"AEA Polimi", descrizione:"An Article on AEA Insiders by a member of the Automation Engineering Association."})
   const codice = props.location.search.substring(1);
+  const [info, setInfo] = React.useState({titolo: codice.replace(/\_/g, " "), descrizione:"An Article on AEA Insiders by a member of the Automation Engineering Association."})
   const intl = useIntl();
   return (
     <>

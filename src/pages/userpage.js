@@ -68,6 +68,10 @@ class SignInScreen extends React.Component {
       signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        {
+          provider: 'microsoft.com',
+          fullLabel: 'Microsoft, Polimi, AEA',
+        },
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
       ],
       credentialHelper: 'none',
@@ -151,14 +155,17 @@ class SignInScreen extends React.Component {
                   setNewsletter(doc.data().newsletter);
                   setEditor(doc.data().editor);
               } else {
+                let emailLetta = firebase.auth().currentUser.email;
+                let utenteAea = emailLetta.includes("@aeapolimi.it");
                 docref.set(
                   {
-                    email : firebase.auth().currentUser.email,
-                    autorizzato : false,
+                    email : emailLetta,
+                    autorizzato : utenteAea,
                     newsletter: true,
                     editor: false
                   }
                 )
+                setAutorizzato(utenteAea);
               }
               setPrimogiro();
           }).catch(function(error) {
