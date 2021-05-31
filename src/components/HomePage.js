@@ -454,7 +454,7 @@ function HomePage (){
                                                     xs={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://linkedin.com/in/isabella-luppi-006a9b177" immagine={!isSaf ? require("../images/direttivo/isabella_luppi.webp") : require("../images/direttivo/isabella_luppi.jpeg")} nome="Isabella Luppi" ruolo="Secretary" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giovanni-ploner-703b25187/" immagine={!isSaf ? require("../images/direttivo/giovanni_ploner.webp") : require("../images/direttivo/giovanni_ploner.jpeg")} nome="Giovanni Ploner" ruolo="Secretary" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -534,9 +534,9 @@ function HomePage (){
                                                     xs={6}
                                                     >
                                                         <CardDirettivo 
-                                                            linkedin="https://www.linkedin.com/in/roberto-pellerito-b8b99319a" 
-                                                            immagine={!isSaf ? require("../images/direttivo/roberto_pellerito.webp") : require("../images/direttivo/roberto_pellerito.jpeg")} 
-                                                            nome="Roberto Pellerito" 
+                                                            linkedin="https://www.linkedin.com/in/pietro-dardano/" 
+                                                            immagine={!isSaf ? require("../images/direttivo/pietro_dardano.webp") : require("../images/direttivo/pietro_dardano.jpeg")} 
+                                                            nome="Pietro Dardano" 
                                                             ruolo="Projects" 
                                                             invisibile={false}/>
                                                     </Grid>
