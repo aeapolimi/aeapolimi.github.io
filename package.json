@@ -8,9 +8,9 @@
     "@deanc/gatsby-source-firestorer": "^5.0.2",
     "@firebase/firestore": "^1.18.0",
     "@loadable/component": "^5.14.1",
-    "@material-ui/core": "^4.11.0",
+    "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.9.1",
-    "@material-ui/lab": "*",
+    "@material-ui/lab": "^4.0.0-alpha.58",
     "@react-pdf/renderer": "^1.6.14",
     "firebase": "^7.24.0",
     "fontsource-roboto": "^3.0.3",
@@ -41,7 +41,8 @@
     "react-firebaseui": "^4.1.0",
     "react-helmet": "^6.1.0",
     "react-loadable": "^5.5.0",
-    "react-multi-carousel": "^2.5.5"
+    "react-multi-carousel": "^2.5.5",
+    "sharp": "^0.28.3"
   },
   "devDependencies": {
     "gh-pages": "^3.1.0",
@@ -73,5 +74,8 @@
   },
   "bugs": {
     "url": "https://github.com/aeapolimi/aeapolimi.github.io/issues"
+  },
+  "resolutions": {
+    "minipass": "^2.7.0"
   }
 }
