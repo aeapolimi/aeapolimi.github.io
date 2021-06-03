@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import CookieConsent from "react-cookie-consent";
 
-import AppBar from '@material-ui/core/AppBar';
+// import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -25,9 +25,9 @@ function Footer(){
 
     const classes = useStyles();
     return(
-        <><AppBar className={classes.appBar} elevation={0} key="fintoFooter">
+        <><div className={classes.appBar} elevation={0} key="fintoFooter">
             <Toolbar key="footerToolbar">
-                <Typography variant="subtitle2">
+                <Typography variant="subtitle2" style={{color:"white"}}>
                     Copyright AEA 2020
                 </Typography>
                 <div style={{flexGrow: 1}} />
@@ -35,7 +35,7 @@ function Footer(){
                 <div style={{flexGrow: 1}} />
                 <Button style={{color:"white"}} component={Link} to="/privacypolicy" size="small">Privacy policy</Button>
             </Toolbar>
-        </AppBar>
+        </div>
         <CookieConsent
             location="bottom"
             buttonText="Ok"
