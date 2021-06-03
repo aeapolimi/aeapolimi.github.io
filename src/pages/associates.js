@@ -89,7 +89,13 @@ function Associati() {
                 <FormattedMessage id="join.costo" />
             </Typography>
             <Typography variant="h5" align="center" style={{marginBottom: "20%"}}>
-                <FormattedMessage id="join.come" />
+                <FormattedMessage
+                        id="join.come"
+                        values={{
+                        FORM: <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=z6hZgX372UeNMEsbTqkLe1Bi7MmR0nVNm4MSEYFLtNZUQ0laTlg1TzVaOUU2V0laOEs2U1MzMllMQi4u" style={{color:"#ef6c00"}}>form</a>,
+                        PAYPAL: <a href="https://paypal.me/AEApaypal" style={{color:"#ef6c00"}}>PayPal</a>
+                    }}
+                  />
             </Typography>
         </Layout>
       </>

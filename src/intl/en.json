@@ -72,7 +72,7 @@
       "descrizione": "Have always a reserved seat in our events and future company visits. Furthermore every associate gets a membership card."
     },
     "costo": "To support AEA the membership has a cost of 10€, billed yearly",
-    "come": "To join us please email secretary@aeapolimi.it or contact us through our socials."
+    "come": "To join us please fill the following {FORM} and send 10€ to our {PAYPAL} or email secretary@aeapolimi.it or contact us through our socials."
   },
   "projects":{
     "title": "Our projects",

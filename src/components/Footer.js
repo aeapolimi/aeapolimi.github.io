@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import CookieConsent from "react-cookie-consent";
 
-// import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -13,7 +12,7 @@ import { Link } from "gatsby-plugin-intl"
 
 import IconeSocial from "../components/IconeSocial"
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     appBar: {
         top: 'auto',
         bottom: 0,
@@ -26,7 +25,7 @@ function Footer(){
     const classes = useStyles();
     return(
         <><div className={classes.appBar} elevation={0} key="fintoFooter">
-            <Toolbar key="footerToolbar">
+            <Toolbar key="footerToolbar" style={{backgroundColor: "black"}}>
                 <Typography variant="subtitle2" style={{color:"white"}}>
                     Copyright AEA 2020
                 </Typography>
