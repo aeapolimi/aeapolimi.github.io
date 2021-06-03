@@ -57,7 +57,7 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
     # entra nella repository
     cd aea
     # installa
-    npm install
+    yarn install
     ```
 
 1.  **Start developing.**
