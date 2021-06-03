@@ -49,7 +49,7 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
     git clone https://github.com/aeapolimi/aeapolimi.github.io.git
     ```
 
-1.  **npm install.**
+1.  **yarn install.**
 
     Entra nella repository clonata e installa il necessario richiesto da questa web app.
 
@@ -57,7 +57,7 @@ _Info su [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.com/).
     # entra nella repository
     cd aea
     # installa
-    npm install
+    yarn install
     ```
 
 1.  **Start developing.**
