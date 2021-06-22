@@ -120,6 +120,14 @@ const useStyles = makeStyles((theme) => ({
             marginTop: "40vh"
       },
     },
+    carouselContainer: {
+        [theme.breakpoints.down('sm')]: {
+            height: "85vh",
+        },
+        [theme.breakpoints.up('sm')]: {
+            height: "60vh",
+      },
+    },
     info: {
       marginTop: "auto",
       position: "absolute",
@@ -164,10 +172,10 @@ const useStyles = makeStyles((theme) => ({
     },
     focusHighlight: {},
     focusVisible: {},
-    tableroot: {
-    '& > *': {
-        borderBottom: 'unset',
-    },
+        tableroot: {
+        '& > *': {
+            borderBottom: 'unset',
+        },
     },
   }));
 
@@ -229,6 +237,7 @@ function ArticoloCarousel(props){
 
 function NewsSection(){
     const [articoli, setArticoli] = React.useState("Caricamento...")
+    const classes = useStyles();
     const intl = useIntl();
     var it = intl.locale === "it";
     if (articoli==="Caricamento..."){
@@ -249,7 +258,7 @@ function NewsSection(){
         keyBoardControl={false}
         customTransition="all .5"
         // transitionDuration={1000} rompe il draggable
-        containerClass="carousel-container"
+        containerClass={classes.carouselContainer}
         removeArrowOnDeviceType={["tablet", "mobile"]}
         // deviceType={this.props.deviceType}
         dotListClass="custom-dot-list-style"
@@ -289,13 +298,13 @@ function CardDirettivo(props){
                 title={props.nome}
                 />
                 <CardContent>
-                <IconButton style={{width:"100%", display:"flex", justifyContent: "center", marginTop:"-30px" }}><LinkedInIcon style={{fill: "#0072b1"}}/></IconButton>
-                <Typography gutterBottom variant="h5" component="h2" align="center">
-                    {props.nome}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" align="center" component="p" style={{color: props.invisibile ? "transparent" : undefined }}>
-                    {props.ruolo}
-                </Typography>
+                    <IconButton style={{width:"100%", display:"flex", justifyContent: "center", marginTop:"-30px" }}><LinkedInIcon style={{fill: "#0072b1"}}/></IconButton>
+                    <Typography gutterBottom variant="h5" component="h2" align="center">
+                        {props.nome}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" align="center" component="p" style={{color: props.invisibile ? "transparent" : undefined }}>
+                        {props.ruolo}
+                    </Typography>
                 </CardContent>
             </CardActionArea>
         </Card>
