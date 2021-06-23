@@ -125,8 +125,14 @@ const useStyles = makeStyles((theme) => ({
             height: "85vh",
         },
         [theme.breakpoints.up('sm')]: {
+            height: "80vh",
+        },
+        [theme.breakpoints.up('lg')]: {
+            height: "70vh",
+        },
+        [theme.breakpoints.up('xl')]: {
             height: "60vh",
-      },
+        },
     },
     info: {
       marginTop: "auto",
