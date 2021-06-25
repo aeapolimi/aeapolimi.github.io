@@ -526,7 +526,7 @@ function HomePage (){
                                                     >
                                                         <CardDirettivo 
                                                             linkedin="https://www.linkedin.com/in/giovanni-cherubini-1690201a7/" 
-                                                            immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/giovanni_cherubini.jpeg")} 
+                                                            immagine={!isSaf ? require("../images/direttivo/giovanni_cherubini.webp") : require("../images/direttivo/giovanni_cherubini.jpeg")} 
                                                             nome="Giovanni Cherubini" 
                                                             ruolo="DevOps" 
                                                             invisibile={false}/>
