@@ -84,12 +84,12 @@ function Benvenuto(props){
                     />
                 </Grid>
                 <Grid item>
-                    <Link componnet="button" href="https://aeapolimi-my.sharepoint.com/:f:/g/personal/appunti_aeapolimi_it/Er5BmlldGotJoUJFuIkIAL0BvD-fZfGUWy8NwHCcKNfzlQ" rel="noopener" target="_blank" style={{textDecoration: "underline"}}>Notes</Link> 
+                    <Link componnet="button" href="https://aeapolimi-my.sharepoint.com/:f:/g/personal/appunti_aeapolimi_it/Er5BmlldGotJoUJFuIkIAL0BvD-fZfGUWy8NwHCcKNfzlQ" rel="noopener" target="_blank" style={{textDecoration: "underline", color: "white"}}>Notes</Link> 
                 </Grid>
                 <Grid item>
                     <p>
                         If you want to help the community with new notes please
-                    <Link componnet="button" href="https://aeapolimi-my.sharepoint.com/:f:/g/personal/appunti_aeapolimi_it/EnK8ies6XUVJl9LEOWMhGRsBDeH6GWcnG1azV4_UKD5VYA" rel="noopener" target="_blank" style={{textDecoration: "underline"}}> upload your work here</Link> 
+                    <Link componnet="button" href="https://aeapolimi-my.sharepoint.com/:f:/g/personal/appunti_aeapolimi_it/EnK8ies6XUVJl9LEOWMhGRsBDeH6GWcnG1azV4_UKD5VYA" rel="noopener" target="_blank" style={{textDecoration: "underline", color: "white"}}> upload your work here</Link> 
                     </p> 
                 </Grid>
             </Grid>
