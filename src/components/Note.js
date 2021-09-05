@@ -2,29 +2,24 @@ import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import Typography from '@material-ui/core/Typography';
-
-import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
-
-import IconButton from '@material-ui/core/IconButton';
-import HomeIcon from '@material-ui/icons/Home';
-import Icon from '@material-ui/core/Icon';
-import CloseIcon from '@material-ui/icons/Close';
-import Snackbar from '@material-ui/core/Snackbar';
-
 import Button from '@material-ui/core/Button';
-
+import Paper from '@material-ui/core/Paper';
+import Rating from '@material-ui/lab/Rating';
+import Snackbar from '@material-ui/core/Snackbar';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 
+import IconButton from '@material-ui/core/IconButton';
+import HomeIcon from '@material-ui/icons/Home';
+import CloseIcon from '@material-ui/icons/Close';
 import SendIcon from '@material-ui/icons/Send';
 
 import { FormattedMessage } from "gatsby-plugin-intl"
