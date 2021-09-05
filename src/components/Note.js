@@ -43,6 +43,13 @@ const labels = {
   };
 
 const corsi = [
+    { nome: "TIROCINIO (INGEGNERIA DELL'AUTOMAZIONE)", tab: "TERZO ANNO"},
+    { nome: "BASI DI DATI 1", tab: "TERZO ANNO"},
+    { nome: "CALCOLO DELLE PROBABILITÀ E STATISTICA", tab: "TERZO ANNO"},
+    { nome: "CHIMICA GENERALE", tab: "TERZO ANNO"},
+    { nome: "ONDE ELETTROMAGNETICHE E MEZZI TRASMISSIVI", tab: "TERZO ANNO"},
+    { nome: "ELEMENTI DI ANALISI FUNZIONALE E TRASFORMATE", tab: "TERZO ANNO"},
+    { nome: "FONDAMENTI DI RICERCA OPERATIVA", tab: "TERZO ANNO"},
     { nome: "AGILE PROJECT MANAGEMENT", tab: "TRANSVERSAL SKILLS"},
     { nome: "POWER SYSTEMS: ETHICAL ISSUES AND SOCIAL IMPLICATIONS", tab: "TRANSVERSAL SKILLS"},
     { nome: "CRITICAL THINKING", tab: "TRANSVERSAL SKILLS"},
@@ -125,20 +132,22 @@ function Note(props){
     const [n_ratings, setNratings] = React.useState(0);
     const [hover, setHover] = React.useState(-1);
     const [open, setOpen] = React.useState(false);
+    const [UIds, setUIds] = React.useState(null);
     React.useEffect(() => {
         if (selezionato != null){
             firebase.firestore().collection("note").doc(selezionato.nome).get()
             .then(collec => {
                 if (!collec.exists){
                     setValue(0)
-                    original_topics = 0
+                    setoriginal_topics(0)
                     setExam(0)
-                    original_exam = 0
+                    setoriginal_exam(0)
                     setHands(0)
-                    original_hands = 0
+                    setoriginal_hands(0)
                     setMaterial(0)
-                    original_material = 0
+                    setoriginal_material(0)
                     setNratings(0)
+                    setUIds(null)
                 }
                 else{
                     setValue(collec.data().topics)
@@ -150,26 +159,36 @@ function Note(props){
                     setMaterial(collec.data().material)
                     setoriginal_material(collec.data().material)
                     setNratings(collec.data().n_ratings)
+                    setUIds(collec.data().uids)
                 }
             })
         }
     }, [selezionato]);
     var salva = () => {
         var userid = firebase.auth().currentUser.uid
+        var already_voted = UIds ? UIds.includes(userid) : false
+        var array_ids = UIds.slice()
         var docref = firebase.firestore().collection("note").doc(selezionato.nome);
+        array_ids.push(userid)
+        // Giochino per poter modificare un voto già inviato considerando solo le medie
+        var new_n_ratings = already_voted ? n_ratings : n_ratings + 1
+        var n_ratings_if_voted = already_voted ? n_ratings - 1 : n_ratings
         docref.set(
                 {
-                    topics : (original_topics*n_ratings + value) / (n_ratings + 1),
-                    exam : (original_exam*n_ratings + exam) / (n_ratings + 1),
-                    hands : (original_hands*n_ratings + hands) / (n_ratings + 1),
-                    material : (original_material*n_ratings + material) / (n_ratings + 1),
-                    n_ratings : n_ratings + 1,
-                    [userid] : true,
+                    topics : (original_topics*n_ratings_if_voted + value) / new_n_ratings,
+                    exam : (original_exam*n_ratings_if_voted + exam) / new_n_ratings,
+                    hands : (original_hands*n_ratings_if_voted + hands) / new_n_ratings,
+                    material : (original_material*n_ratings_if_voted + material) / new_n_ratings,
+                    n_ratings : new_n_ratings,
+                    uids : already_voted ? UIds : array_ids,
                 }, { merge: true }
             )
         .catch(function(error) {
             console.log("Error getting document:", error);
         });
+        if (!already_voted){
+            setUIds(array_ids)
+        }
         setOpen(true)
     }
     return (
@@ -195,6 +214,8 @@ function Note(props){
                 />
 
                 <div style={{height: "20px"}} />
+
+                {UIds ? UIds.includes(firebase.auth().currentUser.uid) ? "You have already voted." : "" : ""}
 
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="simple table">
@@ -269,9 +290,10 @@ function Note(props){
                 </TableContainer>
                 <Button
                     variant="contained"
-                    color="primary"
+                    color="secondary"
                     endIcon={<Icon>send</Icon>}
                     onClick={() => salva()}
+                    style={{marginTop: "20px"}}
                 >
                     Send
                 </Button>
