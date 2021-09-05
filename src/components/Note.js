@@ -5,6 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Paper from '@material-ui/core/Paper';
 import Rating from '@material-ui/lab/Rating';
 import Snackbar from '@material-ui/core/Snackbar';
@@ -130,7 +133,8 @@ function Note(props){
     const [hover, setHover] = React.useState(-1);
     const [open, setOpen] = React.useState(false);
     const [UIds, setUIds] = React.useState(null);
-    const [recensioni, setRecensioni] = React.useState(null);
+    const [recensioni, setRecensioni] = React.useState([]);
+    const [recensioneutente, setRecensioneUtente] = React.useState([]);
     React.useEffect(() => {
         if (selezionato != null){
             firebase.firestore().collection("note").doc(selezionato.nome).get()
@@ -146,6 +150,7 @@ function Note(props){
                     setoriginal_material(0)
                     setNratings(0)
                     setUIds(null)
+                    setRecensioni([])
                 }
                 else{
                     setValue(collec.data().topics)
@@ -158,6 +163,10 @@ function Note(props){
                     setoriginal_material(collec.data().material)
                     setNratings(collec.data().n_ratings)
                     setUIds(collec.data().uids)
+                    setRecensioni(collec.data().recensioni)
+                    if (recensioni[firebase.auth().currentUser.uid]){
+                        setRecensioneUtente(recensioni[firebase.auth().currentUser.uid])
+                    }
                 }
             })
         }
@@ -171,6 +180,10 @@ function Note(props){
         // Giochino per poter modificare un voto già inviato considerando solo le medie
         var new_n_ratings = already_voted ? n_ratings : n_ratings + 1
         var n_ratings_if_voted = already_voted ? n_ratings - 1 : n_ratings
+        var new_recensioni = recensioni
+        if (already_voted){
+            new_recensioni[userid] = recensioneutente
+        }
         docref.set(
                 {
                     topics : (original_topics*n_ratings_if_voted + value) / new_n_ratings,
@@ -179,6 +192,7 @@ function Note(props){
                     material : (original_material*n_ratings_if_voted + material) / new_n_ratings,
                     n_ratings : new_n_ratings,
                     uids : already_voted ? UIds : array_ids,
+                    recensioni: new_recensioni,
                 }, { merge: true }
             )
         .catch(function(error) {
@@ -215,7 +229,7 @@ function Note(props){
 
                 {UIds ? UIds.includes(firebase.auth().currentUser.uid) ? "You have already voted." : "" : ""}
 
-                <TableContainer component={Paper} style={{backgroundColor:"#c56000", color:"white"}}>
+                <TableContainer component={Paper} style={{backgroundColor:"#c56000", color:"white", maxWidth: "600px"}}>
                     <Table className={classes.table} aria-label="simple table">
                         <TableHead>
                         <TableRow>
@@ -286,6 +300,33 @@ function Note(props){
                         </TableBody>
                     </Table>
                 </TableContainer>
+                <Paper style={{backgroundColor:"#c56000", minHeight: "50px", marginTop:"20px"}}>
+                    <Typography variant="h5" component="h6">
+                        Reviews
+                    </Typography>
+                </Paper>
+                {Object.values(recensioni).map(recensione => 
+                    <>
+                        <div style={{height:"20px", position: "absolute", top: "50%", transform: "translateY(-50%)"}} />
+                        <Paper style={{backgroundColor:"#c56000", minHeight: "50px", maxWidth: "600px"}}>
+                            <Typography variant="body1" component="body1" style={{ wordWrap: "break-word" }} align="left">
+                                {recensione}
+                            </Typography>
+                        </Paper>
+                    </>
+                )}
+                <Paper style={{marginTop:"20px", backgroundColor:"#c56000"}}>
+                    <FormControl fullWidth variant="outlined">
+                        <InputLabel htmlFor="outlined-adornment-amount">Write a review</InputLabel>
+                        <OutlinedInput
+                            multiline
+                            id="outlined-adornment-amount"
+                            value={recensioneutente}
+                            onChange={(event) => setRecensioneUtente(event.target.value)}
+                            labelWidth={120}
+                        />
+                    </FormControl>
+                </Paper>
                 <Button
                     variant="contained"
                     color="secondary"
