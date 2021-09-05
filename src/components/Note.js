@@ -117,8 +117,11 @@ const useStyles = makeStyles((theme) => ({
         },
       },
     contenuti: {
-        width: "600px",
-        backgroundColor: "#c56000"
+        width: "90vw",
+        backgroundColor: "#c56000",
+        [theme.breakpoints.up('sm')]: {
+            width: "600px"
+        },
     }
   }));
 
@@ -138,7 +141,7 @@ function Note(props){
     const [open, setOpen] = React.useState(false);
     const [UIds, setUIds] = React.useState(null);
     const [recensioni, setRecensioni] = React.useState({});
-    const [recensioneutente, setRecensioneUtente] = React.useState({});
+    const [recensioneutente, setRecensioneUtente] = React.useState("");
     React.useEffect(() => {
         if (selezionato != null){
             firebase.firestore().collection("note").doc(selezionato.nome).get()
@@ -155,6 +158,7 @@ function Note(props){
                     setNratings(0)
                     setUIds(null)
                     setRecensioni({})
+                    setRecensioneUtente("")
                 }
                 else{
                     setValue(collec.data().topics)
@@ -169,7 +173,7 @@ function Note(props){
                     setUIds(collec.data().uids)
                     setRecensioni(collec.data().recensioni)
                     if (recensioni[firebase.auth().currentUser.uid]){
-                        setRecensioneUtente(recensioni[firebase.auth().currentUser.uid])
+                        setRecensioneUtente(collec.data().recensioni[firebase.auth().currentUser.uid])
                     }
                 }
             })
@@ -209,6 +213,7 @@ function Note(props){
             setUIds(array_ids)
         }
         setOpen(true)
+        setRecensioni(new_recensioni)
     }
     return (
         <div style={{marginTop: "20px"}}>
@@ -228,7 +233,7 @@ function Note(props){
                     onChange={(event, newValue) => {
                         setSelezionato(newValue);
                       }}
-                    style={{backgroundColor:"#c56000", width: "600px"}}
+                      className={classes.contenuti} 
                     renderInput={(params) => <TextField {...params} label="Courses" variant="outlined" style={{color:"white"}} />}
                 />
 
@@ -236,7 +241,7 @@ function Note(props){
 
                 {UIds ? UIds.includes(firebase.auth().currentUser.uid) ? "You have already voted." : "" : ""}
 
-                <TableContainer component={Paper} style={{backgroundColor:"#c56000", color:"white", maxWidth: "600px"}}>
+                <TableContainer component={Paper} className={classes.contenuti} style={{color:"white"}}>
                     <Table className={classes.table} aria-label="simple table">
                         <TableHead>
                         <TableRow>
@@ -307,7 +312,7 @@ function Note(props){
                         </TableBody>
                     </Table>
                 </TableContainer>
-                <Paper style={{backgroundColor:"#c56000", minHeight: "50px", marginTop:"20px"}}>
+                <Paper className={classes.contenuti} style={{minHeight: "50px", marginTop:"20px"}}>
                     <Typography variant="h5" component="h6">
                         Reviews
                     </Typography>
@@ -315,14 +320,14 @@ function Note(props){
                 {Object.values(recensioni).map(recensione => 
                     <>
                         <div style={{height:"20px", position: "absolute", top: "50%", transform: "translateY(-50%)"}} />
-                        <Paper style={{backgroundColor:"#c56000", minHeight: "50px", maxWidth: "600px"}}>
+                        <Paper className={classes.contenuti} style={{minHeight: "50px"}}>
                             <Typography variant="body1" component="body1" style={{ wordWrap: "break-word" }} align="left">
                                 {recensione}
                             </Typography>
                         </Paper>
                     </>
                 )}
-                <Paper style={{marginTop:"20px", backgroundColor:"#c56000"}}>
+                <Paper className={classes.contenuti} style={{marginTop:"20px"}}>
                     <FormControl fullWidth variant="outlined">
                         <InputLabel htmlFor="outlined-adornment-amount">Write a review</InputLabel>
                         <OutlinedInput
