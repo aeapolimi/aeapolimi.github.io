@@ -116,6 +116,10 @@ const useStyles = makeStyles((theme) => ({
           borderBottom: 'unset',
         },
       },
+    contenuti: {
+        width: "600px",
+        backgroundColor: "#c56000"
+    }
   }));
 
 function Note(props){
@@ -133,8 +137,8 @@ function Note(props){
     const [hover, setHover] = React.useState(-1);
     const [open, setOpen] = React.useState(false);
     const [UIds, setUIds] = React.useState(null);
-    const [recensioni, setRecensioni] = React.useState([]);
-    const [recensioneutente, setRecensioneUtente] = React.useState([]);
+    const [recensioni, setRecensioni] = React.useState({});
+    const [recensioneutente, setRecensioneUtente] = React.useState({});
     React.useEffect(() => {
         if (selezionato != null){
             firebase.firestore().collection("note").doc(selezionato.nome).get()
@@ -150,7 +154,7 @@ function Note(props){
                     setoriginal_material(0)
                     setNratings(0)
                     setUIds(null)
-                    setRecensioni([])
+                    setRecensioni({})
                 }
                 else{
                     setValue(collec.data().topics)
@@ -172,15 +176,18 @@ function Note(props){
         }
     }, [selezionato]);
     var salva = () => {
+        if (selezionato == null){
+            return
+        }
         var userid = firebase.auth().currentUser.uid
         var already_voted = UIds ? UIds.includes(userid) : false
-        var array_ids = UIds.slice()
+        var array_ids = UIds ? UIds.slice() : Array()
         var docref = firebase.firestore().collection("note").doc(selezionato.nome);
         array_ids.push(userid)
         // Giochino per poter modificare un voto già inviato considerando solo le medie
         var new_n_ratings = already_voted ? n_ratings : n_ratings + 1
         var n_ratings_if_voted = already_voted ? n_ratings - 1 : n_ratings
-        var new_recensioni = recensioni
+        var new_recensioni = {[userid] : recensioneutente}
         if (already_voted){
             new_recensioni[userid] = recensioneutente
         }
