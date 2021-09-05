@@ -6,11 +6,36 @@ import Typography from '@material-ui/core/Typography';
 
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
 
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
 import { FormattedMessage } from "gatsby-plugin-intl"
+
+import * as firebase from "firebase/app";
+
+const labels = {
+    0.5: 'Useless',
+    1: 'Useless+',
+    1.5: 'Poor',
+    2: 'Poor+',
+    2.5: 'Ok',
+    3: 'Ok+',
+    3.5: 'Good',
+    4: 'Good+',
+    4.5: 'Excellent',
+    5: 'Excellent+',
+  };
 
 const corsi = [
     { nome: "AGILE PROJECT MANAGEMENT", tab: "TRANSVERSAL SKILLS"},
@@ -84,6 +109,24 @@ const useStyles = makeStyles((theme) => ({
 function Note(props){
     const classes = useStyles();
     const [selezionato, setSelezionato] = React.useState(null);
+    const [value, setValue] = React.useState(0);
+    const [material, setMaterial] = React.useState(0);
+    const [hands, setHands] = React.useState(0);
+    const [exam, setExam] = React.useState(0);
+    const [hover, setHover] = React.useState(-1);
+    React.useEffect(() => {
+        if (selezionato != null){
+            firebase.firestore().collection("note").doc(selezionato.nome).get()
+            .then(collec => {
+                if (!collec.exists){
+                    
+                }
+                else{
+                    setValue(collec.data().valutazione)
+                }
+            })
+        }
+    });
     return (
         <div style={{marginTop: "20px"}}>
             <IconButton aria-label="home" style={{color:"white"}} onClick = {() => props.setAppunti(false)}>
@@ -108,9 +151,77 @@ function Note(props){
 
                 <div style={{height: "20px"}} />
 
-                <Typography variant="h4" component="h5">
-                    {selezionato == null ? "" : selezionato.nome.charAt(0) + selezionato.nome.substring(1).toLowerCase()}
-                </Typography>
+                <TableContainer component={Paper}>
+                    <Table className={classes.table} aria-label="simple table">
+                        <TableHead>
+                        <TableRow>
+                            <TableCell component="center" scope="row">{selezionato == null ? "" : selezionato.nome.charAt(0) + selezionato.nome.substring(1).toLowerCase()}</TableCell>
+                        </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <TableRow key="topics">
+                                <TableCell component="center" scope="row">Topics</TableCell>
+                                <TableCell align="center"><Rating
+                                    name="topics"
+                                    value={value}
+                                    precision={0.5}
+                                    onChange={(event, newValue) => {
+                                        setValue(newValue);
+                                    }}
+                                    // onChangeActive={(event, newHover) => {
+                                    // setHover(newHover);
+                                    // }}
+                                /></TableCell>
+                                <TableCell align="center">{value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}</TableCell>
+                            </TableRow>
+                            <TableRow key="exam">
+                                <TableCell component="center" scope="row">Exam</TableCell>
+                                <TableCell align="center"><Rating
+                                    name="exam"
+                                    value={exam}
+                                    precision={0.5}
+                                    onChange={(event, newValue) => {
+                                        setExam(newValue);
+                                    }}
+                                    // onChangeActive={(event, newHover) => {
+                                    // setHover(newHover);
+                                    // }}
+                                /></TableCell>
+                                <TableCell align="center">{value !== null && <Box ml={2}>{labels[exam]}</Box>}</TableCell>
+                            </TableRow>
+                            <TableRow key="handson">
+                                <TableCell component="center" scope="row">Hands-on experience</TableCell>
+                                <TableCell align="center"><Rating
+                                    name="handson"
+                                    value={hands}
+                                    precision={0.5}
+                                    onChange={(event, newValue) => {
+                                        setHands(newValue);
+                                    }}
+                                    // onChangeActive={(event, newHover) => {
+                                    // setHover(newHover);
+                                    // }}
+                                /></TableCell>
+                                <TableCell align="center">{value !== null && <Box ml={2}>{labels[hands]}</Box>}</TableCell>
+                            </TableRow>
+                            <TableRow key="material">
+                                <TableCell component="center" scope="row">Given material</TableCell>
+                                <TableCell align="center"><Rating
+                                    name="material"
+                                    value={material}
+                                    precision={0.5}
+                                    onChange={(event, newValue) => {
+                                        setMaterial(newValue);
+                                    }}
+                                    // onChangeActive={(event, newHover) => {
+                                    //     setHover(newHover);
+                                    // }}
+                                /></TableCell>
+                                <TableCell align="center">{value !== null && <Box ml={2}>{labels[material]}</Box>}</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
             </div>
         </div>
     )
