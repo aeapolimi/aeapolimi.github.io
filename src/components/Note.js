@@ -130,6 +130,7 @@ function Note(props){
     const [hover, setHover] = React.useState(-1);
     const [open, setOpen] = React.useState(false);
     const [UIds, setUIds] = React.useState(null);
+    const [recensioni, setRecensioni] = React.useState(null);
     React.useEffect(() => {
         if (selezionato != null){
             firebase.firestore().collection("note").doc(selezionato.nome).get()
@@ -203,10 +204,10 @@ function Note(props){
                     options={corsi}
                     groupBy={(option) => option.tab}
                     getOptionLabel={(option) => option.nome}
-                    style={{ width: "90vw" }}
                     onChange={(event, newValue) => {
                         setSelezionato(newValue);
                       }}
+                    style={{backgroundColor:"#c56000", width: "600px"}}
                     renderInput={(params) => <TextField {...params} label="Courses" variant="outlined" style={{color:"white"}} />}
                 />
 
@@ -214,7 +215,7 @@ function Note(props){
 
                 {UIds ? UIds.includes(firebase.auth().currentUser.uid) ? "You have already voted." : "" : ""}
 
-                <TableContainer component={Paper}>
+                <TableContainer component={Paper} style={{backgroundColor:"#c56000", color:"white"}}>
                     <Table className={classes.table} aria-label="simple table">
                         <TableHead>
                         <TableRow>
