@@ -219,7 +219,7 @@ function Note(props){
                 <HomeIcon style={{fill: "white"}}/>
             </IconButton>
             <Typography variant="h4" component="h5">
-                Note
+                Courses reviews
             </Typography>
 
             <div style={{marginTop: "20px", display: "inline-block"}} >

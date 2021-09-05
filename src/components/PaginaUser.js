@@ -62,7 +62,7 @@ function Benvenuto(props){
                         </Grid>
                         <Grid item>
                             <Button variant="contained" onClick={() => props.setNote(!props.note)}>
-                                note sui corsi
+                                Courses reviews
                             </Button>
                         </Grid>
                         {
