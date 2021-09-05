@@ -11,6 +11,11 @@ import Box from '@material-ui/core/Box';
 
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
+import Icon from '@material-ui/core/Icon';
+import CloseIcon from '@material-ui/icons/Close';
+import Snackbar from '@material-ui/core/Snackbar';
+
+import Button from '@material-ui/core/Button';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -109,24 +114,64 @@ const useStyles = makeStyles((theme) => ({
 function Note(props){
     const classes = useStyles();
     const [selezionato, setSelezionato] = React.useState(null);
+    const [original_topics, setoriginal_topics] = React.useState(0);
+    const [original_material, setoriginal_material] = React.useState(0);
+    const [original_hands, setoriginal_hands] = React.useState(0);
+    const [original_exam, setoriginal_exam] = React.useState(0);
     const [value, setValue] = React.useState(0);
     const [material, setMaterial] = React.useState(0);
     const [hands, setHands] = React.useState(0);
     const [exam, setExam] = React.useState(0);
+    const [n_ratings, setNratings] = React.useState(0);
     const [hover, setHover] = React.useState(-1);
+    const [open, setOpen] = React.useState(false);
     React.useEffect(() => {
         if (selezionato != null){
             firebase.firestore().collection("note").doc(selezionato.nome).get()
             .then(collec => {
                 if (!collec.exists){
-                    
+                    setValue(0)
+                    original_topics = 0
+                    setExam(0)
+                    original_exam = 0
+                    setHands(0)
+                    original_hands = 0
+                    setMaterial(0)
+                    original_material = 0
+                    setNratings(0)
                 }
                 else{
-                    setValue(collec.data().valutazione)
+                    setValue(collec.data().topics)
+                    setoriginal_topics(collec.data().topics)
+                    setExam(collec.data().exam)
+                    setoriginal_exam(collec.data().exam)
+                    setHands(collec.data().hands)
+                    setoriginal_hands(collec.data().hands)
+                    setMaterial(collec.data().material)
+                    setoriginal_material(collec.data().material)
+                    setNratings(collec.data().n_ratings)
                 }
             })
         }
-    });
+    }, [selezionato]);
+    var salva = () => {
+        var userid = firebase.auth().currentUser.uid
+        var docref = firebase.firestore().collection("note").doc(selezionato.nome);
+        docref.set(
+                {
+                    topics : (original_topics*n_ratings + value) / (n_ratings + 1),
+                    exam : (original_exam*n_ratings + exam) / (n_ratings + 1),
+                    hands : (original_hands*n_ratings + hands) / (n_ratings + 1),
+                    material : (original_material*n_ratings + material) / (n_ratings + 1),
+                    n_ratings : n_ratings + 1,
+                    [userid] : true,
+                }, { merge: true }
+            )
+        .catch(function(error) {
+            console.log("Error getting document:", error);
+        });
+        setOpen(true)
+    }
     return (
         <div style={{marginTop: "20px"}}>
             <IconButton aria-label="home" style={{color:"white"}} onClick = {() => props.setAppunti(false)}>
@@ -222,7 +267,35 @@ function Note(props){
                         </TableBody>
                     </Table>
                 </TableContainer>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    endIcon={<Icon>send</Icon>}
+                    onClick={() => salva()}
+                >
+                    Send
+                </Button>
             </div>
+            <Snackbar
+                anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+                }}
+                open={open}
+                autoHideDuration={6000}
+                onClose={() => setOpen(false)}
+                message="Sent"
+                action={
+                <React.Fragment>
+                    <Button color="secondary" size="small" onClick={() => setOpen(false)}>
+                        Ok
+                    </Button>
+                    <IconButton size="small" aria-label="close" color="inherit" onClick={() => setOpen(false)}>
+                        <CloseIcon fontSize="small" />
+                    </IconButton>
+                </React.Fragment>
+                }
+            />
         </div>
     )
 }
