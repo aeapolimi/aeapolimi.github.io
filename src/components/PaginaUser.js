@@ -60,13 +60,14 @@ function Benvenuto(props){
                                 card
                             </Button>
                         </Grid>
-                        {
-                            props.editor ? 
-                            <><Grid item>
+                        <Grid item>
                             <Button variant="contained" onClick={() => props.setNote(!props.note)}>
                                 note sui corsi
                             </Button>
-                            </Grid>
+                        </Grid>
+                        {
+                            props.editor ? 
+                            <>
                             <Grid item xs={12}>
                                 <Button variant="outlined" onClick={() => props.setEditormode(!props.editormode)}>
                                     nuovo articolo

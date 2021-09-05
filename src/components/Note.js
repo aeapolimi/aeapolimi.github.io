@@ -25,6 +25,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+import SendIcon from '@material-ui/icons/Send';
+
 import { FormattedMessage } from "gatsby-plugin-intl"
 
 import * as firebase from "firebase/app";
@@ -291,7 +293,7 @@ function Note(props){
                 <Button
                     variant="contained"
                     color="secondary"
-                    endIcon={<Icon>send</Icon>}
+                    endIcon={<SendIcon/>}
                     onClick={() => salva()}
                     style={{marginTop: "20px"}}
                 >
