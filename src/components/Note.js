@@ -344,7 +344,7 @@ function Note(props){
                     color="secondary"
                     endIcon={<SendIcon/>}
                     onClick={() => salva()}
-                    style={{marginTop: "20px"}}
+                    style={{marginTop: "20px", marginBottom: "20px"}}
                 >
                     Send
                 </Button>
