@@ -191,10 +191,6 @@ function Note(props){
         // Giochino per poter modificare un voto già inviato considerando solo le medie
         var new_n_ratings = already_voted ? n_ratings : n_ratings + 1
         var n_ratings_if_voted = already_voted ? n_ratings - 1 : n_ratings
-        var new_recensioni = {[userid] : recensioneutente}
-        if (already_voted){
-            new_recensioni[userid] = recensioneutente
-        }
         docref.set(
                 {
                     topics : (original_topics*n_ratings_if_voted + value) / new_n_ratings,
@@ -203,7 +199,7 @@ function Note(props){
                     material : (original_material*n_ratings_if_voted + material) / new_n_ratings,
                     n_ratings : new_n_ratings,
                     uids : already_voted ? UIds : array_ids,
-                    recensioni: new_recensioni,
+                    recensioni: {[userid] : recensioneutente},
                 }, { merge: true }
             )
         .catch(function(error) {
@@ -213,6 +209,8 @@ function Note(props){
             setUIds(array_ids)
         }
         setOpen(true)
+        var new_recensioni = recensioni
+        new_recensioni[userid] = recensioneutente
         setRecensioni(new_recensioni)
     }
     return (
