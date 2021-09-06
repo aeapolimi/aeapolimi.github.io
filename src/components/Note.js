@@ -161,7 +161,6 @@ function Note(props){
                     setRecensioni({})
                     setRecensioneUtente("")
                     setVoti({topics: 0, exam: 0, hands: 0, material: 0})
-                    console.log("RESET PAGE NOT FOUND")
                 }
                 else{
                     setoriginal_topics(collec.data().topics)
@@ -178,7 +177,6 @@ function Note(props){
                     }
                     if (collec.data().voti){
                         if (collec.data().voti[firebase.auth().currentUser.uid]){
-                            console.log("OK")
                             setVoti(collec.data().voti[firebase.auth().currentUser.uid])
                             setValue(collec.data().voti[firebase.auth().currentUser.uid].topics)
                             setExam(collec.data().voti[firebase.auth().currentUser.uid].exam)
@@ -190,13 +188,9 @@ function Note(props){
                             setExam(0)
                             setHands(0)
                             setMaterial(0)
-                            console.log("RESET UID NOT FOUND")
-                            console.log(voti)
                         }
                     } else {
                         setVoti({topics: 0, exam: 0, hands: 0, material: 0})
-                        console.log("RESET VOTI NOT FOUND")
-                        console.log(voti)
                         setValue(0)
                         setExam(0)
                         setHands(0)
@@ -217,7 +211,7 @@ function Note(props){
         array_ids.push(userid)
         // Giochino per poter modificare un voto già inviato considerando solo le medie
         var new_n_ratings = already_voted ? n_ratings : n_ratings + 1
-        if (value == 0 || exam == 0 || hands == 0 || material == 0){
+        if (value + exam + hands + material == 0){
             if (recensioneutente == ""){
                 return
             }
