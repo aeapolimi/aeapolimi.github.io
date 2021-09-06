@@ -142,6 +142,7 @@ function Note(props){
     const [UIds, setUIds] = React.useState(null);
     const [recensioni, setRecensioni] = React.useState({});
     const [recensioneutente, setRecensioneUtente] = React.useState("");
+    const [voti, setVoti] = React.useState({topics: 0, exam: 0, hands: 0, material: 0})
     var aggiorna = () => {
         if (selezionato != null){
             firebase.firestore().collection("note").doc(selezionato.nome).get()
@@ -159,21 +160,47 @@ function Note(props){
                     setUIds(null)
                     setRecensioni({})
                     setRecensioneUtente("")
+                    setVoti({topics: 0, exam: 0, hands: 0, material: 0})
+                    console.log("RESET PAGE NOT FOUND")
                 }
                 else{
-                    setValue(0)
                     setoriginal_topics(collec.data().topics)
-                    setExam(0)
                     setoriginal_exam(collec.data().exam)
-                    setHands(0)
                     setoriginal_hands(collec.data().hands)
-                    setMaterial(0)
                     setoriginal_material(collec.data().material)
                     setNratings(collec.data().n_ratings)
                     setUIds(collec.data().uids)
                     setRecensioni(collec.data().recensioni)
-                    if (recensioni[firebase.auth().currentUser.uid]){
-                        setRecensioneUtente(collec.data().recensioni[firebase.auth().currentUser.uid])
+                    if (collec.data().recensioni){
+                        if (collec.data().recensioni[firebase.auth().currentUser.uid]){
+                            setRecensioneUtente(collec.data().recensioni[firebase.auth().currentUser.uid])
+                        }
+                    }
+                    if (collec.data().voti){
+                        if (collec.data().voti[firebase.auth().currentUser.uid]){
+                            console.log("OK")
+                            setVoti(collec.data().voti[firebase.auth().currentUser.uid])
+                            setValue(collec.data().voti[firebase.auth().currentUser.uid].topics)
+                            setExam(collec.data().voti[firebase.auth().currentUser.uid].exam)
+                            setHands(collec.data().voti[firebase.auth().currentUser.uid].hands)
+                            setMaterial(collec.data().voti[firebase.auth().currentUser.uid].material)
+                        } else {
+                            setVoti({topics: 0, exam: 0, hands: 0, material: 0})
+                            setValue(0)
+                            setExam(0)
+                            setHands(0)
+                            setMaterial(0)
+                            console.log("RESET UID NOT FOUND")
+                            console.log(voti)
+                        }
+                    } else {
+                        setVoti({topics: 0, exam: 0, hands: 0, material: 0})
+                        console.log("RESET VOTI NOT FOUND")
+                        console.log(voti)
+                        setValue(0)
+                        setExam(0)
+                        setHands(0)
+                        setMaterial(0)
                     }
                 }
             })
@@ -190,7 +217,6 @@ function Note(props){
         array_ids.push(userid)
         // Giochino per poter modificare un voto già inviato considerando solo le medie
         var new_n_ratings = already_voted ? n_ratings : n_ratings + 1
-        var n_ratings_if_voted = already_voted ? n_ratings - 1 : n_ratings
         if (value == 0 || exam == 0 || hands == 0 || material == 0){
             if (recensioneutente == ""){
                 return
@@ -204,23 +230,24 @@ function Note(props){
                 )
             .catch(function(error) {
                 console.log("Error getting document:", error);
-            });
+            }).then(() => aggiorna());
             }
         } else {
             docref.set(
                 {
-                    topics : (original_topics*n_ratings_if_voted + value) / new_n_ratings,
-                    exam : (original_exam*n_ratings_if_voted + exam) / new_n_ratings,
-                    hands : (original_hands*n_ratings_if_voted + hands) / new_n_ratings,
-                    material : (original_material*n_ratings_if_voted + material) / new_n_ratings,
+                    topics : (original_topics*n_ratings - voti.topics + value) / new_n_ratings,
+                    exam : (original_exam*n_ratings - voti.exam + exam) / new_n_ratings,
+                    hands : (original_hands*n_ratings - voti.hands + hands) / new_n_ratings,
+                    material : (original_material*n_ratings - voti.material + material) / new_n_ratings,
                     n_ratings : new_n_ratings,
                     uids : already_voted ? UIds : array_ids,
                     recensioni: {[userid] : recensioneutente},
+                    voti: {[userid]: {topics: value, exam: exam, hands: hands, material: material}}
                 }, { merge: true }
             )
             .catch(function(error) {
                 console.log("Error getting document:", error);
-            });
+            }).then(() => aggiorna());
         }
         if (!already_voted){
             setUIds(array_ids)
@@ -229,7 +256,6 @@ function Note(props){
         var new_recensioni = recensioni
         new_recensioni[userid] = recensioneutente
         setRecensioni(new_recensioni)
-        aggiorna()
     }
     React.useEffect(() => {
         aggiorna()
