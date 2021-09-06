@@ -142,7 +142,7 @@ function Note(props){
     const [UIds, setUIds] = React.useState(null);
     const [recensioni, setRecensioni] = React.useState({});
     const [recensioneutente, setRecensioneUtente] = React.useState("");
-    React.useEffect(() => {
+    var aggiorna = () => {
         if (selezionato != null){
             firebase.firestore().collection("note").doc(selezionato.nome).get()
             .then(collec => {
@@ -178,7 +178,7 @@ function Note(props){
                 }
             })
         }
-    }, [selezionato]);
+    }
     var salva = () => {
         if (selezionato == null){
             return
@@ -229,7 +229,11 @@ function Note(props){
         var new_recensioni = recensioni
         new_recensioni[userid] = recensioneutente
         setRecensioni(new_recensioni)
+        aggiorna()
     }
+    React.useEffect(() => {
+        aggiorna()
+    }, [selezionato]);
     return (
         <div style={{marginTop: "20px"}}>
             <IconButton aria-label="home" style={{color:"white"}} onClick = {() => props.setAppunti(false)}>
