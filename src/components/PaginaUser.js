@@ -36,7 +36,9 @@ function Benvenuto(props){
       };
     return (
         <>
-            Ciao {props.utente}
+            <Typography variant="h4">
+                Ciao {props.utente}
+            </Typography>
             <Grid
                 container
                 direction="column"
@@ -47,7 +49,13 @@ function Benvenuto(props){
                     marginTop: "20px"
                 }}
             >
-                {props.autorizzato ? <Grid item>
+                {props.autorizzato ? 
+                <Grid item>
+                    <hr/>
+                    <Typography variant="caption">
+                        Members area
+                    </Typography>
+                    <div style={{height:"20px"}}/>
                     <Grid
                         container
                         direction="row"
@@ -69,13 +77,22 @@ function Benvenuto(props){
                             props.editor ? 
                             <>
                             <Grid item xs={12}>
+                                <hr/>
+                                <Typography variant="caption">
+                                    Auth2 area
+                                </Typography>
+                                <div style={{height:"20px"}}/>
                                 <Button variant="outlined" onClick={() => props.setEditormode(!props.editormode)}>
                                     nuovo articolo
                                 </Button>
-                            </Grid></>
+                            </Grid>
+                            </>
                             :
                             null
                         }
+                        <Grid item xs={12}>
+                                <hr/>
+                            </Grid>
                     </Grid>
                 </Grid> : null}
                 <Grid item>
@@ -85,12 +102,12 @@ function Benvenuto(props){
                     />
                 </Grid>
                 <Grid item>
-                    <Link componnet="button" href="https://aeapolimi-my.sharepoint.com/:f:/g/personal/appunti_aeapolimi_it/Er5BmlldGotJoUJFuIkIAL0BvD-fZfGUWy8NwHCcKNfzlQ" rel="noopener" target="_blank" style={{textDecoration: "underline", color: "white"}}>Notes</Link> 
+                    <Link component="button" href="https://aeapolimi-my.sharepoint.com/:f:/g/personal/appunti_aeapolimi_it/Er5BmlldGotJoUJFuIkIAL0BvD-fZfGUWy8NwHCcKNfzlQ" rel="noopener" target="_blank" style={{textDecoration: "underline", color: "white"}}>Notes</Link> 
                 </Grid>
                 <Grid item>
                     <p>
                         If you want to help the community with new notes please
-                    <Link componnet="button" href="https://aeapolimi-my.sharepoint.com/:f:/g/personal/appunti_aeapolimi_it/EnK8ies6XUVJl9LEOWMhGRsBDeH6GWcnG1azV4_UKD5VYA" rel="noopener" target="_blank" style={{textDecoration: "underline", color: "white"}}> upload your work here</Link> 
+                    <Link component="button" href="https://aeapolimi-my.sharepoint.com/:f:/g/personal/appunti_aeapolimi_it/EnK8ies6XUVJl9LEOWMhGRsBDeH6GWcnG1azV4_UKD5VYA" rel="noopener" target="_blank" style={{textDecoration: "underline", color: "white", marginLeft: "5px"}}> upload your work here</Link> 
                     </p> 
                 </Grid>
             </Grid>

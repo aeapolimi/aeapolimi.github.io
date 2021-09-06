@@ -161,13 +161,13 @@ function Note(props){
                     setRecensioneUtente("")
                 }
                 else{
-                    setValue(collec.data().topics)
+                    setValue(0)
                     setoriginal_topics(collec.data().topics)
-                    setExam(collec.data().exam)
+                    setExam(0)
                     setoriginal_exam(collec.data().exam)
-                    setHands(collec.data().hands)
+                    setHands(0)
                     setoriginal_hands(collec.data().hands)
-                    setMaterial(collec.data().material)
+                    setMaterial(0)
                     setoriginal_material(collec.data().material)
                     setNratings(collec.data().n_ratings)
                     setUIds(collec.data().uids)
@@ -191,7 +191,23 @@ function Note(props){
         // Giochino per poter modificare un voto già inviato considerando solo le medie
         var new_n_ratings = already_voted ? n_ratings : n_ratings + 1
         var n_ratings_if_voted = already_voted ? n_ratings - 1 : n_ratings
-        docref.set(
+        if (value == 0 || exam == 0 || hands == 0 || material == 0){
+            if (recensioneutente == ""){
+                return
+            }
+            else {
+                docref.set(
+                    {
+                        uids : already_voted ? UIds : array_ids,
+                        recensioni: {[userid] : recensioneutente},
+                    }, { merge: true }
+                )
+            .catch(function(error) {
+                console.log("Error getting document:", error);
+            });
+            }
+        } else {
+            docref.set(
                 {
                     topics : (original_topics*n_ratings_if_voted + value) / new_n_ratings,
                     exam : (original_exam*n_ratings_if_voted + exam) / new_n_ratings,
@@ -202,9 +218,10 @@ function Note(props){
                     recensioni: {[userid] : recensioneutente},
                 }, { merge: true }
             )
-        .catch(function(error) {
-            console.log("Error getting document:", error);
-        });
+            .catch(function(error) {
+                console.log("Error getting document:", error);
+            });
+        }
         if (!already_voted){
             setUIds(array_ids)
         }
@@ -237,7 +254,79 @@ function Note(props){
 
                 <div style={{height: "20px"}} />
 
-                {UIds ? UIds.includes(firebase.auth().currentUser.uid) ? "You have already voted." : "" : ""}
+                <TableContainer component={Paper} className={classes.contenuti} style={{color:"white"}}>
+                    <Table className={classes.table} aria-label="simple table">
+                        <TableHead>
+                        <TableRow>
+                            <TableCell component="center" scope="row">{selezionato == null ? "" : selezionato.nome.charAt(0) + selezionato.nome.substring(1).toLowerCase()}</TableCell>
+                        </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <TableRow key="original_topics">
+                                <TableCell component="center" scope="row">Topics</TableCell>
+                                <TableCell align="center"><Rating
+                                    name="original_topics"
+                                    value={original_topics}
+                                    precision={0.5}
+                                    readOnly
+                                /></TableCell>
+                                <TableCell align="center">{original_topics !== null && <Box ml={2}>{original_topics[hover !== -1 ? hover : original_topics]}</Box>}</TableCell>
+                            </TableRow>
+                            <TableRow key="original_exam">
+                                <TableCell component="center" scope="row">Exam</TableCell>
+                                <TableCell align="center"><Rating
+                                    name="original_exam"
+                                    value={original_exam}
+                                    precision={0.5}
+                                    readOnly
+                                /></TableCell>
+                                <TableCell align="center">{value !== null && <Box ml={2}>{labels[original_exam]}</Box>}</TableCell>
+                            </TableRow>
+                            <TableRow key="original_hands">
+                                <TableCell component="center" scope="row">Hands-on experience</TableCell>
+                                <TableCell align="center"><Rating
+                                    name="original_hands"
+                                    value={original_hands}
+                                    precision={0.5}
+                                    readOnly
+                                /></TableCell>
+                                <TableCell align="center">{value !== null && <Box ml={2}>{labels[original_hands]}</Box>}</TableCell>
+                            </TableRow>
+                            <TableRow key="original_material">
+                                <TableCell component="center" scope="row">Given material</TableCell>
+                                <TableCell align="center"><Rating
+                                    name="original_material"
+                                    value={original_material}
+                                    precision={0.5}
+                                    readOnly
+                                /></TableCell>
+                                <TableCell align="center">{value !== null && <Box ml={2}>{labels[original_material]}</Box>}</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                <Paper className={classes.contenuti} style={{minHeight: "50px"}}>
+                    <Typography variant="h6" component="h6">
+                        Reviews
+                    </Typography>
+                </Paper>
+                {Object.values(recensioni).map(recensione =>
+                        <Paper className={classes.contenuti} style={{minHeight: "50px"}} variant="outlined">
+                            <Typography variant="body1" component="body1" style={{ wordWrap: "break-word" }} align="justify">
+                                {recensione}
+                            </Typography>
+                        </Paper>
+                )}
+                <hr/>
+                <Paper className={classes.contenuti} style={{minHeight: "50px", marginTop:"20px"}}>
+                    <Typography variant="h6" component="h7">
+                        Send a review
+                    </Typography>
+                    <Typography variant="caption" component="subtitle2" display="block">
+                        {UIds ? UIds.includes(firebase.auth().currentUser.uid) ? "You have already voted, but you can edit your previous answer." : "" : ""}
+                    </Typography>
+                </Paper>
+                
 
                 <TableContainer component={Paper} className={classes.contenuti} style={{color:"white"}}>
                     <Table className={classes.table} aria-label="simple table">
@@ -310,22 +399,7 @@ function Note(props){
                         </TableBody>
                     </Table>
                 </TableContainer>
-                <Paper className={classes.contenuti} style={{minHeight: "50px", marginTop:"20px"}}>
-                    <Typography variant="h5" component="h6">
-                        Reviews
-                    </Typography>
-                </Paper>
-                {Object.values(recensioni).map(recensione => 
-                    <>
-                        <div style={{height:"20px", position: "absolute", top: "50%", transform: "translateY(-50%)"}} />
-                        <Paper className={classes.contenuti} style={{minHeight: "50px"}}>
-                            <Typography variant="body1" component="body1" style={{ wordWrap: "break-word" }} align="left">
-                                {recensione}
-                            </Typography>
-                        </Paper>
-                    </>
-                )}
-                <Paper className={classes.contenuti} style={{marginTop:"20px"}}>
+                <Paper className={classes.contenuti} >
                     <FormControl fullWidth variant="outlined">
                         <InputLabel htmlFor="outlined-adornment-amount">Write a review</InputLabel>
                         <OutlinedInput
