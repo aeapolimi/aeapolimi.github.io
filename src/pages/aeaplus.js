@@ -114,7 +114,7 @@ function GrigliaMobile(props){
 function Video() {
     const classes = useStyles();
     const videos = [
-      ["Mobile and Interactive autonomous robots at AIRLab", "https://www.youtube.com/embed/rvLjdZn88ho"]
+      ["Mobile and Interactive autonomous robots at AIRLab", "https://www.youtube.com/embed/rvLjdZn88ho"],
       ["The AEA Tour: Industrial Automation at Evolut", "https://www.youtube.com/embed/e_I62FfOZ98"],
       ["Intelligent Collaborative Robotics at Merlin Lab", "https://www.youtube.com/embed/XqWN4rFf7sA"],
       ["AEAround The World", "https://www.youtube.com/embed/sx8VzeHlfOc"], 
