@@ -124,7 +124,7 @@ const corsi = [
     { nome: "SYSTEMS THEORY (NONLINEAR DYNAMICS)", tab: "TAB1", year: "M", semester: 1},
     { nome: "VIBRATION CONTROL AND DIAGNOSTICS OF MECHANICAL SYSTEMS", tab: "TAB1", year: "M", semester: 1},
     { nome: "CONTROL OF INDUSTRIAL AND MOBILE ROBOTS", tab: "TAB1", year: "M", semester: 1},
-    { nome: "AUTOMATION AND CONTROL IN VEHICLES", tab: "TAB1", year: "M", semester: 1},
+    { nome: "AUTOMATION AND CONTROL IN VEHICLES", tab: "TAB1", year: "M", semester: 2},
     { nome: "ADVANCED MEASUREMENT SYSTEMS FOR CONTROL APPLICATIONS", tab: "TAB2", year: "M", semester: 2},
     { nome: "ADVANCED PROCESS CONTROL", tab: "TAB2", year: "M", semester: 2},
     { nome: "AUTOMATION AND CONTROL IN ELECTRIC AND HYBRID VEHICLES", tab: "TAB2", year: "M", semester: 2},
@@ -390,7 +390,7 @@ function Note(props){
                                     precision={0.5}
                                     readOnly
                                 /></TableCell>
-                                <TableCell align="center">{original_topics !== null && <Box ml={2}>{original_topics[hover !== -1 ? hover : original_topics]}</Box>}</TableCell>
+                                <TableCell align="center">{original_topics !== null && <Box ml={2}>{labels[hover !== -1 ? hover : original_topics]}</Box>}</TableCell>
                             </TableRow>
                             <TableRow key="original_exam">
                                 <TableCell component="center" scope="row">Exam</TableCell>
@@ -400,7 +400,7 @@ function Note(props){
                                     precision={0.5}
                                     readOnly
                                 /></TableCell>
-                                <TableCell align="center">{value !== null && <Box ml={2}>{exam_label[original_exam]}</Box>}</TableCell>
+                                <TableCell align="center">{original_exam !== null && <Box ml={2}>{exam_label[original_exam]}</Box>}</TableCell>
                             </TableRow>
                             <TableRow key="original_hands">
                                 <TableCell component="center" scope="row">Hands-on experience</TableCell>
@@ -410,7 +410,7 @@ function Note(props){
                                     precision={0.5}
                                     readOnly
                                 /></TableCell>
-                                <TableCell align="center">{value !== null && <Box ml={2}>{labels[original_hands]}</Box>}</TableCell>
+                                <TableCell align="center">{original_hands !== null && <Box ml={2}>{labels[original_hands]}</Box>}</TableCell>
                             </TableRow>
                             <TableRow key="original_material">
                                 <TableCell component="center" scope="row">Given material</TableCell>
@@ -420,7 +420,7 @@ function Note(props){
                                     precision={0.5}
                                     readOnly
                                 /></TableCell>
-                                <TableCell align="center">{value !== null && <Box ml={2}>{labels[original_material]}</Box>}</TableCell>
+                                <TableCell align="center">{original_material !== null && <Box ml={2}>{labels[original_material]}</Box>}</TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>
@@ -484,7 +484,7 @@ function Note(props){
                                     // setHover(newHover);
                                     // }}
                                 /></TableCell>
-                                <TableCell align="center">{value !== null && <Box ml={2}>{exam_label[exam]}</Box>}</TableCell>
+                                <TableCell align="center">{exam !== null && <Box ml={2}>{exam_label[exam]}</Box>}</TableCell>
                             </TableRow>
                             <TableRow key="handson">
                                 <TableCell component="center" scope="row">Hands-on experience</TableCell>
@@ -499,7 +499,7 @@ function Note(props){
                                     // setHover(newHover);
                                     // }}
                                 /></TableCell>
-                                <TableCell align="center">{value !== null && <Box ml={2}>{labels[hands]}</Box>}</TableCell>
+                                <TableCell align="center">{hands !== null && <Box ml={2}>{labels[hands]}</Box>}</TableCell>
                             </TableRow>
                             <TableRow key="material">
                                 <TableCell component="center" scope="row">Given material</TableCell>
@@ -514,7 +514,7 @@ function Note(props){
                                     //     setHover(newHover);
                                     // }}
                                 /></TableCell>
-                                <TableCell align="center">{value !== null && <Box ml={2}>{labels[material]}</Box>}</TableCell>
+                                <TableCell align="center">{material !== null && <Box ml={2}>{labels[material]}</Box>}</TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>
