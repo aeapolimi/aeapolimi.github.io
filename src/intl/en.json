@@ -46,8 +46,8 @@
     "resources": "Here you will find usefull resources made by our team to help you get started with autonomous driving and reinforcement learning with python.",
     "1_introduzione": "Introduction to Duckietown",
     "1_sottotitolo": "Setting up your headless Duckietown environment in Google Colab",
-    "2_introduzione": "2. Introduction to Stable Baseline",
-    "2_sottotitolo": "Make an autonomous agent with Reinforcement Learning and Stable Baseline"
+    "2_introduzione": "Using the given example",
+    "2_sottotitolo": "Make an autonomous agent with Reinforcement Learning using an example from the Duckietown repo."
   },
   "join":{
     "about" :"Be part of the Association",

@@ -125,15 +125,15 @@ function Projects() {
                 <Typography variant="subtitle2" gutterBottom align="left" style={{marginBottom:"40px"}}>
                   <FormattedMessage id="duckietown.1_sottotitolo" />
                 </Typography>
-                {/* <Typography variant="h3" gutterBottom align="left" style={{marginTop:"40px"}}>
+                <Typography variant="h3" gutterBottom align="left" style={{marginTop:"40px"}}>
                   <FormattedMessage id="duckietown.2_introduzione" />
-                  <IconButton color="primary" aria-label="read_more" component={Link} to="/duckie/stable_baseline_example">
+                  <IconButton color="primary" aria-label="read_more" component={Link} to="/duckie/example_reinforcement">
                     <ArrowForwardIosIcon style={{"fill":"black"}}/>
                   </IconButton>
                 </Typography>
                 <Typography variant="subtitle2" gutterBottom align="left">
                   <FormattedMessage id="duckietown.2_sottotitolo" />
-                </Typography> */}
+                </Typography>
               </div>
             </div>
         </Layout>
