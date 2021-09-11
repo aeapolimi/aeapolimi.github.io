@@ -172,7 +172,7 @@ const useStyles = makeStyles((theme) => ({
             width: "80%"
         },
         [theme.breakpoints.up('md')]: {
-            width: "60%"
+            width: "63%"
         },
         margin: "0 auto"
     },
@@ -525,9 +525,9 @@ function HomePage (){
                                                     xs={6}
                                                     >
                                                         <CardDirettivo 
-                                                            linkedin="https://www.linkedin.com/in/giovanni-cherubini-1690201a7/" 
-                                                            immagine={!isSaf ? require("../images/direttivo/giovanni_cherubini.webp") : require("../images/direttivo/giovanni_cherubini.jpeg")} 
-                                                            nome="Giovanni Cherubini" 
+                                                            linkedin="https://www.linkedin.com/in/andrea-santonastaso/" 
+                                                            immagine={!isSaf ? require("../images/direttivo/icona_persona.webp") : require("../images/direttivo/icona_persona.png")} 
+                                                            nome="Andrea Santonastaso" 
                                                             ruolo="DevOps" 
                                                             invisibile={false}/>
                                                     </Grid>
