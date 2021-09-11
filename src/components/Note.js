@@ -42,6 +42,27 @@ const labels = {
     5: 'Excellent+',
   };
 
+const exam_label = {
+    0.5: "Super impossible",
+    1: "Impossible",
+    1.5: "Very hard",
+    2: "Hard",
+    2.5: "A bit hard",
+    3: "Ok",
+    3.5: "Almost easy",
+    4: "Easy",
+    4.5: "Super easy",
+    5: "Only 30"
+}
+
+const anni = [
+    { nome: "1st Bachelor" },
+    { nome: "2nd Bachelor" },
+    { nome: "3rd Bachelor" },
+    { nome: "1st Master" },
+    { nome: "2nd Master" },
+]
+
 const corsi = [
     { nome: "ANALISI MATEMATICA 1", tab: "PRIMO ANNO", year: 1},
     { nome: "FONDAMENTI DI INFORMATICA", tab: "PRIMO ANNO", year: 1},
@@ -153,6 +174,7 @@ const useStyles = makeStyles((theme) => ({
 function Note(props){
     const classes = useStyles();
     const [selezionato, setSelezionato] = React.useState(null);
+    const [anno, setAnno] = React.useState(null);
     const [original_topics, setoriginal_topics] = React.useState(0);
     const [original_material, setoriginal_material] = React.useState(0);
     const [original_hands, setoriginal_hands] = React.useState(0);
@@ -290,7 +312,17 @@ function Note(props){
 
             <div style={{marginTop: "20px", display: "inline-block"}} >
                 <Autocomplete
-                    id="combo-box-demo"
+                    id="autocomplete_year"
+                    options={anni}
+                    getOptionLabel={(option) => option.nome}
+                    onChange={(event, newValue) => {
+                        setAnno(newValue);
+                      }}
+                      className={classes.contenuti} 
+                    renderInput={(params) => <TextField {...params} label="Year" variant="outlined" style={{color:"white"}} />}
+                />
+                <Autocomplete
+                    id="autocomplete_tab"
                     options={corsi}
                     groupBy={(option) => option.tab}
                     getOptionLabel={(option) => option.nome}
@@ -329,7 +361,7 @@ function Note(props){
                                     precision={0.5}
                                     readOnly
                                 /></TableCell>
-                                <TableCell align="center">{value !== null && <Box ml={2}>{labels[original_exam]}</Box>}</TableCell>
+                                <TableCell align="center">{value !== null && <Box ml={2}>{exam_label[original_exam]}</Box>}</TableCell>
                             </TableRow>
                             <TableRow key="original_hands">
                                 <TableCell component="center" scope="row">Hands-on experience</TableCell>
@@ -413,7 +445,7 @@ function Note(props){
                                     // setHover(newHover);
                                     // }}
                                 /></TableCell>
-                                <TableCell align="center">{value !== null && <Box ml={2}>{labels[exam]}</Box>}</TableCell>
+                                <TableCell align="center">{value !== null && <Box ml={2}>{exam_label[exam]}</Box>}</TableCell>
                             </TableRow>
                             <TableRow key="handson">
                                 <TableCell component="center" scope="row">Hands-on experience</TableCell>
