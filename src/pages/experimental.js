@@ -1,5 +1,5 @@
 import React from 'react';
-import './homePage.css';
+import '../components/homePage.css';
 
 import { useIntl, FormattedMessage, Link } from "gatsby-plugin-intl"
 
@@ -43,7 +43,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/analytics';
 
-import RobotVideo from "../../static/robot.mp4"
+// import RobotVideo from "../../static/robot.mp4"
 
 import 'fontsource-roboto';
 
@@ -355,11 +355,11 @@ function HomePage (){
                 </div>
             </ClickAwayListener>
                 {/* Il render viene caricato solo su firefox non mobile. */}
-                {/* {((isFirefox && !isMobile && !isAndroid) || (isMobileSafari && browserVersion >= 14)) ? 
-                    // <iframe title="bg" id="bg" src='https://www.aeapolimi.it/robotrender.html' frameBorder="0" loading="lazy"/> : */}
-                    <video title="videorobot" id="videorobot" playsinline loop muted autoPlay poster={!isSaf ? require("../images/sfondorobot.webp") : require("../images/sfondorobot.png")}>
+                {/* {((isFirefox && !isMobile && !isAndroid) || (isMobileSafari && browserVersion >= 14)) ?  : */}
+                    // <iframe title="bg" id="bg" src='https://www.aeapolimi.it/robotrender.html' frameBorder="0" loading="lazy"/>
+                    {/* <video title="videorobot" id="videorobot" playsinline loop muted autoPlay poster={!isSaf ? require("../images/sfondorobot.webp") : require("../images/sfondorobot.png")}>
                         <source src={RobotVideo} type="video/mp4"/>
-                    </video>                    
+                    </video>                     */}
                 {/* } */}
 
                 <header className="App-header">
