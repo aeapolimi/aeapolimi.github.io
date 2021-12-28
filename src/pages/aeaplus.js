@@ -114,6 +114,7 @@ function GrigliaMobile(props){
 function Video() {
     const classes = useStyles();
     const videos = [
+      ["AEAround the World 2021", "https://www.youtube.com/embed/P-ikVu-D-Yc"],
       ["Autonomous boats with Roboat", "https://www.youtube.com/embed/CRrHI0ugddk"],
       ["Mobile and Interactive autonomous robots at AIRLab", "https://www.youtube.com/embed/rvLjdZn88ho"],
       ["The AEA Tour: Industrial Automation at Evolut", "https://www.youtube.com/embed/e_I62FfOZ98"],
