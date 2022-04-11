@@ -125,7 +125,7 @@ function EditorMode(props){
     }
 
     const salva = () => {
-        let id = titolo.replace(/\//g, "_").replace(/\ /g, "_").replace(/\;/g, "_").replace(/\:/g, "").replace(/\,/g, "").replace(/\./g, "").toLowerCase();
+        let id = titolo.replace(/\'/g, "_").replace(/\//g, "_").replace(/\ /g, "_").replace(/\;/g, "_").replace(/\:/g, "").replace(/\,/g, "").replace(/\./g, "").toLowerCase();
         if (articolo_selezionato != ""){
             id = articolo_selezionato;
         }
