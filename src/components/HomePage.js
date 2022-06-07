@@ -454,7 +454,7 @@ function HomePage (){
                                                     md={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gariboldicristian" immagine={!isSaf ? require("../images/direttivo/giulio_vaccari.webp") : require("../images/direttivo/giulio_vaccari.jpeg")} nome={"Giulio Vaccari"} ruolo="President" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giuliovaccari/" immagine={!isSaf ? require("../images/direttivo/giulio_vaccari.webp") : require("../images/direttivo/giulio_vaccari.jpeg")} nome={"Giulio Vaccari"} ruolo="President" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
