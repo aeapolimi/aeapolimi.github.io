@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import 'firebase/analytics';
+// import 'firebase/analytics';
 
 import { navigate, Link } from "gatsby-plugin-intl"
 
@@ -31,7 +31,7 @@ const firebaseConfig = {
 };
 if (typeof window!== "undefined" && !firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  // firebase.analytics();
 }
 
 const useStyles = makeStyles((theme) => ({

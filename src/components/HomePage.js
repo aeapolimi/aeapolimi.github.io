@@ -41,7 +41,7 @@ import "react-multi-carousel/lib/styles.css";
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import 'firebase/analytics';
+// import 'firebase/analytics';
 
 import RobotVideo from "../../static/robot.mp4"
 
