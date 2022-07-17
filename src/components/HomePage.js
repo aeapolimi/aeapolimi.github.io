@@ -67,7 +67,7 @@ const firebaseConfig = {
 
 if (typeof window!== "undefined" && !firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
+    // firebase.analytics();
 }
 
 const useStyles = makeStyles((theme) => ({
