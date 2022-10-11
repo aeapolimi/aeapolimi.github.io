@@ -58,7 +58,7 @@ function Projects() {
                   
               </Typography>
               <Typography variant="h4" gutterBottom align="center">
-                SAILING TEAM X AEA
+                AEA X SAILING TEAM
               </Typography>
               <Typography variant="body1" gutterBottom align="center" style={{marginTop:"20px"}}>
                 <IconButton color="primary" aria-label="read_more" href="https://www.duckietown.org/">
@@ -74,7 +74,7 @@ function Projects() {
                 <Typography variant="body1" gutterBottom align="justify">
                 
 
-                AEA is collaborating with PoliMi Sailing Team in order to join an international competition, held in July 2023, where foiling boats are designed by the students in order to challenge each other.
+                AEA is collaborating with PoliMi Sailing Team in order to join an international competition, to be held in july 2023, where foiling boats are designed by the students in order to challenge each other.
 
                 Last year they placed in the second position, so we are confident that with our help we could win the first prize!
 
