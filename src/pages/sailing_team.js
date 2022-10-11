@@ -51,10 +51,10 @@ function Projects() {
     return (
       <>
         <Layout>
-            <SEO title="Duckietown" image={duckie} lang={intl.locale}/>
+            <SEO title="Sailing Team" image={duckie} lang={intl.locale}/>
             <div className={classes.body}>
               <Typography variant="h1" gutterBottom align="center">
-                <img src={logoduckie} className={classes.titlelogo} alt="duckietown"/>
+                <img src={logoduckie} className={classes.titlelogo} alt="sailing"/>
                   
               </Typography>
               <Typography variant="h4" gutterBottom align="center">
