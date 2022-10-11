@@ -19,6 +19,7 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 
 import duckie from "../images/duckietown.jpg"
+import sailing from "../images/sailing.png"
 
 import 'fontsource-roboto';
 
@@ -63,6 +64,31 @@ function Projects() {
                             </CardActionArea>
                             <CardActions>
                                 <Button size="small" style={{color:"#ef6c00"}} component={Link} to="/duckietown" color="primary">
+                                Learn More
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <Card className={classes.root}>
+                            <CardActionArea component={Link} to="/sailing_team">
+                                <CardMedia
+                                className={classes.media}
+                                image={sailing}
+                                title="Sailing Team"
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="h5" style={{color:"black"}} component="h2">
+                                    Sailing Team, join the project
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                AEA is collaborating with PoliMi Sailing Team in order to join an international competition
+
+                                </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" style={{color:"#ef6c00"}} component={Link} to="/sailing_team" color="primary">
                                 Learn More
                                 </Button>
                             </CardActions>
