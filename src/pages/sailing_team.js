@@ -60,23 +60,16 @@ function Projects() {
               <Typography variant="h4" gutterBottom align="center">
                 AEA X SAILING TEAM
               </Typography>
-              <Typography variant="body1" gutterBottom align="center" style={{marginTop:"20px"}}>
-                <IconButton color="primary" aria-label="read_more" href="https://www.duckietown.org/">
-                  <LinkIcon style={{"fill":"#ef6c00"}}/>
-                </IconButton>
-                <a href="https://www.polimisailingteam.it/Home/index.html" style={{color:"#ef6c00"}}>www.polimisailingteam.it</a>
-              </Typography>
+              
               <img src={immagineduckie} alt="Duckie" width="100%"/>
               <div className={classes.description}>
                 <Typography variant="h4" gutterBottom align="center" style={{marginTop:"40px"}}>
-                JOIN THE INTERNATIONAL COMPETITION WITH AEA!
+                JOIN THIS INTERNATIONAL PROJECT WITH AEA!
                 </Typography>
                 <Typography variant="body1" gutterBottom align="justify">
                 
 
-                AEA is collaborating with PoliMi Sailing Team in order to join an international competition, to be held in july 2023, where foiling boats are designed by the students in order to challenge each other.
-
-                Last year they placed in the second position, so we are confident that with our help we could win the first prize!
+                AEA is collaborating with PoliMi Sailing Team in order to join an international event, to be held in july 2023, where foiling boats are designed by the students.
 
                 In order to make the boat go faster, the goal is to stabilize the catamaran during it’s “flight time”.
                 Last year it worked mechanically, but in this edition we want to automate the process.
@@ -117,7 +110,15 @@ There is a lot of work to do, that’s why we are counting on you.
               <div className={classes.description}>
                 
               </div>
+
+              <Typography variant="body1" gutterBottom align="center" style={{marginTop:"20px"}}>
+                <IconButton color="primary" aria-label="read_more" href="https://www.duckietown.org/">
+                  <LinkIcon style={{"fill":"#ef6c00"}}/>
+                </IconButton>
+                <a href="https://www.polimisailingteam.it/Home/index.html" style={{color:"#ef6c00"}}>www.polimisailingteam.it</a>
+              </Typography>
             </div>
+
         </Layout>
       </>
   );

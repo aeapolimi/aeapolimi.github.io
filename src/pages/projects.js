@@ -82,7 +82,7 @@ function Projects() {
                                     Sailing Team, join the project
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                AEA is collaborating with PoliMi Sailing Team in order to join an international competition
+                                AEA is collaborating with PoliMi Sailing Team in order to create a new boat control system
 
                                 </Typography>
                                 </CardContent>
