@@ -551,7 +551,7 @@ function HomePage (){
                                                         <CardDirettivo 
                                                             linkedin="https://www.linkedin.com/in/elia-raimondi/" 
                                                             immagine={!isSaf ? require("../images/direttivo2/Elia.webp") : require("../images/direttivo2/Elia.jpg")} 
-                                                            nome="Elia Raimondi" 
+                                                            nome="Elia  Raimondi" 
                                                             ruolo="Projects" 
                                                             invisibile={false}/>
                                                     </Grid>
