@@ -93,7 +93,7 @@ function Associati() {
                         id="join.come"
                         values={{
                         FORM: <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=z6hZgX372UeNMEsbTqkLe1Bi7MmR0nVNm4MSEYFLtNZUQ0laTlg1TzVaOUU2V0laOEs2U1MzMllMQi4u" style={{color:"#ef6c00"}}>form</a>,
-                        PAYPAL: <a href="https://www.paypal.me/filippoghilotti0?locale.x=en_IT" style={{color:"#ef6c00"}}>PayPal</a>
+                        PAYPAL: <a href="https://paypal.me/giomiccio?country.x=IT&locale.x=it_IT" style={{color:"#ef6c00"}}>PayPal</a>
                     }}
                   />
             </Typography>
