@@ -561,9 +561,9 @@ function HomePage (){
                                                         xs={6}
                                                         >
                                                             <CardDirettivo
-                                                                linkedin="https://www.linkedin.com/in/davide-zanatta-207b12174"
-                                                                immagine={!isSaf ? require("../images/direttivo2/Davide.webp") : require("../images/direttivo2/Davide.jpg")} 
-                                                                nome="Davide Zanatta" 
+                                                                linkedin="https://www.linkedin.com/in/lorenzo-rocco-dido/"
+                                                                immagine={!isSaf ? require("../images/direttivo2/Lorenzo.webp") : require("../images/direttivo2/Lorenzo.jpg")} 
+                                                                nome="Lorenzo Didò" 
                                                                 ruolo="Companies"
                                                                 invisibile={false}/>
                                                         </Grid>
