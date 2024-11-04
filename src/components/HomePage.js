@@ -330,264 +330,403 @@ function HomePage (){
 
         setOpenDrawer(open);
     };
-    return(<>
-            <div className="App">
-                <SwipeableDrawer
-                    anchor="left"
-                    variant="persistent"
-                    open={openDrawer}
-                    onClose={toggleDrawer(false)}
-                    onOpen={toggleDrawer(true)}
-                >
-                    <ElementiDrawer home={true}/>
-                </SwipeableDrawer>
-            <ClickAwayListener onClickAway={toggleDrawer(false)}>
-                <div className="areadrawer">
-                <AppBar position="absolute" style={{backgroundColor: "transparent"}} elevation={0}>
-                    <Toolbar>
-                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => setOpenDrawer(!openDrawer)}>
-                            <MenuIcon/>
-                        </IconButton>
-                        <div style={{flexGrow: 1}} />
-                        <IconeSocial/>
-                    </Toolbar>
-                </AppBar>
-                </div>
-            </ClickAwayListener>
-                {/* Il render viene caricato solo su firefox non mobile. */}
-                {/* {((isFirefox && !isMobile && !isAndroid) || (isMobileSafari && browserVersion >= 14)) ? 
+    return (
+      <>
+        <div className="App">
+          <SwipeableDrawer
+            anchor="left"
+            variant="persistent"
+            open={openDrawer}
+            onClose={toggleDrawer(false)}
+            onOpen={toggleDrawer(true)}
+          >
+            <ElementiDrawer home={true} />
+          </SwipeableDrawer>
+          <ClickAwayListener onClickAway={toggleDrawer(false)}>
+            <div className="areadrawer">
+              <AppBar
+                position="absolute"
+                style={{ backgroundColor: "transparent" }}
+                elevation={0}
+              >
+                <Toolbar>
+                  <IconButton
+                    edge="start"
+                    className={classes.menuButton}
+                    color="inherit"
+                    aria-label="menu"
+                    onClick={() => setOpenDrawer(!openDrawer)}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                  <div style={{ flexGrow: 1 }} />
+                  <IconeSocial />
+                </Toolbar>
+              </AppBar>
+            </div>
+          </ClickAwayListener>
+          {/* Il render viene caricato solo su firefox non mobile. */}
+          {/* {((isFirefox && !isMobile && !isAndroid) || (isMobileSafari && browserVersion >= 14)) ? 
                     // <iframe title="bg" id="bg" src='https://www.aeapolimi.it/robotrender.html' frameBorder="0" loading="lazy"/> : */}
-                    <video title="videorobot" id="videorobot" playsinline loop muted autoPlay poster={!isSaf ? require("../images/sfondorobot.webp") : require("../images/sfondorobot.png")}>
-                        <source src={RobotVideo} type="video/mp4"/>
-                    </video>                    
-                {/* } */}
+          <video
+            title="videorobot"
+            id="videorobot"
+            playsinline
+            loop
+            muted
+            autoPlay
+            poster={
+              !isSaf
+                ? require("../images/sfondorobot.webp")
+                : require("../images/sfondorobot.png")
+            }
+          >
+            <source src={RobotVideo} type="video/mp4" />
+          </video>
+          {/* } */}
 
-                <header className="App-header">
-                    <div className="rectangle" key="titolo">
-                        <span className="titoloLogo">
-                            {/* Safari non riconosce */}
-                            {/* <img alt="logo" src={!isSaf ? require("../images/AEAtondo_grigio.webp") : require("../images/AEAtondo_grigio.png")}/> */}
-                            <img alt="logo" src={require("../images/AEAtondo_grigio.png")}/>
-                        </span>
-                    </div>
-                </header>
-                <div className="freccia" style={{height:0, bottom:80, position:"relative"}}>
-                    <Fab color="inherit" size="small" href="#news" aria-label="news">
-                        <KeyboardArrowDownIcon style={{fill: "black"}}/>
-                    </Fab>
-                </div>
-                <div title="news" id="news">
-                    <div style={{margin:"30px"}}>
-                        <Typography variant="h3" component="h4">
-                            NEWS
-                        </Typography>
-                    </div>
-                    <NewsSection/>
-                    <div style={{minHeight:"10px"}} />
-                </div>
-                <div title="about" className="about" id="about">
-                    <Grid
-                        container
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
+          <header className="App-header">
+            <div className="rectangle" key="titolo">
+              <span className="titoloLogo">
+                {/* Safari non riconosce */}
+                {/* <img alt="logo" src={!isSaf ? require("../images/AEAtondo_grigio.webp") : require("../images/AEAtondo_grigio.png")}/> */}
+                <img
+                  alt="logo"
+                  src={require("../images/AEAtondo_grigio.png")}
+                />
+              </span>
+            </div>
+          </header>
+          <div
+            className="freccia"
+            style={{ height: 0, bottom: 80, position: "relative" }}
+          >
+            <Fab color="inherit" size="small" href="#news" aria-label="news">
+              <KeyboardArrowDownIcon style={{ fill: "black" }} />
+            </Fab>
+          </div>
+          <div title="news" id="news">
+            <div style={{ margin: "30px" }}>
+              <Typography variant="h3" component="h4">
+                NEWS
+              </Typography>
+            </div>
+            <NewsSection />
+            <div style={{ minHeight: "10px" }} />
+          </div>
+          <div title="about" className="about" id="about">
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+            >
+              <Grid item xs>
+                <Card className={classes.cardabout}>
+                  <CardContent>
+                    <Typography color="textSecondary" gutterBottom>
+                      <FormattedMessage id="about.pretitolo" />
+                    </Typography>
+                    <Typography variant="h5" component="h2">
+                      Automation Engineering Association Polimi
+                    </Typography>
+                    <Typography variant="body2" component="p">
+                      <FormattedMessage id="about.testo" />
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button
+                      component={Link}
+                      style={{ color: "black" }}
+                      to="/associates"
+                      size="small"
                     >
-                        <Grid
-                        item
-                        xs
-                        >
-                            <Card className={classes.cardabout}>
-                                <CardContent>
-                                    <Typography color="textSecondary" gutterBottom>
-                                        <FormattedMessage id="about.pretitolo" />
-                                    </Typography>
-                                    <Typography variant="h5" component="h2">
-                                        Automation Engineering Association Polimi
-                                    </Typography>
-                                    <Typography variant="body2" component="p">
-                                        <FormattedMessage id="about.testo"/>
-                                    </Typography>
-                                </CardContent>
-                                <CardActions>
-                                    <Button component={Link} style={{color:"black"}} to="/associates" size="small"><FormattedMessage id="about.joinus"/></Button>
-                                </CardActions>
-                            </Card>
-                        </Grid>
-                    </Grid>
-                </div>
-                <div className={classes.team} id="team">
-                    <div style={{margin:"30px"}}>
-                        <Typography variant="h3" component="h3">
-                            Board & Chairs
-                        </Typography>
-                    </div>
-                    <TableContainer component={Paper} elevation={0} style={{overflowX: "visible", backgroundColor:"transparent"}}>
-                        <Table aria-label="collapsible table">
-                            <TableBody>
-                                <TableRow className={classes.tableroot} onClick={() => setOpenBoard(!openBoard)}>
-                                    {isMobile ?
-                                        <TableCell>
-                                        <IconButton aria-label="expand row" size="small">
-                                            {openBoard ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                        </IconButton>
-                                    </TableCell> : null}
-                                    <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5" align={isMobile ? "left" : "center"}>
-                                            Board
-                                        </Typography>       
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow className={classes.tableroot}>
-                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6} >
-                                        <Collapse in={openBoard} timeout="auto" unmountOnExit>
-                                            <Box margin={1}>
-                                                <Grid
-                                                    container
-                                                    direction="row"
-                                                    justify="space-evenly"
-                                                    alignItems="center"
-                                                    // spacing={3}
-                                                >
-                                                    <Grid
-                                                    item
-                                                    xs={6}
-                                                    md={6}
-                                                    xl={3}
-                                                    >
-                                                        <CardDirettivo     linkedin="https://www.linkedin.com/in/andrea-venezia-2b3294263/" 
-                                                            immagine={!isSaf ? require("../images/direttivo2/1.png") : require("../images/direttivo2/1.png")} 
-                                                            nome="Andrea Venezia" 
-                                                            ruolo="Projects" 
-                                                            invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    xs={6}
-                                                    md={6}
-                                                    xl={3}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/riccardo-tellarini-906080198/" immagine={!isSaf ? require("../images/direttivo2/2.png") : require("../images/direttivo2/2.png")} nome="Francesco Fornasaro" ruolo="Vicepresident" invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    xs={6}
-                                                    xl={3}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gabriele-stabile-bb8348218/" immagine={!isSaf ? require("../images/direttivo2/6.png") : require("../images/direttivo2/6.png")} nome="Gabriele Stabile" ruolo="Secretary" invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    xs={6}
-                                                    xl={3}
-                                                    >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giovanni-miccio-6aa49a19a/" immagine={!isSaf ? require("../images/direttivo2/8.png") : require("../images/direttivo2/8.png")} nome="Giovanni Miccio" ruolo="Treasurer" invisibile={false}/>
-                                                    </Grid>
-                                                </Grid>
-                                            </Box>
-                                        </Collapse>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow className={classes.tableroot} onClick={() => setOpenChairs(!openChairs)}>
-                                    {isMobile ?
-                                        <TableCell>
-                                            <IconButton aria-label="expand row" size="small">
-                                                {openChairs ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                            </IconButton>
-                                        </TableCell> : null}
-                                    <TableCell component="th" scope="row">
-                                        <Typography variant="h4" component="h5" align={isMobile ? "left" : "center"}>
-                                            Chairs
-                                        </Typography>       
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow className={classes.tableroot}>
-                                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                        <Collapse in={openChairs} timeout="auto" unmountOnExit>
-                                            <Box margin={1}>
-                                                <Grid
-                                                    container
-                                                    direction="row"
-                                                    justify="space-evenly"
-                                                    alignItems="center"
-                                                    // spacing={3}
-                                                >
-                                                    <Grid
-                                                    item
-                                                    xl={2}
-                                                    xs={6}
-                                                    >
-                                                        <CardDirettivo 
-                                                            linkedin="https://www.linkedin.com/in/eleonora-telasi-493035259/" 
-                                                            immagine={!isSaf ? require("../images/direttivo2/5.png") : require("../images/direttivo2/5.png")} 
-                                                            nome="Eleonora Telasi" 
-                                                            ruolo="Contents" 
-                                                            invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    xl={2}
-                                                    xs={6}
-                                                    >
-                                                        <CardDirettivo 
-                                                            linkedin="https://www.linkedin.com/in/gabriel-voss-256501181" 
-                                                            immagine={!isSaf ? require("../images/direttivo2/3.png") : require("../images/direttivo2/3.png")} 
-                                                            nome="Gabriel Voss" 
-                                                            ruolo="DevOps" 
-                                                            invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    xl={2}
-                                                    xs={6}
-                                                    >
-                                                        <CardDirettivo 
-                                                            linkedin="" 
-                                                            immagine={!isSaf ? require("../images/direttivo2/7.png") : require("../images/direttivo2/7.png")} 
-                                                            nome="Gabriele Sepolvere" 
-                                                            ruolo="Events" 
-                                                            invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                    item
-                                                    xl={2}
-                                                    xs={6}
-                                                    >
-                                                        <CardDirettivo 
-                                                            linkedin="" 
-                                                            immagine={!isSaf ? require("../images/direttivo2/10.png") : require("../images/direttivo2/10.png")} 
-                                                            nome="Nicolò Terzoli" 
-                                                            ruolo="Projects" 
-                                                            invisibile={false}/>
-                                                    </Grid>
-                                                    <Grid
-                                                        item
-                                                        xl={2}
-                                                        xs={6}
-                                                        >
-                                                            <CardDirettivo
-                                                                linkedin=""
-                                                                immagine={!isSaf ? require("../images/direttivo2/9.png") : require("../images/direttivo2/9.png")} 
-                                                                nome="Oscar Lovato" 
-                                                                ruolo="Companies"
-                                                                invisibile={false}/>
-                                                        </Grid>
-                                                </Grid>
-                                            </Box>
-                                        </Collapse>
-                                    </TableCell>
-                                </TableRow>
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </div>
+                      <FormattedMessage id="about.joinus" />
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            </Grid>
+          </div>
+          <div className={classes.team} id="team">
+            <div style={{ margin: "30px" }}>
+              <Typography variant="h3" component="h3">
+                Board & Chairs
+              </Typography>
+            </div>
+            <TableContainer
+              component={Paper}
+              elevation={0}
+              style={{ overflowX: "visible", backgroundColor: "transparent" }}
+            >
+              <Table aria-label="collapsible table">
+                <TableBody>
+                  <TableRow
+                    className={classes.tableroot}
+                    onClick={() => setOpenBoard(!openBoard)}
+                  >
+                    {isMobile ? (
+                      <TableCell>
+                        <IconButton aria-label="expand row" size="small">
+                          {openBoard ? (
+                            <KeyboardArrowUpIcon />
+                          ) : (
+                            <KeyboardArrowDownIcon />
+                          )}
+                        </IconButton>
+                      </TableCell>
+                    ) : null}
+                    <TableCell component="th" scope="row">
+                      <Typography
+                        variant="h4"
+                        component="h5"
+                        align={isMobile ? "left" : "center"}
+                      >
+                        Board
+                      </Typography>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className={classes.tableroot}>
+                    <TableCell
+                      style={{ paddingBottom: 0, paddingTop: 0 }}
+                      colSpan={6}
+                    >
+                      <Collapse in={openBoard} timeout="auto" unmountOnExit>
+                        <Box margin={1}>
+                          <Grid
+                            container
+                            direction="row"
+                            justify="space-evenly"
+                            alignItems="center"
+                            // spacing={3}
+                          >
+                            <Grid item xs={6} md={6} xl={3}>
+                              <CardDirettivo
+                                linkedin="https://www.linkedin.com/in/andrea-venezia-2b3294263/"
+                                immagine={
+                                  !isSaf
+                                    ? require("../images/direttivo2/1.png")
+                                    : require("../images/direttivo2/1.png")
+                                }
+                                nome="Andrea Venezia"
+                                ruolo="Projects"
+                                invisibile={false}
+                              />
+                            </Grid>
+                            <Grid item xs={6} md={6} xl={3}>
+                              <CardDirettivo
+                                linkedin="https://www.linkedin.com/in/riccardo-tellarini-906080198/"
+                                immagine={
+                                  !isSaf
+                                    ? require("../images/direttivo2/2.png")
+                                    : require("../images/direttivo2/2.png")
+                                }
+                                nome="Francesco Fornasaro"
+                                ruolo="Vicepresident"
+                                invisibile={false}
+                              />
+                            </Grid>
+                            <Grid item xs={6} xl={3}>
+                              <CardDirettivo
+                                linkedin="https://www.linkedin.com/in/gabriele-stabile-bb8348218/"
+                                immagine={
+                                  !isSaf
+                                    ? require("../images/direttivo2/6.png")
+                                    : require("../images/direttivo2/6.png")
+                                }
+                                nome="Gabriele Stabile"
+                                ruolo="Secretary"
+                                invisibile={false}
+                              />
+                            </Grid>
+                            <Grid item xs={6} xl={3}>
+                              <CardDirettivo
+                                linkedin="https://www.linkedin.com/in/giovanni-miccio-6aa49a19a/"
+                                immagine={
+                                  !isSaf
+                                    ? require("../images/direttivo2/8.png")
+                                    : require("../images/direttivo2/8.png")
+                                }
+                                nome="Giovanni Miccio"
+                                ruolo="Treasurer"
+                                invisibile={false}
+                              />
+                            </Grid>
+                          </Grid>
+                        </Box>
+                      </Collapse>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    className={classes.tableroot}
+                    onClick={() => setOpenChairs(!openChairs)}
+                  >
+                    {isMobile ? (
+                      <TableCell>
+                        <IconButton aria-label="expand row" size="small">
+                          {openChairs ? (
+                            <KeyboardArrowUpIcon />
+                          ) : (
+                            <KeyboardArrowDownIcon />
+                          )}
+                        </IconButton>
+                      </TableCell>
+                    ) : null}
+                    <TableCell component="th" scope="row">
+                      <Typography
+                        variant="h4"
+                        component="h5"
+                        align={isMobile ? "left" : "center"}
+                      >
+                        Chairs
+                      </Typography>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className={classes.tableroot}>
+                    <TableCell
+                      style={{ paddingBottom: 0, paddingTop: 0 }}
+                      colSpan={6}
+                    >
+                      <Collapse in={openChairs} timeout="auto" unmountOnExit>
+                        <Box margin={1}>
+                          <Grid
+                            container
+                            direction="row"
+                            justify="space-evenly"
+                            alignItems="center"
+                            // spacing={3}
+                          >
+                            <Grid item xl={2} xs={6}>
+                              <CardDirettivo
+                                linkedin="https://www.linkedin.com/in/eleonora-telasi-493035259/"
+                                immagine={
+                                  !isSaf
+                                    ? require("../images/direttivo2/5.png")
+                                    : require("../images/direttivo2/5.png")
+                                }
+                                nome="Eleonora Telasi"
+                                ruolo="Contents"
+                                invisibile={false}
+                              />
+                            </Grid>
+                            <Grid item xl={2} xs={6}>
+                              <CardDirettivo
+                                linkedin="https://www.linkedin.com/in/gabriel-voss-256501181"
+                                immagine={
+                                  !isSaf
+                                    ? require("../images/direttivo2/3.png")
+                                    : require("../images/direttivo2/3.png")
+                                }
+                                nome="Gabriel Voss"
+                                ruolo="DevOps"
+                                invisibile={false}
+                              />
+                            </Grid>
+                            <Grid item xl={2} xs={6}>
+                              <CardDirettivo
+                                linkedin=""
+                                immagine={
+                                  !isSaf
+                                    ? require("../images/direttivo2/7.png")
+                                    : require("../images/direttivo2/7.png")
+                                }
+                                nome="Gabriele Sepolvere"
+                                ruolo="Events"
+                                invisibile={false}
+                              />
+                            </Grid>
+                            <Grid item xl={2} xs={6}>
+                              <CardDirettivo
+                                linkedin=""
+                                immagine={
+                                  !isSaf
+                                    ? require("../images/direttivo2/10.png")
+                                    : require("../images/direttivo2/10.png")
+                                }
+                                nome="Nicolò Terzoli"
+                                ruolo="Projects"
+                                invisibile={false}
+                              />
+                            </Grid>
+                            <Grid item xl={2} xs={6}>
+                              <CardDirettivo
+                                linkedin=""
+                                immagine={
+                                  !isSaf
+                                    ? require("../images/direttivo2/9.png")
+                                    : require("../images/direttivo2/9.png")
+                                }
+                                nome="Oscar Lovato"
+                                ruolo="Companies"
+                                invisibile={false}
+                              />
+                            </Grid>
+                          </Grid>
+                        </Box>
+                      </Collapse>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    className={classes.tableroot}
+                    onClick={() => setOpenChairs(!openChairs)}
+                  >
+                    {isMobile ? (
+                      <TableCell>
+                        <IconButton aria-label="expand row" size="small">
+                          {openChairs ? (
+                            <KeyboardArrowUpIcon />
+                          ) : (
+                            <KeyboardArrowDownIcon />
+                          )}
+                        </IconButton>
+                      </TableCell>
+                    ) : null}
+                    <TableCell component="th" scope="row">
+                      <Typography
+                        variant="h4"
+                        component="h5"
+                        align={isMobile ? "left" : "center"}
+                      >
+                        Human Resources
+                      </Typography>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow className={classes.tableroot}>
+                    <TableCell
+                      style={{ paddingBottom: 0, paddingTop: 0 }}
+                      colSpan={6}
+                    >
+                      <Collapse in={openChairs} timeout="auto" unmountOnExit>
+                        <Box margin={1}>
+                        
+                            <Grid item xl={2} xs={6}>
+                              <CardDirettivo
+                                linkedin=""
+                                immagine={
+                                  !isSaf
+                                    ? require("../images/direttivo2/4.png")
+                                    : require("../images/direttivo2/4.png")
+                                }
+                                nome="Costanza Marafante"
+                                ruolo="Head of Hr"
+                                invisibile={false}
+                              />
+                         
+                          </Grid>
+                        </Box>
+                      </Collapse>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
         </div>
-        {!isMobile ? <hr style={{width: "60vw", margin: "0 auto"}}/> : null }
-        <div className="contatti">
-            Info: info@aeapolimi.it
-        </div>
-        <div style={{height:"50px"}} />
+        {!isMobile ? <hr style={{ width: "60vw", margin: "0 auto" }} /> : null}
+        <div className="contatti">Info: info@aeapolimi.it</div>
+        <div style={{ height: "50px" }} />
         <Footer />
-        </>
+      </>
     )
 }
 
