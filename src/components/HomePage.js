@@ -454,7 +454,11 @@ function HomePage (){
                                                     md={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/elia-raimondi/" immagine={!isSaf ? require("../images/direttivo2/Elia.webp") : require("../images/direttivo2/Elia.jpg")} nome={"Elia Raimondi"} ruolo="President" invisibile={false}/>
+                                                        <CardDirettivo     linkedin="https://www.linkedin.com/in/andrea-venezia-2b3294263/" 
+                                                            immagine={!isSaf ? require("../images/direttivo2/1.png") : require("../images/direttivo2/1.png")} 
+                                                            nome="Andrea Venezia" 
+                                                            ruolo="Projects" 
+                                                            invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
@@ -462,21 +466,21 @@ function HomePage (){
                                                     md={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/riccardo-tellarini-906080198/" immagine={!isSaf ? require("../images/direttivo2/Riccardo.webp") : require("../images/direttivo2/Riccardo.jpg")} nome="Riccardo Tellarini" ruolo="Vicepresident" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/riccardo-tellarini-906080198/" immagine={!isSaf ? require("../images/direttivo2/2.png") : require("../images/direttivo2/2.png")} nome="Francesco Fornasaro" ruolo="Vicepresident" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
                                                     xs={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gabriele-stabile-bb8348218/" immagine={!isSaf ? require("../images/direttivo2/Gabriele.webp") : require("../images/direttivo2/Gabriele.jpg")} nome="Gabriele Stabile" ruolo="Secretary" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/gabriele-stabile-bb8348218/" immagine={!isSaf ? require("../images/direttivo2/6.png") : require("../images/direttivo2/6.png")} nome="Gabriele Stabile" ruolo="Secretary" invisibile={false}/>
                                                     </Grid>
                                                     <Grid
                                                     item
                                                     xs={6}
                                                     xl={3}
                                                     >
-                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giovanni-miccio-6aa49a19a/" immagine={!isSaf ? require("../images/direttivo2/Giovanni.webp") : require("../images/direttivo2/Giovanni.jpg")} nome="Giovanni Miccio" ruolo="Treasurer" invisibile={false}/>
+                                                        <CardDirettivo linkedin="https://www.linkedin.com/in/giovanni-miccio-6aa49a19a/" immagine={!isSaf ? require("../images/direttivo2/8.png") : require("../images/direttivo2/8.png")} nome="Giovanni Miccio" ruolo="Treasurer" invisibile={false}/>
                                                     </Grid>
                                                 </Grid>
                                             </Box>
@@ -514,7 +518,7 @@ function HomePage (){
                                                     >
                                                         <CardDirettivo 
                                                             linkedin="https://www.linkedin.com/in/eleonora-telasi-493035259/" 
-                                                            immagine={!isSaf ? require("../images/direttivo2/Eleonora.webp") : require("../images/direttivo2/Eleonora.jpg")} 
+                                                            immagine={!isSaf ? require("../images/direttivo2/5.png") : require("../images/direttivo2/5.png")} 
                                                             nome="Eleonora Telasi" 
                                                             ruolo="Contents" 
                                                             invisibile={false}/>
@@ -526,7 +530,7 @@ function HomePage (){
                                                     >
                                                         <CardDirettivo 
                                                             linkedin="https://www.linkedin.com/in/gabriel-voss-256501181" 
-                                                            immagine={!isSaf ? require("../images/direttivo2/Gabriel.webp") : require("../images/direttivo2/Gabriel.jpg")} 
+                                                            immagine={!isSaf ? require("../images/direttivo2/3.png") : require("../images/direttivo2/3.png")} 
                                                             nome="Gabriel Voss" 
                                                             ruolo="DevOps" 
                                                             invisibile={false}/>
@@ -537,9 +541,9 @@ function HomePage (){
                                                     xs={6}
                                                     >
                                                         <CardDirettivo 
-                                                            linkedin="https://www.linkedin.com/in/alberto-de-luca-b77071285/" 
-                                                            immagine={!isSaf ? require("../images/direttivo2/Alberto.webp") : require("../images/direttivo2/Alberto.jpg")} 
-                                                            nome="Alberto De Luca" 
+                                                            linkedin="" 
+                                                            immagine={!isSaf ? require("../images/direttivo2/7.png") : require("../images/direttivo2/7.png")} 
+                                                            nome="Gabriele Sepolvere" 
                                                             ruolo="Events" 
                                                             invisibile={false}/>
                                                     </Grid>
@@ -549,9 +553,9 @@ function HomePage (){
                                                     xs={6}
                                                     >
                                                         <CardDirettivo 
-                                                            linkedin="https://www.linkedin.com/in/andrea-venezia-2b3294263/" 
-                                                            immagine={!isSaf ? require("../images/direttivo2/Andrea.webp") : require("../images/direttivo2/Andrea.jpg")} 
-                                                            nome="Andrea Venezia" 
+                                                            linkedin="" 
+                                                            immagine={!isSaf ? require("../images/direttivo2/10.png") : require("../images/direttivo2/10.png")} 
+                                                            nome="Nicolò Terzoli" 
                                                             ruolo="Projects" 
                                                             invisibile={false}/>
                                                     </Grid>
@@ -561,9 +565,9 @@ function HomePage (){
                                                         xs={6}
                                                         >
                                                             <CardDirettivo
-                                                                linkedin="https://www.linkedin.com/in/lorenzo-rocco-dido/"
-                                                                immagine={!isSaf ? require("../images/direttivo2/Lorenzo.webp") : require("../images/direttivo2/Lorenzo.jpg")} 
-                                                                nome="Lorenzo Didò" 
+                                                                linkedin=""
+                                                                immagine={!isSaf ? require("../images/direttivo2/9.png") : require("../images/direttivo2/9.png")} 
+                                                                nome="Oscar Lovato" 
                                                                 ruolo="Companies"
                                                                 invisibile={false}/>
                                                         </Grid>
