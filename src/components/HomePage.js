@@ -509,7 +509,7 @@ function HomePage (){
                                     : require("../images/direttivo2/1.png")
                                 }
                                 nome="Andrea Venezia"
-                                ruolo="Projects"
+                                ruolo="Presidente"
                                 invisibile={false}
                               />
                             </Grid>
